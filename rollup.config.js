@@ -26,6 +26,7 @@ const postcssPlugins = (purgecss = false) => {
 		require('postcss-url')(),
 		// require('tailwindcss')('./tailwind.config.js'),
 		require('rfs')(),
+		require('postcss-preset-env')(),
 		require('autoprefixer')(),
 		// Do not purge the CSS in dev mode to be able to play with classes in the
 		// browser dev-tools.
@@ -121,7 +122,9 @@ export default {
 			commonjs(),
 			postcss({
 				plugins: postcssPlugins(!dev),
-				extract: path.resolve(__dirname, './static/global.css')
+				extract: path.resolve(__dirname, './static/global.css'),
+				minimize: true,
+				sourceMap: true
 			})
 		],
 		external: Object.keys(pkg.dependencies).concat(
