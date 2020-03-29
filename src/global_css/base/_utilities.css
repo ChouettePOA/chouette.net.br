@@ -1,15 +1,10 @@
 
 /**
  * @file
- * CSS compilation entry point.
- */
-
-/**
- * @file
  * Generic utilities.
  */
 
-/**
+ /**
   * Hide elements visually, but keep them available for screen-readers.
   *
   * Used for information required for screen-reader users to understand and use
@@ -17,7 +12,6 @@
   * manner should be kept concise, to avoid unnecessary burden on the user.
   * "!important" is used to prevent unintentional overrides.
   */
-
 .element-invisible {
 	position: absolute !important;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */

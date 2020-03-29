@@ -3,6 +3,10 @@ import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
+// Global CSS compiled to static/global.css
+// @see rollup.config.js
+import "./global_css/index.css";
+
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
