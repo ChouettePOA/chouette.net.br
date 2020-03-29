@@ -3,11 +3,6 @@
   import { onMount } from 'svelte'
 
 	export let segment;
-
-  onMount(async () => {
-    const base = [...document.head.children].find(x => x.nodeName === 'BASE')
-    if (base) base.remove()
-  })
 </script>
 
 <style>
