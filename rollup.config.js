@@ -24,7 +24,7 @@ const postcssPlugins = (purgecss = false) => {
 		require('postcss-import-ext-glob')(),
 		require('postcss-import')(),
 		require('postcss-url')(),
-		// require('tailwindcss')('./tailwind.config.js'),
+		require('postcss-extend-rule')(),
 		require('rfs')(),
 		require('postcss-preset-env')(),
 		require('autoprefixer')(),
