@@ -4,4 +4,13 @@
  * CSS compilation entry point.
  */
 
-@import './base/_utilities.css';
+/**
+ * NPM dependencies.
+ */
+@import "sanitize.css";
+@import "suitcss-components-flex-embed";
+
+/**
+ * Include all CSS files in /src at once.
+ */
+@import-glob "../**/*.css";

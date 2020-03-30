@@ -1,0 +1,32 @@
+
+/**
+ * Hybrid Inline-block & Table-based grid object.
+ *
+ * 1. Attempt at economizing a superfluous BEM class.
+ */
+
+:root {
+	--hgrid-padding-ratio: var(--padding-ratio);
+	--hgrid-padding-ratio-s: var(--padding-ratio-s);
+}
+
+@media(--tablet) {
+	.o-hgrid--tablet {
+	display: table;
+	table-layout: auto;
+	width: 100%;
+	}
+	.o-hgrid.o-hgrid--tablet > * { /* 1 */
+	display: table-cell;
+	vertical-align: top;
+	}
+	.o-hgrid--gutter > * { /* 1 */
+	padding-right: var(--hgrid-padding-ratio)rem;
+	}
+	.o-hgrid--gutter > *:last-child { /* 1 */
+	padding-right: 0;
+	}
+	.o-hgrid--tablet > .o-hgrid__item--fill {
+	width: 100%;
+	}
+}

@@ -41,7 +41,9 @@
     "rollup-plugin-postcss": "^2.5.0",
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
+    "sanitize.css": "^11.0.0",
     "sapper": "^0.27.0",
+    "suitcss-components-flex-embed": "^2.0.4",
     "svelte": "^3.0.0",
     "svelte-preprocess": "^3.6.0"
   },

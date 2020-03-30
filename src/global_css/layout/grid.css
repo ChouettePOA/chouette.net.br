@@ -1,0 +1,127 @@
+
+/**
+ * Flexbox-based grid object.
+ *
+ * 1. LTR only.
+ * 	@evol naming / scope convention ?
+ *
+ * @todo finish remaining features.
+ * @see https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
+
+:root {
+	--grid-padding-ratio: var(--padding-ratio);
+	--grid-padding-ratio-s: var(--padding-ratio-s);
+}
+
+
+.o-grid {
+	display: flex;
+}
+
+
+/*	Line-break (single or multi line).
+	default : no wrap.
+*/
+
+	.o-grid--wrap {
+	flex-wrap: wrap;
+	}
+	.o-grid--wrap-reverse {
+	flex-wrap: wrap-reverse;
+	}
+
+	.o-grid--wrap-until-tablet {
+	flex-wrap: wrap;
+	}
+	@media (--tablet) {
+	.o-grid--wrap-until-tablet {
+		flex-wrap: nowrap;
+	}
+	}
+
+
+/*	Horizontal alignment.
+*/
+
+.o-grid--center {
+	justify-content: center;
+}
+.o-grid--r, /* 1 */
+.o-grid--end {
+	justify-content: flex-end;
+}
+.o-grid--l, /* 1 */
+.o-grid--start {
+	justify-content: flex-start;
+}
+
+
+/*	Horizontal spacing.
+*/
+
+.o-grid--justify,
+.o-grid--space-between {
+	justify-content: space-between;
+}
+.o-grid--space-around {
+	justify-content: space-around;
+}
+
+
+/*	Vertical alignment.
+*/
+
+.o-grid--middle {
+	align-items: center;
+}
+	.o-grid__item--middle {
+	align-self: center;
+	}
+.o-grid--bottom {
+	align-items: flex-end;
+}
+.o-grid--baseline {
+	align-items: baseline;
+}
+
+
+	/*	Vertical space.
+	*/
+
+	.o-grid--stretch {
+	justify-items: stretch;
+	}
+
+	.o-grid--vgutter-s-until-tablet > * {
+	margin-bottom: var(--grid-padding-ratio-s)rem;
+	}
+	@media (--tablet) {
+	.o-grid--vgutter-s-until-tablet > * {
+		margin-bottom: 0;
+	}
+	}
+
+
+	/*	Children widths.
+	*/
+
+	.o-grid--equal > * {
+	flex-grow: 1;
+	}
+	.o-grid__item--grow-2.o-grid__item--grow-2 {
+	flex-grow: 2;
+	}
+
+
+	/*	Custom widths.
+	*/
+
+	/*.o-grid__item--basis-logo-pic {
+	flex-basis: 6.7em;
+	}
+	@media (--mobile) {
+	.o-grid__item--basis-logo-pic {
+		flex-basis: 5em;
+	}
+	}*/

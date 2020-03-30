@@ -1,0 +1,50 @@
+
+/**
+ * Document root : fundamental styles
+ *
+ * @require base/typography.vars.css
+ * @require base/colors.vars.css
+ */
+
+:root {
+	--html-bg-color: var(--color-1);
+	--text-color: white;
+	--text-color-inverse: var(--color-grey-4);
+}
+
+@viewport {
+	width: device-width;
+}
+
+
+/*	Bug : why is :root needed in the selector here ?
+	(tested without : breaks most base styles - can't find where / why for now)
+
+	1. See https://github.com/seaneking/postcss-responsive-type/
+
+	2. Prevent horizontal scrollbars.
+*/
+:root,
+html {
+	background: var(--html-bg-color);
+	font-family: var(--font-family);
+	font-weight: var(--font-weight);
+	line-height: var(--line-height);
+	color: var(--text-color);
+	text-rendering: optimizeLegibility;
+	font-size: responsive; /* 1 */
+	min-font-size: 13px; /* 1 */
+	max-font-size: 18px; /* 1 */
+	lower-font-range: 328px; /* 1 */
+	upper-font-range: 1400px; /* 1 */
+	overflow-x: hidden; /* 2 */
+}
+
+
+/*	FOIT prevention.
+	@see /sites/all/themes/chouette/js/main.js
+*/
+
+.fontA-is-loaded {
+	font-family: var(--font-family-loaded);
+}

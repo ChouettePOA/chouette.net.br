@@ -1,0 +1,148 @@
+
+/**
+ * Inline-block-based Grid object
+ *
+ * 1. Remove white space between children
+ * 2. Portability
+ * 3. Restore font-size from document,
+ * 	@see base/_typography.vars.css
+ * 4. Restore text-orientation inside grid item
+ * 	@todo bi-directionnal text support
+ *
+ * @example
+ * 	<div class="o-ibgrid o-ibgrid--gutter">
+ * 	<div class="o-ibgrid__item">
+ * 		...
+ * 	</div>
+ * 	<div class="o-ibgrid__item">
+ * 		...
+ * 	</div>
+ * 	</div>
+ *
+ * @require base/_typography.vars.css
+ * @require generic/_padding.css
+ */
+
+:root {
+	--ibgrid-gutter: calc(var(--padding-ratio) / 2);
+	--ibgrid-gutter-percent: calc(var(--padding-percent) / 2);
+	--ibgrid-gutter-s: calc(var(--padding-ratio-s) / 2);
+	--ibgrid-gutter-xs: calc(var(--padding-ratio-s) / 2.3);
+	--ibgrid-gutter-l: calc(var(--padding-ratio-l) / 2);
+	--ibgrid-line-height: var(--line-height);
+}
+
+.o-ibgrid {
+	display: block;
+	font-size: 0; /* 1 */
+	padding: 0; /* 2 */
+}
+	.o-ibgrid__item {
+		display: inline-block;
+		vertical-align: top;
+		font-size: var(--font-size-ratio)rem; /* 3 */
+	}
+
+
+.o-ibgrid--gutter {
+	margin-right: -var(--ibgrid-gutter)rem;
+	margin-left: -var(--ibgrid-gutter)rem;
+}
+	.o-ibgrid--gutter > .o-ibgrid__item {
+		box-sizing: border-box; /* 2 */
+		padding: 0 var(--ibgrid-gutter)rem;
+	}
+
+.o-ibgrid--gutter-xs {
+	margin-right: -var(--ibgrid-gutter-xs)rem;
+	margin-left: -var(--ibgrid-gutter-xs)rem;
+}
+	.o-ibgrid--gutter-xs > .o-ibgrid__item {
+		box-sizing: border-box; /* 2 */
+		padding: 0 var(--ibgrid-gutter-xs)rem;
+	}
+
+
+.o-ibgrid--gutter-s {
+	margin-right: -var(--ibgrid-gutter-s)rem;
+	margin-left: -var(--ibgrid-gutter-s)rem;
+}
+	.o-ibgrid--gutter-s > .o-ibgrid__item {
+		box-sizing: border-box; /* 2 */
+		padding: 0 var(--ibgrid-gutter-s)rem;
+	}
+
+
+.o-ibgrid--gutter-l {
+	margin-right: -var(--ibgrid-gutter-l)rem;
+	margin-left: -var(--ibgrid-gutter-l)rem;
+}
+	.o-ibgrid--gutter-l > .o-ibgrid__item {
+		box-sizing: border-box; /* 2 */
+		padding: 0 var(--ibgrid-gutter-l)rem;
+	}
+
+
+.o-ibgrid--gutter-percent {
+	margin-right: -var(--ibgrid-gutter-percent);
+	margin-left: -var(--ibgrid-gutter-percent);
+}
+	.o-ibgrid--gutter-percent > .o-ibgrid__item {
+		box-sizing: border-box; /* 2 */
+		padding: 0 var(--ibgrid-gutter-percent);
+	}
+
+
+.o-ibgrid--center,
+.o-ibgrid--center-desc {
+	text-align: center;
+}
+	.o-ibgrid--center > .o-ibgrid__item {
+		text-align: left; /* 4 */
+	}
+
+
+	.o-ibgrid--inward > .o-ibgrid__item {
+		text-align: right;
+	}
+	.o-ibgrid--inward > .o-ibgrid__item + .o-ibgrid__item {
+		text-align: left;
+	}
+
+
+.o-ibgrid--nowrap {
+	white-space: nowrap;
+}
+	.o-ibgrid--nowrap > .o-ibgrid__item {
+		white-space: normal;
+	}
+
+
+	.o-ibgrid--middle > .o-ibgrid__item {
+		vertical-align: middle;
+	}
+
+
+	.o-ibgrid--bottom > .o-ibgrid__item {
+		vertical-align: bottom;
+	}
+
+
+	.o-ibgrid--s > .o-ibgrid__item {
+		font-size: var(--font-size-ratio-s)rem;
+	}
+
+
+	.o-ibgrid--vgutter > .o-ibgrid__item {
+		margin-bottom: calc(var(--ibgrid-gutter)rem * 2);
+	}
+	.o-ibgrid--vgutter-l > .o-ibgrid__item {
+		margin-bottom: calc(var(--ibgrid-gutter-l)rem * 2);
+	}
+	.o-ibgrid--vgutter-s > .o-ibgrid__item {
+		margin-bottom: calc(var(--ibgrid-gutter-s)rem * 2);
+	}
+
+	.o-ibgrid--vgutter-percent > .o-ibgrid__item {
+		margin-bottom: var(--ibgrid-gutter-percent);
+	}

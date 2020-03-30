@@ -1,0 +1,20 @@
+
+/**
+ * Effects styles : fade
+ */
+
+:root {
+	--tr-fade-duration: .3s;
+}
+
+.fx-fade,
+.fx-fade--i {
+	opacity: 0;
+	transition: opacity var(--tr-fade-duration);
+}
+
+.fx-fade.is-on,
+.fx-fade--i:focus,
+.fx-fade--i:hover {
+	opacity: 1;
+}

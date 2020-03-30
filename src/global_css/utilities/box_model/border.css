@@ -1,0 +1,41 @@
+
+/**
+ * Border utilities.
+ */
+
+:root {
+	--border: 1px solid rgba(0, 0, 0, .3);
+	--border-white: 1px solid white;
+}
+
+.no-b,
+.no-b:hover,
+.no-b:active,
+.no-b:focus,
+.no-border {
+	border: 0 none !important;
+}
+
+.no-b--children > *,
+.no-b--descendants * {
+	border: 0 none;
+}
+
+.b-t {
+	border-top: var(--border);
+}
+
+.b-l--white {
+	border-left: var(--border-white);
+}
+.b-r--white {
+	border-right: var(--border-white);
+}
+
+/*.b-adj-t + .b-adj-t {
+	border-top: var(--border);
+}*/
+
+/*.b-adj-t--white + .b-adj-t--white {
+	border-top: var(--border-white);
+}*/
