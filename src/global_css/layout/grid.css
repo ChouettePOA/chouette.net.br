@@ -11,7 +11,9 @@
 
 :root {
 	--grid-padding-ratio: var(--padding-ratio);
+	--grid-padding-ratio-rem: calc(var(--grid-padding-ratio) * 1rem);
 	--grid-padding-ratio-s: var(--padding-ratio-s);
+	--grid-padding-ratio-s-rem: calc(var(--grid-padding-ratio-s) * 1rem);
 }
 
 
@@ -94,7 +96,7 @@
 	}
 
 	.o-grid--vgutter-s-until-tablet > * {
-	margin-bottom: var(--grid-padding-ratio-s)rem;
+	margin-bottom: var(--grid-padding-ratio-s-rem);
 	}
 	@media (--tablet) {
 	.o-grid--vgutter-s-until-tablet > * {

@@ -12,7 +12,7 @@
  */
 
 :root {
-	--o-media-gutter: var(--margin-ratio-l)em;
+	--o-media-gutter: var(--margin-ratio-l-em);
 }
 
 .o-media {

@@ -7,7 +7,9 @@
 :root {
 	--pill-radius: .45em;
 	--pill-padding-v-ratio: .3;
+	--pill-padding-v-ratio-em: calc(var(--pill-padding-v-ratio-em) * 1em);
 	--pill-padding-h-ratio: .5;
+	--pill-padding-h-ratio-em: calc(var(--pill-padding-h-ratio-em) * 1em);
 	--pill-color: var(--color-1);
 	--pill-bg-color: white;
 	--pill-color-active: white;
@@ -34,7 +36,7 @@ th > a:hover {
 .Pill {
 	display: inline-block;
 	border-radius: var(--pill-radius);
-	padding: var(--pill-padding-v-ratio)em var(--pill-padding-h-ratio)em;
+	padding: var(--pill-padding-v-ratio-em) var(--pill-padding-h-ratio-em);
 	background: var(--pill-bg-color);
 	color: var(--pill-color);
 	transition: all .2s;

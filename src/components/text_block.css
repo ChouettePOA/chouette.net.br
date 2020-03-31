@@ -18,14 +18,14 @@
 	display: block;
 	margin-right: auto; /* 3 */
 	margin-left: auto; /* 3 */
-	max-width: var(--w-typo-ratio)em; /* 2 */
+	max-width: var(--w-typo-ratio-em); /* 2 */
 }
 
 .c-text-block--l {
 	display: block;
 	margin-right: auto; /* 3 */
 	margin-left: auto; /* 3 */
-	max-width: var(--w-typo-ratio-l)em;
+	max-width: var(--w-typo-ratio-l-em);
 }
 
 .c-text-block--xl {

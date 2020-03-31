@@ -6,11 +6,12 @@
 :root {
 	--padding-l: calc(var(--font-size) * var(--line-height));
 	--padding-ratio-l: var(--line-height);
+	--padding-ratio-l-rem: calc(var(--padding-ratio-l) * 1rem);
 	--padding-percent-l: calc(var(--padding-percent) * 2);
 }
 
 .p--l {
-	padding: var(--padding-ratio-l)rem;
+	padding: var(--padding-ratio-l-rem);
 }
 
 
@@ -18,11 +19,11 @@
 */
 
 .p-t--l {
-	padding-top: var(--padding-ratio-l)rem;
+	padding-top: var(--padding-ratio-l-rem);
 }
 
 .p-r--l {
-	padding-right: var(--padding-ratio-l)rem;
+	padding-right: var(--padding-ratio-l-rem);
 }
 @media (--tablet) {
 	.p-tablet-percent-r--l {
@@ -31,10 +32,10 @@
 }
 
 .p-b--l {
-	padding-bottom: var(--padding-ratio-l)rem;
+	padding-bottom: var(--padding-ratio-l-rem);
 }
 .p-l--l {
-	padding-left: var(--padding-ratio-l)rem;
+	padding-left: var(--padding-ratio-l-rem);
 }
 
 
@@ -42,12 +43,12 @@
 */
 
 .p-v--l {
-	padding-top: var(--padding-ratio-l)rem;
-	padding-bottom: var(--padding-ratio-l)rem;
+	padding-top: var(--padding-ratio-l-rem);
+	padding-bottom: var(--padding-ratio-l-rem);
 }
 .p-h--l {
-	padding-right: var(--padding-ratio-l)rem;
-	padding-left: var(--padding-ratio-l)rem;
+	padding-right: var(--padding-ratio-l-rem);
+	padding-left: var(--padding-ratio-l-rem);
 }
 
 
@@ -56,6 +57,6 @@
 
 @media (--tablet) {
 	.p-tablet--l {
-		padding: var(--padding-ratio-l)rem;
+		padding: var(--padding-ratio-l-rem);
 	}
 }

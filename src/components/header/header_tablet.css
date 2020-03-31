@@ -35,7 +35,7 @@
 	.c-header__logo {
 	top: 0;
 	left: 0;
-	padding: var(--padding-ratio-l)rem 0 0 0;
+	padding: var(--padding-ratio-l-rem) 0 0 0;
 	max-width: 37%;
 	background: transparent;
 	}
@@ -90,7 +90,7 @@
 	text-align: left;
 	}
 	.c-header__title-p1 {
-		font-size: var(--font-size-ratio-xl)rem;
+		font-size: var(--font-size-ratio-xl-rem);
 		font-size: 5vw;
 		line-height: 1.7;
 		max-width: 9em;
@@ -128,7 +128,7 @@
 	.c-header__courses-title {
 		display: table-cell;
 		vertical-align: top;
-		padding-left: var(--padding-ratio-l)rem;
+		padding-left: var(--padding-ratio-l-rem);
 		color: inherit;
 	}
 
@@ -139,7 +139,7 @@
 		.c-header__courses-title-p2 {
 		text-align: inherit;
 		color: inherit;
-		font-size: var(--font-size-ratio-xl)rem;
+		font-size: var(--font-size-ratio-xl-rem);
 		line-height: var(--line-height-xl);
 		letter-spacing: .05em;
 		}

@@ -6,6 +6,8 @@
 :root {
 	--padding: calc(var(--font-size) * var(--line-height) / 2);
 	--padding-ratio: calc(var(--line-height) / 2);
+	--padding-ratio-em: calc(var(--padding-ratio) * 1em);
+	--padding-ratio-rem: calc(var(--padding-ratio) * 1rem);
 	--padding-percent: 5%;
 }
 
@@ -16,7 +18,7 @@
 }
 
 .p {
-	padding: var(--padding-ratio)rem;
+	padding: var(--padding-ratio-rem);
 }
 
 .p-percent {
@@ -33,14 +35,14 @@
 */
 
 .p-t {
-	padding-top: var(--padding-ratio)rem;
+	padding-top: var(--padding-ratio-rem);
 }
 .p-percent-t {
 	padding-top: var(--padding-percent);
 }
 
 .p-r {
-	padding-right: var(--padding-ratio)rem;
+	padding-right: var(--padding-ratio-rem);
 }
 .p-percent-r {
 	padding-right: var(--padding-percent);
@@ -52,13 +54,13 @@
 }
 
 .p-b {
-	padding-bottom: var(--padding-ratio)rem;
+	padding-bottom: var(--padding-ratio-rem);
 }
 .p-percent-b {
 	padding-bottom: var(--padding-percent);
 }
 .p-l {
-	padding-left: var(--padding-ratio)rem;
+	padding-left: var(--padding-ratio-rem);
 }
 .p-percent-l {
 	padding-left: var(--padding-percent);
@@ -69,8 +71,8 @@
 */
 
 .p-v {
-	padding-top: var(--padding-ratio)rem;
-	padding-bottom: var(--padding-ratio)rem;
+	padding-top: var(--padding-ratio-rem);
+	padding-bottom: var(--padding-ratio-rem);
 }
 .p-percent-v {
 	padding-top: var(--padding-percent);
@@ -78,8 +80,8 @@
 }
 
 .p-h {
-	padding-right: var(--padding-ratio)rem;
-	padding-left: var(--padding-ratio)rem;
+	padding-right: var(--padding-ratio-rem);
+	padding-left: var(--padding-ratio-rem);
 }
 .p-percent-h {
 	padding-right: var(--padding-percent);
@@ -87,14 +89,14 @@
 }
 @media (--tablet) {
 	.p-tablet-h {
-		padding-right: var(--padding-ratio)rem;
-		padding-left: var(--padding-ratio)rem;
+		padding-right: var(--padding-ratio-rem);
+		padding-left: var(--padding-ratio-rem);
 	}
 }
 @media (--tablet-max) {
 	.p-tablet-max-h {
-		padding-right: var(--padding-ratio)rem;
-		padding-left: var(--padding-ratio)rem;
+		padding-right: var(--padding-ratio-rem);
+		padding-left: var(--padding-ratio-rem);
 	}
 }
 
@@ -124,14 +126,14 @@
 */
 
 .u-adjacent-p-t + .u-adjacent-p-t {
-	padding-top: var(--padding-ratio)rem;
+	padding-top: var(--padding-ratio-rem);
 }
 .u-adjacent-p-r + .u-adjacent-p-r {
-	padding-right: var(--padding-ratio)rem;
+	padding-right: var(--padding-ratio-rem);
 }
 .u-adjacent-p-b + .u-adjacent-p-b {
-	padding-bottom: var(--padding-ratio)rem;
+	padding-bottom: var(--padding-ratio-rem);
 }
 .u-adjacent-p-l + .u-adjacent-p-l {
-	padding-left: var(--padding-ratio)rem;
+	padding-left: var(--padding-ratio-rem);
 }

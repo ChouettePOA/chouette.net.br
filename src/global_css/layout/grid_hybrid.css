@@ -7,26 +7,27 @@
 
 :root {
 	--hgrid-padding-ratio: var(--padding-ratio);
+	--hgrid-padding-ratio-rem: calc(var(--hgrid-padding-ratio) * 1rem);
 	--hgrid-padding-ratio-s: var(--padding-ratio-s);
 }
 
 @media(--tablet) {
 	.o-hgrid--tablet {
-	display: table;
-	table-layout: auto;
-	width: 100%;
+		display: table;
+		table-layout: auto;
+		width: 100%;
 	}
 	.o-hgrid.o-hgrid--tablet > * { /* 1 */
-	display: table-cell;
-	vertical-align: top;
+		display: table-cell;
+		vertical-align: top;
 	}
 	.o-hgrid--gutter > * { /* 1 */
-	padding-right: var(--hgrid-padding-ratio)rem;
+		padding-right: var(--hgrid-padding-ratio-rem);
 	}
 	.o-hgrid--gutter > *:last-child { /* 1 */
-	padding-right: 0;
+		padding-right: 0;
 	}
 	.o-hgrid--tablet > .o-hgrid__item--fill {
-	width: 100%;
+		width: 100%;
 	}
 }

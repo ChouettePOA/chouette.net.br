@@ -4,8 +4,10 @@
  */
 
 :root {
-	--margin-ratio: calc(var(--line-height) / 2);
 	--margin: calc(var(--font-size) * var(--margin-ratio));
+	--margin-ratio: calc(var(--line-height) / 2);
+	--margin-ratio-em: calc(var(--margin-ratio) * 1em);
+	--margin-ratio-rem: calc(var(--margin-ratio) * 1rem);
 }
 
 .no-m,
@@ -19,7 +21,7 @@
 }
 
 .m {
-	margin: var(--margin-ratio)rem;
+	margin: var(--margin-ratio-rem);
 }
 
 
@@ -27,16 +29,16 @@
 */
 
 .m-t {
-	margin-top: var(--margin-ratio)rem;
+	margin-top: var(--margin-ratio-rem);
 }
 .m-r {
-	margin-right: var(--margin-ratio)rem;
+	margin-right: var(--margin-ratio-rem);
 }
 .m-b {
-	margin-bottom: var(--margin-ratio)rem;
+	margin-bottom: var(--margin-ratio-rem);
 }
 .m-l {
-	margin-left: var(--margin-ratio)rem;
+	margin-left: var(--margin-ratio-rem);
 }
 
 
@@ -44,12 +46,12 @@
 */
 
 .m-v {
-	margin-top: var(--margin-ratio)rem;
-	margin-bottom: var(--margin-ratio)rem;
+	margin-top: var(--margin-ratio-rem);
+	margin-bottom: var(--margin-ratio-rem);
 }
 .m-h {
-	margin-right: var(--margin-ratio)rem;
-	margin-left: var(--margin-ratio)rem;
+	margin-right: var(--margin-ratio-rem);
+	margin-left: var(--margin-ratio-rem);
 }
 
 
@@ -57,10 +59,10 @@
 */
 
 .m-adj-t + .m-adj-t {
-	margin-top: var(--margin-ratio)rem;
+	margin-top: var(--margin-ratio-rem);
 }
 .m-adj-l + .m-adj-l {
-	margin-left: var(--margin-ratio)rem;
+	margin-left: var(--margin-ratio-rem);
 }
 
 

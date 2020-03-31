@@ -15,7 +15,7 @@
  */
 
 %readable-table {
-	margin: var(--margin-ratio)rem auto 0 auto;
+	margin: var(--margin-ratio-rem) auto 0 auto;
 	text-align: center;
 
 	&:first-child {
@@ -36,7 +36,7 @@
 				white-space: nowrap; /* 4 */
 			}
 			& th > a[href*="sort"] > img {
-				padding-left: var(--padding-ratio-s)em; /* 4 */
+				padding-left: var(--padding-ratio-s-em); /* 4 */
 			}
 
 	& tr + tr {
@@ -44,7 +44,7 @@
 	}
 		& th,
 		& td {
-			padding: var(--padding-ratio)rem;
+			padding: var(--padding-ratio-rem);
 		}
 }
 

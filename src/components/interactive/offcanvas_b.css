@@ -10,7 +10,7 @@
  */
 
 :root {
-	--rcomp-offcanvas-b-w: var(--w-typo-ratio-l)em;
+	--rcomp-offcanvas-b-w: var(--w-typo-ratio-l-em);
 	--rcomp-offcanvas-b-z-index: var(--z-index-offcanvas);
 	--rcomp-offcanvas-b-pad: 5%;
 	--tr-rcomp-offcanvas-b-duration: var(--tr-rcomp-offcanvas-duration);

@@ -43,15 +43,15 @@
 	@extend %bg-content;
 	margin-left: auto;
 	margin-right: auto;
-	padding: var(--padding-ratio)rem;
-	max-width: var(--w-typo-ratio-l)rem;
+	padding: var(--padding-ratio-rem);
+	max-width: var(--w-typo-ratio-l-rem);
 }
 %s-content--s {
 	@extend %bg-content;
 	margin-left: auto;
 	margin-right: auto;
-	padding: var(--padding-ratio)rem;
-	max-width: var(--w-typo-ratio)rem;
+	padding: var(--padding-ratio-rem);
+	max-width: var(--w-typo-ratio-rem);
 }
 .s-content {
 	@extend %s-content;
@@ -74,14 +74,14 @@
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: var(--w-typo-ratio)em;
+	max-width: var(--w-typo-ratio-em);
 }
 
 .u-typo-block-w--l {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: var(--w-typo-ratio-l)em;
+	max-width: var(--w-typo-ratio-l-em);
 }
 
 

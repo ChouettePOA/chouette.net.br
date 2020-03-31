@@ -13,7 +13,9 @@
 
 :root {
 	--tgrid-padding-ratio: var(--padding-ratio);
+	--tgrid-padding-ratio-rem: calc(var(--tgrid-padding-ratio) * 1rem);
 	--tgrid-padding-ratio-s: var(--padding-ratio-s);
+	--tgrid-padding-ratio-s-rem: calc(var(--tgrid-padding-ratio-s) * 1rem);
 }
 
 .o-tgrid {
@@ -33,7 +35,7 @@
 }
 
 .o-tgrid--space-around {
-	border-spacing: var(--tgrid-padding-ratio)rem 0;
+	border-spacing: var(--tgrid-padding-ratio-rem) 0;
 }
 
 	.o-tgrid__item {
@@ -70,7 +72,7 @@
 	}
 
 	.o-tgrid--gutter > .o-tgrid__item {
-	padding-right: var(--tgrid-padding-ratio)rem;
+	padding-right: var(--tgrid-padding-ratio-rem);
 	}
 	.o-tgrid--gutter > .o-tgrid__item:last-child {
 	padding-right: 0;
@@ -78,7 +80,7 @@
 
 	@media(--tablet) {
 	.o-tgrid--tablet-gutter > .o-tgrid__item {
-		padding-right: var(--tgrid-padding-ratio)rem;
+		padding-right: var(--tgrid-padding-ratio-rem);
 	}
 	.o-tgrid--tablet-gutter > .o-tgrid__item:last-child {
 		padding-right: 0;
@@ -87,7 +89,7 @@
 
 	@media(--mobile-l) {
 	.o-tgrid--mobile-l-gutter > .o-tgrid__item {
-		padding-right: var(--tgrid-padding-ratio)rem;
+		padding-right: var(--tgrid-padding-ratio-rem);
 	}
 	.o-tgrid--mobile-l-gutter > .o-tgrid__item:last-child {
 		padding-right: 0;
@@ -95,7 +97,7 @@
 	}
 
 	.o-tgrid--gutter-s > .o-tgrid__item {
-	padding-right: var(--tgrid-padding-ratio-s)rem;
+	padding-right: var(--tgrid-padding-ratio-s-rem);
 	}
 	.o-tgrid--gutter-s > .o-tgrid__item:last-child {
 	padding-right: 0;

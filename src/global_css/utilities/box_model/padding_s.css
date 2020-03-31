@@ -6,10 +6,12 @@
 :root {
 	--padding-s: calc(var(--font-size) * var(--line-height) / 3);
 	--padding-ratio-s: calc(var(--line-height) / 3);
+	--padding-ratio-s-em: calc(var(--padding-ratio-s) * 1em);
+	--padding-ratio-s-rem: calc(var(--padding-ratio-s) * 1rem);
 }
 
 .p--s {
-	padding: var(--padding-ratio-s)rem;
+	padding: var(--padding-ratio-s-rem);
 }
 
 
@@ -17,23 +19,23 @@
 */
 
 .p-t--s {
-	padding-top: var(--padding-ratio-s)rem;
+	padding-top: var(--padding-ratio-s-rem);
 }
 
 .p-r--s {
-	padding-right: var(--padding-ratio-s)rem;
+	padding-right: var(--padding-ratio-s-rem);
 }
 @media (--mobile) {
 	.p-mobile-r--s {
-		padding-right: var(--padding-ratio-s)rem;
+		padding-right: var(--padding-ratio-s-rem);
 	}
 }
 
 .p-b--s {
-	padding-bottom: var(--padding-ratio-s)rem;
+	padding-bottom: var(--padding-ratio-s-rem);
 }
 .p-l--s {
-	padding-left: var(--padding-ratio-s)rem;
+	padding-left: var(--padding-ratio-s-rem);
 }
 
 
@@ -41,10 +43,10 @@
 */
 
 .p-v--s {
-	padding-top: var(--padding-ratio-s)rem;
-	padding-bottom: var(--padding-ratio-s)rem;
+	padding-top: var(--padding-ratio-s-rem);
+	padding-bottom: var(--padding-ratio-s-rem);
 }
 .p-h--s {
-	padding-right: var(--padding-ratio-s)rem;
-	padding-left: var(--padding-ratio-s)rem;
+	padding-right: var(--padding-ratio-s-rem);
+	padding-left: var(--padding-ratio-s-rem);
 }

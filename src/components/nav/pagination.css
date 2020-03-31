@@ -11,8 +11,8 @@
  */
 
 :root {
-	--c-pagination--margin: var(--margin-ratio-xl)rem auto 0 auto;
-	--c-pagination--padding: var(--padding-ratio-s)rem var(--padding-ratio)rem;
+	--c-pagination--margin: var(--margin-ratio-xl-rem) auto 0 auto;
+	--c-pagination--padding: var(--padding-ratio-s-rem) var(--padding-ratio-rem);
 	--c-pagination--bg-color: var(--color-black-t-3);
 	--c-pagination--bg-color-fh: var(--color-white-t-2);
 }

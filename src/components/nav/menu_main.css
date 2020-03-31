@@ -40,7 +40,7 @@
 	text-align: center;
 	@extend %fs-xs;
 	@media (--tablet) {
-	font-size: var(--font-size-ratio-s)rem;
+	font-size: var(--font-size-ratio-s-rem;
 	line-height: var(--line-height-s);
 	}
 }

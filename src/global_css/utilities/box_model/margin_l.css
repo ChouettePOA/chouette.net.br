@@ -6,10 +6,12 @@
 :root {
 	--margin-l: calc(var(--font-size) * var(--line-height));
 	--margin-ratio-l: var(--line-height);
+	--margin-ratio-l-em: calc(var(--margin-ratio-l) * 1em);
+	--margin-ratio-l-rem: calc(var(--margin-ratio-l) * 1rem);
 }
 
 .m--l {
-	margin: var(--margin-ratio-l)rem;
+	margin: var(--margin-ratio-l-rem);
 }
 
 
@@ -17,16 +19,16 @@
 */
 
 .m-t--l {
-	margin-top: var(--margin-ratio-l)rem;
+	margin-top: var(--margin-ratio-l-rem);
 }
 .m-r--l {
-	margin-right: var(--margin-ratio-l)rem;
+	margin-right: var(--margin-ratio-l-rem);
 }
 .m-b--l {
-	margin-bottom: var(--margin-ratio-l)rem;
+	margin-bottom: var(--margin-ratio-l-rem);
 }
 .m-l--l {
-	margin-left: var(--margin-ratio-l)rem;
+	margin-left: var(--margin-ratio-l-rem);
 }
 
 
@@ -34,10 +36,10 @@
 */
 
 .m-v--l {
-	margin-top: var(--margin-ratio-l)rem;
-	margin-bottom: var(--margin-ratio-l)rem;
+	margin-top: var(--margin-ratio-l-rem);
+	margin-bottom: var(--margin-ratio-l-rem);
 }
 .m-h--l {
-	margin-right: var(--margin-ratio-l)rem;
-	margin-left: var(--margin-ratio-l)rem;
+	margin-right: var(--margin-ratio-l-rem);
+	margin-left: var(--margin-ratio-l-rem);
 }

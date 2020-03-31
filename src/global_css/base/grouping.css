@@ -5,6 +5,7 @@
 
 :root {
 	--ul-margin-ratio: 1;
+	--ul-margin-ratio-rem: calc(var(--ul-margin-ratio) * 1rem);
 }
 
 
@@ -21,7 +22,7 @@ ul {
 	list-style: disc;
 	list-style-position: outside;
 	/*list-style-image: url('data:image/svg+xml;utf8,<svg height="100" width="10"><circle cx="5" cy="50" r="50" fill="black" /></svg>');*/
-	margin-left: var(--ul-margin-ratio)rem;
+	margin-left: var(--ul-margin-ratio-rem);
 }
 ul[role="menubar"] { /* 1 */
 	list-style: none;

@@ -15,7 +15,7 @@
  */
 
 :root {
-	--o-tablet-media-gutter: var(--margin-ratio-l)em;
+	--o-tablet-media-gutter: var(--margin-ratio-l-em);
 }
 
 /*	 @todo find out why @extend does not work inside media queries.

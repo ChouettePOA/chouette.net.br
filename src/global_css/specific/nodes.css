@@ -14,5 +14,5 @@
 	}
 
 .s-node-content > .field + .field {
-	margin-top: var(--margin-ratio)rem;
+	margin-top: var(--margin-ratio-rem);
 }

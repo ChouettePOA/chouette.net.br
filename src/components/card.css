@@ -7,11 +7,11 @@
 
 .c-card {
 	@extend %bg-content;
-	padding: var(--padding-ratio)em;
+	padding: var(--padding-ratio-em);
 }
 	.c-card__img {
 	@extend %fx-shadow-2dp;
-	margin-bottom: var(--margin-ratio)em;
+	margin-bottom: var(--margin-ratio-em);
 	}
 	.c-card__img img { /* 1 */
 		display: block;

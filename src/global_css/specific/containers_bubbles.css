@@ -5,7 +5,7 @@
 
 .bubble {
 	position: relative;
-	padding: var(--padding-ratio)em;
+	padding: var(--padding-ratio-em);
 	color: var(--text-color-inverse);
 	background: white;
 	border-radius: .4em;

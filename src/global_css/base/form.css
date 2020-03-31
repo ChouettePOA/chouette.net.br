@@ -37,8 +37,11 @@
 	--input-text-border-color--hover: var(--Button-border-color--hover);
 	--input-text-border-width: var(--Button-border-width);
 	--input-text-border-width-ratio: .125;
+	--input-text-border-width-ratio-em: calc(var(--input-text-border-width-ratio) * 1em);
 	--input-text-padding-ratio: var(--padding-ratio);
+	--input-text-padding-ratio-rem: calc(var(--input-text-padding-ratio) * 1rem);
 	--input-text-padding-ratio-s: .33;
+	--input-text-padding-ratio-s-rem: calc(var(--input-text-padding-ratio-s) * 1rem);
 	--input-text-background: inherit;
 
 
@@ -46,7 +49,7 @@
 	*/
 
 	--select-bg-color: inherit;
-	--fx-shadow-form-active: inset 0 var(--input-text-border-width-ratio)em var(--input-text-border-width-ratio)em rgba(0,0,0,.075), 0 0 .75em var(--color-4);
+	--fx-shadow-form-active: inset 0 var(--input-text-border-width-ratio-em) var(--input-text-border-width-ratio-em) rgba(0,0,0,.075), 0 0 .75em var(--color-4);
 
 
 	/*	Fieldsets
@@ -54,22 +57,24 @@
 
 	--fieldset-border: var(--border);
 	--fieldset-margin-tb-ratio: var(--margin-ratio);
+	--fieldset-margin-tb-ratio-rem: calc(var(--fieldset-margin-tb-ratio) * 1rem);
 	--fieldset-padding-ratio: var(--padding-ratio);
+	--fieldset-padding-ratio-rem: calc(var(--fieldset-padding-ratio) * 1rem);
 }
 
 
 fieldset {
 	border: var(--fieldset-border);
-	margin: var(--fieldset-margin-tb-ratio)rem 0;
-	padding: var(--fieldset-padding-ratio)rem;
+	margin: var(--fieldset-margin-tb-ratio-rem) 0;
+	padding: var(--fieldset-padding-ratio-rem);
 	width: 100%;
 	min-width: 0;
 }
 legend {
 	margin: 0;
 	font-variant: small-caps;
-	padding: 0 var(--padding-ratio)rem;
-	font-size: var(--font-size-ratio-m)rem;
+	padding: 0 var(--padding-ratio-rem);
+	font-size: var(--font-size-ratio-m-rem);
 	letter-spacing: .0625em;
 }
 label {
@@ -254,8 +259,8 @@ input[type="tel"],
 input[type="url"],
 input[type="search"] {
 	border: 0 none;
-	border-bottom: var(--input-text-border-width-ratio)em solid var(--input-text-border-color);
-	padding: var(--input-text-padding-ratio-s)rem 0;
+	border-bottom: var(--input-text-border-width-ratio-em) solid var(--input-text-border-color);
+	padding: var(--input-text-padding-ratio-s-rem) 0;
 	background: var(--input-text-background);
 	min-width: 3em;
 	max-width: 100%;
@@ -263,9 +268,9 @@ input[type="search"] {
 }
 
 textarea {
-	border: var(--input-text-border-width-ratio)em solid var(--input-text-border-color);
-	margin: var(--margin-ratio)rem 0;
-	padding: var(--input-text-padding-ratio)rem;
+	border: var(--input-text-border-width-ratio-em) solid var(--input-text-border-color);
+	margin: var(--margin-ratio-rem) 0;
+	padding: var(--input-text-padding-ratio-rem);
 	background: var(--input-text-background);
 	min-width: 15em;
 	max-width: 100%;

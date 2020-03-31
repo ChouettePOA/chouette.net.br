@@ -38,5 +38,5 @@
 	 }
 
 	 .o-vcenter > * {
-		font-size: var(--font-size-ratio)rem; /* 4 */
+		font-size: var(--font-size-ratio-rem); /* 4 */
 	 }

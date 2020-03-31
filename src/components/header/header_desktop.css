@@ -15,7 +15,7 @@
 	}
 
 	.c-header__title-p1 {
-		font-size: var(--font-size-ratio-xxl)rem;
+		font-size: var(--padding-ratio-xxl-rem);
 		line-height: 1.45;
 		letter-spacing: var(--letter-spacing);
 	}
@@ -31,7 +31,7 @@
 	.c-header__intro {
 		padding-top: 20.5%;
 		left: 56%;
-		max-width: var(--w-typo-ratio)rem;
+		max-width: var(--w-typo-ratio-rem);
 	}
 
 	.c-header__part2 {

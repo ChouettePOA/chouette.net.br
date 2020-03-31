@@ -24,7 +24,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		padding: 5%;
-		width: var(--w-typo-ratio-l)em;
+		width: var(--w-typo-ratio-l-em);
 		max-width: 100%;
 		background-color: var(--c-messages-bg-color);
 	}

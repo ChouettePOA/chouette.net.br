@@ -8,7 +8,7 @@
 	border: 0 none;
 	border-top: 3px solid transparent;
 	border-bottom: 6px solid transparent;
-	padding: var(--padding-ratio-s)rem 0;
+	padding: var(--padding-ratio-s-rem) 0;
 	color: var(--color-1);
 	font-family: var(--font-familyB);
 	font-weight: var(--font-weightB);
