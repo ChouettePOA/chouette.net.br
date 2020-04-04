@@ -23,7 +23,7 @@
 @custom-media --mobile (max-width:43em);
 @custom-media --tablet (min-width:43em);
 @custom-media --tablet-max (max-width:55em);
-@custom-media --desktop (min-width:75em); /* ~ 1200px */
-@custom-media --desktop-max (max-width:75em); /* ~ 1200px */
+@custom-media --desktop (min-width:75em);
+@custom-media --desktop-max (max-width:75em);
 @custom-media --wide (min-width:81.25em);
 @custom-media --xl (min-width:115em);
