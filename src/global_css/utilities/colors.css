@@ -1,0 +1,54 @@
+
+/**
+ * Generic styles : colors.
+ *
+ * 1. Make variable aliases to separate value from use.
+ */
+
+:root {
+	/* 1 */
+	--color-primary: var(--color-1);
+	--color-secondary: var(--color-3);
+	--color-prim-compl: var(--color-2);
+}
+
+.u-color-white {
+	color: white;
+}
+.u-color-transparent-white-light {
+	color: var(--transparent-white-light);
+}
+.u-color-transparent-white {
+	color: var(--transparent-white);
+}
+
+.u-color-black {
+	color: black;
+}
+
+.u-color-secondary {
+	color: var(--color-secondary);
+}
+
+.u-color-blue-bright {
+	color: var(--blue-bright);
+}
+
+.u-color-pink {
+	color: var(--pink);
+}
+
+.u-color-green-bright {
+	color: var(--green-bright);
+}
+
+.u-color-orange-bright {
+	color: var(--orange-bright);
+}
+
+.u-color-grey-dark {
+	color: var(--grey-dark);
+}
+.u-color-grey {
+	color: var(--grey);
+}

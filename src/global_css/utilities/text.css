@@ -1,0 +1,282 @@
+
+/**
+ * Text utilities.
+ *
+ * @require base/_root.css
+ */
+
+
+/*  Font-families.
+*/
+
+.u-fontB {
+	font-family: var(--font-familyB);
+	font-weight: var(--font-weightB);
+}
+.fontB-is-loaded .u-fontB {
+	font-family: var(--font-familyB-loaded);
+}
+
+
+/*  Alignments
+*/
+
+.u-right {
+	text-align: right;
+}
+.u-left {
+	text-align: left;
+}
+.u-center {
+	text-align: center;
+}
+.u-bottom > * {
+	vertical-align: bottom;
+}
+
+
+/*  Styles
+	@todo kerning ?
+	@todo text-indent ?
+*/
+
+.u-bold {
+	font-weight: var(--font-weight-bold);
+}
+.u-light {
+	font-weight: var(--font-weight-light);
+}
+.u-thin {
+	font-weight: var(--font-weight-thin);
+}
+.u-italic {
+	font-style: italic;
+}
+
+%uppercase {
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing);
+}
+.u-uppercase {
+	@extend %uppercase;
+}
+
+%smallcaps {
+	font-variant: small-caps;
+	letter-spacing: var(--letter-spacing-s);
+}
+.u-smallcaps {
+	@extend %smallcaps;
+}
+
+.u-break-all {
+	word-break: break-all;
+	hyphens: auto;
+}
+
+.u-ls {
+	letter-spacing: var(--letter-spacing);
+}
+.u-ls--l {
+	letter-spacing: var(--letter-spacing-l);
+}
+
+
+/*  Drop Caps (IE9+).
+
+	Drop caps are not renderend consistently across browsers, so : workaround
+	using <span> and removing ':first-letter' from selectors.
+	See http://blogs.adobe.com/webplatform/2014/08/13/one-weird-trick-to-baseline-align-text/
+*/
+
+.u-dropcap,
+.u-dropcap-1st-child > :first-child {
+	float: left;
+	padding-right: .5rem;
+	font-size: 300%;
+	line-height: .9;
+}
+
+.u-dropcap--l,
+.u-dropcap-1st-child--l > :first-child {
+	float: left;
+	padding-right: .5rem;
+	font-size: 300%;
+	line-height: .9;
+}
+@media (--desktop) {
+	.u-dropcap--l,
+	.u-dropcap-1st-child--l > :first-child {
+		font-size: 490%;
+		line-height: .75;
+		font-weight: var(--font-weight-light);
+		/*display: inline-block;
+		margin-bottom: -.1em;*/
+		padding-top: .05em;
+	}
+}
+
+
+/*  Misc
+*/
+
+.u-unselectable {
+	user-select: none;
+}
+
+.u-nowrap {
+	white-space: nowrap;
+}
+
+
+/*  Sizes
+*/
+
+.u-fs-0.u-fs-0.u-fs-0 {
+	font-size: 0;
+}
+
+%fs-reset {
+	font-size: var(--font-size-ratio-rem);
+	line-height: var(--line-height);
+}
+.u-fs-reset.u-fs-reset.u-fs-reset {
+	@extend %fs-reset;
+}
+
+%fs-xs {
+	font-size: var(--font-size-ratio-xs-rem);
+	line-height: var(--line-height-xs);
+}
+.u-fs-xs.u-fs-xs.u-fs-xs {
+	@extend %fs-xs;
+}
+
+%fs-s {
+	font-size: var(--font-size-ratio-s-rem);
+	line-height: var(--line-height-s);
+}
+.u-fs-s.u-fs-s.u-fs-s {
+	@extend %fs-s;
+}
+
+%fs-m {
+	font-size: var(--font-size-ratio-m-rem);
+	line-height: var(--line-height-m);
+
+	@media(--desktop) {
+		font-weight: var(--font-weight-light);
+	}
+}
+.u-fs-m.u-fs-m.u-fs-m {
+	@extend %fs-m;
+}
+
+%fs-l {
+	font-size: var(--font-size-ratio-l-rem);
+	line-height: var(--line-height-l);
+}
+.u-fs-l.u-fs-l.u-fs-l {
+	@extend %fs-l;
+}
+
+%fs-ll {
+	font-size: var(--font-size-ratio-ll-rem);
+	line-height: var(--line-height-ll);
+}
+.u-fs-ll.u-fs-ll.u-fs-ll {
+	@extend %fs-ll;
+}
+
+%fs-xl {
+	font-size: var(--font-size-ratio-xl-rem);
+	line-height: var(--line-height-xl);
+}
+.u-fs-xl.u-fs-xl.u-fs-xl {
+	@extend %fs-xl;
+}
+
+%fs-xll {
+	font-size: var(--font-size-ratio-xll-rem);
+	line-height: var(--line-height-xll);
+}
+.u-fs-xll.u-fs-xll.u-fs-xll {
+	@extend %fs-xll;
+}
+
+%fs-xxl {
+	font-size: var(--font-size-ratio-xxl-rem);
+	line-height: var(--line-height-xxl);
+}
+.u-fs-xxl.u-fs-xxl.u-fs-xxl {
+	@extend %fs-xxl;
+}
+
+
+/*  Responsive size overrides.
+*/
+
+@media (--narrow) {
+	.u-fs-xl.u-fs-xl.u-fs-xl {
+		font-size: var(--font-size-ratio-l-rem);
+		line-height: var(--line-height-l);
+	}
+	.u-fs-m.u-fs-m.u-fs-m {
+		font-size: 1.111111rem;
+	}
+}
+
+
+/*  Relative Sizes in % (list of proportions, may add more)
+*/
+
+.u-fs-9of10x {
+	font-size: 90%;
+}
+.u-fs-11of10x {
+	font-size: 110%;
+}
+.u-fs-3of2x {
+	font-size: 150%;
+}
+.u-fs-2x {
+	font-size: 200%;
+}
+.u-fs-2x5 {
+	font-size: 250%;
+}
+.u-fs-3x {
+	font-size: 300%;
+}
+.u-fs-4x {
+	font-size: 400%;
+}
+
+
+/*  Line-heights.
+*/
+
+.u-lh-1 {
+	line-height: 1;
+}
+.u-lh-1of2 {
+	line-height: .5;
+}
+
+
+/*  Colors.
+*/
+
+.u-color-primary {
+	color: var(--color-1);
+}
+.u-color-primary--light {
+	color: var(--color-4);
+}
+.u-color-primary--compl {
+	color: var(--color-2);
+}
+
+.u-color-secondary {
+	color: var(--color-3);
+}

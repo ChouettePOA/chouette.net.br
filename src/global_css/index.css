@@ -14,3 +14,16 @@
  * Include all CSS files in /src at once.
  */
 @import-glob "../**/*.css";
+
+/*  Custom media queries.
+    Must be placed after all imports.
+*/
+@custom-media --narrow (max-width:20.5em);
+@custom-media --mobile-l (min-width:26.5em);
+@custom-media --mobile (max-width:43em);
+@custom-media --tablet (min-width:43em);
+@custom-media --tablet-max (max-width:55em);
+@custom-media --desktop (min-width:75em); /* ~ 1200px */
+@custom-media --desktop-max (max-width:75em); /* ~ 1200px */
+@custom-media --wide (min-width:81.25em);
+@custom-media --xl (min-width:115em);
