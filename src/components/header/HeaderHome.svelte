@@ -2,8 +2,8 @@
 	import Nav from '../../components/Nav.svelte';
 	import { site_information } from '../../stores/site_information.js';
 	export let segment;
-	export const site_name = site_information.site_name;
-	export const header = site_information.homepage.header;
+	export const site_name = $site_information.site_name;
+	export const header = $site_information.homepage.header;
 </script>
 
 <div class="u-bg-white">

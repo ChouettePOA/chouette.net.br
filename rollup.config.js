@@ -25,9 +25,10 @@ const postcssPlugins = (purgecss = false) => {
 		require('postcss-import')(),
 		require('postcss-url')(),
 		require('postcss-extend-rule')(),
+		require('postcss-advanced-variables')(),
 		require('rfs')(),
-		require('postcss-preset-env')(),
 		require('postcss-nested')(),
+		require('postcss-custom-media')(),
 		require('autoprefixer')(),
 		// Do not purge the CSS in dev mode to be able to play with classes in the
 		// browser dev-tools.
