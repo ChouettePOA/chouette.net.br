@@ -1,5 +1,6 @@
 
 /**
+ * @file
  * Header component (homepage) : mobile breakpoints.
  */
 
@@ -20,12 +21,12 @@
 	padding: 10%;
 }
 	.c-header__logo-img {
-	max-width: 75%;
+		max-width: 75%;
 	}
 	@media (--narrow) {
-	.c-header__logo-img {
-		max-width: 85%;
-	}
+		.c-header__logo-img {
+			max-width: 85%;
+		}
 	}
 
 
@@ -44,10 +45,10 @@
 	}
 	@media (--mobile-l) {
 		.c-header__title-p1 {
-		@extend %fs-ll;
+			@extend %fs-ll;
 		}
 		.c-header__title-p2 {
-		@extend %fs-l;
+			@extend %fs-l;
 		}
 	}
 
@@ -85,9 +86,9 @@
 
 @media (--mobile-l) {
 	.c-header__courses-title-p1 {
-	@extend %fs-xll;
+		@extend %fs-xll;
 	}
 	.c-header__courses-title-p2 {
-	@extend %fs-ll;
+		@extend %fs-ll;
 	}
 }

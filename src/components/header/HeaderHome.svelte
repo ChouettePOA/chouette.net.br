@@ -9,19 +9,17 @@
 <div class="u-bg-white">
 	<div class="c-header c-header--home u-relative">
 		<div class="c-header__inner-wrap">
-			<picture class="c-header__bg">
-				<source type="image/svg+xml" srcset="/img/wing.svg">
-				<img class="c-header__bg-img" src="/img/wing.png" alt="" role="presentation" />
-			</picture>
+			<div class="c-header__bg">
+				<img class="c-header__bg-img" src="/img/wing.svg" alt="" role="presentation" />
+			</div>
 			<header>
 				<div class="c-header__nav p--s">
 					<Nav {segment}/>
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
-					<picture class="c-header__logo-img">
-						<source type="image/svg+xml" srcset="/img/chouette-logo.svg">
-						<img src="/img/chouette-logo.png" alt="{ site_name } - Cursos de Francês" />
-					</picture>
+					<div class="c-header__logo-img">
+						<img src="/img/chouette-logo.svg" alt="{ site_name } - Cursos de Francês" />
+					</div>
 				</h1>
 			</header>
 
