@@ -32,7 +32,7 @@
 			<section class="p-percent">
 				<h2 class="c-header__title u-fontB">
 					<span class="c-header__title-p1 u-block">{ header.title_p1 }</span>
-					<span class="c-header__title-p2 u-block">{ header.title_p1 }</span>
+					<span class="c-header__title-p2 u-block">{ header.title_p2 }</span>
 				</h2>
 				<div class="c-header__intro c-text-block u-fs-m">
 					<p>{ header.intro_p1 }</p>

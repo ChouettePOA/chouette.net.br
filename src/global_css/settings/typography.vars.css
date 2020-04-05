@@ -16,11 +16,11 @@
 :root {
 	--w-typo-ratio-s: 25;
 	--w-typo-ratio: 33; /* 1 */
-	--w-typo-ratio-em: calc(var(--font-size-ratio) * 1em); /* 1 */
-	--w-typo-ratio-rem: calc(var(--font-size-ratio) * 1rem); /* 1 */
+	--w-typo-ratio-em: calc(var(--w-typo-ratio) * 1em); /* 1 */
+	--w-typo-ratio-rem: calc(var(--w-typo-ratio) * 1rem); /* 1 */
 	--w-typo-ratio-l: 50;
-	--w-typo-ratio-l-em: calc(var(--font-size-ratio-l) * 1em);
-	--w-typo-ratio-l-rem: calc(var(--font-size-ratio-l) * 1rem);
+	--w-typo-ratio-l-em: calc(var(--w-typo-ratio-l) * 1em);
+	--w-typo-ratio-l-rem: calc(var(--w-typo-ratio-l) * 1rem);
 
 	--golden-ratio: 1.61803398875;
 	--golden-ratio-em: calc(var(--golden-ratio) * 1em);
