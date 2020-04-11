@@ -96,9 +96,9 @@ h3 {
 
 :root {
 	--link-color: var(--text-color);
-	--link-color-inverse: var(--color-1);
-	--link-color--hover: var(--color-5);
-	--link-color-inverse--hover: var(--color-3);
+	--link-color-inverse: $color-1;
+	--link-color--hover: $color-5;
+	--link-color-inverse--hover: $color-3;
 	--link-color--focus: var(--link-color--hover);
 	--link-color--active: var(--link-color--hover);
 	--link-color--visited: var(--link-color);

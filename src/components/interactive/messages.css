@@ -5,7 +5,7 @@
 
 :root {
 	--c-messages-zindex: var(--z-index-overlay);
-	--c-messages-bg-color: var(--color-grey-t-1);
+	--c-messages-bg-color: $color-grey-t-1;
 }
 
 .c-messages {

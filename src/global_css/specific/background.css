@@ -4,7 +4,7 @@
  */
 
 :root {
-	--bg-primary: var(--color-1);
+	--bg-primary: $color-1;
 }
 
 .bg-primary {
@@ -17,8 +17,8 @@
 }
 
 .u-bg-grey-t-1 {
-	background: var(--color-grey-t-1);
+	background: $color-grey-t-1;
 }
 .u-bg-black-t-4 {
-	background: var(--color-black-t-4);
+	background: $color-black-t-4;
 }

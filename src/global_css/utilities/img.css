@@ -4,7 +4,7 @@
  */
 
 :root {
-	--img-placeholder-bg: var(--color-grey-t-2);
+	--img-placeholder-bg: $color-grey-t-2;
 	--img-placeholder-color: var(--text-color);
 	--img-placeholder-size-ratio-s: 3;
 	--img-placeholder-size-ratio-s-rem: calc(var(--img-placeholder-size-ratio-s) * 1rem);

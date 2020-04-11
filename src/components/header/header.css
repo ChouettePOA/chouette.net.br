@@ -36,11 +36,13 @@
 }
 	.c-header__title-p1 {
 		@extend %fs-l;
-		@extend %uppercase;
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing);
 		font-weight: var(--font-weight-light);
 	}
 	.c-header__title-p2 {
-		@extend %uppercase;
+		text-transform: uppercase;
+		letter-spacing: var(--letter-spacing);
 		font-weight: var(--font-weight-bold);
 	}
 	@media (--mobile-l) {
@@ -69,19 +71,20 @@
 
 .c-header__courses-title-p1,
 .c-header__courses-title-p2 {
-	@extend %uppercase;
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing);
 	text-align: center;
 }
 
 .c-header__courses-title-p1 {
 	@extend %fs-xl;
 	letter-spacing: var(--letter-spacing-m);
-	color: var(--color-1);
+	color: $color-1;
 }
 
 .c-header__courses-title-p2 {
 	@extend %fs-l;
-	color: var(--color-3);
+	color: $color-3;
 }
 
 @media (--mobile-l) {

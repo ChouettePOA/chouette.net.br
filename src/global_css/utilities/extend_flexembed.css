@@ -6,9 +6,9 @@
  */
 
 :root {
-	/*--FlexEmbed-overlay-bg-color: var(--color-white-t-1);*/
+	/*--FlexEmbed-overlay-bg-color: $color-white-t-1;*/
 	--FlexEmbed-overlay-bg-color: transparent;
-	--FlexEmbed-overlay-text-color: var(--color-grey-1);
+	--FlexEmbed-overlay-text-color: $color-grey-1;
 }
 
 

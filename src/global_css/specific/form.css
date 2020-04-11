@@ -54,8 +54,8 @@ a.Button--primary,
 .Button--primary:focus,
 .form-actions .Button--primary:focus,
 .bg-content .form-actions .Button--primary:focus {
-	background-color: var(--color-8);
-	border-color: var(--color-8);
+	background-color: $color-8;
+	border-color: $color-8;
 	color: white;
 }
 .Button--delete,
@@ -67,7 +67,7 @@ a.Button--delete,
 .Button--delete:focus,
 .form-actions .Button--delete:focus,
 .bg-content .form-actions .Button--delete:focus {
-	background-color: var(--color-7);
-	border-color: var(--color-7);
+	background-color: $color-7;
+	border-color: $color-7;
 	color: white;
 }

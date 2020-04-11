@@ -7,9 +7,9 @@
  */
 
 :root {
-	--html-bg-color: var(--color-1);
+	--html-bg-color: $color-1;
 	--text-color: white;
-	--text-color-inverse: var(--color-grey-4);
+	--text-color-inverse: $color-grey-4;
 }
 
 @viewport {
@@ -42,7 +42,6 @@ html {
 
 
 /*	FOIT prevention.
-	@see /sites/all/themes/chouette/js/main.js
 */
 
 .fontA-is-loaded {

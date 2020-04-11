@@ -6,7 +6,7 @@
 :root {
 	--c-pimg-margin-v: var(--line-height);
 	--c-pimg-margin-v-em: calc(var(--c-pimg-margin-v) * 1em);
-	--c-pimg-title-color: var(--color-1);
+	--c-pimg-title-color: $color-1;
 }
 
 .c-pimg {

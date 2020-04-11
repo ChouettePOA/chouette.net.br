@@ -1,8 +1,10 @@
+
 /**
- * Global CSS for the DropCap component.
+ * @file
+ * Text-level component styles : DropCap.
  */
 
-.dropcap {
+.c-dropcap {
   font-family: serif;
   font-size: 4.9rem;
   float: left;
@@ -10,14 +12,14 @@
   margin-right: 0.05em;
 }
 
-.dropcap:before,
-.dropcap:after {
+.c-dropcap:before,
+.c-dropcap:after {
   content: "";
   display: block;
 }
-.dropcap:before {
+.c-dropcap:before {
   margin-bottom: -0.038em;
 }
-.dropcap:after {
+.c-dropcap:after {
   margin-top: -0.05em;
 }

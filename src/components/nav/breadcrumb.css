@@ -4,7 +4,7 @@
  */
 
 :root {
-	--breadcrumb-bg-color: var(--color-white-t-3);
+	--breadcrumb-bg-color: $color-white-t-3;
 }
 
 .c-breadcrumb__inner-wrap {

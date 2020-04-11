@@ -7,9 +7,9 @@
 
 :root {
 	/* 1 */
-	--color-primary: var(--color-1);
-	--color-secondary: var(--color-3);
-	--color-prim-compl: var(--color-2);
+	--color-primary: $color-1;
+	--color-secondary: $color-3;
+	--color-prim-compl: $color-2;
 }
 
 .u-color-white {

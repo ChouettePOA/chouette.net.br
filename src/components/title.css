@@ -39,7 +39,7 @@
 	@extend %smallcaps;
 	@extend %fs-l;
 	line-height: 1;
-	color: var(--color-1);
+	color: $color-1;
 }
 .fontA-is-loaded .c-title-1 {
 	font-family: var(--font-family-loaded);

@@ -53,12 +53,9 @@
 	font-style: italic;
 }
 
-%uppercase {
+.u-uppercase {
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing);
-}
-.u-uppercase {
-	@extend %uppercase;
 }
 
 %smallcaps {
@@ -268,15 +265,15 @@
 */
 
 .u-color-primary {
-	color: var(--color-1);
+	color: $color-1;
 }
 .u-color-primary--light {
-	color: var(--color-4);
+	color: $color-4;
 }
 .u-color-primary--compl {
-	color: var(--color-2);
+	color: $color-2;
 }
 
 .u-color-secondary {
-	color: var(--color-3);
+	color: $color-3;
 }

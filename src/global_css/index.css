@@ -5,6 +5,11 @@
  */
 
 /**
+ * Sass-like settings.
+ */
+@import "./settings/colors.vars.scss";
+
+/**
  * NPM dependencies.
  */
 @import "sanitize.css";

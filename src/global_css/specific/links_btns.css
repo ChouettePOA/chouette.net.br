@@ -10,10 +10,10 @@
 	--pill-padding-v-ratio-em: calc(var(--pill-padding-v-ratio-em) * 1em);
 	--pill-padding-h-ratio: .5;
 	--pill-padding-h-ratio-em: calc(var(--pill-padding-h-ratio-em) * 1em);
-	--pill-color: var(--color-1);
+	--pill-color: $color-1;
 	--pill-bg-color: white;
 	--pill-color-active: white;
-	--pill-bg-color-active: var(--color-2);
+	--pill-bg-color-active: $color-2;
 
 	--tab-h-padding-v-ratio: .15;
 	--tab-h-padding-h-ratio: .4;

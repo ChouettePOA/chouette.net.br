@@ -12,7 +12,7 @@
 	--burst-shape-12-color: var(--text-color-inverse);
 	--burst-shape-12-bg-color: white;
 	--burst-shape-12-color-inverse: var(--text-color);
-	--burst-shape-12-bg-color-inverse: var(--html-bg-color);
+	--burst-shape-12-bg-color-inverse: var(--color-1);
 	--burst-shape-12-w: 100%;
 }
 

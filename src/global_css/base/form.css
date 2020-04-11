@@ -17,7 +17,7 @@
 	/*	Base styles for buttons, submit, etc : using SuitCSS's Button component
 	*/
 
-	--Button-border-color: var(--color-grey-2);
+	--Button-border-color: $color-grey-2;
 	--Button-border-width: .0625em;
 	--Button-color: inherit;
 	--Button-background: transparent;
@@ -26,13 +26,13 @@
 	--Button-padding: 0.4em 0.75em;
 	--Button-color--hover: var(--text-color);
 	--Button-color-inverse--hover: var(--text-color-inverse);
-	--Button-border-color--hover: var(--color-4);
+	--Button-border-color--hover: $color-4;
 
 
 	/*	Text inputs : textfields, search, email, telephone, textareas
 	*/
 
-	--input-text-color: var(--color-1);
+	--input-text-color: $color-1;
 	--input-text-border-color: var(--Button-border-color);
 	--input-text-border-color--hover: var(--Button-border-color--hover);
 	--input-text-border-width: var(--Button-border-width);
@@ -49,7 +49,7 @@
 	*/
 
 	--select-bg-color: inherit;
-	--fx-shadow-form-active: inset 0 var(--input-text-border-width-ratio-em) var(--input-text-border-width-ratio-em) rgba(0,0,0,.075), 0 0 .75em var(--color-4);
+	--fx-shadow-form-active: inset 0 var(--input-text-border-width-ratio-em) var(--input-text-border-width-ratio-em) rgba(0,0,0,.075), 0 0 .75em $color-4;
 
 
 	/*	Fieldsets

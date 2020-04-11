@@ -7,7 +7,7 @@
  */
 
 :root {
-	--menu-main-item-bg-color: var(--color-white-t-2);
+	--menu-main-item-bg-color: $color-white-t-2;
 	--menu-main-item-bg-color-hover: white;
 	--menu-main-tr-duration: .2s;
 	--menu-main-item-link-color-hover: var(--text-color-inverse);
