@@ -21,6 +21,7 @@
 	padding: 10%;
 }
 	.c-header__logo-img {
+		display: inline-block;
 		max-width: 75%;
 	}
 	@media (--narrow) {
@@ -60,7 +61,7 @@
 }
 
 
-.c-header__menu {
+.c-header__menu.c-header__menu {
 	justify-content: space-around;
 }
 

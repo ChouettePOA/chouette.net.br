@@ -62,21 +62,21 @@
 	}
 
 
-	.c-header__menu {
+	.c-header__menu.c-header__menu {
 		display: block;
 		padding-top: .5rem;
 		width: 95%;
 		text-align: right;
 	}
-	.c-header__menu > .o-grid__item,
-	.c-header__menu > .o-grid__item.c-menu-main__item,
-	.c-header__menu > .o-grid__item.c-menu-main__item:hover {
+	.c-header__menu.c-header__menu > .o-grid__item,
+	.c-header__menu.c-header__menu > .o-grid__item.c-menu-main__item,
+	.c-header__menu.c-header__menu > .o-grid__item.c-menu-main__item:hover {
 		display: inline-block;
 		vertical-align: middle;
 		/*margin: 0 .33em .33em 0;*/
 		margin-right: .33em;
 	}
-	.c-header__menu > .c-menu-main__item > .c-menu-main__link {
+	.c-header__menu.c-header__menu > .c-menu-main__item > .c-menu-main__link {
 		white-space: nowrap;
 		display: inline-block;
 		padding: .33em .5em;

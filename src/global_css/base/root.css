@@ -6,6 +6,13 @@
  * @require base/colors.vars.css
  */
 
+/* First, a brutal global reset for all margins and paddings.
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
 :root {
 	--html-bg-color: $color-1;
 	--text-color: white;

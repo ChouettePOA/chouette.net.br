@@ -9,6 +9,7 @@
 h1,
 h2,
 h3 {
+	margin: 0;
 	font-family: var(--font-familyB);
 	font-weight: var(--font-weightB);
 }
@@ -112,6 +113,7 @@ a,
 	color: var(--link-color);
 	@extend %deco-underline;
 	transition: color .3s;
+	text-decoration: none;
 }
 
 a.no-underline,
