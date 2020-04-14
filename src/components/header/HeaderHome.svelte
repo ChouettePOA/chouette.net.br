@@ -1,5 +1,6 @@
 <script>
 	import Nav from '../../components/Nav.svelte';
+	import DropCap from '../../components/text/DropCap.svelte';
 	import { site_information } from '../../stores/site_information.js';
 	export let segment;
 	export const site_name = $site_information.site_name;
@@ -33,7 +34,8 @@
 					<span class="c-header__title-p2 u-block">{ header.title_p2 }</span>
 				</h2>
 				<div class="c-header__intro c-text-block u-fs-m">
-					<p>{ header.intro_p1 }</p>
+					<!-- <p>{ header.intro_p1 }</p> -->
+					<DropCap text={ header.intro_p1 } />
 					<p class="m-t">{ header.intro_p2 }</p>
 				</div>
 			</section>
