@@ -20,7 +20,8 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin-left: -2em;
-		width: 100%;
+		/* width: 100%; */
+		width: 90%;
 	}
 	.c-header__menu.c-header__menu > .o-grid__item.c-menu-main__item,
 	.c-header__menu.c-header__menu > .o-grid__item.c-menu-main__item:hover {

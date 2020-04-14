@@ -106,7 +106,7 @@
 	}
 
 
-	.c-header__intro {
+	.c-header__intro.c-header__intro {
 		z-index: var(--z-index-std);
 		top: 0;
 		left: 48%;
