@@ -2,6 +2,8 @@
 	export let segment;
 </script>
 
+<pre>Nav segment = {segment}</pre>
+
 <nav class="o-grid o-grid--wrap-until-tablet o-grid--center o-grid--middle o-grid--vgutter-s-until-tablet c-header__menu u-fontB">
 	<div class="first collapsed o-grid__item c-menu-main__item">
 		<a rel=prefetch aria-current='{segment === "sobre-a-escola" ? "page" : undefined}' href="/sobre-a-escola" class="c-menu-main__link u-uppercase">Sobre</a>

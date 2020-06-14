@@ -3,8 +3,10 @@
 	// import { site_information } from '../../stores/site_information.js';
 	// export const site_name = site_information.site_name;
 	export let segment;
+	export let model;
 </script>
 
+<pre>{segment}</pre>
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
 		<Nav {segment}/>
@@ -21,10 +23,7 @@
 			<!-- <?php if ($logo): ?> -->
 				<div class="o-ibgrid__item u-mxw-1of3">
 					<a class="m-center p p-tablet--l no-p-l u-center u-inline-block no-underline u-mxw-logo-pic" href="/" title="Home" rel="home">
-						<picture>
-							<source type="image/svg+xml" srcset="/img/chouette.svg">
-							<img class="c-header__bg-img" src="/img/chouette.png" alt="Chouette Institut de Français - Cursos de Francês" />
-						</picture>
+						<img class="c-header__bg-img" src="/theme/chouette.svg" alt="Chouette Institut de Français - Cursos de Francês" />
 					</a>
 				</div>
 			<!-- <?php endif; ?> -->
@@ -33,6 +32,7 @@
 					<!-- <?php print render($title_prefix); ?> -->
 					<h1 class="c-title p-percent-v">
 						<!-- <?php print $title; ?> -->
+						{ model.page_title }
 					</h1>
 					<!-- <?php print render($title_suffix); ?> -->
 				</div>

@@ -2,8 +2,8 @@
 /**
  * Document root : fundamental styles
  *
- * @require base/typography.vars.css
- * @require base/colors.vars.css
+ * @require settings/typography.vars.css
+ * @require settings/colors.vars.scss
  */
 
 /* First, a brutal global reset for all margins and paddings.
