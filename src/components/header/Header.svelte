@@ -2,14 +2,15 @@
 	import Nav from '../../components/Nav.svelte';
 	// import { site_information } from '../../stores/site_information.js';
 	// export const site_name = site_information.site_name;
-	export let segment;
+
 	export let model;
 </script>
 
-<pre>{segment}</pre>
+<pre>Header model.slug = {model.slug}</pre>
+
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
-		<Nav {segment}/>
+		<Nav {model}/>
 	</div>
 </div>
 <header class="bg-content m-b--l p-h">

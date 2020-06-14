@@ -18,6 +18,10 @@
 		const res = await this.fetch(`${slug}.json`);
 		const model = await res.json();
 
+		if (model && slug) {
+			model.slug = slug;
+		}
+
 		return { model };
 	}
 </script>
