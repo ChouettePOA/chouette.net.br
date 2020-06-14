@@ -8,6 +8,7 @@
 <nav class="c-header__menu o-grid o-grid--wrap-until-tablet o-grid--center o-grid--middle o-grid--vgutter-s-until-tablet u-fontB">
 	{#each items as { title, slug }, i}
 		<div class="o-grid__item c-menu-main__item{ model.active_slug === slug ? ' is-active' : '' }">
+			<!-- TODO handle active trail (parent page must stay active) -->
 			{#if model.active_slug === slug}
 				<span class="c-menu-main__deco">
 					<img class="c-menu-main__deco-img" src="/theme/wing.svg" alt="" role="presentation" />

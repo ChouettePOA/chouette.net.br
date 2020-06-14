@@ -1,12 +1,12 @@
-
-const fs = require('fs');
-
 /**
  * @file
- * Maps content data for pages routes.
+ * Maps content data for root-level page routes.
  *
  * @see src/routes/[slug].svelte
  */
+
+const fs = require('fs');
+
 export async function get(req, res, next) {
 	// the `slug` parameter is available because
 	// this file is called [slug].json.js

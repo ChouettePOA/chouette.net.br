@@ -1,7 +1,5 @@
 <script>
 	import Nav from '../../components/Nav.svelte';
-	// import { site_information } from '../../stores/site_information.js';
-	// export const site_name = site_information.site_name;
 
 	export let model;
 </script>
@@ -16,6 +14,7 @@
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
 
 		<!-- Microformat based on https://css-tricks.com/markup-for-breadcrumbs/ -->
+		<!-- TODO nest parent levels -->
 		<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__inner-wrap">
       <a itemprop="url" href="/" rel="home">
 				<span itemprop="title">
@@ -24,12 +23,12 @@
 			</a>
 
 			{#if model.parent_pages}
-				{#each model.parent_pages as { p_slug, p_title }, i}
+				{#each model.parent_pages as { slug, title }, i}
 					<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-						<a itemprop="url" href={ p_slug }>
+						<a itemprop="url" href={ slug }>
 							<span itemprop="title">
-								{ p_title }
+								{ title }
 							</span>
 						</a>
 					</span>
@@ -39,46 +38,41 @@
 			<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__item u-color-secondary">
 				<span itemprop="title">
-					Sobre a Escola
+					{ model.title }
 				</span>
 			</span>
 		</div>
 
 	</div>
 	<div class="c-text-block--xxl">
+
 		<div class="o-ibgrid o-ibgrid--middle o-ibgrid--gutter o-ibgrid--inward o-ibgrid--center o-ibgrid--nowrap">
-			<!-- <?php if ($logo): ?> -->
-				<div class="o-ibgrid__item u-mxw-1of3">
-					<a class="m-center p p-tablet--l no-p-l u-center u-inline-block no-underline u-mxw-logo-pic" href="/" title="Home" rel="home">
-						<img class="c-header__bg-img" src="/theme/chouette.svg" alt="Chouette Institut de Français - Cursos de Francês" />
-					</a>
-				</div>
-			<!-- <?php endif; ?> -->
-			<!-- <?php if ($title): ?> -->
-				<div class="o-ibgrid__item u-mxw-2of3">
-					<!-- <?php print render($title_prefix); ?> -->
-					<h1 class="c-title p-percent-v">
-						<!-- <?php print $title; ?> -->
-						{ model.page_title }
-					</h1>
-					<!-- <?php print render($title_suffix); ?> -->
-				</div>
-			<!-- <?php endif; ?> -->
+			<div class="o-ibgrid__item u-mxw-1of3">
+				<a class="m-center p p-tablet--l no-p-l u-center u-inline-block no-underline u-mxw-logo-pic" href="/" title="Home" rel="home">
+					<img class="c-header__bg-img" src="/theme/chouette.svg" alt="Chouette Institut de Français - Cursos de Francês" />
+				</a>
+			</div>
+			<div class="o-ibgrid__item u-mxw-2of3">
+				<h1 class="c-title p-percent-v">
+					{ model.title }
+				</h1>
+			</div>
 		</div>
-		<!-- <?php if (!empty($subnav)): ?> -->
+
+		<!-- TODO handle active trail (child pages must show subnav) -->
+		{#if model.child_pages}
 			<div class="u-center u-bottom">
 				<div class="u-inline-block">
-					<!-- <?php foreach ($subnav as $depth => $nav_links): ?> -->
-						<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
-							<!-- <?php foreach ($nav_links as $nav_link): ?> -->
-								<div class="o-tgrid__item">
-									<!-- <?php print $nav_link; ?> -->
-								</div>
-							<!-- <?php endforeach; ?> -->
-						</div>
-					<!-- <?php endforeach; ?> -->
+					<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
+						{#each model.child_pages as { slug, title }, i}
+							<div class="o-tgrid__item">
+								<a href="/{ slug }" class="c-subnav-link">{ title }</a>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
-		<!-- <?php endif; ?> -->
+		{/if}
+
 	</div>
 </header>

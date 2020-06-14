@@ -1,0 +1,11 @@
+{
+	"lang": "pt",
+	"title": "Professores",
+	"parent_pages": [
+		{
+			"slug": "sobre-a-escola",
+			"title": "Sobre"
+		}
+	],
+	"content": "test"
+}
