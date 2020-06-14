@@ -6,8 +6,6 @@
 	export let model;
 </script>
 
-<pre>Header model.slug = {model.slug}</pre>
-
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
 		<Nav {model}/>
