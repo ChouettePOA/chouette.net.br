@@ -2,6 +2,12 @@
 	import Nav from '../../components/Nav.svelte';
 	import DropCap from '../../components/text/DropCap.svelte';
 	import { site_information } from '../../stores/site_information.js';
+
+	const model = {
+		lang: 'pt',
+		active_slug: '/'
+	}
+
 	export const site_name = $site_information.site_name;
 	export const header = $site_information.homepage.header;
 </script>
@@ -14,7 +20,7 @@
 			</div>
 			<header>
 				<div class="c-header__nav p--s">
-					<Nav />
+					<Nav {model} />
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">

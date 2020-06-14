@@ -1,0 +1,24 @@
+{
+	"pt": [
+		{
+			"title": "Sobre",
+			"slug": "sobre-a-escola"
+		},
+		{
+			"title": "Horários",
+			"slug": "horarios"
+		},
+		{
+			"title": "Preços",
+			"slug": "precos"
+		},
+		{
+			"title": "Blog",
+			"slug": "blog"
+		},
+		{
+			"title": "Aulas online",
+			"slug": "aulas-online"
+		}
+	]
+}

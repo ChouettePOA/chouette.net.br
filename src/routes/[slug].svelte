@@ -1,7 +1,7 @@
 <script context="module">
 
 	/**
-	 * Implements Sapper page preload "hook".
+	 * Implements Sapper route preload "hook".
 	 *
 	 * @param page : object containing `{ path, params, query }`.
 	 * @param session : used for credentialled requests.
@@ -19,7 +19,7 @@
 		const model = await res.json();
 
 		if (model && slug) {
-			model.slug = slug;
+			model.active_slug = slug;
 		}
 
 		return { model };

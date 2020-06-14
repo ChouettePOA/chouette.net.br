@@ -8,14 +8,42 @@
 
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
-		<Nav {model}/>
+		<Nav {model} />
 	</div>
 </div>
+
 <header class="bg-content m-b--l p-h">
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
-		<nav class="c-breadcrumb__inner-wrap" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-			<!-- <?php print $breadcrumb; ?> -->
-		</nav>
+
+		<!-- Microformat based on https://css-tricks.com/markup-for-breadcrumbs/ -->
+		<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__inner-wrap">
+      <a itemprop="url" href="/" rel="home">
+				<span itemprop="title">
+					Início
+				</span>
+			</a>
+
+			{#if model.parent_pages}
+				{#each model.parent_pages as { p_slug, p_title }, i}
+					<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
+					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+						<a itemprop="url" href={ p_slug }>
+							<span itemprop="title">
+								{ p_title }
+							</span>
+						</a>
+					</span>
+				{/each}
+			{/if}
+
+			<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
+			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__item u-color-secondary">
+				<span itemprop="title">
+					Sobre a Escola
+				</span>
+			</span>
+		</div>
+
 	</div>
 	<div class="c-text-block--xxl">
 		<div class="o-ibgrid o-ibgrid--middle o-ibgrid--gutter o-ibgrid--inward o-ibgrid--center o-ibgrid--nowrap">
