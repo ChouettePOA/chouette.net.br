@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{ route.site_name }</title>
+	<title>{ $route.site_name }</title>
 </svelte:head>
 
 <!-- DEBUG -->
@@ -27,7 +27,7 @@
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">
-						<img src="/theme/chouette-logo.svg" alt="{ route.site_name } - Cursos de Francês" />
+						<img src="/theme/chouette-logo.svg" alt="{ $route.site_name } - Cursos de Francês" />
 					</div>
 				</h1>
 			</header>
