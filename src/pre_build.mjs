@@ -29,9 +29,9 @@ const walk = (dir, extension) => {
 }
 
 /**
- * Builds pages' routing trails dictionary object.
+ * Builds pages' routing trails dictionary object ("hash table" by slug).
  *
- * It provides levels 1+ menus and ancestor links "active" state.
+ * It provides levels 1+ menus and ancestor links' active state.
  *
  * @returns {Object} keyed by page slug, contains which nav links are active by
  * 	depth level. Level 0 (root) items are read from "menu" content. Level 1+

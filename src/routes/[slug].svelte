@@ -3,6 +3,8 @@
 	/**
 	 * Implements Sapper route preload "hook".
 	 *
+	 * Provides page data ("model").
+	 *
 	 * @param page : object containing `{ path, params, query }`.
 	 * @param session : used for credentialled requests.
 	 * @return object : page data (model).
@@ -20,26 +22,32 @@
 		const res = await this.fetch(`${slug}.json`);
 		const model = await res.json();
 
-		if (model && slug) {
-			model.active_slug = slug;
-		}
-
 		return { model };
 	}
 </script>
 
 <script>
+	import { getContext, setContext } from 'svelte';
 	import Header from '../components/header/Header.svelte';
 
+	const route = getContext('route');
 	export let model;
+
+	// Update current route page title from page data (model) for all descendant
+	// components.
+	// @see preload()
+	if ('title' in model) {
+		route.title = model.title;
+		setContext('route', route);
+	}
 </script>
 
 <svelte:head>
-	<title>{ model.title } | Chouette - Institut de Français</title>
+	<title>{ route.title } | { route.site_name }</title>
 </svelte:head>
 
-<Header {model} />
+<Header { model } />
 
 <main id="main-content">
-	<h1>{ model.title }</h1>
+	<h1>{ route.title }</h1>
 </main>

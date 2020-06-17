@@ -1,27 +1,27 @@
 <script>
-	import Nav from '../../components/Nav.svelte';
+	import MenuMain from '../nav/MenuMain.svelte';
 	// import * as menu_trails from '../../cache/page_routing_trails.json'
-	import { page_routing_trails } from '../../stores/page_routing_trails.js';
+	// import { page_routing_trails } from '../../stores/page_routing_trails.js';
 
 	export let model;
 
-	const routing_trail = $page_routing_trails[model.active_slug];
+	// const routing_trail = page_routing_trails[model.active_slug];
 	// const menu_lv1 = $page_routing_trails[routing_trail.menu_lv1].children;
-	const menu_lv1 = [];
-	const test = $page_routing_trails[routing_trail.menu_lv1];
+	// const menu_lv1 = [];
+	// const test = page_routing_trails[routing_trail.menu_lv1];
 </script>
 
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
-		<Nav {model} />
+		<MenuMain />
 	</div>
 </div>
 
-<pre>{JSON.stringify(model)}</pre>
-<pre>{JSON.stringify(routing_trail)}</pre>
-<pre>{JSON.stringify(routing_trail.active_lv0)}</pre>
-<pre>{JSON.stringify(routing_trail.menu_lv1)}</pre>
-<pre>{JSON.stringify($page_routing_trails['sobre-a-escola'])}</pre>
+<!-- <pre>{JSON.stringify(model)}</pre> -->
+<!-- <pre>{JSON.stringify(routing_trail)}</pre> -->
+<!-- <pre>{JSON.stringify(routing_trail.active_lv0)}</pre> -->
+<!-- <pre>{JSON.stringify(routing_trail.menu_lv1)}</pre> -->
+<!-- <pre>{JSON.stringify(page_routing_trails['sobre-a-escola'])}</pre> -->
 
 <header class="bg-content m-b--l p-h">
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
@@ -36,24 +36,24 @@
 			</a>
 
 			<!-- TODO [wip] fetch from active_lv* keys in menu_trails -->
-			{#if model.parent_pages}
+			<!-- {#if model.parent_pages}
 				{#each model.parent_pages as slug}
 					<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 						<a itemprop="url" href={ slug }>
 							<span itemprop="title">
-								<!-- { menu_trails[slug].title } -->
+								<!-- { menu_trails[slug].title } --
 								{ slug }
 							</span>
 						</a>
 					</span>
 				{/each}
-			{/if}
+			{/if} -->
 
 			<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__item u-color-secondary">
 				<span itemprop="title">
-					{ model.title }
+					<!-- { model.title } -->
 				</span>
 			</span>
 		</div>
@@ -69,13 +69,13 @@
 			</div>
 			<div class="o-ibgrid__item u-mxw-2of3">
 				<h1 class="c-title p-percent-v">
-					{ model.title }
+					<!-- { model.title } -->
 				</h1>
 			</div>
 		</div>
 
 		<!-- TODO handle active trail (child pages must show subnav) -->
-		{#if menu_lv1}
+		<!-- {#if menu_lv1}
 			<div class="u-center u-bottom">
 				<div class="u-inline-block">
 					<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
@@ -87,7 +87,7 @@
 					</div>
 				</div>
 			</div>
-		{/if}
+		{/if} -->
 
 	</div>
 </header>

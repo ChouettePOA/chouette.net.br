@@ -1,0 +1,11 @@
+{
+	"site_name": "Chouette - Institut de Français",
+	"ui_i10n": {
+		"pt": {
+			"Home": "Início"
+		},
+		"fr": {
+			"Home": "Accueil"
+		}
+	}
+}

@@ -1,20 +1,24 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+	import { getContext } from 'svelte';
+	import { homepage_masthead } from '../stores/homepage_masthead.js';
+	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
-	import { site_information } from '../stores/site_information.js';
 
-	const model = {
-		lang: 'pt',
-		active_slug: '/'
-	}
-
-	export const site_name = $site_information.site_name;
-	export const header = $site_information.homepage.header;
+	const route = getContext('route');
+	const header = $homepage_masthead[route.lang];
 </script>
 
 <svelte:head>
-	<title>Chouette - Institut de Français</title>
+	<title>{ route.site_name }</title>
 </svelte:head>
+
+<!-- DEBUG -->
+<!-- <pre>{JSON.stringify(route)}</pre> -->
+<!-- <pre>lang = {route.lang}</pre> -->
+<!-- <pre>{JSON.stringify(header)}</pre> -->
+<!-- <pre>{JSON.stringify($homepage_masthead.pt)}</pre> -->
+<!-- <pre>{JSON.stringify($homepage_masthead[route.lang])}</pre> -->
+<!-- <pre>{JSON.stringify(header)}</pre> -->
 
 <div class="u-bg-white">
 	<div class="c-header c-header--home u-relative">
@@ -26,11 +30,11 @@
 
 			<header>
 				<div class="c-header__nav p--s">
-					<Nav {model} />
+					<MenuMain />
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">
-						<img src="/theme/chouette-logo.svg" alt="{ site_name } - Cursos de Francês" />
+						<img src="/theme/chouette-logo.svg" alt="{ route.site_name } - Cursos de Francês" />
 					</div>
 				</h1>
 			</header>
