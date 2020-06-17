@@ -29,30 +29,6 @@ const walk = (dir, extension) => {
 }
 
 /**
- * TODO [wip] Evaluate other approach using a single tree.
- *
- * See https://stackoverflow.com/a/40732240/2592338
- *
- * @param {Object} dataset
- */
-const createDataTree = dataset => {
-	let hashTable = Object.create(null);
-	dataset.forEach(aData => hashTable[aData.ID] = {...aData, childNodes: []});
-
-	let dataTree = [];
-	dataset.forEach(aData => {
-		if (aData.parentID) {
-			hashTable[aData.parentID].childNodes.push(hashTable[aData.ID]);
-		}
-		else {
-			dataTree.push(hashTable[aData.ID]);
-		}
-	});
-
-	return dataTree;
-}
-
-/**
  * Builds pages' routing trails dictionary object.
  *
  * It provides levels 1+ menus and ancestor links "active" state.
@@ -131,13 +107,13 @@ const build_page_routing_trails = () => {
 						if (!trails[page_slug]) {
 							trails[page_slug] = {};
 						}
+						trails[page_slug].depth = current_depth;
 						if (!trails[page_slug].children) {
 							trails[page_slug].children = [];
 						}
 						trails[page_slug].children.push({
 							"slug": next_depth_item.slug,
-							"title": next_depth_item.title,
-							"depth": current_depth + 1
+							"title": next_depth_item.title
 						});
 					}
 				})
@@ -147,14 +123,17 @@ const build_page_routing_trails = () => {
 			for (page_slug in trails) {
 				page_data = trails[page_slug];
 				if (page_data.hasOwnProperty('children')) {
+					let child_depth = page_data.depth + 1;
 					page_data.children.forEach(child_page => {
-						if (!trails[child_page.slug][`menu_lv${child_page.depth}`]) {
-							trails[child_page.slug][`menu_lv${child_page.depth}`] = [];
+						if (!trails[child_page.slug][`menu_lv${child_depth}`]) {
+							trails[child_page.slug][`menu_lv${child_depth}`] = [];
 						}
-						trails[child_page.slug][`menu_lv${child_page.depth}`] = page_data.children;
+						trails[child_page.slug][`menu_lv${child_depth}`] = page_slug;
 
 						// Also set the parent level menus if available (up to level 0).
-						let back_to_root = child_page.depth - 1;
+						// This is a simple reference to the slug which has the 'children'
+						// key (= siblings).
+						let back_to_root = page_data.depth;
 						while (back_to_root >= 0) {
 							if (page_data.hasOwnProperty(`menu_lv${back_to_root}`)) {
 								trails[child_page.slug][`menu_lv${back_to_root}`] = page_data[`menu_lv${back_to_root}`];
@@ -162,9 +141,8 @@ const build_page_routing_trails = () => {
 							back_to_root--;
 						}
 
-						// Also set the ancestor (parent's parent) 'active' if available (up
-						// to level 0).
-						back_to_root = child_page.depth - 2;
+						// Also set the ancestor 'active' if available (up to level 0).
+						back_to_root = page_data.depth - 1;
 						while (back_to_root >= 0) {
 							if (page_data.hasOwnProperty(`active_lv${back_to_root}`)) {
 								trails[child_page.slug][`active_lv${back_to_root}`] = page_data[`active_lv${back_to_root}`];
