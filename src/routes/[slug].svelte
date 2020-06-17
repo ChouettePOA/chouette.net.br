@@ -40,12 +40,7 @@
 	if ('title' in model && 'slug' in model) {
 		route.update(existing => {
 			existing.title = model.title;
-			existing.slug = model.slug;
-			// Workaround (wtf) insertion of a 'default' key in trails object.
-			if ('default' in existing.trails) {
-				existing.trails = {...existing.trails, ...existing.trails.default}
-				delete existing.trails.default;
-			}
+			existing.path = model.slug;
 			return existing;
 		});
 	}
@@ -55,11 +50,13 @@
 	<title>{ $route.title } | { $route.site_name }</title>
 </svelte:head>
 
-<Header { model } />
+<!-- <Header bind:route={$route} {model} /> -->
+<Header {model} />
 
 <main id="main-content">
 	<h1>{ $route.title }</h1>
 </main>
 
+<!-- DEBUG -->
 <!-- <pre>[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 <!-- <pre>[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->

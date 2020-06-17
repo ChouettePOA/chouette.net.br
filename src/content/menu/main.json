@@ -2,23 +2,23 @@
 	"pt": [
 		{
 			"title": "Sobre",
-			"slug": "sobre-a-escola"
+			"path": "sobre-a-escola"
 		},
 		{
 			"title": "Horários",
-			"slug": "horarios"
+			"path": "horarios"
 		},
 		{
 			"title": "Preços",
-			"slug": "precos"
+			"path": "precos"
 		},
 		{
 			"title": "Blog",
-			"slug": "blog"
+			"path": "blog"
 		},
 		{
 			"title": "Aulas online",
-			"slug": "aulas-online"
+			"path": "aulas-online"
 		}
 	]
 }

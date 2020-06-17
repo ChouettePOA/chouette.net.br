@@ -1,30 +1,35 @@
 <script>
-	import { route } from '../../stores/route.js';
 	import MenuMain from '../nav/MenuMain.svelte';
+	import { nav_menu_get_items } from '../nav/nav.js';
+	import { route } from '../../stores/route.js';
 
 	export let model;
+	// export let route;
 
-	const slug = $route.slug;
-
-	// TODO [wip] Provide reusable function that will take trails data and output
-	// object keyed by "levelled" nav links.
-	const menu_lv1 = slug in $route.trails && 'menu_lv1' in $route.trails[slug] ?
-		$route.trails[slug].menu_lv1 :
-		[];
+	// let menu_main_items = nav_menu_get_items($route, 0);
+	let menu_main_items = [];
+	let menu_subnav_items = [];
+	const unsubscribe = route.subscribe(value => {
+		menu_main_items = nav_menu_get_items(value, 0);
+		menu_subnav_items = nav_menu_get_items(value, 1);
+	});
 </script>
 
 <div class="c-menu-main p">
 	<div class="c-text-block--xl">
-		<MenuMain />
+		<MenuMain bind:items={menu_main_items} />
 	</div>
 </div>
 
-<!-- <pre>Header.svelte : route = {JSON.stringify($route, null, 2)}</pre>
-<pre>Header.svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
+<!-- DEBUG -->
+<!-- <pre>Header.svelte : menu_subnav_items = {JSON.stringify(menu_subnav_items, null, 2)}</pre> -->
+<!-- <pre>Header.svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
+<!-- <pre>Header.svelte : route = {JSON.stringify(route, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : menu_lv1 = {JSON.stringify(menu_lv1, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : slug = {JSON.stringify(slug, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : $route.trails = {JSON.stringify($route.trails, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : $route.trails[slug] = {JSON.stringify($route.trails[slug], null, 2)}</pre> -->
+<!-- <pre>Header.svelte : menu_main_items = {JSON.stringify(menu_main_items, null, 2)}</pre> -->
 
 <header class="bg-content m-b--l p-h">
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
@@ -77,20 +82,19 @@
 			</div>
 		</div>
 
-		<!-- TODO handle active trail (child pages must show subnav) -->
-		<!-- {#if menu_lv1}
+		{#if menu_subnav_items.length}
 			<div class="u-center u-bottom">
 				<div class="u-inline-block">
 					<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
-						{#each menu_lv1 as { slug, title }, i}
+						{#each menu_subnav_items as { path, title, is_active }, i}
 							<div class="o-tgrid__item">
-								<a href="/{ slug }" class="c-subnav-link">{ title }</a>
+								<a href="/{ path }" class="c-subnav-link{ is_active ? ' active' : '' }">{ title }</a>
 							</div>
 						{/each}
 					</div>
 				</div>
 			</div>
-		{/if} -->
+		{/if}
 
 	</div>
 </header>

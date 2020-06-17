@@ -1,10 +1,16 @@
 <script>
 	import { route } from '../stores/route.js';
 	import { homepage_masthead } from '../stores/homepage_masthead.js';
+	import { nav_menu_get_items } from '../components/nav/nav.js';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
 
 	const header = $homepage_masthead[$route.lang];
+	const menu_main_items = nav_menu_get_items($route, 0);
+	// let menu_main_items;
+	// const unsubscribe = route.subscribe(value => {
+	// 	menu_main_items = nav_menu_get_items(value, 0);
+	// });
 </script>
 
 <svelte:head>
@@ -12,6 +18,10 @@
 </svelte:head>
 
 <!-- DEBUG -->
+<!-- <pre>index.svelte : $route = {JSON.stringify($route, null, 2)}</pre> -->
+<!-- <pre>index.svelte : menu_main_items = {JSON.stringify(menu_main_items, null, 2)}</pre> -->
+<!-- <pre>index.svelte : nav_menu_get_items($route) = {JSON.stringify(nav_menu_get_items($route), null, 2)}</pre> -->
+<!-- <pre>index.svelte : $route.trails = {JSON.stringify($route.trails, null, 2)}</pre> -->
 
 <div class="u-bg-white">
 	<div class="c-header c-header--home u-relative">
@@ -23,7 +33,7 @@
 
 			<header>
 				<div class="c-header__nav p--s">
-					<MenuMain />
+					<MenuMain items={menu_main_items} />
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">
