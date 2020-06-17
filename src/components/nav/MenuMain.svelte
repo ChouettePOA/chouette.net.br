@@ -3,7 +3,7 @@
 	import { route } from '../../stores/route.js';
 
 	const current_route_slug = $route.slug;
-	const active_lv0 = 'active_lv0' in $route.trails[current_route_slug] ?
+	const active_lv0 = current_route_slug in $route.trails && 'active_lv0' in $route.trails[current_route_slug] ?
 		$route.trails[current_route_slug].active_lv0 :
 		current_route_slug;
 
@@ -11,6 +11,7 @@
 </script>
 
 <!-- DEBUG -->
+<!-- <pre>MenuMain.svelte : current_route_slug = {current_route_slug}</pre> -->
 <!-- <pre>MenuMain.svelte : active_lv0 = {JSON.stringify(active_lv0, null, 2)}</pre> -->
 <!-- <pre>MenuMain.svelte : $route.trails[current_route_slug] = {JSON.stringify($route.trails[current_route_slug], null, 2)}</pre> -->
 

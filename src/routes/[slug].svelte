@@ -29,19 +29,15 @@
 </script>
 
 <script>
-	// import { getContext, setContext } from 'svelte';
 	import { route } from '../stores/route.js';
 	import Header from '../components/header/Header.svelte';
 
-	// const route = getContext('route');
 	export let model;
 
 	// Update current route page title from page data (model) for all descendant
 	// components.
 	// @see preload()
 	if ('title' in model && 'slug' in model) {
-		// route.title = model.title;
-		// setContext('route', route);
 		route.update(existing => {
 			existing.title = model.title;
 			existing.slug = model.slug;

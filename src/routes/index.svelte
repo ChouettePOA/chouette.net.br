@@ -1,11 +1,10 @@
 <script>
-	import { getContext } from 'svelte';
+	import { route } from '../stores/route.js';
 	import { homepage_masthead } from '../stores/homepage_masthead.js';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
 
-	const route = getContext('route');
-	const header = $homepage_masthead[route.lang];
+	const header = $homepage_masthead[$route.lang];
 </script>
 
 <svelte:head>
@@ -13,12 +12,6 @@
 </svelte:head>
 
 <!-- DEBUG -->
-<!-- <pre>{JSON.stringify(route)}</pre> -->
-<!-- <pre>lang = {route.lang}</pre> -->
-<!-- <pre>{JSON.stringify(header)}</pre> -->
-<!-- <pre>{JSON.stringify($homepage_masthead.pt)}</pre> -->
-<!-- <pre>{JSON.stringify($homepage_masthead[route.lang])}</pre> -->
-<!-- <pre>{JSON.stringify(header)}</pre> -->
 
 <div class="u-bg-white">
 	<div class="c-header c-header--home u-relative">

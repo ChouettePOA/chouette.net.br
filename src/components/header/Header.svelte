@@ -1,19 +1,16 @@
 <script>
-	// import { getContext } from 'svelte';
 	import { route } from '../../stores/route.js';
 	import MenuMain from '../nav/MenuMain.svelte';
 
 	export let model;
-	// const route = getContext('route');
-
-	// const routing_trail = page_routing_trails[model.active_slug];
-	// const menu_lv1 = $page_routing_trails[routing_trail.menu_lv1].children;
-	// const menu_lv1 = [];
-	// const test = page_routing_trails[routing_trail.menu_lv1];
 
 	const slug = $route.slug;
-	const menu_lv1 = 'menu_lv1' in $route.trails[slug] ? $route.trails[slug].menu_lv1 : [];
 
+	// TODO [wip] Provide reusable function that will take trails data and output
+	// object keyed by "levelled" nav links.
+	const menu_lv1 = slug in $route.trails && 'menu_lv1' in $route.trails[slug] ?
+		$route.trails[slug].menu_lv1 :
+		[];
 </script>
 
 <div class="c-menu-main p">
@@ -24,14 +21,10 @@
 
 <!-- <pre>Header.svelte : route = {JSON.stringify($route, null, 2)}</pre>
 <pre>Header.svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
-<pre>Header.svelte : menu_lv1 = {JSON.stringify(menu_lv1, null, 2)}</pre>
+<!-- <pre>Header.svelte : menu_lv1 = {JSON.stringify(menu_lv1, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : slug = {JSON.stringify(slug, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : $route.trails = {JSON.stringify($route.trails, null, 2)}</pre> -->
-<pre>Header.svelte : $route.trails[slug] = {JSON.stringify($route.trails[slug], null, 2)}</pre>
-<!-- <pre>{JSON.stringify(routing_trail)}</pre> -->
-<!-- <pre>{JSON.stringify(routing_trail.active_lv0)}</pre> -->
-<!-- <pre>{JSON.stringify(routing_trail.menu_lv1)}</pre> -->
-<!-- <pre>{JSON.stringify(page_routing_trails['sobre-a-escola'])}</pre> -->
+<!-- <pre>Header.svelte : $route.trails[slug] = {JSON.stringify($route.trails[slug], null, 2)}</pre> -->
 
 <header class="bg-content m-b--l p-h">
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
