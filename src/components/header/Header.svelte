@@ -1,7 +1,14 @@
 <script>
 	import Nav from '../../components/Nav.svelte';
+	// import * as menu_trails from '../../cache/page_routing_trails.json'
+	import { page_routing_trails } from '../../stores/page_routing_trails.js';
 
 	export let model;
+
+	const routing_trail = $page_routing_trails[model.active_slug];
+	// const menu_lv1 = $page_routing_trails[routing_trail.menu_lv1].children;
+	const menu_lv1 = [];
+	const test = $page_routing_trails[routing_trail.menu_lv1];
 </script>
 
 <div class="c-menu-main p">
@@ -9,6 +16,12 @@
 		<Nav {model} />
 	</div>
 </div>
+
+<pre>{JSON.stringify(model)}</pre>
+<pre>{JSON.stringify(routing_trail)}</pre>
+<pre>{JSON.stringify(routing_trail.active_lv0)}</pre>
+<pre>{JSON.stringify(routing_trail.menu_lv1)}</pre>
+<pre>{JSON.stringify($page_routing_trails['sobre-a-escola'])}</pre>
 
 <header class="bg-content m-b--l p-h">
 	<div class="c-breadcrumb c-text-block--xl p-t--l">
@@ -22,13 +35,15 @@
 				</span>
 			</a>
 
+			<!-- TODO [wip] fetch from active_lv* keys in menu_trails -->
 			{#if model.parent_pages}
-				{#each model.parent_pages as { slug, title }, i}
+				{#each model.parent_pages as slug}
 					<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
 						<a itemprop="url" href={ slug }>
 							<span itemprop="title">
-								{ title }
+								<!-- { menu_trails[slug].title } -->
+								{ slug }
 							</span>
 						</a>
 					</span>
@@ -60,11 +75,11 @@
 		</div>
 
 		<!-- TODO handle active trail (child pages must show subnav) -->
-		{#if model.child_pages}
+		{#if menu_lv1}
 			<div class="u-center u-bottom">
 				<div class="u-inline-block">
 					<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
-						{#each model.child_pages as { slug, title }, i}
+						{#each menu_lv1 as { slug, title }, i}
 							<div class="o-tgrid__item">
 								<a href="/{ slug }" class="c-subnav-link">{ title }</a>
 							</div>

@@ -108,6 +108,7 @@ const build_page_routing_trails = () => {
 							trails[page_slug] = {};
 						}
 						trails[page_slug].depth = current_depth;
+						trails[page_slug].title = page_data.title;
 						if (!trails[page_slug].children) {
 							trails[page_slug].children = [];
 						}
@@ -164,7 +165,7 @@ const build_page_routing_trails = () => {
  * @see build_page_routing_trails()
  */
 const cache_page_routing_trails = () => {
-	fs.writeFileSync('src/cache/page-routing-trails.json', JSON.stringify(build_page_routing_trails()));
+	fs.writeFileSync('src/cache/page_routing_trails.json', JSON.stringify(build_page_routing_trails()));
 }
 
 cache_page_routing_trails();
