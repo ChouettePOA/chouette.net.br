@@ -13,7 +13,7 @@ import * as path from 'path';
  * @param {String} extension optional: filter by file extension.
  * @returns {Array} List of file paths sorted by name.
  */
-function walk(dir, extension) {
+const walk = (dir, extension) => {
 	const files = [];
 	fs.readdirSync(dir).map(file => {
 		if (fs.statSync(path.join(dir, file)).isFile()) {
@@ -29,6 +29,30 @@ function walk(dir, extension) {
 }
 
 /**
+ * TODO [wip] Evaluate other approach using a single tree.
+ *
+ * See https://stackoverflow.com/a/40732240/2592338
+ *
+ * @param {Object} dataset
+ */
+const createDataTree = dataset => {
+	let hashTable = Object.create(null);
+	dataset.forEach(aData => hashTable[aData.ID] = {...aData, childNodes: []});
+
+	let dataTree = [];
+	dataset.forEach(aData => {
+		if (aData.parentID) {
+			hashTable[aData.parentID].childNodes.push(hashTable[aData.ID]);
+		}
+		else {
+			dataTree.push(hashTable[aData.ID]);
+		}
+	});
+
+	return dataTree;
+}
+
+/**
  * Builds pages' routing trails dictionary object.
  *
  * It provides levels 1+ menus and ancestor links "active" state.
@@ -37,7 +61,7 @@ function walk(dir, extension) {
  * 	depth level. Level 0 (root) items are read from "menu" content. Level 1+
  *  items are provided by this function.
  */
-function build_page_routing_trails() {
+const build_page_routing_trails = () => {
 	const trails = {};
 	const pages_by_depth = [];
 	const deeper_pages = [];
@@ -128,6 +152,25 @@ function build_page_routing_trails() {
 							trails[child_page.slug][`menu_lv${child_page.depth}`] = [];
 						}
 						trails[child_page.slug][`menu_lv${child_page.depth}`] = page_data.children;
+
+						// Also set the parent level menus if available (up to level 0).
+						let back_to_root = child_page.depth - 1;
+						while (back_to_root >= 0) {
+							if (page_data.hasOwnProperty(`menu_lv${back_to_root}`)) {
+								trails[child_page.slug][`menu_lv${back_to_root}`] = page_data[`menu_lv${back_to_root}`];
+							}
+							back_to_root--;
+						}
+
+						// Also set the ancestor (parent's parent) 'active' if available (up
+						// to level 0).
+						back_to_root = child_page.depth - 2;
+						while (back_to_root >= 0) {
+							if (page_data.hasOwnProperty(`active_lv${back_to_root}`)) {
+								trails[child_page.slug][`active_lv${back_to_root}`] = page_data[`active_lv${back_to_root}`];
+							}
+							back_to_root--;
+						}
 					});
 				}
 			}
@@ -142,7 +185,7 @@ function build_page_routing_trails() {
  *
  * @see build_page_routing_trails()
  */
-function cache_page_routing_trails() {
+const cache_page_routing_trails = () => {
 	fs.writeFileSync('src/cache/page-routing-trails.json', JSON.stringify(build_page_routing_trails()));
 }
 
