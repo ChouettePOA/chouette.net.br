@@ -1,11 +1,6 @@
 {
 	"lang": "pt",
 	"title": "Preços 2",
-	"parent_pages": [
-		{
-			"slug": "precos",
-			"title": "Preços"
-		}
-	],
+	"parent_pages": ["precos"],
 	"content": "test"
 }

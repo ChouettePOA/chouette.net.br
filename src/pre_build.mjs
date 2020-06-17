@@ -72,7 +72,7 @@ const build_page_routing_trails = () => {
 		next_depth_slugs = [];
 		deeper_pages.forEach((page_data) => {
 			page_data.parent_pages.forEach((parent_page) => {
-				if (current_depth_slugs.indexOf(parent_page.slug) !== -1) {
+				if (current_depth_slugs.indexOf(parent_page) !== -1) {
 					if (!pages_by_depth[current_depth + 1]) {
 						pages_by_depth[current_depth + 1] = [];
 					}
@@ -99,7 +99,7 @@ const build_page_routing_trails = () => {
 			// Set 'active' + populate children.
 			pages_by_depth[current_depth + 1].forEach(next_depth_item => {
 				next_depth_item.parent_pages.forEach((parent_page) => {
-					if (parent_page.slug === page_slug) {
+					if (parent_page === page_slug) {
 						if (!trails[next_depth_item.slug]) {
 							trails[next_depth_item.slug] = {};
 						}

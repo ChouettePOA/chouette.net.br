@@ -1,11 +1,6 @@
 {
 	"lang": "pt",
 	"title": "Um método atual",
-	"parent_pages": [
-		{
-			"slug": "sobre-a-escola",
-			"title": "Sobre"
-		}
-	],
+	"parent_pages": ["sobre-a-escola"],
 	"content": "test"
 }

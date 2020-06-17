@@ -7,16 +7,6 @@
 			"value": "Chouette - Institut de Français é uma escola especializada no ensino da língua francesa por meio da troca de conhecimentos em torno da cultura francófona. Chouette trabalha com um método próprio e diferenciado, proporcionando um aprendizado prático e eficaz. Nossos professores, além da experiência no ensino do idioma francês, possuem uma importante vivência na França que é primordial para um ensino atual e vivo da língua."
 		}
 	],
-	"child_pages": [
-		{
-			"slug": "um-metodo-atual",
-			"title": "Método"
-		},
-		{
-			"slug": "professores",
-			"title": "Professores"
-		}
-	],
 	"content": [
 		{
 			"c": "lede",
