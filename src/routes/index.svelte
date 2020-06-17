@@ -6,11 +6,11 @@
 	import DropCap from '../components/text/DropCap.svelte';
 
 	const header = $homepage_masthead[$route.lang];
-	const menu_main_items = nav_menu_get_items($route, 0);
-	// let menu_main_items;
-	// const unsubscribe = route.subscribe(value => {
-	// 	menu_main_items = nav_menu_get_items(value, 0);
-	// });
+	// const menu_main_items = nav_menu_get_items($route, 0);
+	let menu_main_items;
+	const unsubscribe = route.subscribe(value => {
+		menu_main_items = nav_menu_get_items(value, 0);
+	});
 </script>
 
 <svelte:head>
@@ -33,7 +33,7 @@
 
 			<header>
 				<div class="c-header__nav p--s">
-					<MenuMain items={menu_main_items} />
+					<MenuMain bind:items={menu_main_items} />
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">

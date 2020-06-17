@@ -5,9 +5,10 @@
 
 // import { menu_main } from '../../stores/menu_main.js';
 import * as menu_main from '../../content/menu/main.json'
+import * as global_data from '../../content/global_data.json'
 
 /**
- * Returns menu items of given level (= depth) for given path.
+ * Returns menu items of given level (= depth) for given route.
  *
  * Level 0 is the main menu, level 1 is subnav, etc.
  *
@@ -58,4 +59,61 @@ const nav_menu_get_items = (route, depth) => {
 	return items;
 };
 
-export { nav_menu_get_items };
+/**
+ * Returns breadcrumb items for given route (except the current page title).
+ *
+ * Level 0 is the main menu, level 1 is subnav, etc.
+ *
+ * @param {Oject} route
+ * @param {Oject} model
+ * @returns {Array} of objects {path, title}.
+ */
+const nav_breadcrumb_get_items = (route, model) => {
+	const items = [];
+	if (!('path' in route) || !('lang' in route) || !(route.lang in global_data.ui_i10n)) {
+		return items;
+	}
+
+	// The 1st item in breadcrumb will always be the homepage.
+	items.push({
+		"title": global_data.ui_i10n[route.lang]["Home"],
+		"path": ""
+	});
+
+	// Lookup parents trail if page has any parent.
+	if (!('parent_pages' in model)) {
+		return items;
+	}
+
+	// TODO [evol] multi-parents tree postponed - we only use the last for now.
+	const parent_path = model.parent_pages.pop();
+	if (!(parent_path in route.trails)) {
+		return items;
+	}
+
+	// We will need to reverse the order because we start from deepest level.
+	const items_reversed = [];
+
+	items_reversed.push({
+		"title": route.trails[parent_path].title,
+		"path": parent_path
+	});
+
+	let back_to_root = route.trails[parent_path].depth;
+	while (back_to_root >= 0) {
+		if (route.trails[parent_path].hasOwnProperty(`active_lv${back_to_root}`)) {
+			items_reversed.push({
+				"title": route.trails[`active_lv${back_to_root}`].title,
+				"path": route.trails[`active_lv${back_to_root}`].path
+			});
+		}
+		back_to_root--;
+	}
+
+	items_reversed.reverse();
+	items_reversed.forEach(item => items.push(item));
+
+	return items;
+};
+
+export { nav_menu_get_items, nav_breadcrumb_get_items };

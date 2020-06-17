@@ -1,6 +1,6 @@
 <script>
 	import MenuMain from '../nav/MenuMain.svelte';
-	import { nav_menu_get_items } from '../nav/nav.js';
+	import { nav_menu_get_items, nav_breadcrumb_get_items } from '../nav/nav.js';
 	import { route } from '../../stores/route.js';
 
 	export let model;
@@ -9,9 +9,11 @@
 	// let menu_main_items = nav_menu_get_items($route, 0);
 	let menu_main_items = [];
 	let menu_subnav_items = [];
+	let breadcrumb_items = [];
 	const unsubscribe = route.subscribe(value => {
 		menu_main_items = nav_menu_get_items(value, 0);
 		menu_subnav_items = nav_menu_get_items(value, 1);
+		breadcrumb_items = nav_breadcrumb_get_items(value, model);
 	});
 </script>
 
@@ -22,6 +24,7 @@
 </div>
 
 <!-- DEBUG -->
+<!-- <pre>Header.svelte : breadcrumb_items = {JSON.stringify(breadcrumb_items, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : menu_subnav_items = {JSON.stringify(menu_subnav_items, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
 <!-- <pre>Header.svelte : route = {JSON.stringify(route, null, 2)}</pre> -->
@@ -37,27 +40,20 @@
 		<!-- Microformat based on https://css-tricks.com/markup-for-breadcrumbs/ -->
 		<!-- TODO nest parent levels -->
 		<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__inner-wrap">
-      <a itemprop="url" href="/" rel="home">
-				<span itemprop="title">
-					Início
-				</span>
-			</a>
-
-			<!-- TODO [wip] fetch from active_lv* keys in menu_trails -->
-			<!-- {#if model.parent_pages}
-				{#each model.parent_pages as slug}
-					<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
+			{#if breadcrumb_items.length}
+				{#each breadcrumb_items as { path, title }, i}
+					{#if i > 0}
+						<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
+					{/if}
 					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-						<a itemprop="url" href={ slug }>
+						<a itemprop="url" href="/{ path }">
 							<span itemprop="title">
-								<!-- { menu_trails[slug].title } --
-								{ slug }
+								{ title }
 							</span>
 						</a>
 					</span>
 				{/each}
-			{/if} -->
-
+			{/if}
 			<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__item u-color-secondary">
 				<span itemprop="title">
