@@ -1,14 +1,19 @@
 <script>
+	// import { getContext } from 'svelte';
+	import { route } from '../../stores/route.js';
 	import MenuMain from '../nav/MenuMain.svelte';
-	// import * as menu_trails from '../../cache/page_routing_trails.json'
-	// import { page_routing_trails } from '../../stores/page_routing_trails.js';
 
 	export let model;
+	// const route = getContext('route');
 
 	// const routing_trail = page_routing_trails[model.active_slug];
 	// const menu_lv1 = $page_routing_trails[routing_trail.menu_lv1].children;
 	// const menu_lv1 = [];
 	// const test = page_routing_trails[routing_trail.menu_lv1];
+
+	const slug = $route.slug;
+	const menu_lv1 = 'menu_lv1' in $route.trails[slug] ? $route.trails[slug].menu_lv1 : [];
+
 </script>
 
 <div class="c-menu-main p">
@@ -17,7 +22,12 @@
 	</div>
 </div>
 
-<!-- <pre>{JSON.stringify(model)}</pre> -->
+<!-- <pre>Header.svelte : route = {JSON.stringify($route, null, 2)}</pre>
+<pre>Header.svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
+<pre>Header.svelte : menu_lv1 = {JSON.stringify(menu_lv1, null, 2)}</pre>
+<!-- <pre>Header.svelte : slug = {JSON.stringify(slug, null, 2)}</pre> -->
+<!-- <pre>Header.svelte : $route.trails = {JSON.stringify($route.trails, null, 2)}</pre> -->
+<pre>Header.svelte : $route.trails[slug] = {JSON.stringify($route.trails[slug], null, 2)}</pre>
 <!-- <pre>{JSON.stringify(routing_trail)}</pre> -->
 <!-- <pre>{JSON.stringify(routing_trail.active_lv0)}</pre> -->
 <!-- <pre>{JSON.stringify(routing_trail.menu_lv1)}</pre> -->
@@ -53,7 +63,7 @@
 			<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 			<span itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="c-breadcrumb__item u-color-secondary">
 				<span itemprop="title">
-					<!-- { model.title } -->
+					{ model.title }
 				</span>
 			</span>
 		</div>
@@ -69,7 +79,7 @@
 			</div>
 			<div class="o-ibgrid__item u-mxw-2of3">
 				<h1 class="c-title p-percent-v">
-					<!-- { model.title } -->
+					{ model.title }
 				</h1>
 			</div>
 		</div>

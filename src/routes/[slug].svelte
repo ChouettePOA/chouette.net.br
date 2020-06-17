@@ -22,32 +22,48 @@
 		const res = await this.fetch(`${slug}.json`);
 		const model = await res.json();
 
+		model.slug = slug;
+
 		return { model };
 	}
 </script>
 
 <script>
-	import { getContext, setContext } from 'svelte';
+	// import { getContext, setContext } from 'svelte';
+	import { route } from '../stores/route.js';
 	import Header from '../components/header/Header.svelte';
 
-	const route = getContext('route');
+	// const route = getContext('route');
 	export let model;
 
 	// Update current route page title from page data (model) for all descendant
 	// components.
 	// @see preload()
-	if ('title' in model) {
-		route.title = model.title;
-		setContext('route', route);
+	if ('title' in model && 'slug' in model) {
+		// route.title = model.title;
+		// setContext('route', route);
+		route.update(existing => {
+			existing.title = model.title;
+			existing.slug = model.slug;
+			// Workaround (wtf) insertion of a 'default' key in trails object.
+			if ('default' in existing.trails) {
+				existing.trails = {...existing.trails, ...existing.trails.default}
+				delete existing.trails.default;
+			}
+			return existing;
+		});
 	}
 </script>
 
 <svelte:head>
-	<title>{ route.title } | { route.site_name }</title>
+	<title>{ $route.title } | { $route.site_name }</title>
 </svelte:head>
 
 <Header { model } />
 
 <main id="main-content">
-	<h1>{ route.title }</h1>
+	<h1>{ $route.title }</h1>
 </main>
+
+<!-- <pre>[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
+<!-- <pre>[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
