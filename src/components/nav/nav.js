@@ -23,8 +23,12 @@ const nav_menu_get_items = (route, depth) => {
 
 	// Root-level = main menu items : active state is current path.
 	if (!depth) {
+		let active_lv0_path = route.path;
+		if (route.path in route.trails && `active_lv${depth}` in route.trails[route.path]) {
+			active_lv0_path = route.trails[route.path][`active_lv${depth}`];
+		}
 		menu_main[route.lang].forEach(item => {
-			item.is_active = (route.path == item.path);
+			item.is_active = (item.path == active_lv0_path);
 			items.push(item);
 		});
 		return items;
