@@ -1,27 +1,10 @@
 /**
  * @file
- * Contains actions to run before building Sapper app.
+ * Contains actions to run before (re)building the Sapper app.
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
-
-/**
- * Gets all files in given dir.
- *
- * @param {String} dir
- * @param {String} extension optional: filter by file extension.
- * @returns {Array} List of files sorted by name.
- */
-function getFilenames(dir, extension) {
-	return fs
-		.readdirSync(dir)
-		.filter(
-			file => fs.statSync(path.join(dir, file)).isFile() &&
-				(extension === undefined || path.extname(file) === extension)
-		)
-		.sort();
-}
 
 /**
  * Recursively gets file paths from given dir.
@@ -39,27 +22,128 @@ function walk(dir, extension) {
 			}
 		}
 		else {
-			files = files.concat(getFilenames(path.join(dir, file), extension))
+			files = files.concat(walk(path.join(dir, file), extension))
 		}
 	});
 	return files.sort();
 }
 
 /**
- * Builds the "routing trails" cache.
+ * Builds pages' routing trails dictionary object.
+ *
+ * It provides levels 1+ menus and ancestor links "active" state.
+ *
+ * @returns {Object} keyed by page slug, contains which nav links are active by
+ * 	depth level. Level 0 (root) items are read from "menu" content. Level 1+
+ *  items are provided by this function.
  */
-function cache_build_routing_trails() {
-	const trails = [];
+function build_page_routing_trails() {
+	const trails = {};
+	const pages_by_depth = [];
+	const deeper_pages = [];
+	let items_left = 0;
+	let current_depth = 0;
+	let current_depth_slugs = [];
+	let next_depth_slugs = [];
+	let page_slug = '';
+	let page_data = {};
+
+	// First, organize all pages by depth - regardless of parent-child links.
+	// Level 0 (root) : all pages that have no parent.
 	walk('src/content/page', '.json').map((file_path) => {
-		const data = JSON.parse(fs.readFileSync(file_path).toString());
-		// console.log(data);
-		if ("parent_pages" in data) {
-			const child_slug = path.parse(file_path).name;
-			data.parent_pages.map(item => item.slug in trails ?
-				trails[item.slug].push(child_slug) : trails[item.slug] = [child_slug]);
+		page_slug = path.parse(file_path).name;
+		page_data = JSON.parse(fs.readFileSync(file_path).toString());
+		page_data.slug = page_slug;
+		if ('parent_pages' in page_data) {
+			deeper_pages.push(page_data);
 		}
-		console.log(trails);
+		else {
+			if (!pages_by_depth[current_depth]) {
+				pages_by_depth[current_depth] = [];
+			}
+			pages_by_depth[current_depth].push(page_data);
+			current_depth_slugs.push(page_slug);
+		}
 	});
+
+	// Levels 1+.
+	items_left = deeper_pages.length;
+	while (items_left > 0) {
+		next_depth_slugs = [];
+		deeper_pages.forEach((page_data) => {
+			page_data.parent_pages.forEach((parent_page) => {
+				if (current_depth_slugs.indexOf(parent_page.slug) !== -1) {
+					if (!pages_by_depth[current_depth + 1]) {
+						pages_by_depth[current_depth + 1] = [];
+					}
+					pages_by_depth[current_depth + 1].push(page_data);
+					next_depth_slugs.push(page_data.slug);
+					items_left--;
+				}
+			});
+		});
+		current_depth_slugs = next_depth_slugs;
+		current_depth++;
+	}
+
+	// Now, for each page slug, set any parent or ancestor "active" page per level
+	// and build levels 1+ nav links ("siblings" menus).
+	pages_by_depth.forEach((items, i) => {
+		current_depth = i;
+		if (!pages_by_depth[current_depth + 1]) {
+			return;
+		}
+		items.map(page_data => {
+			page_slug = page_data.slug;
+
+			// Set 'active' + populate children.
+			pages_by_depth[current_depth + 1].forEach(next_depth_item => {
+				next_depth_item.parent_pages.forEach((parent_page) => {
+					if (parent_page.slug === page_slug) {
+						if (!trails[next_depth_item.slug]) {
+							trails[next_depth_item.slug] = {};
+						}
+						trails[next_depth_item.slug][`active_lv${current_depth}`] = page_slug;
+						if (!trails[page_slug]) {
+							trails[page_slug] = {};
+						}
+						if (!trails[page_slug].children) {
+							trails[page_slug].children = [];
+						}
+						trails[page_slug].children.push({
+							"slug": next_depth_item.slug,
+							"title": next_depth_item.title,
+							"depth": current_depth + 1
+						});
+					}
+				})
+			});
+
+			// Finally, build the levels 1+ nav links (siblings).
+			for (page_slug in trails) {
+				page_data = trails[page_slug];
+				if (page_data.hasOwnProperty('children')) {
+					page_data.children.forEach(child_page => {
+						if (!trails[child_page.slug][`menu_lv${child_page.depth}`]) {
+							trails[child_page.slug][`menu_lv${child_page.depth}`] = [];
+						}
+						trails[child_page.slug][`menu_lv${child_page.depth}`] = page_data.children;
+					});
+				}
+			}
+		})
+	});
+
+	return trails;
 }
 
-cache_build_routing_trails();
+/**
+ * Writes the "routing trails" cache to a JSON static file.
+ *
+ * @see build_page_routing_trails()
+ */
+function cache_page_routing_trails() {
+	fs.writeFileSync('src/cache/page-routing-trails.json', JSON.stringify(build_page_routing_trails()));
+}
+
+cache_page_routing_trails();
