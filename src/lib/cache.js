@@ -1,32 +1,16 @@
 /**
  * @file
- * Contains actions to run before (re)building the Sapper app.
- */
-
-import * as fs from 'fs';
-import * as path from 'path';
-
-/**
- * Recursively gets file paths from given dir.
+ * (Re)builds the local file-based cache.
  *
- * @param {String} dir
- * @param {String} extension optional: filter by file extension.
- * @returns {Array} List of file paths sorted by name.
+ * TODO ideally this would be hooked into the Sapper app build process (if a
+ * pre-build hook existed).
  */
-const walk = (dir, extension) => {
-	const files = [];
-	fs.readdirSync(dir).map(file => {
-		if (fs.statSync(path.join(dir, file)).isFile()) {
-			if (extension === undefined || path.extname(file) === extension) {
-				files.push(path.join(dir, file));
-			}
-		}
-		else {
-			files = files.concat(walk(path.join(dir, file), extension))
-		}
-	});
-	return files.sort();
-}
+
+// import * as fs from 'fs';
+// import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
+const { walk } = require('./fs');
 
 /**
  * Builds pages' routing trails dictionary object ("hash table" by slug).
@@ -168,4 +152,7 @@ const cache_page_routing_trails = () => {
 	fs.writeFileSync('src/cache/page_routing_trails.json', JSON.stringify(build_page_routing_trails()));
 }
 
-cache_page_routing_trails();
+module.exports = {
+	"build_page_routing_trails": build_page_routing_trails,
+	"cache_page_routing_trails": cache_page_routing_trails
+};
