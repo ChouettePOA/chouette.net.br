@@ -29,21 +29,34 @@
 </script>
 
 <script>
+	import { afterUpdate } from 'svelte';
 	import { route } from '../stores/route.js';
 	import Header from '../components/header/Header.svelte';
 
 	export let model;
 
-	// Update current route page title from page data (model) for all descendant
-	// components.
-	// @see preload()
-	if ('title' in model && 'slug' in model) {
-		route.update(existing => {
-			existing.title = model.title;
-			existing.path = model.slug;
-			return existing;
-		});
-	}
+	/**
+	 * Implements Svelte afterUpdate "hook".
+	 *
+	 * Update current route page title from page data (model) for all descendant
+	 * components.
+	 *
+	 * Runs once the DOM is in sync with data. This is the only workaround found
+	 * for the out-of-sync state when the routing store is updated from the async
+	 * preload data.
+	 *
+	 * @see preload()
+	 */
+	afterUpdate(async () => {
+		if ('title' in model && 'slug' in model) {
+			route.update(existing => {
+				existing.title = model.title;
+				existing.path = model.slug;
+				existing.lang = model.lang;
+				return existing;
+			});
+		}
+	});
 </script>
 
 <svelte:head>

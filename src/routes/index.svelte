@@ -1,16 +1,20 @@
 <script>
 	import { route } from '../stores/route.js';
+	import { global_data } from '../stores/global_data.js';
 	import { homepage_masthead } from '../stores/homepage_masthead.js';
 	import { nav_menu_get_items } from '../components/nav/nav.js';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
 
-	const header = $homepage_masthead[$route.lang];
-	// const menu_main_items = nav_menu_get_items($route, 0);
-	let menu_main_items;
-	const unsubscribe = route.subscribe(value => {
-		menu_main_items = nav_menu_get_items(value, 0);
+	route.update(existing => {
+		existing.path = "";
+		existing.title = global_data.site_name;
+		existing.lang = "pt";
+		return existing;
 	});
+
+	const header = $homepage_masthead[$route.lang];
+	let menu_main_items = nav_menu_get_items($route, 0);
 </script>
 
 <svelte:head>
