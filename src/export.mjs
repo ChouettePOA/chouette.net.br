@@ -12,18 +12,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { exec } from 'child_process';
-// import * as menu_main from './content/menu/main.json'
 
-// List all paths that are not level 0 pages (i.e. the ones in main menu).
-// Update : just add them all instead (idempotent).
-let manual_entries = '';
+const paths_arr = [];
 const dir = 'src/content/page';
+
 fs.readdirSync(dir).map(file => {
 	if (fs.statSync(path.join(dir, file)).isFile()) {
-		manual_entries = manual_entries + " --entry '/" + path.parse(file).name + "'";
+		paths_arr.push('/' + path.parse(file).name);
 	}
 });
 
-console.log(manual_entries);
-
-exec(`sapper export --legacy ${manual_entries}`);
+exec(`npx sapper export --legacy --entry '${paths_arr.join(' ')}'`);
