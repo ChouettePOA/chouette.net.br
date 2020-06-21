@@ -46,7 +46,7 @@
 						<span class="icon-chevron-right p-h--s c-breadcrumb__sep" aria-hidden="true"></span>
 					{/if}
 					<span class="c-breadcrumb__item" itemprop="child" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-						<a itemprop="url" href="/{ path }">
+						<a itemprop="url" href="/{ path }" rel=prefetch>
 							<span itemprop="title">
 								{ title }
 							</span>
@@ -84,7 +84,7 @@
 					<div class="o-tgrid o-tgrid--gutter o-tgrid--bottom">
 						{#each menu_subnav_items as { path, title, is_active }, i}
 							<div class="o-tgrid__item">
-								<a href="/{ path }" class="c-subnav-link{ is_active ? ' active' : '' }">{ title }</a>
+								<a href="/{ path }" class="c-subnav-link{ is_active ? ' active' : '' }" rel=prefetch>{ title }</a>
 							</div>
 						{/each}
 					</div>

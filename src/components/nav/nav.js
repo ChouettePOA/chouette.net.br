@@ -3,7 +3,6 @@
  * Contains nav-related utilities.
  */
 
-// import { menu_main } from '../../stores/menu_main.js';
 import * as menu_main from '../../content/menu/main.json'
 import * as global_data from '../../content/global_data.json'
 
@@ -61,8 +60,6 @@ const nav_menu_get_items = (route, depth) => {
 
 /**
  * Returns breadcrumb items for given route (except the current page title).
- *
- * Level 0 is the main menu, level 1 is subnav, etc.
  *
  * @param {Oject} route
  * @param {Oject} model

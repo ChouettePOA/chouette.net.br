@@ -39,11 +39,10 @@
 	 * Implements Svelte afterUpdate "hook".
 	 *
 	 * Update current route page title from page data (model) for all descendant
-	 * components.
+	 * components once the DOM is in sync with data.
 	 *
-	 * Runs once the DOM is in sync with data. This is the only workaround found
-	 * for the out-of-sync state when the routing store is updated from the async
-	 * preload data.
+	 * This prevents out-of-sync state when the routing store is updated from the
+	 * async preloaded data.
 	 *
 	 * @see preload()
 	 */
