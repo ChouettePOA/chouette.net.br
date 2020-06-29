@@ -7,7 +7,7 @@
 	const remaining_text = text.substr(1);
 </script>
 
-<span aria-labelledby="dropcap-{id}" role="text">
+<span aria-labelledby="dropcap-{id}">
 	<span aria-hidden="true">
 		<span class="u-dropcap">{first_letter}</span>
 		{remaining_text}

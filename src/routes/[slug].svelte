@@ -32,6 +32,7 @@
 	import { afterUpdate } from 'svelte';
 	import { route } from '../stores/route.js';
 	import Header from '../components/header/Header.svelte';
+	import Content from '../components/Content.svelte';
 
 	export let model;
 
@@ -62,11 +63,10 @@
 	<title>{ $route.title } | { $route.site_name }</title>
 </svelte:head>
 
-<!-- <Header bind:route={$route} {model} /> -->
 <Header {model} />
 
 <main id="main-content">
-	<h1>{ $route.title }</h1>
+	<Content content={model.content} />
 </main>
 
 <!-- DEBUG -->

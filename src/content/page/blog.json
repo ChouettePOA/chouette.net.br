@@ -1,5 +1,15 @@
 {
 	"lang": "pt",
 	"title": "Blog",
-	"content": "test"
+	"content": [
+		{
+			"c": "Text",
+			"props": {
+				"attr": {
+					"class": "u-fs-m p-percent"
+				},
+				"text": "Test"
+			}
+		}
+	]
 }
