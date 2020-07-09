@@ -2,23 +2,32 @@
  * @file
  * Implements pre-commit git hook.
  *
- * TODO [wip] rebuild page routing trails cache, then stage if changed before
- * committing.
+ * Rebuilds dynamic files before committing. If any versionned dynamic files
+ * have changed, automatically stage them.
  */
 
 const { exec } = require('child_process');
-const { cache_page_routing_trails } = require('../lib/cache');
-
-cache_page_routing_trails();
 
 exec(
-	"git diff --name-only --cached",
+	"node src/cache_rebuild.js && git diff --name-only",
 	(err, stdout, stderr) => {
 		if (err) {
+			console.log(stderr);
 			console.log(err);
 			return;
 		}
-		// TODO [wip] look for the cache file. If changed, stage it.
-		console.log(stdout);
+
+		// Look for any versionned dynamic files. If changed, stage them.
+		stdout.split("\n").map(diff_line => {
+			if (!diff_line.length) {
+				return;
+			}
+			switch (diff_line) {
+				case 'src/components/Content.svelte':
+				case 'src/cache/page_routing_trails.json':
+					exec(`git add ${diff_line}`);
+					break;
+			}
+		})
 	}
 );
