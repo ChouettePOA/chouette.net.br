@@ -8,6 +8,9 @@
 				"attr": {
 					"class": "u-fs-m p-percent"
 				},
+				"options": {
+					"dropcap": true
+				},
 				"text": "Test"
 			}
 		}

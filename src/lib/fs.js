@@ -16,7 +16,7 @@ const path = require('path');
  * @returns {Array} List of file paths sorted by name.
  */
 const walk = (dir, extension) => {
-	const files = [];
+	let files = [];
 	fs.readdirSync(dir).map(file => {
 		if (fs.statSync(path.join(dir, file)).isFile()) {
 			if (extension === undefined || path.extname(file) === extension) {
