@@ -61,6 +61,14 @@
 
 <svelte:head>
 	<title>{ $route.title } | { $route.site_name }</title>
+	{#if $route.description }
+		<meta name="description" content="{ $route.description }">
+	{/if}
+	{#if $route.poster_image }
+		<meta property="og:image" content="{ $route.poster_image }">
+	{:else}
+		<meta property="og:image" content="/theme/chouette-logo-1200x630.png">
+	{/if}
 </svelte:head>
 
 <Header {model} />

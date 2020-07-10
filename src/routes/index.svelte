@@ -24,6 +24,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 
 <svelte:head>
 	<title>{ $route.site_name }</title>
+	<meta property="og:image" content="/theme/chouette-logo-1200x630.png">
 </svelte:head>
 
 <!-- DEBUG -->
@@ -47,7 +48,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 				</div>
 				<h1 class="c-header__logo bg-content u-center">
 					<div class="c-header__logo-img">
-						<img src="/theme/chouette-logo.svg" alt="{ $route.site_name } - Cursos de Francês" />
+						<img src="/theme/chouette-logo.svg" alt="{ global_data.site_name }" />
 					</div>
 				</h1>
 			</header>
