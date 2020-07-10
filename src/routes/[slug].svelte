@@ -62,7 +62,7 @@
 	});
 </script>
 
-<Meta route={$route} />
+<Meta />
 
 <Header {model} />
 

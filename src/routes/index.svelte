@@ -24,7 +24,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 	let menu_main_items = nav_menu_get_items($route, 0);
 </script>
 
-<Meta route={$route} />
+<Meta />
 
 <!-- DEBUG -->
 <!-- <pre>index.svelte : global_data = {JSON.stringify(global_data, null, 2)}</pre> -->
