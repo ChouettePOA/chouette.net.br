@@ -68,6 +68,7 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': true,
+				'process.env.BASE_URL': process.env.BASE_URL ? process.env.BASE_URL : 'https://www.chouette.net.br',
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			json({
@@ -116,6 +117,7 @@ export default {
 		plugins: [
 			replace({
 				'process.browser': false,
+				'process.env.BASE_URL': process.env.BASE_URL ? process.env.BASE_URL : 'https://www.chouette.net.br',
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			json({
@@ -151,6 +153,7 @@ export default {
 			resolve(),
 			replace({
 				'process.browser': true,
+				'process.env.BASE_URL': process.env.BASE_URL ? process.env.BASE_URL : 'https://www.chouette.net.br',
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			commonjs(),

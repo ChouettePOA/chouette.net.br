@@ -31,6 +31,7 @@
 <script>
 	import { afterUpdate } from 'svelte';
 	import { route } from '../stores/route.js';
+	import Meta from '../components/Meta.svelte';
 	import Header from '../components/header/Header.svelte';
 	import Content from '../components/Content.svelte';
 
@@ -53,23 +54,15 @@
 				existing.title = model.title;
 				existing.path = model.slug;
 				existing.lang = model.lang;
+				existing.description = model.description;
+				existing.image = model.poster_image;
 				return existing;
 			});
 		}
 	});
 </script>
 
-<svelte:head>
-	<title>{ $route.title } | { $route.site_name }</title>
-	{#if $route.description }
-		<meta name="description" content="{ $route.description }">
-	{/if}
-	{#if $route.poster_image }
-		<meta property="og:image" content="{ $route.poster_image }">
-	{:else}
-		<meta property="og:image" content="/theme/chouette-logo-1200x630.png">
-	{/if}
-</svelte:head>
+<Meta route={$route} />
 
 <Header {model} />
 

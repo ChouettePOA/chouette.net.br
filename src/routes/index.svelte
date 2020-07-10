@@ -6,6 +6,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 	import { route } from '../stores/route.js';
 	import { getContext } from 'svelte';
 	import { nav_menu_get_items } from '../components/nav/nav.js';
+	import Meta from '../components/Meta.svelte';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
 
@@ -14,6 +15,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 	route.update(existing => {
 		existing.path = "";
 		existing.title = global_data.site_name;
+		existing.description = "Escola de língua francesa em Porto Alegre para ensinar e trocar conhecimentos e experiências em torno da cultura francófona.";
 		existing.lang = "pt";
 		return existing;
 	});
@@ -22,10 +24,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 	let menu_main_items = nav_menu_get_items($route, 0);
 </script>
 
-<svelte:head>
-	<title>{ $route.site_name }</title>
-	<meta property="og:image" content="/theme/chouette-logo-1200x630.png">
-</svelte:head>
+<Meta route={$route} />
 
 <!-- DEBUG -->
 <!-- <pre>index.svelte : global_data = {JSON.stringify(global_data, null, 2)}</pre> -->
