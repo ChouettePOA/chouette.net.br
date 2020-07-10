@@ -7,6 +7,13 @@ import * as menu_main from '../../content/menu/main.json'
 import * as global_data from '../../content/global_data.json'
 
 /**
+ * Returns "short_title" if it exists or "title" from given object.
+ */
+const nav_item_get_title = (o) => {
+	return o.short_title ? o.short_title : o.title;
+};
+
+/**
  * Returns menu items of given level (= depth) for given route.
  *
  * Level 0 is the main menu, level 1 is subnav, etc.
@@ -92,7 +99,7 @@ const nav_breadcrumb_get_items = (route, model) => {
 	const items_reversed = [];
 
 	items_reversed.push({
-		"title": route.trails[parent_path].title,
+		"title": nav_item_get_title(route.trails[parent_path]),
 		"path": parent_path
 	});
 
@@ -100,7 +107,7 @@ const nav_breadcrumb_get_items = (route, model) => {
 	while (back_to_root >= 0) {
 		if (route.trails[parent_path].hasOwnProperty(`active_lv${back_to_root}`)) {
 			items_reversed.push({
-				"title": route.trails[`active_lv${back_to_root}`].title,
+				"title": nav_item_get_title(route.trails[`active_lv${back_to_root}`]),
 				"path": route.trails[`active_lv${back_to_root}`].path
 			});
 		}
@@ -113,4 +120,4 @@ const nav_breadcrumb_get_items = (route, model) => {
 	return items;
 };
 
-export { nav_menu_get_items, nav_breadcrumb_get_items };
+export { nav_item_get_title, nav_menu_get_items, nav_breadcrumb_get_items };

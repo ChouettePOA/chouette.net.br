@@ -13,6 +13,13 @@ const path = require('path');
 const { walk } = require('./fs');
 
 /**
+ * Returns "short_title" if it exists or "title" from given object.
+ */
+const page_get_title = (o) => {
+	return o.short_title ? o.short_title : o.title;
+};
+
+/**
  * Builds pages' routing trails dictionary object ("hash table" by slug).
  *
  * It provides levels 1+ menus and ancestor links' active state.
@@ -92,13 +99,13 @@ const build_page_routing_trails = () => {
 							trails[page_path] = {};
 						}
 						trails[page_path].depth = current_depth;
-						trails[page_path].title = page_data.title;
+						trails[page_path].title = page_get_title(page_data);
 						if (!trails[page_path].children) {
 							trails[page_path].children = [];
 						}
 						trails[page_path].children.push({
 							"path": next_depth_item.path,
-							"title": next_depth_item.title
+							"title": page_get_title(next_depth_item)
 						});
 					}
 				})
