@@ -29,18 +29,20 @@ const content_component_update = () => {
 	let generated_imports = '';
 	let generated_contents = '';
 
-	walk('src/components', '.svelte').map((file_path) => {
+	walk('src/components/content', '.svelte').map((file_path) => {
 		component = path.parse(file_path).name;
-		file_path = file_path.replace('src/', '../');
+		file_path = file_path.replace('src/components/', './');
 
 		// Some exclusions - i.e. Content component itself, main menu, etc.
-		switch (component) {
-			case 'Content':
-			case 'MenuMain':
-			case 'Header':
-			case 'DropCap':
-				return;
-		}
+		// Update : we now only look for "rich content" components inside the
+		// 'content' subfolder. No more exclusions.
+		// switch (component) {
+		// 	case 'Content':
+		// 	case 'MenuMain':
+		// 	case 'Header':
+		// 	case 'DropCap':
+		// 		return;
+		// }
 
 		if (n === 0) {
 			generated_op = '#if';

@@ -1,18 +1,6 @@
 {
 	"lang": "pt",
 	"title": "Blog",
-	"content": [
-		{
-			"c": "Text",
-			"props": {
-				"attr": {
-					"class": "u-fs-m p-percent"
-				},
-				"options": {
-					"dropcap": true
-				},
-				"text": "Test"
-			}
-		}
-	]
+	"description": "Ultimas noticias da Chouette - Institut de Français.",
+	"content": []
 }

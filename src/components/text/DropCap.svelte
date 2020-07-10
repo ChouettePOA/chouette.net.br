@@ -1,5 +1,8 @@
 <script>
 	export let text = "Demo";
+	export let variant = "u-dropcap";
+	// export let variant = "u-dropcap--l";
+
 	const id = Math.random()
 		.toString(36)
 		.substr(2, 9);
@@ -9,7 +12,7 @@
 
 <span aria-labelledby="dropcap-{id}">
 	<span aria-hidden="true">
-		<span class="u-dropcap">{first_letter}</span>
+		<span class="{variant}">{first_letter}</span>
 		{remaining_text}
 	</span>
 	<span id="dropcap-{id}" class="u-sr-only">{text}</span>

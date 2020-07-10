@@ -1,13 +1,10 @@
 <script>
-import Meta from '../components/Meta.svelte';
-import Text from '../components/text/Text.svelte';
+import Lede from './content/Lede.svelte';
 export let content = [];
 </script>
 
 {#each content as { c, props }}
-	{#if c === 'Meta'}
-		<Meta {...props} />
-	{:else if c === 'Text'}
-		<Text {...props} />
+	{#if c === 'Lede'}
+		<Lede {...props} />
 	{/if}
 {/each}

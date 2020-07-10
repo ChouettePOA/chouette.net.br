@@ -1,6 +1,8 @@
 {
 	"lang": "pt",
 	"title": "Um método atual",
+	"short_title": "Método",
+	"description": "O método da Chouette foi desenvolvido pelas criadoras do Instituto, Bia Isabel Noy e Marina Pelle. Ele é baseado na experiência do ensino do francês e principalmente na pesquisa da didática atual chamada Abordagem Acional (Approche Actionnelle). O objetivo é proporcionar uma experiência próxima do que você poderia encontrar em um pais francófono, para que você se sinta independente e seguro em diferentes situações.",
 	"parent_pages": ["sobre-a-escola"],
-	"content": "test"
+	"content": []
 }

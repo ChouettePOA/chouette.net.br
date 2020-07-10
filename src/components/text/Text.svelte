@@ -5,7 +5,8 @@
 		class: "clearfix"
 	};
 	export let options = {
-		dropcap: false
+		dropcap: false,
+		dropcap_variant: "u-dropcap",
 	};
 	export let text = `Demonstrating the Text component. This paragraph of text ${
 		options.dropcap ? "has" : "doesn't have"
@@ -20,7 +21,7 @@
 
 <p {...attr}>
 	{#if options.dropcap}
-		<DropCap text={first_word} />
+		<DropCap text={first_word} variant={options.dropcap_variant} />
 	{/if}
 	{text}
 	<slot />
