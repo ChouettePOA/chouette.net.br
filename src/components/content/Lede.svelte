@@ -4,10 +4,12 @@
 	export let text = '';
 </script>
 
-<Responsive>
-	<div class="m-v--xl p-percent-h">
-		<Text {text}
-			options={{ "dropcap":true, "dropcap_variant":"u-dropcap--l" }}
-			attr={{ "class":"c-text-block u-fs-m" }} />
-	</div>
+<style>
+/* .SM */
+</style>
+
+<Responsive attr={{ "class":"m-v--xl p-percent-h", "data-width-breaks":"5rem, 10rem, 20rem" }}>
+	<Text {text}
+		options={{ "dropcap":true, "dropcap_variant":"u-dropcap--l" }}
+		attr={{ "class":"c-text-block u-fs-m" }} />
 </Responsive>
