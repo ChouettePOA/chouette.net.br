@@ -15,7 +15,7 @@
 			"props": {
 				"title": "Biblioteca",
 				"text": "A escola conta com uma biblioteca composta por livros que acompanham todos os níveis oferecidos pela Chouette, além de jornais e revistas.",
-				"image": "content/media/2020/07/biblioteca.jpg",
+				"image": "media/2020/07/biblioteca.jpg",
 				"image_alt": "Biblioteca da escola"
 			}
 		},
@@ -24,7 +24,7 @@
 			"props": {
 				"title": "Chouette?",
 				"text": "Chouette, em francês significa “coruja”, animal de olhos atentos que é conhecido popularmente por ser o símbolo do conhecimento, além disso, na língua francesa, “chouette” é uma gíria para dizer “ótimo”, “muito bom”, “legal”!",
-				"image": "content/media/2020/07/mesa-cafe-livros.jpg",
+				"image": "media/2020/07/mesa-cafe-livros.jpg",
 				"image_alt": "Mesa, café, livros"
 			}
 		}

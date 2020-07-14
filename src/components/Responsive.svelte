@@ -16,7 +16,7 @@
 	 *
 	 * @see observed_element_toggle_classes()
 	 */
-	const resize_observer_get_pixels = (value, el) => {
+	const ro_get_pixels = (value, el) => {
 		let test = document.createElement('div');
 		Object.assign(test.style, {
 			position: 'absolute',
@@ -33,16 +33,16 @@
 	 *
 	 * TODO implement a way to override this.
 	 */
-	const observed_element_get_prefix = () => '';
+	const ro_get_class_prefix = () => '';
 
 	/**
 	 * Utility to toggle classes on individual elements.
 	 */
 	const observed_element_toggle_classes = (watched, dimension, value, contentRect) => {
 		const length = dimension === 'w' ? contentRect.width : contentRect.height;
-		const q = length <= resize_observer_get_pixels(value, watched);
-		watched.target.classList.toggle(`${observed_element_get_prefix()}${dimension}-lte-${value}`, q);
-		watched.target.classList.toggle(`${observed_element_get_prefix()}${dimension}-gt-${value}`, !q);
+		const q = length <= ro_get_pixels(value, watched);
+		watched.target.classList.toggle(`${ro_get_class_prefix()}${dimension}-lte-${value}`, q);
+		watched.target.classList.toggle(`${ro_get_class_prefix()}${dimension}-gt-${value}`, !q);
 	};
 
 	/**
@@ -75,9 +75,9 @@
 
 		// Orientation classes to mimic the orientation @media query.
 		const ratio = contentRect.width / contentRect.height;
-		watched.target.classList.toggle(`${observed_element_get_prefix()}is-landscape`, ratio > 1);
-		watched.target.classList.toggle(`${observed_element_get_prefix()}is-portrait`, ratio < 1);
-		watched.target.classList.toggle(`${observed_element_get_prefix()}is-square`, ratio == 1);
+		watched.target.classList.toggle(`${ro_get_class_prefix()}is-landscape`, ratio > 1);
+		watched.target.classList.toggle(`${ro_get_class_prefix()}is-portrait`, ratio < 1);
+		watched.target.classList.toggle(`${ro_get_class_prefix()}is-square`, ratio == 1);
 	};
 
 	/**
@@ -97,43 +97,29 @@
 </script>
 
 <script>
-	import { onMount, onDestroy } from 'svelte';
-
 	export let attr = {};
 	export let w = '';
 	export let h = '';
 
-	let component_instance;
-
 	/**
-	 * Implements Svelte onMount() hook.
+	 * Implements Svelte 'use' hook (action).
 	 *
-	 * Adds the DOM element corresponding to this component instance to the list
-	 * observed by our ResizeObserver singleton.
-	 *
-	 * @see resize_observer_singleton()
+	 * Called when an element is created = mounted in the DOM.
+	 * Can return an object with a destroy method that is called after the element
+	 * is unmounted.
 	 */
-	onMount(async () => {
+	const init = component_instance => {
 		const ro = resize_observer_singleton();
 		ro.observe(component_instance);
-	});
 
-	/**
-	 * Implements Svelte onDestroy() hook.
-	 *
-	 * Removes the DOM element corresponding to this component instance from the
-	 * list observed by our ResizeObserver singleton.
-	 *
-	 * @see resize_observer_singleton()
-	 */
-	onDestroy(async () => {
-		if (component_instance) {
-			const ro = resize_observer_singleton();
-			ro.unobserve(component_instance);
-		}
-	});
+		return {
+			destroy() {
+				ro.unobserve(component_instance);
+			}
+		};
+	};
 </script>
 
-<div bind:this={component_instance} data-width-breaks={w} data-height-breaks={h} {...attr}>
+<div use:init data-width-breaks={w} data-height-breaks={h} {...attr}>
   <slot></slot>
 </div>
