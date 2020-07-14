@@ -18,8 +18,7 @@
     "cross-fetch": "^3.0.4",
     "fontfaceobserver": "^2.1.0",
     "polka": "next",
-    "sirv": "^0.4.0",
-    "watched-box": "github:Heydon/watched-box"
+    "sirv": "^0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
