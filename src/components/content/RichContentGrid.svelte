@@ -13,19 +13,29 @@
 <style>
 	.container {
 		display: grid;
+		gap: 1rem;
+		place-items: stretch;
 		grid-template-columns: auto 30rem 30rem auto;
-		column-gap: 1rem;
-		row-gap: 1rem;
+		grid-template-rows: auto;
+	}
+	.container > * {
+		grid-row: var(--grid-row);
+	}
+	.img {
+		grid-column: 2;
+	}
+	.body {
+		grid-column: 3;
 	}
 </style>
 
-<Responsive w="33rem" attr={{ "class":"bg-content" }}>
+<Responsive w="43rem, 75rem" attr={{ "class":"bg-content" }}>
 	<div class="container">
-		{#each items as item}
-			<div class="img">
+		{#each items as item, i}
+			<div class="img { `img-${i}` }" style="--grid-row:{i + 1}">
 				<img src="{ item.image }" alt="{ item.image_alt }" />
 			</div>
-			<div class="body">
+			<div class="body { `body-${i}` }" style="--grid-row:{i + 1}">
 				{#if item.title }
 					<h2 class="c-title-1">{ item.title }</h2>
 				{/if}
