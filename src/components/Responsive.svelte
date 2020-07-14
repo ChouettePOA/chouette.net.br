@@ -22,9 +22,9 @@
 			position: 'absolute',
 			width: value
 		});
-		el.appendChild(test);
+		el.target.appendChild(test);
 		let pixels = test.offsetWidth;
-		el.removeChild(test);
+		el.target.removeChild(test);
 		return pixels;
 	};
 
@@ -59,14 +59,14 @@
 	const observed_element_update = (watched) => {
 		const contentRect = watched.contentRect;
 
-		const widths = watched.target.dataset["width-breaks"];
+		const widths = watched.target.dataset.widthBreaks;
 		if (widths && widths.length) {
 			widths.replace(/ /g, '').split(',').forEach(width => {
 				observed_element_toggle_classes(watched, 'w', width, contentRect);
 			});
 		}
 
-		const heights = watched.target.dataset["height-breaks"];
+		const heights = watched.target.dataset.heightBreaks;
 		if (heights && heights.length) {
 			heights.replace(/ /g, '').split(',').forEach(height => {
 				observed_element_toggle_classes(watched, 'h', height, contentRect);
@@ -99,7 +99,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	export let attr = {};
-	let component_dom_element;
+	let component_instance;
 
 	/**
 	 * Implements Svelte onMount() hook.
@@ -111,7 +111,7 @@
 	 */
 	onMount(async () => {
 		const ro = resize_observer_singleton();
-		ro.observe(component_dom_element);
+		ro.observe(component_instance);
 	});
 
 	/**
@@ -123,13 +123,13 @@
 	 * @see resize_observer_singleton()
 	 */
 	onDestroy(async () => {
-		if (component_dom_element) {
+		if (component_instance) {
 			const ro = resize_observer_singleton();
-			ro.unobserve(component_dom_element);
+			ro.unobserve(component_instance);
 		}
 	});
 </script>
 
-<div bind:this={component_dom_element} {...attr}>
+<div bind:this={component_instance} {...attr}>
   <slot></slot>
 </div>

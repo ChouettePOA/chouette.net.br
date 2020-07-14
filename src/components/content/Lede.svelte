@@ -8,7 +8,7 @@
 /* .SM */
 </style>
 
-<Responsive attr={{ "class":"m-v--xl p-percent-h", "data-width-breaks":"5rem, 10rem, 20rem" }}>
+<Responsive attr={{ "class":"m-v--xl p-percent-h", "data-width-breaks":"15rem, 30rem, 50rem" }}>
 	<Text {text}
 		options={{ "dropcap":true, "dropcap_variant":"u-dropcap--l" }}
 		attr={{ "class":"c-text-block u-fs-m" }} />
