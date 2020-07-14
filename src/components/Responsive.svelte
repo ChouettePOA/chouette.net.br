@@ -98,7 +98,11 @@
 
 <script>
 	import { onMount, onDestroy } from 'svelte';
+
 	export let attr = {};
+	export let w = '';
+	export let h = '';
+
 	let component_instance;
 
 	/**
@@ -130,6 +134,6 @@
 	});
 </script>
 
-<div bind:this={component_instance} {...attr}>
+<div bind:this={component_instance} data-width-breaks={w} data-height-breaks={h} {...attr}>
   <slot></slot>
 </div>
