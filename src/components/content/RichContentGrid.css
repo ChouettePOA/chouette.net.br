@@ -13,13 +13,13 @@
 .w-gt-75rem > .c-rc-grid .c-rc-grid__img {
 	grid-column: 2;
 }
-.w-gt-75rem > .c-rc-grid .c-rc-grid__img.c-rc-grid__img--odd {
+.w-gt-75rem > .c-rc-grid .c-rc-grid__img.is-odd {
 	grid-column: 3;
 }
 
 .w-gt-75rem > .c-rc-grid .c-rc-grid__body {
 	grid-column: 3;
 }
-.w-gt-75rem > .c-rc-grid .c-rc-grid__body.c-rc-grid__body--odd {
+.w-gt-75rem > .c-rc-grid .c-rc-grid__body.is-odd {
 	grid-column: 2;
 }

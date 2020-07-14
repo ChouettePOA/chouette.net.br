@@ -13,10 +13,10 @@
 <Responsive w="43rem, 75rem" attr={{ "class":"bg-content p-v--l" }}>
 	<div class="c-rc-grid">
 		{#each items as item, i}
-			<div class="c-rc-grid__img { `RichContentGrid-img--${i % 2 == 0 ? 'even' : 'odd'}` }" style="--row:{i + 1}">
+			<div class="c-rc-grid__img { i % 2 == 0 ? '' : 'is-odd' }" style="--row:{i + 1}">
 				<img src="{ item.image }" alt="{ item.image_alt }" />
 			</div>
-			<div class="c-rc-grid__body { `RichContentGrid-body--${i % 2 == 0 ? 'even' : 'odd'}` }" style="--row:{i + 1}">
+			<div class="c-rc-grid__body { i % 2 == 0 ? '' : 'is-odd' }" style="--row:{i + 1}">
 				{#if item.title }
 					<h2 class="c-title-1">{ item.title }</h2>
 				{/if}
