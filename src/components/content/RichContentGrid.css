@@ -1,0 +1,25 @@
+
+.w-gt-75rem > .c-rc-grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: auto 30rem 30rem auto;
+	grid-template-rows: auto;
+}
+
+.w-gt-75rem > .c-rc-grid > * {
+	grid-row: var(--row);
+}
+
+.w-gt-75rem > .c-rc-grid .c-rc-grid__img {
+	grid-column: 2;
+}
+.w-gt-75rem > .c-rc-grid .c-rc-grid__img.c-rc-grid__img--odd {
+	grid-column: 3;
+}
+
+.w-gt-75rem > .c-rc-grid .c-rc-grid__body {
+	grid-column: 3;
+}
+.w-gt-75rem > .c-rc-grid .c-rc-grid__body.c-rc-grid__body--odd {
+	grid-column: 2;
+}
