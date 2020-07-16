@@ -46,7 +46,8 @@ const postcssPlugins = (purgecss = false) => {
 					}
 				],
 				// Whitelist selectors to stop Purgecss from removing them from your CSS.
-				whitelist: ['html', 'body']
+				whitelist: ['html', 'body'],
+				whitelistPatterns: [/^w-gt-|w-lte-|h-gt-|h-lte-|is-*/]
 			})
 	].filter(Boolean);
 };

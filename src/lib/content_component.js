@@ -54,21 +54,26 @@ const content_component_update = () => {
 		}
 		n++;
 
-		generated_imports += `import ${component} from '${file_path}';`;
+		generated_imports += `	import ${component} from '${file_path}';`;
 		generated_contents += `{${generated_op} c === '${component}'}
 		<${component} {...props} />
 	`;
 	});
 
-	fs.writeFileSync('src/components/Content.svelte', `<script>
+	const file_contents = `<script>
 ${generated_imports}
-export let content = [];
+	export let content = [];
 </script>
 
 {#each content as { c, props }}
 	${generated_contents}{/if}
 {/each}
-`	);
+`
+
+	fs.writeFileSync('src/components/Content.svelte', file_contents);
+
+	// TODO workaround circular dependency error... Deal breaker ?
+	// fs.writeFileSync('src/components/ContentInner.svelte', file_contents);
 }
 
 module.exports = {

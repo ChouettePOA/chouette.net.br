@@ -109,12 +109,12 @@
 	 * is unmounted.
 	 */
 	const init = component_instance => {
-		const ro = resize_observer_singleton();
-		ro.observe(component_instance);
+		const ro_singleton = resize_observer_singleton();
+		ro_singleton.observe(component_instance);
 
 		return {
 			destroy() {
-				ro.unobserve(component_instance);
+				ro_singleton.unobserve(component_instance);
 			}
 		};
 	};
