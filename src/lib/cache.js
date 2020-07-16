@@ -38,6 +38,7 @@ const build_page_routing_trails = () => {
 	let next_depth_paths = [];
 	let page_path = '';
 	let page_data = {};
+	let parent_page = '';
 
 	// First, organize all pages by depth - regardless of parent-child links.
 	// Level 0 (root) : all pages that have no parent.
@@ -45,7 +46,7 @@ const build_page_routing_trails = () => {
 		page_path = path.parse(file_path).name;
 		page_data = JSON.parse(fs.readFileSync(file_path).toString());
 		page_data.path = page_path;
-		if ('parent_pages' in page_data) {
+		if ('parent_page' in page_data) {
 			deeper_pages.push(page_data);
 		}
 		else {
@@ -62,16 +63,17 @@ const build_page_routing_trails = () => {
 	while (items_left > 0) {
 		next_depth_paths = [];
 		deeper_pages.forEach((page_data) => {
-			page_data.parent_pages.forEach((parent_page) => {
-				if (current_depth_paths.indexOf(parent_page) !== -1) {
-					if (!pages_by_depth[current_depth + 1]) {
-						pages_by_depth[current_depth + 1] = [];
-					}
-					pages_by_depth[current_depth + 1].push(page_data);
-					next_depth_paths.push(page_data.path);
-					items_left--;
+			parent_page = typeof page_data.parent_page === 'string' ?
+				page_data.parent_page :
+				page_data.parent_page.path ;
+			if (current_depth_paths.indexOf(parent_page) !== -1) {
+				if (!pages_by_depth[current_depth + 1]) {
+					pages_by_depth[current_depth + 1] = [];
 				}
-			});
+				pages_by_depth[current_depth + 1].push(page_data);
+				next_depth_paths.push(page_data.path);
+				items_left--;
+			}
 		});
 		current_depth_paths = next_depth_paths;
 		current_depth++;
@@ -89,26 +91,29 @@ const build_page_routing_trails = () => {
 
 			// Set 'active' + populate children.
 			pages_by_depth[current_depth + 1].forEach(next_depth_item => {
-				next_depth_item.parent_pages.forEach((parent_page) => {
-					if (parent_page === page_path) {
-						if (!trails[next_depth_item.path]) {
-							trails[next_depth_item.path] = {};
-						}
-						trails[next_depth_item.path][`active_lv${current_depth}`] = page_path;
-						if (!trails[page_path]) {
-							trails[page_path] = {};
-						}
-						trails[page_path].depth = current_depth;
-						trails[page_path].title = page_get_title(page_data);
-						if (!trails[page_path].children) {
-							trails[page_path].children = [];
-						}
-						trails[page_path].children.push({
-							"path": next_depth_item.path,
-							"title": page_get_title(next_depth_item)
-						});
+				parent_page = typeof next_depth_item.parent_page === 'string' ?
+					next_depth_item.parent_page :
+					next_depth_item.parent_page.path ;
+				if (parent_page === page_path) {
+					if (!trails[next_depth_item.path]) {
+						trails[next_depth_item.path] = {};
 					}
-				})
+					trails[next_depth_item.path][`active_lv${current_depth}`] = page_path;
+					if (!trails[page_path]) {
+						trails[page_path] = {};
+					}
+					trails[page_path].depth = current_depth;
+					trails[page_path].title = page_get_title(page_data);
+					if (!trails[page_path].children) {
+						trails[page_path].children = [];
+					}
+					trails[page_path].children.push({
+						"weight": typeof next_depth_item.parent_page !== 'string' ?
+							next_depth_item.parent_page.weight : 0,
+						"path": next_depth_item.path,
+						"title": page_get_title(next_depth_item)
+					});
+				}
 			});
 
 			// Finally, build the levels 1+ nav links (siblings).
@@ -118,7 +123,7 @@ const build_page_routing_trails = () => {
 					let child_depth = page_data.depth + 1;
 					page_data.children.forEach(child_page => {
 						if (!trails[child_page.path][`menu_lv${child_depth}`]) {
-							trails[child_page.path][`menu_lv${child_depth}`] = [];
+							trails[child_page.path][`menu_lv${child_depth}`] = '';
 						}
 						trails[child_page.path][`menu_lv${child_depth}`] = page_path;
 

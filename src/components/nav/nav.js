@@ -51,7 +51,7 @@ const nav_menu_get_items = (route, depth) => {
 			item.is_active = (item.path == route.path);
 			items.push(item);
 		});
-		return items;
+		return items.sort((a, b) => parseFloat(a.weight) - parseFloat(b.weight));
 	}
 
 	if (`menu_lv${depth}` in current_trail && current_trail[`menu_lv${depth}`] in route.trails) {
@@ -85,12 +85,13 @@ const nav_breadcrumb_get_items = (route, model) => {
 	});
 
 	// Lookup parents trail if page has any parent.
-	if (!('parent_pages' in model)) {
+	if (!('parent_page' in model)) {
 		return items;
 	}
 
-	// TODO [evol] multi-parents tree postponed - we only use the last for now.
-	const parent_path = model.parent_pages.pop();
+	const parent_path = typeof model.parent_page === 'string' ?
+		model.parent_page :
+		model.parent_page.path;
 	if (!(parent_path in route.trails)) {
 		return items;
 	}

@@ -2,6 +2,9 @@
 	"lang": "pt",
 	"title": "Professores",
 	"description": "Bia Isabel Noy e Marina Pelle desenvolveram o método que você pode conhecer hoje na Chouette - Institut de Français.",
-	"parent_pages": ["sobre-a-escola"],
+	"parent_page": {
+		"path": "sobre-a-escola",
+		"weight": 1
+	},
 	"content": []
 }
