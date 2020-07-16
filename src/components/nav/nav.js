@@ -61,8 +61,7 @@ const nav_menu_get_items = (route, depth) => {
 			items.push(item);
 		});
 	}
-
-	return items;
+	return items.sort((a, b) => parseFloat(a.weight) - parseFloat(b.weight));
 };
 
 /**

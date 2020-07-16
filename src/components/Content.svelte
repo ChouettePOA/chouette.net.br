@@ -3,6 +3,7 @@ import Lede from './content/Lede.svelte';
 import Map from './content/Map.svelte';
 import MediaGrid from './content/MediaGrid.svelte';
 import TextCentered from './content/TextCentered.svelte';
+import TextGrid from './content/TextGrid.svelte';
 export let content = [];
 </script>
 
@@ -15,5 +16,7 @@ export let content = [];
 		<MediaGrid {...props} />
 	{:else if c === 'TextCentered'}
 		<TextCentered {...props} />
+	{:else if c === 'TextGrid'}
+		<TextGrid {...props} />
 	{/if}
 {/each}

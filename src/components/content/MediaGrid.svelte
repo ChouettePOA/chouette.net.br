@@ -19,7 +19,7 @@
 			{#if item.title }
 				<h2 class="c-title-1">{ item.title }</h2>
 			{/if}
-			<div class="s-rich-text">{ item.text }</div>
+			<div class="s-rich-text">{@html item.text }</div>
 		</div>
 	{/each}
 </Responsive>
