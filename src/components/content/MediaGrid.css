@@ -26,20 +26,20 @@
 	grid-row: var(--row);
 }
 
-.c-media-grid.w-gt-43rem .c-media-grid__img {
+.c-media-grid.w-gt-43rem > .c-media-grid__img {
 	grid-column: 2;
 	justify-self: end;
 }
-.c-media-grid.w-gt-43rem .c-media-grid__img.is-odd {
+.c-media-grid.w-gt-43rem > .c-media-grid__img.is-odd {
 	grid-column: 3;
 	justify-self: start;
 }
 
-.c-media-grid.w-gt-43rem .c-media-grid__body {
+.c-media-grid.w-gt-43rem > .c-media-grid__body {
 	grid-column: 3;
 	justify-self: start;
 }
-.c-media-grid.w-gt-43rem .c-media-grid__body.is-odd {
+.c-media-grid.w-gt-43rem > .c-media-grid__body.is-odd {
 	grid-column: 2;
 	justify-self: end;
 }
