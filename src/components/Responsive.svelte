@@ -4,7 +4,7 @@
 	// initialized on the client, because there's no such thing as ResizeObserver
 	// API for server-side rendering.
 	// @see resize_observer_singleton()
-	// @see onMount()
+	// @see init()
 	let ro = null;
 
 	/**
@@ -121,5 +121,5 @@
 </script>
 
 <div use:init data-width-breaks={w} data-height-breaks={h} {...attr}>
-  <slot></slot>
+  <slot />
 </div>

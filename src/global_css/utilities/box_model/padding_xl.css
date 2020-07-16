@@ -6,7 +6,7 @@
 :root {
 	--padding-xl: calc(var(--font-size) * var(--line-height) * 2);
 	--padding-ratio-xl: calc(var(--line-height) * 2);
-	--padding-ratio-xl-rem: calc(var(--padding-ratio-xl-rem) * 1rem);
+	--padding-ratio-xl-rem: calc(var(--padding-ratio-xl) * 1rem);
 }
 
 .p--xl {

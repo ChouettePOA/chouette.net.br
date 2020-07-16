@@ -8,9 +8,7 @@
 		dropcap: false,
 		dropcap_variant: "u-dropcap",
 	};
-	export let text = `Demonstrating the Text component. This paragraph of text ${
-		options.dropcap ? "has" : "doesn't have"
-	} a drop cap. Here are some more words to make this paragraph long enough for testing.`;
+	export let text = '';
 
 	let first_word = "";
 	if (options.dropcap) {
@@ -23,6 +21,6 @@
 	{#if options.dropcap}
 		<DropCap text={first_word} variant={options.dropcap_variant} />
 	{/if}
-	{text}
+	{@html text}
 	<slot />
 </p>

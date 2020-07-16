@@ -34,6 +34,7 @@
 	import Meta from '../components/Meta.svelte';
 	import Header from '../components/header/Header.svelte';
 	import Content from '../components/Content.svelte';
+	import Footer from '../components/Footer.svelte';
 
 	export let model;
 
@@ -69,6 +70,8 @@
 <main id="main-content">
 	<Content content={model.content} />
 </main>
+
+<Footer />
 
 <!-- DEBUG -->
 <!-- <pre>[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->

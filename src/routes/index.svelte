@@ -1,5 +1,5 @@
 <script context="module">
-import * as homepage_masthead from '../content/block/homepage_masthead.json'
+	import * as homepage_masthead from '../content/block/homepage_masthead.json'
 </script>
 
 <script>
@@ -9,6 +9,7 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 	import Meta from '../components/Meta.svelte';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
+	import Footer from '../components/Footer.svelte';
 
 	const global_data = getContext('global_data');
 
@@ -82,3 +83,4 @@ import * as homepage_masthead from '../content/block/homepage_masthead.json'
 </div>
 
 <!-- <main id="main-content"></main> -->
+<Footer />

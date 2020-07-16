@@ -11,7 +11,7 @@
 			}
 		},
 		{
-			"c": "RichContentGrid",
+			"c": "MediaGrid",
 			"props": {
 				"items": [
 					{
@@ -27,6 +27,12 @@
 						"image_alt": "Mesa, café, livros"
 					}
 				]
+			}
+		},
+		{
+			"c": "TextCentered",
+			"props": {
+				"text": "Chouette - Institut de Français localiza-se no Bom Fim, em uma casa acolhedora que está sempre de portas abertas para você!<br/><br/>Venha estudar e descobrir mais sobre a língua e a cultura francesa conosco!"
 			}
 		}
 	]
