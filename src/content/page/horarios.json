@@ -16,13 +16,12 @@
 					{
 						"c": "Table",
 						"props": {
-							"meta": {
-								"thead": [
-									"Nível",
-									"Intensivo",
-									"Extensivo"
-								]
-							},
+							"caption": "Segundo semestre de 2020",
+							"thead": [
+								"Nível",
+								"Intensivo",
+								"Extensivo"
+							],
 							"rows": [
 								[
 									"A1.1",

@@ -3,21 +3,22 @@
    * @file
    * Basic table component.
    */
-  export let meta = {};
   export let rows = [];
+  export let thead = [];
+  export let caption = '';
 </script>
 
 <table>
-  {#if meta.caption}
+  {#if caption}
     <caption>
-      {@html meta.caption }
+      {@html caption }
     </caption>
   {/if}
 
-	{#if meta.thead}
+	{#if thead.length}
 		<thead>
 			<tr>
-				{#each meta.thead as th}
+				{#each thead as th}
 					<th>{@html th }</th>
 				{/each}
 			</tr>

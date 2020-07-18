@@ -11,8 +11,7 @@
 	<div class="o-ibgrid o-ibgrid--center o-ibgrid--gutter-percent">
 		{#each items as item, i}
 			<div class="o-ibgrid__item u-fs-m u-desktop-w-1of2">
-				<Text text={item.text}
-					options={{ "dropcap":true, "dropcap_variant":"u-dropcap--l" }}
+				<Text text={item.text} dropcap={true} dropcap_variant="u-dropcap--l"
 					attr={{ "class":"p-b--l c-text-block s-rich-text" }} />
 			</div>
 		{/each}

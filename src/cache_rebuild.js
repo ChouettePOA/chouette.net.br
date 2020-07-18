@@ -7,7 +7,5 @@
  */
 
 const { cache_page_routing_trails } = require('./lib/cache');
-const { content_component_update } = require('./lib/content_component');
 
 cache_page_routing_trails();
-content_component_update();

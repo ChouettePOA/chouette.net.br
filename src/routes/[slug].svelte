@@ -33,8 +33,9 @@
 	import { route } from '../stores/route.js';
 	import Meta from '../components/Meta.svelte';
 	import Header from '../components/header/Header.svelte';
-	import Content from '../components/Content.svelte';
 	import Footer from '../components/Footer.svelte';
+
+	// placeholder://src/preprocess.js
 
 	export let model;
 
@@ -68,7 +69,9 @@
 <Header {model} />
 
 <main id="main-content">
-	<Content content={model.content} />
+	{#each model.content as { c, props }}
+		<!-- placeholder://src/preprocess.js -->
+	{/each}
 </main>
 
 <Footer />
