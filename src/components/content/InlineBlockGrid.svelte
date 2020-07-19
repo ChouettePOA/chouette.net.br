@@ -3,8 +3,6 @@
 	 * @file
 	 * Contains other "content" components that need to be laid out as an
 	 * inline-block grid.
-	 *
-	 * TODO wip: workaround circular dependency error (deal breaker) ?
 	 */
 	// placeholder://src/preprocess.js
 	export let content = [];
