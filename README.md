@@ -30,7 +30,7 @@ See how the content editing / hosting part was approached in these projects (if 
 - [Mavo](https://mavo.io/)
 - [NetlifyCMS](https://github.com/netlify/netlify-cms)
 
-## Current implementations
+## Features
 
 This section presents how basic, common needs were implemented on top of the chosen foundation - here : Sapper / Svelte.
 

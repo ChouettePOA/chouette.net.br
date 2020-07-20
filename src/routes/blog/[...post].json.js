@@ -1,15 +1,15 @@
 /**
  * @file
- * Maps content data for root-level page routes.
+ * Maps content data for blog post routes.
  *
- * @see src/routes/[slug].svelte
+ * @see src/routes/blog/[...post].svelte
  */
 
 const fs = require('fs');
 
 export async function get(req, res, next) {
-	const { slug } = req.params;
-	const file = 'src/content/page/' + slug + '.json';
+	let [year, month, slug] = req.params.post;
+	const file = `src/content/blog/${year}/${month}/${slug}.json`;
 
 	const content_json = fs.readFileSync(file).toString();
 

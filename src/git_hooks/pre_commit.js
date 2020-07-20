@@ -23,7 +23,6 @@ exec(
 				return;
 			}
 			switch (diff_line) {
-				case 'src/components/Content.svelte':
 				case 'src/cache/page_routing_trails.json':
 					exec(`git add ${diff_line}`);
 					break;

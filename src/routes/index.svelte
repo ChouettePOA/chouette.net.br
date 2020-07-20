@@ -6,7 +6,6 @@
 	import { route } from '../stores/route.js';
 	import { getContext } from 'svelte';
 	import { nav_menu_get_items } from '../components/nav/nav.js';
-	import Meta from '../components/Meta.svelte';
 	import MenuMain from '../components/nav/MenuMain.svelte';
 	import DropCap from '../components/text/DropCap.svelte';
 	import Footer from '../components/Footer.svelte';
@@ -24,8 +23,6 @@
 	const header = homepage_masthead[$route.lang];
 	let menu_main_items = nav_menu_get_items($route, 0);
 </script>
-
-<Meta />
 
 <!-- DEBUG -->
 <!-- <pre>index.svelte : global_data = {JSON.stringify(global_data, null, 2)}</pre> -->
