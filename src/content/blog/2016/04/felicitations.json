@@ -1,0 +1,27 @@
+{
+	"lang": "pt",
+	"title": "Félicitations !",
+	"short_title": "Félicitations",
+	"description": "Nous sommes très fières de nos élèves qui ont cartonné au test de Proficiência CAPES et qui ont réussi les niveaux B1 et B2.",
+	"content": [
+		{
+			"c": "Lede",
+			"props": {
+				"text": "Nous sommes très fières de nos élèves qui ont cartonné au test de \"Proficiência CAPES\" et qui ont réussi les niveaux B1 et B2. Toutes ces heures de travail, que ce soit aux cours de préparation ou à la maison, ont valu la peine ! Alors ?! Prêts à commémorer vos efforts avec du champagne en France ?"
+			}
+		},
+		{
+			"c": "MediaGrid",
+			"props": {
+				"items": [
+					{
+						"title": "Les Chouettes en France",
+						"text": "César B. Duarte, Greice Calloni, Carolina Bordinhão, Gabriela Susin, Gabriel Pereira Rolla, Vanessa Graeff, Gabriel Lorenzi, Rodrigo Dillenburg, Anna Paula Ehlert, Dionatan Cristiano, Gabriel Petry :<br/><br/>Bisous des profs Bia, Marina et Julia ! <3",
+						"image": "media/2016/04/felicitations-champagne.jpg",
+						"image_alt": "Trinquer au Champagne"
+					}
+				]
+			}
+		}
+	]
+}

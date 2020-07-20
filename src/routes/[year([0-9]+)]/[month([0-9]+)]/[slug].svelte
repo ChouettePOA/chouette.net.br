@@ -12,22 +12,26 @@
 	 * @see src/routes/blog/[...post].json.js
 	 */
 	export async function preload(page, session) {
-		let [year, month, slug] = page.params.post;
-		const res = await this.fetch(`${page.params.post.join('/')}.json`);
+		let {year, month, slug} = page.params;
+		const res = await this.fetch(`${year}/${month}/${slug}.json`);
 
 		if (res.status !== 200) {
-			this.error(res.status, `The path ${page.params.post.join('/')} was not found`);
+			this.error(res.status, `The path ${year}/${month}/${slug} was not found`);
 			return {};
 		}
 
 		const model = await res.json();
-		model.slug = page.params.post.join('/');
+		model.slug = `${year}/${month}/${slug}`;
+
+		// Specific nav state for blog posts.
+		model.parent_page = 'blog';
+
 		return { model };
 	}
 </script>
 
 <script>
-	import LayoutContentPage from '../../components/layout/LayoutContentPage.svelte';
+	import LayoutContentPage from '../../../components/layout/LayoutContentPage.svelte';
 	// placeholder://src/preprocess.js
 	export let model;
 </script>
