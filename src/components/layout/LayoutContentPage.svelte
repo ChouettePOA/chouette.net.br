@@ -7,6 +7,36 @@
 	export let model;
 
 	/**
+	 * TODO verifiy if in some cases it's faster to call this twice - in <script>
+	 * scope directly + in afterUpdate(), see below.
+	 */
+	const update_route = model => {
+		if ('title' in model && 'slug' in model) {
+			route.update(existing => {
+				existing.title = model.title;
+				existing.path = model.slug;
+				existing.lang = model.lang;
+				existing.description = model.description;
+				existing.image = model.poster_image;
+
+				// Allow to specify active menu items through the route store.
+				// @see src/routes/[year([0-9]+)]/[month([0-9]+)]/[slug].svelte
+				// @see src/components/nav/nav.js
+				if ('active_path' in model) {
+					existing.active_path = model.active_path;
+				}
+				else if ('active_path' in existing) {
+					delete existing.active_path;
+				}
+
+				return existing;
+			});
+		}
+	}
+
+	update_route(model);
+
+	/**
 	 * Implements Svelte afterUpdate "hook".
 	 *
 	 * Update current route page title from page data (model) for all descendant
@@ -16,16 +46,7 @@
 	 * async preloaded data.
 	 */
 	afterUpdate(async () => {
-		if ('title' in model && 'slug' in model) {
-			route.update(existing => {
-				existing.title = model.title;
-				existing.path = model.slug;
-				existing.lang = model.lang;
-				existing.description = model.description;
-				existing.image = model.poster_image;
-				return existing;
-			});
-		}
+		update_route(model);
 	});
 </script>
 

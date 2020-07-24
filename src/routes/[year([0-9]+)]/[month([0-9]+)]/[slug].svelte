@@ -24,7 +24,9 @@
 		model.slug = `${year}/${month}/${slug}`;
 
 		// Specific nav state for blog posts.
-		model.parent_page = 'blog';
+		// @see src/components/layout/LayoutContentPage.svelte
+		// @see src/components/nav/nav.js
+		model.active_path = 'blog';
 
 		return { model };
 	}

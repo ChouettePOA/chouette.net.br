@@ -28,14 +28,20 @@ const nav_menu_get_items = (route, depth) => {
 		return items;
 	}
 
-	// Root-level = main menu items : active state is current path.
+	// Root-level = main menu items : active state is current path, or it can be
+	// specifically provided through model.active_path.
+	// @see src/routes/[year([0-9]+)]/[month([0-9]+)]/[slug].svelte
+	// @see src/components/layout/LayoutContentPage.svelte
 	if (!depth) {
 		let active_lv0_path = route.path;
 		if (route.path in route.trails && `active_lv${depth}` in route.trails[route.path]) {
 			active_lv0_path = route.trails[route.path][`active_lv${depth}`];
 		}
 		menu_main[route.lang].forEach(item => {
-			item.is_active = (item.path == active_lv0_path);
+			item.is_active = (
+				item.path == active_lv0_path
+				|| (('active_path' in route) && item.path == route.active_path)
+			);
 			items.push(item);
 		});
 		return items;
