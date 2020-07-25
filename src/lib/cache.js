@@ -22,7 +22,11 @@ const page_get_title = (o) => {
 /**
  * Builds pages' routing trails dictionary object ("hash table" by slug).
  *
- * It provides levels 1+ menus and ancestor links' active state.
+ * It provides levels 1+ menus and ancestor links' active state. This does not
+ * work with a tree representing page navigation hierarchy. It is meant for
+ * rendering sub-menus of any depth, and for determining which items are to be
+ * marked "active" in higher levels (i.e. menu items state, but also
+ * breadcrumbs).
  *
  * @returns {Object} keyed by page slug, contains which nav links are active by
  * 	depth level. Level 0 (root) items are read from "menu" content. Level 1+
@@ -164,7 +168,28 @@ const cache_page_routing_trails = () => {
 	fs.writeFileSync('src/cache/page_routing_trails.json', JSON.stringify(build_page_routing_trails()));
 }
 
+/**
+ * WIP : Builds views cache.
+ *
+ * A view is like a collection of entities to be rendered as a block. It binds
+ * together filters, sorting criterias, and presentational options.
+ *
+ * TODO evaluate "exposed" capability (i.e. using URL params like for pagers).
+ */
+const build_views_results = () => {
+	// TODO
+};
+
+/**
+ * Writes the views cache to a JSON static file.
+ *
+ * @see build_views_results()
+ */
+const cache_views_results = () => {
+	// TODO
+}
+
 module.exports = {
-	"build_page_routing_trails": build_page_routing_trails,
+	"cache_views_results": cache_views_results,
 	"cache_page_routing_trails": cache_page_routing_trails
 };

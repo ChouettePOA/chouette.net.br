@@ -5,6 +5,9 @@
 </script>
 
 <svelte:head>
+	<!-- This website is an experiment, do not index. -->
+	<meta name="robots" content="noindex" />
+
 	<title>{ $route.title + (($route.title != global_data.site_name) ? ' | ' + global_data.site_name : '') }</title>
 	<meta property="og:title" content="{ $route.title }">
 	<meta property="og:description" content="{ $route.description }">
