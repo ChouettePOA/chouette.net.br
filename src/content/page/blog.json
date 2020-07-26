@@ -2,5 +2,20 @@
 	"lang": "pt",
 	"title": "Blog",
 	"description": "Ultimas noticias da Chouette - Institut de Français.",
-	"content": []
+	"content": [
+		{
+			"c": "View",
+			"props": {
+				"filters": [
+					{"type": "blog"}
+				],
+				"display": {
+					"type": "ViewDisplayGrid",
+					"variant": "inline-block",
+					"options": ["center", "gutter-l"],
+					"view_mode": "Card"
+				}
+			}
+		}
+	]
 }
