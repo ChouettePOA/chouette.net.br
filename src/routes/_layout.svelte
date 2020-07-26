@@ -1,5 +1,5 @@
 <script context="module">
-	import * as global_data from '../content/global_data.json';
+	import * as global_data from '../entities/global_data.json';
 </script>
 
 <script>

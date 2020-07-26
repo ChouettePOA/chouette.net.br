@@ -3,8 +3,8 @@
  * Contains nav-related utilities.
  */
 
-import * as menu_main from '../../content/menu/main.json'
-import * as global_data from '../../content/global_data.json'
+import * as menu_main from '../../entities/menu/main.json'
+import * as global_data from '../../entities/global_data.json'
 
 /**
  * Returns "short_title" if it exists or "title" from given object.

@@ -17,7 +17,7 @@ const path = require('path');
 const { exec } = require('child_process');
 
 const paths = [];
-const dir = 'src/content/page';
+const dir = 'src/entities/content/page';
 
 fs.readdirSync(dir).map(file => {
 	if (fs.statSync(path.join(dir, file)).isFile()) {

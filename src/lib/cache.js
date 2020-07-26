@@ -46,7 +46,7 @@ const build_page_routing_trails = () => {
 
 	// First, organize all pages by depth - regardless of parent-child links.
 	// Level 0 (root) : all pages that have no parent.
-	walk('src/content/page', '.json').map((file_path) => {
+	walk('src/entities/content/page', '.json').map((file_path) => {
 		page_path = path.parse(file_path).name;
 		page_data = JSON.parse(fs.readFileSync(file_path).toString());
 		page_data.path = page_path;
@@ -169,7 +169,7 @@ const cache_page_routing_trails = () => {
 }
 
 /**
- * WIP : Builds views cache.
+ * Builds views cache.
  *
  * A view is like a collection of entities to be rendered as a block. It binds
  * together filters, sorting criterias, and presentational options.
@@ -177,16 +177,31 @@ const cache_page_routing_trails = () => {
  * TODO evaluate "exposed" capability (i.e. using URL params like for pagers).
  */
 const build_views_results = () => {
-	// TODO
+	// Find all occurrences of views in entities.
+	walk('src/entities/content', '.json').map(file_path => {
+		const data = JSON.parse(fs.readFileSync(file_path).toString());
+		if (!("content" in data) || typeof data.content !== 'object') {
+			return;
+		}
+		data.content.forEach(content => {
+			if (content.c === 'View') {
+				console.log(content);
+			}
+		});
+	});
 };
 
 /**
- * Writes the views cache to a JSON static file.
+ * Writes the views cache.
+ *
+ * Unlike cache_page_routing_trails(), the generated code will be "injected"
+ * directly in place (inside the entity definition where the view is placed).
  *
  * @see build_views_results()
  */
 const cache_views_results = () => {
 	// TODO
+	build_views_results();
 }
 
 module.exports = {

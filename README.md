@@ -36,7 +36,7 @@ This section presents how basic, common needs were implemented on top of the cho
 
 ### Content data model
 
-Each JSON file stored in folder `./src/content` corresponds to an entity. They represent a data format that could be provided by other means such as REST APIs. Subfolders represent entity types.
+Each JSON file stored in folder `./src/entities/content` corresponds to an entity. They represent a data format that could be provided by other means such as REST APIs. Subfolders represent entity types.
 
 ### Routing, page hierarchy, navigation state, active menu trail, breadcrumb
 

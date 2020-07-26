@@ -6,6 +6,7 @@
  * pre-build hook existed).
  */
 
-const { cache_page_routing_trails } = require('./lib/cache');
+const { cache_page_routing_trails, cache_views_results } = require('./lib/cache');
 
-cache_page_routing_trails();
+// cache_page_routing_trails();
+cache_views_results();

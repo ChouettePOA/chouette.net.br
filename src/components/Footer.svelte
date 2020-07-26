@@ -1,5 +1,5 @@
 <script context="module">
-	import * as footer_data from '../content/block/footer.json'
+	import * as footer_data from '../entities/block/footer.json'
 </script>
 
 <script>
