@@ -168,6 +168,13 @@ const build_views_cache = () => {
 				// For now, hardcode this approach.
 				results = results.map(result => views_result_process_for_file_storage(result, settings));
 
+				// URL to content entities is the path to the JSON data file relative to
+				// the 'src/entities/content/<type>' folder.
+				// results.forEach((result, j) => {
+					// TODO [wip] separate entity-related utilities in another file.
+					// results[j].url = entity_get_url(content_type, data.entity_storage.file_path)
+				// });
+
 				// Assemble as a single object for storage in cache backend.
 				// Update : it's easier (for now) to just return the modified entity
 				// data to write.
