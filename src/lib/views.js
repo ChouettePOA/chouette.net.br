@@ -4,7 +4,6 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 const { walk } = require('./fs');
 
 // TODO [wip] reevaluate architecture.
