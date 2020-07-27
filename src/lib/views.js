@@ -113,7 +113,12 @@ const build_views_cache = () => {
 			if (!("content" in data) || typeof data.content !== 'object') {
 				return;
 			}
-			data.content.forEach(content => {
+
+			// In case several views are set in the same content, we need to
+			// differenciate them.
+			let view_nb = 0;
+
+			data.content.forEach((content, i) => {
 				if (content.c !== 'View') {
 					return;
 				}
@@ -123,19 +128,31 @@ const build_views_cache = () => {
 
 				let results = [];
 				const settings = views_default_props;
+				settings.view_id = view_nb;
+				view_nb++;
 
 				// Views display settings.
 				if ("display" in content.props) {
-					settings.display = content.props.display;
+					settings.display = {...settings.display, ...content.props.display};
 				}
 
 				// Views filters.
 				if ("filters" in content.props) {
-					settings.filters = content.props.filters;
+					settings.filters = {...settings.filters, ...content.props.filters};
 				}
+
+				// Views pager settings.
+				if ("pager" in content.props) {
+					settings.pager = {...settings.pager, ...content.props.pager};
+				}
+
+				// Get all results matching the filters.
+				// TODO in a traditional setup, this would be a database query builder,
+				// and if we were to make something generic / reusable here, we'd need
+				// to implement a convenient way to switch approaches.
 				// TODO generic filters with AND/OR nestable groups - for now, just take
 				// the first and require to filter by type(s) (OR if passing an array).
-				const filter = settings.filters.items.shift();
+				const filter = settings.filters.items[0];
 				if (typeof filter.type === "string") {
 					results = content_entities_load_all_by_type(filter.type);
 				}
@@ -145,21 +162,26 @@ const build_views_cache = () => {
 					));
 				}
 
-				// Views pager settings.
-				if ("pager" in content.props) {
-					settings.pager = content.props.pager;
-				}
-
 				// Process the results to shave off some weight (no need to store entire
 				// content entities).
+				// TODO for non file-based storage, a complete round trip to fetch the
+				// results in a more traditional fashion would be needed.
+				// For now, hardcode this approach.
 				results = results.map(result => views_result_process_for_file_storage(result, settings));
 
 				// Assemble as a single object for storage in cache backend.
-				views_cache.push({
-					"source": data.entity_storage,
+				// Update : it's easier (for now) to just return the modified entity
+				// data to write.
+				// views_cache.push({
+				// 	"source": data.entity_storage,
+				// 	"settings": settings,
+				// 	"results": results,
+				// });
+				data.content[i].cache = {
 					"settings": settings,
 					"results": results
-				});
+				};
+				views_cache.push(data);
 			});
 		});
 	}

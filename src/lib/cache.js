@@ -178,8 +178,11 @@ const cache_page_routing_trails = () => {
  * @see build_views_results()
  */
 const cache_views_results = () => {
-	const views_cache = build_views_cache();
-	console.log(views_cache.pop().results);
+	build_views_cache().forEach(data => {
+		const file_path = data.entity_storage.file_path;
+		delete data.entity_storage;
+		fs.writeFileSync(file_path, JSON.stringify(data, null, '	'));
+	})
 }
 
 module.exports = {
