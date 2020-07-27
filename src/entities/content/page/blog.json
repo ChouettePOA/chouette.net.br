@@ -6,9 +6,11 @@
 		{
 			"c": "View",
 			"props": {
-				"filters": [
-					{"type": "blog"}
-				],
+				"filters": {
+					"items": [
+						{"type": "blog"}
+					]
+				},
 				"display": {
 					"type": "ViewDisplayGrid",
 					"variant": "inline-block",

@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const { walk } = require('./fs');
-const { build_views_results } = require('./views');
+const { build_views_cache } = require('./views');
 
 /**
  * Returns "short_title" if it exists or "title" from given object.
@@ -178,8 +178,8 @@ const cache_page_routing_trails = () => {
  * @see build_views_results()
  */
 const cache_views_results = () => {
-	// TODO
-	build_views_results();
+	const views_cache = build_views_cache();
+	console.log(views_cache.pop().results);
 }
 
 module.exports = {
