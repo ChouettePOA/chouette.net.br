@@ -3,8 +3,7 @@
  * Views-related implementations.
  */
 
-const fs = require('fs');
-const { walk } = require('./fs');
+const { content_entities_load_all, content_entities_load_all_by_type, content_entities_get_path } = require('./entity');
 
 // TODO [wip] reevaluate architecture.
 const views_default_props = {
@@ -22,44 +21,6 @@ const views_default_props = {
 		{ "published": "desc" }
 	],
 	"pager": {"items": 10}
-};
-
-/**
- * Loads all content entities data ("singleton").
- *
- * TODO evaluate using "proper" OO design pattern implementation instead.
- */
-let content_entities_data = null;
-const content_entities_load_all = () => {
-	if (content_entities_data) {
-		return content_entities_data;
-	}
-	content_entities_data = {};
-	walk('src/entities/content', '.json').map(file_path => {
-		const content_type = file_path.split('/')[3];
-		if (!(content_type in content_entities_data)) {
-			content_entities_data[content_type] = [];
-		}
-		// Attach file path to inject cached results in build_views_results().
-		const data = JSON.parse(fs.readFileSync(file_path).toString());
-		data.entity_storage = {
-			"backend": "file",
-			"file_path": file_path
-		};
-		content_entities_data[content_type].push(data);
-	})
-	return content_entities_data;
-};
-
-/**
- * Loads all content entities data by type.
- */
-const content_entities_load_all_by_type = content_type => {
-	const content_entities = content_entities_load_all();
-	if (!(content_type in content_entities)) {
-		return;
-	}
-	return content_entities[content_type];
 };
 
 /**
@@ -170,20 +131,19 @@ const build_views_cache = () => {
 
 				// URL to content entities is the path to the JSON data file relative to
 				// the 'src/entities/content/<type>' folder.
-				// results.forEach((result, j) => {
-					// TODO [wip] separate entity-related utilities in another file.
-					// results[j].url = entity_get_url(content_type, data.entity_storage.file_path)
-				// });
+				results.forEach((result, j) => {
+					results[j].path = content_entities_get_path(content_type, data)
+				});
 
 				// Assemble as a single object for storage in cache backend.
 				// Update : it's easier (for now) to just return the modified entity
 				// data to write.
 				// views_cache.push({
-				// 	"source": data.entity_storage,
+				// 	"source": data.storage,
 				// 	"settings": settings,
 				// 	"results": results,
 				// });
-				data.content[i].cache = {
+				data.content[i].props.cache = {
 					"settings": settings,
 					"results": results
 				};
