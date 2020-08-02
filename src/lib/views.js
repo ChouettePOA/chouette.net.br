@@ -29,7 +29,7 @@ const views_default_props = {
  * rendering.
  */
 const views_result_process_for_file_storage = (result, settings) => {
-	const fields_whitelist = [];
+	const fields_whitelist = ["path"];
 
 	// Sorting criterias will impact what data we need to retain.
 	settings.sorts.forEach(sort => fields_whitelist.push(Object.keys(sort).pop()));
@@ -122,18 +122,18 @@ const build_views_cache = () => {
 					));
 				}
 
+				// URL to content entities is the path to the JSON data file relative to
+				// the 'src/entities/content/<type>' folder.
+				results.forEach((result, j) => {
+					results[j].path = content_entities_get_path(result);
+				});
+
 				// Process the results to shave off some weight (no need to store entire
 				// content entities).
 				// TODO for non file-based storage, a complete round trip to fetch the
 				// results in a more traditional fashion would be needed.
 				// For now, hardcode this approach.
 				results = results.map(result => views_result_process_for_file_storage(result, settings));
-
-				// URL to content entities is the path to the JSON data file relative to
-				// the 'src/entities/content/<type>' folder.
-				results.forEach((result, j) => {
-					results[j].path = content_entities_get_path(content_type, data)
-				});
 
 				// Assemble as a single object for storage in cache backend.
 				// Update : it's easier (for now) to just return the modified entity

@@ -16,9 +16,6 @@ const content_entities_load_all = () => {
 	if (content_entities) {
 		return content_entities;
 	}
-
-	console.log("reloading content entities");
-
 	content_entities = {};
 	walk('src/entities/content', '.json').map(file_path => {
 		const content_type = file_path.split('/')[3];
@@ -49,14 +46,24 @@ const content_entities_load_all_by_type = content_type => {
 
 /**
  * Gets content entity path.
+ *
+ * For file-based storage, the URL of content entities is the path to the JSON
+ * data file relative to the 'src/entities/content/<type>' folder.
  */
-const content_entities_get_path = (content_type, entity) => {
+const content_entities_get_path = (entity) => {
 	if (!("storage" in entity)) {
 		return;
 	}
+
+	let path = '';
+
 	if (entity.storage.backend === 'file') {
-		return entity.storage.file_path.replace("src/entities/content/" + content_type, '');
+		path = entity.storage.file_path;
+		path = path.replace(new RegExp('src/entities/content/[^/]+/'), '');
+		path = path.replace(new RegExp('\.json$'), '');
 	}
+
+	return path;
 };
 
 module.exports = {
