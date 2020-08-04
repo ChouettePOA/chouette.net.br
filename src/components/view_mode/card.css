@@ -10,8 +10,8 @@
 	padding: var(--padding-ratio-em);
 }
 	.c-card__img {
-	@extend %fx-shadow-2dp;
-	margin-bottom: var(--margin-ratio-em);
+		@extend %fx-shadow-2dp;
+		margin-bottom: var(--margin-ratio-em);
 	}
 	.c-card__img img { /* 1 */
 		display: block;
