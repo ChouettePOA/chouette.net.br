@@ -1,5 +1,5 @@
 <script context="module">
-	import * as tags_data from '../../cache/tags.json';
+	import * as tags_data from '../../cache/tag.json';
 	const tags = tags_data.default;
 </script>
 
@@ -30,7 +30,7 @@
 </script>
 
 <!-- DEBUG -->
-<pre>Tag.svelte : results = {JSON.stringify(tags, null, 2)}</pre>
+<!-- <pre>Tag.svelte : tags = {JSON.stringify(tags, null, 2)}</pre> -->
 
 {#if no_link}
 	<span {...attr}>
