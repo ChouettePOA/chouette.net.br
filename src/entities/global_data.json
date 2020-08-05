@@ -6,7 +6,7 @@
 		"90035-050"
 	],
 	"default_lang": "pt",
-	"ui_i10n": {
+	"ui_l10n": {
 		"pt": {
 			"Home": "Início",
 			"Address": "Localização"

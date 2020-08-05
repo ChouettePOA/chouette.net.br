@@ -82,13 +82,13 @@ const nav_menu_get_items = (route, depth) => {
  */
 const nav_breadcrumb_get_items = (route, model) => {
 	const items = [];
-	if (!('path' in route) || !('lang' in route) || !(route.lang in global_data.ui_i10n)) {
+	if (!('path' in route) || !('lang' in route) || !(route.lang in global_data.ui_l10n)) {
 		return items;
 	}
 
 	// The 1st item in breadcrumb will always be the homepage.
 	items.push({
-		"title": global_data.ui_i10n[route.lang]["Home"],
+		"title": global_data.ui_l10n[route.lang]["Home"],
 		"path": ""
 	});
 

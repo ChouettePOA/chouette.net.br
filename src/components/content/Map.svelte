@@ -11,7 +11,7 @@
 <section class="p-mobile-percent">
   <h2 class="p bg-content">
     <span class="icon-location"></span>
-		{ global_data.ui_i10n[$route.lang]["Address"] }
+		{ global_data.ui_l10n[$route.lang]["Address"] }
 	</h2>
   <address class="p-h p-b bg-content">
 		{@html global_data.address_lines.join('<br />') }
