@@ -16,13 +16,12 @@
 				"cache": {
 					"settings": {
 						"display": {
-							"type": "ViewDisplayGrid",
-							"variant": "inline-block",
-							"options": [
-								"center",
-								"gutter-l"
-							],
-							"view_mode": "Card"
+							"c": "ViewDisplayGrid",
+							"props": {
+								"align": "center",
+								"space": "large",
+								"view_mode": "Card"
+							}
 						},
 						"filters": {
 							"op": "OR",

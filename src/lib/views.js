@@ -8,10 +8,12 @@ const { content_entities_load_all, content_entities_load_all_by_type, content_en
 // TODO [wip] reevaluate architecture.
 const views_default_props = {
 	"display": {
-		"type": "ViewDisplayGrid",
-		"variant": "inline-block",
-		"options": ["center", "gutter-l"],
-		"view_mode": "Card"
+		"c": "ViewDisplayGrid",
+		"props": {
+			"align": "center",
+			"space": "large",
+			"view_mode": "Card"
+		}
 	},
 	"filters": {
 		"op": "OR",
@@ -29,25 +31,18 @@ const views_default_props = {
  * rendering.
  */
 const views_result_process_for_file_storage = (result, settings) => {
-	const fields_whitelist = ["path"];
-
-	// Sorting criterias will impact what data we need to retain.
-	settings.sorts.forEach(sort => fields_whitelist.push(Object.keys(sort).pop()));
-
-	// Implement "field" mapping by view mode. We may not need configurable fields
-	// for content entities (modelled after Drupal nodes) in this type of project.
-	switch (settings.display.view_mode) {
-		case "Card":
-			fields_whitelist.push("tags");
-			fields_whitelist.push("title");
-			fields_whitelist.push("published");
-			fields_whitelist.push("description");
-			break;
-	}
+	// We may not need configurable fields for content entities (loosely modelled
+	// after Drupal nodes) in this type of project.
+	const fields_blacklist = [
+		"lang",
+		"content",
+		"storage",
+		"short_title"
+	];
 
 	// Do the shaving.
 	Object.keys(result).forEach(key => {
-		if (fields_whitelist.indexOf(key) === -1) {
+		if (fields_blacklist.indexOf(key) !== -1) {
 			delete result[key];
 		}
 	})

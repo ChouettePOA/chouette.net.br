@@ -11,7 +11,8 @@ import * as fs from 'fs';
 // Determines subfolders of src/components used for generating imports.
 const component_types_lookup = [
 	'content',
-	'view_mode'
+	'entity_view_modes',
+	'views_displays'
 ];
 
 /**
@@ -104,6 +105,10 @@ const markup_alter = (content, filename) => {
 		});
 
 		generated_contents += '{/if}';
+
+		// console.log(filename);
+		// console.log(generated_imports);
+		// console.log(generated_contents);
 
 		content = content.replace(get_placeholder('imports', component_type), generated_imports);
 		content = content.replace(get_placeholder('content', component_type), generated_contents);
