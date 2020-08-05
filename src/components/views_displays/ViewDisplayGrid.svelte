@@ -13,9 +13,9 @@
 <!-- <pre>ViewDisplayGrid.svelte : results = {JSON.stringify(results, null, 2)}</pre> -->
 
 <div class="o-ibgrid { align === 'center' ? 'o-ibgrid--center' : '' } { space === 'large' ? 'o-ibgrid--gutter-l o-ibgrid--vgutter-l' : '' }">
-	<div class="o-ibgrid__item u-maxw-typo-s">
-		{#each results as props}
+	{#each results as props}
+		<div class="o-ibgrid__item u-maxw-typo-s">
 			<!-- placeholder://src/preprocess.js#entity_view_modes -->
-		{/each}
-	</div>
+		</div>
+	{/each}
 </div>

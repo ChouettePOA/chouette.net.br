@@ -3,10 +3,13 @@
 </script>
 
 <script>
-	// import { getContext } from 'svelte';
+	import { getContext } from 'svelte';
 	import { route } from '../stores/route.js';
-	const footer = footer_data[$route.lang];
-	// const global_data = getContext('global_data');
+
+	const global_data = getContext('global_data');
+	const footer = $route.lang in footer_data ?
+		footer_data[$route.lang] :
+		footer_data[global_data.default_lang];
 </script>
 
 <footer class="p-percent">

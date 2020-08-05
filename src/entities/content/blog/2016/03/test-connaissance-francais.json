@@ -1,0 +1,28 @@
+{
+	"lang": "fr",
+	"title": "Test de connaissance du français",
+	"description": "Vous devez bientôt passer votre test, n'est-ce pas ? Entraînez-vous !",
+	"image": "media/2016/03/visuel-micros-tcf-2016-03.jpg",
+	"published": "2016-04-25T15:12:36.594Z",
+	"content": [
+		{
+			"c": "Lede",
+			"props": {
+				"text": "Vous devez bientôt passer votre test, n'est-ce pas ? Entraînez-vous ! Le CIEP (page officielle) et RFI Savoirs mettent un dossier à votre disposition pour vous entraîner aux épreuves de compréhension orale du TCF ! Deux sessions sont actuellement en ligne (mai et novembre 2015). De nouvelles arriveront prochainement. À vos claviers !"
+			}
+		},
+		{
+			"c": "MediaGrid",
+			"props": {
+				"items": [
+					{
+						"title": "Entraînez-vous dans les conditions d'examen",
+						"text": "Entraînez-vous dans les conditions d'examen au Test de Connaissance du Français avec RFI et le CIEP. Des séries de questions pour vous entraîner à l'épreuve de compréhension orale, du niveau A2 au niveau C1 : compréhension du français parlé dans des situations de la vie quotidienne et professionnelle, telle qu’on peut l’entendre dans un pays francophone.<br/><br/>Source : http://savoirs.rfi.fr/fr/apprendre-enseigner/langue-francaise/tcf-test-de-connaissance-du-francais",
+						"image": "media/2016/03/visuel-micros-tcf-2016-03.jpg",
+						"image_alt": "Visuel micros TCF"
+					}
+				]
+			}
+		}
+	]
+}

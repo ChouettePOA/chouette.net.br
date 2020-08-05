@@ -5,7 +5,6 @@
 
 const { content_entities_load_all, content_entities_load_all_by_type, content_entities_get_path } = require('./entity');
 
-// TODO [wip] reevaluate architecture.
 const views_default_props = {
 	"display": {
 		"c": "ViewDisplayGrid",

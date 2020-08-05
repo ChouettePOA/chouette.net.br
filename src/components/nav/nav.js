@@ -24,7 +24,7 @@ const nav_item_get_title = (o) => {
  */
 const nav_menu_get_items = (route, depth) => {
 	const items = [];
-	if (!('path' in route) || !('lang' in route) || !(route.lang in menu_main)) {
+	if (!('path' in route) || !('lang' in route)) {
 		return items;
 	}
 
@@ -37,7 +37,10 @@ const nav_menu_get_items = (route, depth) => {
 		if (route.path in route.trails && `active_lv${depth}` in route.trails[route.path]) {
 			active_lv0_path = route.trails[route.path][`active_lv${depth}`];
 		}
-		menu_main[route.lang].forEach(item => {
+		let localized_menu_items = route.lang in menu_main ?
+			menu_main[route.lang] :
+			menu_main[global_data.default_lang];
+		localized_menu_items.forEach(item => {
 			item.is_active = (
 				item.path == active_lv0_path
 				|| (('active_path' in route) && item.path == route.active_path)
@@ -91,6 +94,14 @@ const nav_breadcrumb_get_items = (route, model) => {
 
 	// Lookup parents trail if page has any parent.
 	if (!('parent_page' in model)) {
+		// TODO [wip] blog posts need the parent item to be "blog" page, but it has
+		// no "trail" in the generated cache.
+		// if ('active_path' in model) {
+		// 	model.parent_page = model.active_path;
+		// }
+		// else {
+		// 	return items;
+		// }
 		return items;
 	}
 

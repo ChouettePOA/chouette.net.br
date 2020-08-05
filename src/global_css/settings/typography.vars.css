@@ -15,6 +15,8 @@
 
 :root {
 	--w-typo-ratio-s: 25;
+	--w-typo-ratio-s-em: calc(var(--w-typo-ratio-s) * 1em);
+	--w-typo-ratio-s-rem: calc(var(--w-typo-ratio-s) * 1rem);
 	--w-typo-ratio: 33; /* 1 */
 	--w-typo-ratio-em: calc(var(--w-typo-ratio) * 1em); /* 1 */
 	--w-typo-ratio-rem: calc(var(--w-typo-ratio) * 1rem); /* 1 */

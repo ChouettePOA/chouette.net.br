@@ -49,8 +49,8 @@
 
 
 .o-ibgrid--gutter {
-	margin-right: -var(--ibgrid-gutter-rem);
-	margin-left: -var(--ibgrid-gutter-rem);
+	margin-right: calc(var(--ibgrid-gutter-rem) * -1rem);
+	margin-left: calc(var(--ibgrid-gutter-rem) * -1rem);
 }
 	.o-ibgrid--gutter > .o-ibgrid__item {
 		box-sizing: border-box; /* 2 */
@@ -58,8 +58,8 @@
 	}
 
 .o-ibgrid--gutter-xs {
-	margin-right: -var(--ibgrid-gutter-xs-rem);
-	margin-left: -var(--ibgrid-gutter-xs-rem);
+	margin-right: calc(var(--ibgrid-gutter-xs-rem) * -1rem);
+	margin-left: calc(var(--ibgrid-gutter-xs-rem) * -1rem);
 }
 	.o-ibgrid--gutter-xs > .o-ibgrid__item {
 		box-sizing: border-box; /* 2 */
@@ -68,8 +68,8 @@
 
 
 .o-ibgrid--gutter-s {
-	margin-right: -var(--ibgrid-gutter-s-rem);
-	margin-left: -var(--ibgrid-gutter-s-rem);
+	margin-right: calc(var(--ibgrid-gutter-s-rem) * -1rem);
+	margin-left: calc(var(--ibgrid-gutter-s-rem) * -1rem);
 }
 	.o-ibgrid--gutter-s > .o-ibgrid__item {
 		box-sizing: border-box; /* 2 */
@@ -78,8 +78,8 @@
 
 
 .o-ibgrid--gutter-l {
-	margin-right: -var(--ibgrid-gutter-l-rem);
-	margin-left: -var(--ibgrid-gutter-l-rem);
+	margin-right: calc(var(--ibgrid-gutter-l-rem) * -1rem);
+	margin-left: calc(var(--ibgrid-gutter-l-rem) * -1rem);
 }
 	.o-ibgrid--gutter-l > .o-ibgrid__item {
 		box-sizing: border-box; /* 2 */
@@ -88,8 +88,8 @@
 
 
 .o-ibgrid--gutter-percent {
-	margin-right: -var(--ibgrid-gutter-percent);
-	margin-left: -var(--ibgrid-gutter-percent);
+	margin-right: calc(var(--ibgrid-gutter-percent) * -1%);
+	margin-left: calc(var(--ibgrid-gutter-percent) * -1%);
 }
 	.o-ibgrid--gutter-percent > .o-ibgrid__item {
 		box-sizing: border-box; /* 2 */
