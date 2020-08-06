@@ -1,6 +1,14 @@
 /**
  * @file
  * Views-related implementations.
+ *
+ * TODO [wip] currently not feature complete - missing :
+ * - real filters implementation (AND/OR nestable groups - for now, we just take
+ *   the first and require to filter by type(s) (OR if passing an array).
+ * - pagers
+ * - sorts
+ * - exposed sorts & filters
+ * - default language filter using currently active language ?
  */
 
 const { content_entities_load_all, content_entities_load_all_by_type, content_entities_get_path } = require('./entity');
@@ -33,10 +41,10 @@ const views_result_process_for_file_storage = (result, settings) => {
 	// We may not need configurable fields for content entities (loosely modelled
 	// after Drupal nodes) in this type of project.
 	const fields_blacklist = [
-		"lang",
 		"content",
 		"storage",
-		"short_title"
+		"short_title",
+		"translations"
 	];
 
 	// Do the shaving.

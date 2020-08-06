@@ -43,6 +43,7 @@
 					},
 					"results": [
 						{
+							"lang": "fr",
 							"title": "Test de connaissance du français",
 							"description": "Vous devez bientôt passer votre test, n'est-ce pas ? Entraînez-vous !",
 							"image": "media/2016/03/visuel-micros-tcf-2016-03.jpg",
@@ -55,6 +56,7 @@
 							"path": "2016/03/test-connaissance-francais"
 						},
 						{
+							"lang": "fr",
 							"title": "Félicitations !",
 							"description": "Nous sommes très fières de nos élèves qui ont cartonné au test de Proficiência CAPES et qui ont réussi les niveaux B1 et B2.",
 							"image": "media/2016/04/felicitations-champagne.jpg",

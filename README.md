@@ -1,13 +1,16 @@
 # Chouette static site conversion
 
-This repository contains an investigation of a partial [Drupal](https://stackoverflow.blog/2020/06/23/is-it-time-to-give-drupal-another-look) site conversion into a simpler static site, while maintaining opportunities for adaptability. The current take at this is made using [Sapper / Svelte](https://sapper.svelte.dev/) : see the demo at [infallible-dubinsky-bfb500.netlify.app](https://infallible-dubinsky-bfb500.netlify.app/).
+This repository contains an investigation of a partial [Drupal](https://stackoverflow.blog/2020/06/23/is-it-time-to-give-drupal-another-look) site conversion into a simpler static site. The current take at this is made using [Sapper / Svelte](https://sapper.svelte.dev/) : see the demo at [infallible-dubinsky-bfb500.netlify.app](https://infallible-dubinsky-bfb500.netlify.app/).
+
+The plan is to make another iteration of this project without Sapper / Svelte using the implemntations provided here as an explicit baseline reference.
 
 ## Purpose
 
 - Aim for [low-tech](https://solar.lowtechmagazine.com/2020/01/how-sustainable-is-a-solar-powered-website.html) / [eco-conception](https://collectif.greenit.fr/ecoconception-web/)
-- Implement simplified / minimal parts of Drupal APIs (entities, menus, and perhaps fields)
+- Implement simplified, minimal parts of Drupal APIs (entities, menus, blocks, views)
 - Evaluate decentralized approaches to content editing
 - Evaluate potential for reuse in other projects
+- Support internationalization (localization and translation)
 
 ## Requirements
 

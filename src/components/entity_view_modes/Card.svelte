@@ -10,13 +10,13 @@
 	export let tags;
 
 	if (!image) {
-		image = '/theme/article-default-500x309.jpg';
+		image = 'theme/article-default-500x309.jpg';
 	}
 </script>
 
 <article class="c-card fx-focus-shadow--ahf fx-scale-up--ahf">
 	<div class="c-card__img">
-		<img alt="{ title }" src="{ image }" />
+		<img alt="{ title }" src="/{ image }" />
 	</div>
 	<h2 class="c-title-1">
 		<a class="no-b" href="/{ path }">
