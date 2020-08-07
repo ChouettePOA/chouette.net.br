@@ -7,7 +7,7 @@
 	export let model;
 
 	/**
-	 * TODO verifiy if in some cases it's faster to call this twice - in <script>
+	 * TODO verify if in some cases it's faster to call this twice - in <script>
 	 * scope directly + in afterUpdate(), see below.
 	 */
 	const update_route = model => {

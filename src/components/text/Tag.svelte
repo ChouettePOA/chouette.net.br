@@ -37,7 +37,7 @@
 		{@html title}
 	</span>
 {:else}
-	<a href="{ link }" {...attr}>
+	<a href="/{ link }" {...attr}>
 		{@html title}
 	</a>
 {/if}
