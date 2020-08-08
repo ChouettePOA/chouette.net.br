@@ -29,7 +29,7 @@ const content_entities_load_all = () => {
 			"file_path": file_path
 		};
 		content_entities[content_type].push(data);
-	})
+	});
 	return content_entities;
 };
 

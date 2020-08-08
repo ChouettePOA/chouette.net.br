@@ -21,7 +21,7 @@
 	});
 
 	const header = homepage_masthead[$route.lang];
-	let menu_main_items = nav_menu_get_items($route, 0);
+	let menu_main_items = nav_menu_get_items(global_data, $route, 0);
 </script>
 
 <!-- DEBUG -->

@@ -9,7 +9,7 @@
 	 * @param session : used for credentialled requests.
 	 * @return object : page data (model).
 	 *
-	 * @see src/routes/blog/[...post].json.js
+	 * @see src/routes/[year([0-9]+)]/[month([0-9]+)]/[slug].json.js
 	 */
 	export async function preload(page, session) {
 		let {year, month, slug} = page.params;
@@ -26,7 +26,7 @@
 		// Specific nav state for blog posts.
 		// @see src/components/layout/LayoutContentPage.svelte
 		// @see src/components/nav/nav.js
-		model.active_path = 'blog';
+		model.parent_page = 'blog';
 
 		return { model };
 	}

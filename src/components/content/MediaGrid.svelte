@@ -13,7 +13,7 @@
 <Responsive w="43rem" attr={{ "class":"c-media-grid bg-content p-v--l" }}>
 	{#each items as item, i}
 		<div class="c-media-grid__img { i % 2 == 0 ? '' : 'is-odd' }" style="--row:{i + 1}">
-			<img src="{ item.image }" alt="{ item.image_alt }" />
+			<img src="/{ item.image }" alt="{ item.image_alt }" />
 		</div>
 		<div class="c-media-grid__body { i % 2 == 0 ? '' : 'is-odd' }" style="--row:{i + 1}">
 			{#if item.title }

@@ -8,6 +8,11 @@
 		"email": "chouette@chouette.net.br",
 		"ltda_name": "Chouette - Escola de Francês",
 		"ltda_acronym": "LTDA",
-		"ltda_label": "Sociedade empresarial de responsabilidade limitada"
+		"ltda_label": "Sociedade empresarial de responsabilidade limitada",
+		"address_lines": [
+			"Rua Garibaldi, 1100",
+			"Porto Alegre - RS",
+			"90035-050"
+		]
 	}
 }

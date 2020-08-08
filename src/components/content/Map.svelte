@@ -1,3 +1,7 @@
+<script context="module">
+	import * as footer_data from '../../entities/block/footer.json'
+</script>
+
 <script>
 	/**
 	 * @file
@@ -6,15 +10,18 @@
 	import { getContext } from 'svelte';
 	import { route } from '../../stores/route.js';
 	const global_data = getContext('global_data');
+	const footer = $route.lang in footer_data ?
+		footer_data[$route.lang] :
+		footer_data[global_data.default_lang];
 </script>
 
 <section class="p-mobile-percent">
   <h2 class="p bg-content">
     <span class="icon-location"></span>
-		{ global_data.ui_i10n[$route.lang]["Address"] }
+		{ global_data.translations[$route.lang]["Address"] }
 	</h2>
   <address class="p-h p-b bg-content">
-		{@html global_data.address_lines.join('<br />') }
+		{@html footer.address_lines.join('<br />') }
 	</address>
   <div class="FlexEmbed js-mousewheel-scroll-iframe-fix">
     <div class="FlexEmbed-ratio FlexEmbed-ratio--3by1 FlexEmbed-tablet-ratio--2by1 FlexEmbed-mobile-ratio--square"></div>
