@@ -54,6 +54,7 @@ These content entities share the following object structure :
   "image": "media/2020/08/visual.jpg",      ← [optional] Used in <meta> tags (og:image)
   "tags": [],                               ← [optional] Taxonomy terms entity references
   "published": "2020-08-25T15:12:36.594Z",  ← [optional] ISO 8601 publication date
+  "uuid": "dd2aaa05-7d00-493c-9373-a0f695862850", ← [optional] For easier entity refs
   "content": []                             ← Main page contents (see Rich content editing)
 }
 ```
@@ -62,26 +63,26 @@ Other entities not requiring their own URL do not share a common structure, apar
 
 ```txt
 {
-	"pt": [
-		{
-			"title": "Sobre",
-			"path": "sobre-a-escola"
-		},
-		{
-			"title": "Horários",
-			"path": "horarios"
-		}
-	],
-	"fr": [
-		{
-			"title": "À propos",
-			"path": "a-propos"
-		},
-		{
-			"title": "Horaires",
-			"path": "horaires"
-		}
-	]
+  "pt": [
+    {
+      "title": "Sobre",
+      "path": "sobre-a-escola"
+    },
+    {
+      "title": "Horários",
+      "path": "horarios"
+    }
+  ],
+  "fr": [
+    {
+      "title": "À propos",
+      "path": "a-propos"
+    },
+    {
+      "title": "Horaires",
+      "path": "horaires"
+    }
+  ]
 }
 ```
 
@@ -90,6 +91,8 @@ Other entities not requiring their own URL do not share a common structure, apar
 The *page* entities file names define URLs (or *slugs*) which are handled by `src/routes/[slug].svelte` (unless overridden using the Sapper routing conventions). Page may define a parent page and optionally a weight that will order their position in menus.
 
 The main menu is its own entity, and navigation items like sub-nav menus and breadcrumbs are implemented in `src/components/nav/nav.js`.
+
+TODO evaluate if we really need to force the use of UUIDs in menus (instead of "hardcoding" title and path) to avoid the need to impact eventual changes in page slugs.
 
 The `src/cache/page_routing_trails.json` cache file must be generated every time a modification impacts the navigation tree. It is currently implemented as a "standalone" Node script `src/cache_rebuild.js` which is called in `src/git_hooks/pre_commit.js` and `./package.json` NPM run scripts.
 
