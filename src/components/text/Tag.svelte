@@ -20,11 +20,13 @@
 	}
 
 	if (uuid && tags[uuid]) {
-		title = $route.lang in tags[uuid] ?
-			tags[uuid][$route.lang].title :
-			tags[uuid][global_data.default_lang].title;
+		let lang = global_data.default_lang;
+		if ($route.lang in tags[uuid]) {
+			lang = $route.lang;
+		}
+		title = tags[uuid][lang].title;
 		if (!no_link) {
-			link = tags[uuid].path;
+			link = tags[uuid][lang].path;
 		}
 	}
 </script>

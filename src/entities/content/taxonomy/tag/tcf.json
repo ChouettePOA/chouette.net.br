@@ -1,9 +1,5 @@
 {
+	"lang": "pt",
 	"uuid": "4e249501-7a22-40be-8d8d-6d963a4a5234",
-	"pt": {
-		"title": "TCF"
-	},
-	"fr": {
-		"title": "TCF"
-	}
+	"title": "TCF"
 }

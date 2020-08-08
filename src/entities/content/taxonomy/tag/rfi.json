@@ -1,9 +1,5 @@
 {
+	"lang": "pt",
 	"uuid": "4e7c20c8-6d94-4845-b76a-0d7aaf30572a",
-	"pt": {
-		"title": "RFi"
-	},
-	"fr": {
-		"title": "RFi"
-	}
+	"title": "RFi"
 }

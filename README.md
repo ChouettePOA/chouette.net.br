@@ -50,12 +50,12 @@ These content entities share the following object structure :
   "lang": "fr",                             ← ISO 639-1 language code
   "title": "The main page title",           ← Should match page URL (slug)
   "short_title": "Short page title",        ← [optional] used in menus, breadcrumb
-  "description": "Teaser text",             ← Used in <meta> tags (og:description)
+  "description": "Teaser text",             ← [optional] Used in <meta> tags (og:description)
   "image": "media/2020/08/visual.jpg",      ← [optional] Used in <meta> tags (og:image)
   "tags": [],                               ← [optional] Taxonomy terms entity references
   "published": "2020-08-25T15:12:36.594Z",  ← [optional] ISO 8601 publication date
   "uuid": "dd2aaa05-7d00-493c-9373-a0f695862850", ← [optional] For easier entity refs
-  "content": []                             ← Main page contents (see Rich content editing)
+  "content": []                             ← [optional] Main page contents (see Rich content editing)
 }
 ```
 
