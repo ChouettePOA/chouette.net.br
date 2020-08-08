@@ -3,9 +3,6 @@
  * Contains nav-related utilities.
  */
 
-import * as menu_main from '../../entities/menu/main.json'
-import * as global_data from '../../entities/global_data.json'
-
 /**
  * Returns "short_title" if it exists or "title" from given object.
  */
@@ -18,18 +15,19 @@ const nav_item_get_title = (o) => {
  *
  * Level 0 is the main menu, level 1 is subnav, etc.
  *
+ * @param {Oject} global_data
  * @param {Oject} route
  * @param {Integer} depth
  * @returns {Array} of objects {path, title, is_active}.
  */
-const nav_menu_get_items = (route, depth) => {
+const nav_menu_get_items = (global_data, route, depth) => {
 	const items = [];
 	if (!('path' in route) || !('lang' in route)) {
 		return items;
 	}
 
 	// Root-level = main menu items : active state is current path, or it can be
-	// specifically provided through model.active_path.
+	// specifically provided through model.parent_page.
 	// @see src/routes/[year([0-9]+)]/[month([0-9]+)]/[slug].svelte
 	// @see src/components/layout/LayoutContentPage.svelte
 	if (!depth) {
@@ -37,13 +35,13 @@ const nav_menu_get_items = (route, depth) => {
 		if (route.path in route.trails && `active_lv${depth}` in route.trails[route.path]) {
 			active_lv0_path = route.trails[route.path][`active_lv${depth}`];
 		}
-		let localized_menu_items = route.lang in menu_main ?
-			menu_main[route.lang] :
-			menu_main[global_data.default_lang];
+		let localized_menu_items = route.lang in global_data.menu_main ?
+			global_data.menu_main[route.lang] :
+			global_data.menu_main[global_data.default_lang];
 		localized_menu_items.forEach(item => {
 			item.is_active = (
 				item.path == active_lv0_path
-				|| (('active_path' in route) && item.path == route.active_path)
+				|| (('parent_page' in route) && item.path == route.parent_page)
 			);
 			items.push(item);
 		});
@@ -76,32 +74,25 @@ const nav_menu_get_items = (route, depth) => {
 /**
  * Returns breadcrumb items for given route (except the current page title).
  *
+ * @param {Oject} global_data
  * @param {Oject} route
  * @param {Oject} model
  * @returns {Array} of objects {path, title}.
  */
-const nav_breadcrumb_get_items = (route, model) => {
+const nav_breadcrumb_get_items = (global_data, route, model) => {
 	const items = [];
-	if (!('path' in route) || !('lang' in route) || !(route.lang in global_data.ui_l10n)) {
+	if (!('path' in route) || !('lang' in route) || !(route.lang in global_data.translations)) {
 		return items;
 	}
 
 	// The 1st item in breadcrumb will always be the homepage.
 	items.push({
-		"title": global_data.ui_l10n[route.lang]["Home"],
+		"title": global_data.translations[route.lang]["Home"],
 		"path": ""
 	});
 
 	// Lookup parents trail if page has any parent.
 	if (!('parent_page' in model)) {
-		// TODO [wip] blog posts need the parent item to be "blog" page, but it has
-		// no "trail" in the generated cache.
-		// if ('active_path' in model) {
-		// 	model.parent_page = model.active_path;
-		// }
-		// else {
-		// 	return items;
-		// }
 		return items;
 	}
 

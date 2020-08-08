@@ -22,10 +22,10 @@
 			}
 		}
 
-		// Specific nav state for blog posts.
+		// Specific nav state for tags pages.
 		// @see src/components/layout/LayoutContentPage.svelte
 		// @see src/components/nav/nav.js
-		model.active_path = 'blog';
+		model.parent_page = 'blog';
 
 		return { model };
 	}

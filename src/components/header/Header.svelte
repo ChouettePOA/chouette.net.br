@@ -1,19 +1,20 @@
 <script>
 	import MenuMain from '../nav/MenuMain.svelte';
+	import { getContext } from 'svelte';
 	import { nav_menu_get_items, nav_breadcrumb_get_items } from '../nav/nav.js';
 	import { route } from '../../stores/route.js';
 
 	export let model;
-	// export let route;
 
-	// let menu_main_items = nav_menu_get_items($route, 0);
+	const global_data = getContext('global_data');
+
 	let menu_main_items = [];
 	let menu_subnav_items = [];
 	let breadcrumb_items = [];
 	const unsubscribe = route.subscribe(value => {
-		menu_main_items = nav_menu_get_items(value, 0);
-		menu_subnav_items = nav_menu_get_items(value, 1);
-		breadcrumb_items = nav_breadcrumb_get_items(value, model);
+		menu_main_items = nav_menu_get_items(global_data, value, 0);
+		menu_subnav_items = nav_menu_get_items(global_data, value, 1);
+		breadcrumb_items = nav_breadcrumb_get_items(global_data, value, model);
 	});
 </script>
 

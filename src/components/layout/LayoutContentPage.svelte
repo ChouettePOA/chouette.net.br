@@ -21,12 +21,13 @@
 
 				// Allow to specify active menu items through the route store.
 				// @see src/routes/[year([0-9]+)]/[month([0-9]+)]/[slug].svelte
+				// @see src/routes/tag/[slug].svelte
 				// @see src/components/nav/nav.js
-				if ('active_path' in model) {
-					existing.active_path = model.active_path;
+				if ('parent_page' in model) {
+					existing.parent_page = model.parent_page;
 				}
-				else if ('active_path' in existing) {
-					delete existing.active_path;
+				else if ('parent_page' in existing) {
+					delete existing.parent_page;
 				}
 
 				return existing;
