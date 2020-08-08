@@ -100,7 +100,7 @@ The `src/cache/page_routing_trails.json` cache file must be generated every time
 
 TODO currently work in progress.
 
-By default, views list 10 entities per page sorted by publication date in descending order (if available) using the layout `src/components/views_displays/ViewDisplayGrid.svelte` and the entity "view mode" `src/components/entity_view_modes/Card.svelte` for inidivdual results.
+By default, views list 10 entities per page sorted by publication date in descending order (if available) using the layout `src/components/views_displays/ViewDisplayGrid.svelte` and the entity "view mode" `src/components/entity_view_modes/Card.svelte` for individual results.
 
 There are 2 ways to build lists of entities : either by placing a `<View>` component in an entity `content` definition (see section *Rich content editing* below), or using it in route handlers such as `src/routes/tag/[slug].svelte`.
 
@@ -108,9 +108,31 @@ Like for routing (menu trails), cache files are generated - in this case, for st
 
 Examples :
 
+In an entity content definition, e.g. `src/entities/content/page/blog.json` :
+
 ```html
-<!-- List content entities of type blog -->
-<View filters={{items:{type:blog}}}>
+"content": [
+  {
+    "c": "View",
+    "props": {
+      "filters": [
+        {
+          "in": "content/blog"
+        }
+      ]
+    }
+  }
+]
+```
+
+In a route handler (the comment uses a syntax allowing to generate pre-compiled results), e.g. `src/routes/tag/[slug].svelte` :
+
+```html
+<!-- placeholder://src/lib/views.js?f[0][by_term]=tag&f[0][in]=content/blog -->
+<View filters={[
+  { "by_term": model.uuid },
+  { "in": "content/blog" }
+]} />
 ```
 
 ### Localization, content translation

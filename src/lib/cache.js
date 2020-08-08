@@ -30,9 +30,10 @@ const cache_page_routing_trails = () => {
  */
 const cache_views_results = () => {
 	build_views_cache().forEach(data => {
-		const file_path = data.storage.file_path;
-		delete data.storage;
-		fs.writeFileSync(file_path, JSON.stringify(data, null, '	'));
+		// TODO wip refacto in progress see src/lib/views.js
+		// const file_path = data.storage.file_path;
+		// delete data.storage;
+		// fs.writeFileSync(file_path, JSON.stringify(data, null, '	'));
 	});
 }
 

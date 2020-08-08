@@ -20,6 +20,7 @@
 	import { getContext } from 'svelte';
 	import { route } from '../../stores/route.js';
 	import LayoutContentPage from '../../components/layout/LayoutContentPage.svelte';
+	import View from '../../components/content/View.svelte';
 
 	export let full_slug;
 
@@ -30,10 +31,12 @@
 		if ($route.lang in data && data[$route.lang].path === full_slug) {
 			model = data[$route.lang];
 			model.lang = $route.lang;
+			model.uuid = uuid;
 		}
 		else if (global_data.default_lang in data && data[global_data.default_lang].path === full_slug) {
 			model = data[global_data.default_lang];
 			model.lang = global_data.default_lang;
+			model.uuid = uuid;
 		}
 	}
 
@@ -46,9 +49,17 @@
 </script>
 
 <LayoutContentPage {model}>
+
+	<!-- placeholder://src/lib/views.js?f[0][by_term]=tag&f[0][in]=content/blog -->
+	<View filters={[
+		{ "by_term": model.uuid },
+		{ "in": "content/blog" }
+	]} />
+
 	<!-- DEBUG -->
 	<!-- <pre>tag/[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : full_slug = {JSON.stringify(full_slug, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : tags = {JSON.stringify(tags, null, 2)}</pre> -->
+
 </LayoutContentPage>
