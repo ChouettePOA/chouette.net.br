@@ -98,7 +98,20 @@ The `src/cache/page_routing_trails.json` cache file must be generated every time
 
 ### Views (= collections : pagers, filters, sorts)
 
-TODO (wip).
+TODO currently work in progress.
+
+By default, views list 10 entities per page sorted by publication date in descending order (if available) using the layout `src/components/views_displays/ViewDisplayGrid.svelte` and the entity "view mode" `src/components/entity_view_modes/Card.svelte` for inidivdual results.
+
+There are 2 ways to build lists of entities : either by placing a `<View>` component in an entity `content` definition (see section *Rich content editing* below), or using it in route handlers such as `src/routes/tag/[slug].svelte`.
+
+Like for routing (menu trails), cache files are generated - in this case, for storing pre-compiled results. The files are matched by the path of the page on which the views appear, and by a simple counter in case there are several views to display on the same page.
+
+Examples :
+
+```html
+<!-- List content entities of type blog -->
+<View filters={{items:{type:blog}}}>
+```
 
 ### Localization, content translation
 
@@ -117,6 +130,25 @@ The equivalent in Svelte / Sapper would be some way to implement "dynamic" compo
 A suboptimal workaround is currently implemented by hooking into the Svelte compiler to "inject" dynamically generated code using placeholders. Here's the code generator : `src/preprocess.js` and a usage example : `src/components/content/InlineBlockGrid.svelte` (cf. `./rollup.config.js` to see how it's plugged into the compiler).
 
 Another minor issue is the inability to imbricate components in a way that would create circular dependencies, which could be desirable in some cases.
+
+This is what I've currently settled for. In order to get the equivalent of :
+
+```html
+<Lede text="The text to display through the Lede component."/>
+```
+
+... the corresponding entity object `content` definition would be :
+
+```
+"content": [
+  {
+    "c": "Lede",
+    "props": {
+      "text": "The text to display through the Lede component."
+    }
+  }
+]
+```
 
 ### [Responsive components](https://philipwalton.github.io/responsive-components/) / element queries
 
