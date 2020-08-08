@@ -13,11 +13,11 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[package.json,package-lock.json]
+[package.json,package-lock.json,README.md]
 indent_style = space
 indent_size = 2
 
-[*.{md,markdown}]
+[*.md,*.markdown]
 trim_trailing_whitespace = false
 
 [*.webmanifest]

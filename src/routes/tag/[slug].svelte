@@ -14,12 +14,19 @@
 	export async function preload(page, session) {
 		const { slug } = page.params;
 		let model = {};
+
 		for (const [uuid, data] of Object.entries(tags)) {
 			if (data.path == 'tag/' + slug) {
 				model = data;
 				model.slug = data.path;
 			}
 		}
+
+		// Specific nav state for blog posts.
+		// @see src/components/layout/LayoutContentPage.svelte
+		// @see src/components/nav/nav.js
+		model.active_path = 'blog';
+
 		return { model };
 	}
 </script>
