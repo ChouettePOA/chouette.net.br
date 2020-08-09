@@ -6,13 +6,11 @@
 		{
 			"c": "View",
 			"props": {
-				"filters": {
-					"items": [
-						{
-							"type": "blog"
-						}
-					]
-				},
+				"filters": [
+					{
+						"in": "content/blog"
+					}
+				],
 				"cache": {
 					"settings": {
 						"display": {
@@ -24,10 +22,10 @@
 							}
 						},
 						"filters": {
-							"op": "OR",
+							"op": "AND",
 							"items": [
 								{
-									"type": "blog"
+									"in": "content/blog"
 								}
 							]
 						},
@@ -39,7 +37,7 @@
 						"pager": {
 							"items": 10
 						},
-						"view_id": 0
+						"exposed": {}
 					},
 					"results": [
 						{
