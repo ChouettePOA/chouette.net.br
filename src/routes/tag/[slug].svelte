@@ -1,6 +1,20 @@
 <script context="module">
 	import * as tags_data from '../../cache/tag.json';
+	import { views_get_cache_file_path } from '../views-cache/_views_cache.js';
 	const tags = tags_data.default;
+
+	/**
+	 * Gets a single tag UUID by path (slug).
+	 */
+	const tag_get_uuid_by_path = (path) => {
+		for (const [uuid, data] of Object.entries(tags)) {
+			for (const [lang, term] of Object.entries(data)) {
+				if (term.path === path) {
+					return uuid;
+				}
+			}
+		}
+	}
 
 	/**
 	 * Implements Sapper route preload "hook".
@@ -12,7 +26,14 @@
 	export async function preload(page, session) {
 		const { slug } = page.params;
 		const full_slug = 'tag/' + slug;
-		return { full_slug };
+
+		const uuid = tag_get_uuid_by_path(full_slug);
+		const views_props = `f[0][by_term]=$1&f[0][in]=content/blog`;
+
+		// Debug
+		const cache = views_get_cache_file_path(views_props, uuid);
+
+		return { full_slug, cache };
 	}
 </script>
 
@@ -23,6 +44,7 @@
 	import View from '../../components/content/View.svelte';
 
 	export let full_slug;
+	export let cache;
 
 	const global_data = getContext('global_data');
 	let model = {};
@@ -50,13 +72,15 @@
 
 <LayoutContentPage {model}>
 
-	<!-- placeholder://src/lib/views.js?f[0][by_term]=tag&f[0][in]=content/blog -->
-	<View filters={[
+	<!-- placeholder://src/lib/views.js?f[0][by_term]=$1&f[0][in]=content/blog -->
+	<!-- <View filters={[
 		{ "in": "content/blog" },
 		{ "by_term": model.uuid }
-	]} />
+	]} /> -->
+	<!-- <View {cache} /> -->
 
 	<!-- DEBUG -->
+	<pre>tag/[slug].svelte : cache = {JSON.stringify(cache, null, 2)}</pre>
 	<!-- <pre>tag/[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : full_slug = {JSON.stringify(full_slug, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
