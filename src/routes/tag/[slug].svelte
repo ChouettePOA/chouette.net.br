@@ -1,6 +1,7 @@
 <script context="module">
 	import * as tags_data from '../../cache/tag.json';
 	import { views_get_cache_file_path } from '../views-cache/_views_cache.js';
+
 	const tags = tags_data.default;
 
 	/**
@@ -28,8 +29,8 @@
 		const full_slug = 'tag/' + slug;
 
 		const uuid = tag_get_uuid_by_path(full_slug);
-		const views_props = 'f[0][referencing]=term/tag/$1&f[0][in]=content/blog';
-		const views_cache_path = views_get_cache_file_path(views_props, uuid);
+		const views_props = 'f.0.referencing=term/tag:$1&f.0.in=content/blog';
+		const views_cache_path = views_get_cache_file_path(views_props, [uuid]);
 
 		const res = await this.fetch(`views-cache/${views_cache_path}`);
 
@@ -77,13 +78,13 @@
 
 <LayoutContentPage {model}>
 
-	<!-- placeholder://src/lib/views.js?f[0][referencing]=term/tag/$1&f[0][in]=content/blog -->
+	<!-- placeholder://src/lib/views.js?f.0.referencing=term/tag:$1&f.0.in=content/blog -->
 	<View {views_cache} />
 
 	<!--
 		<View filters={[
 			{ "in": "content/blog" },
-			{ "referencing": "term/tag/" + model.uuid }
+			{ "referencing": "term/tag:" + model.uuid }
 		]} />
 	-->
 

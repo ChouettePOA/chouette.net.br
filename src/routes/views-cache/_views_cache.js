@@ -1,24 +1,16 @@
 
 /**
- * Gets the pre-compiled cache file path corresponding to the props and args.
+ * Gets the pre-compiled cache file path corresponding to views props and args.
  */
-export function views_get_cache_file_path(props) {
+export function views_get_cache_file_path(stringified_props, args_arr = []) {
 	let tail = '';
-	const args_arr = [];
-
-	// Get all remaining arguments to this function, treat them all as views
-	// arguments.
-	Array.prototype.push.apply(args_arr, arguments);
-	args_arr.shift();
 	while(args_arr.length) {
 		tail += "/" + args_arr.shift();
 	}
-
 	if (!tail.length) {
-		tail = 'default';
+		tail = '/default';
 	}
-
-	return `views-cache/${views_hash_props(JSON.stringify(props))}${tail}.json`;
+	return `src/cache/views/${views_hash_props(stringified_props)}${tail}.json`;
 }
 
 /**

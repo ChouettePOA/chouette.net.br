@@ -40,7 +40,7 @@ const views_default_props = {
  *
  * Transforms settings into results.
  */
-const views_get_results = (settings) => {
+const views_get_results = (settings, args_arr = []) => {
 	let results = [];
 
 	// TODO [wip] evaluate if nested filter groups are useful, and how to approach
@@ -184,6 +184,55 @@ const views_process_result = (result, settings) => {
 };
 
 /**
+ * Gets the pre-compiled cache file path corresponding to views props and args.
+ */
+const views_get_cache_file_path = (stringified_props, args_arr = []) => {
+	let tail = '';
+	while (args_arr.length) {
+		tail += "/" + args_arr.shift();
+	}
+	if (!tail.length) {
+		tail = '/default';
+	}
+	return `src/cache/views/${views_hash_props(stringified_props)}${tail}.json`;
+};
+
+/**
+ * Converts a string into a 53-bit hash.
+ *
+ * @see https://stackoverflow.com/a/52171480/2592338
+ */
+const views_hash_props = (str, seed = 0) => {
+	let h1 = 0xdeadbeef ^ seed;
+	let h2 = 0x41c6ce57 ^ seed;
+	for (let i = 0, ch; i < str.length; i++) {
+		ch = str.charCodeAt(i);
+		h1 = Math.imul(h1 ^ ch, 2654435761);
+		h2 = Math.imul(h2 ^ ch, 1597334677);
+	}
+	h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+	h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+	return 4294967296 * (2097151 & h2) + (h1>>>0);
+};
+
+/**
+ * Converts "stringified" views props into object.
+ */
+const views_stringified_props_2_object = (stringified_props) => {
+	// TODO [wip]
+	const searchParams = new URLSearchParams(stringified_props);
+
+	for (let p of searchParams) {
+		console.log(p);
+
+		// let filters = views_default_props.filters;
+		// filters.items = p[0].split('.');
+	}
+
+	return "";
+};
+
+/**
  * Builds views cache.
  *
  * A view is like a collection of entities to be rendered as a block. It binds
@@ -192,8 +241,8 @@ const views_process_result = (result, settings) => {
  * TODO evaluate "exposed" capability (i.e. using URL params like for pagers).
  */
 const build_views_cache = () => {
-	const views_cache_in_routes = [];
-	const views_cache_in_entities = [];
+	const views_in_routes_cache = [];
+	const views_in_entities_cache = [];
 
 	// Find all occurrences of views in entities.
 	const content_entities = content_entities_load_all();
@@ -232,33 +281,48 @@ const build_views_cache = () => {
 					"settings": settings,
 					"results": results
 				};
-				views_cache_in_entities.push(data);
+				views_in_entities_cache.push(data);
 
 				view_nb++;
 			});
 		});
 	}
 
-	// TODO wip :
 	// Find all occurrences of views in route handlers.
 	walk('src/routes', '.svelte').map(file_path => {
 		const source_code = fs.readFileSync(file_path).toString();
+
+		// Debug
 		// source_code.replace(/<View ([^>]*)/gm, (match, capture) => {
+
 		source_code.replace(
 			/<!-- placeholder:\/\/src\/lib\/views.js\?([^ ]*) -->/gm,
-			(match, capture) => {
+			(match, stringified_props) => {
+
+				// Debug.
 				// console.log(capture);
-				var searchParams = new URLSearchParams(capture);
-				for (let p of searchParams) {
-					console.log(p);
-				}
-				views_cache_in_routes.push({});
+				// const cache_file_path = views_get_cache_file_path(capture);
+				// console.log(cache_file_path);
+
+				// TODO [wip] generate all possible arguments to generate all cache files.
+				const props = views_stringified_props_2_object(stringified_props);
+				console.log(props);
+
+				// const settings = views_get_settings(content.props);
+				// const results = views_get_results(settings);
+
+				// Assemble as a single object for storage in cache backend.
+				// views_in_routes_cache.push({
+				// 	"source": data.storage,
+				// 	"settings": settings,
+				// 	"results": results,
+				// });
 			}
 		);
 	});
 
 	// return views_cache;
-	return {views_cache_in_routes, views_cache_in_entities};
+	return {views_in_routes_cache, views_in_entities_cache};
 };
 
 module.exports = {

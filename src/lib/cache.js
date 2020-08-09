@@ -29,9 +29,9 @@ const cache_page_routing_trails = () => {
  * @see build_views_results()
  */
 const cache_views_results = () => {
-	const {views_cache_in_routes, views_cache_in_entities} = build_views_cache();
+	const {views_in_routes_cache, views_in_entities_cache} = build_views_cache();
 
-	views_cache_in_entities.forEach(data => {
+	views_in_entities_cache.forEach(data => {
 		const file_path = data.storage.file_path;
 		delete data.storage;
 		fs.writeFileSync(file_path, JSON.stringify(data, null, '	'));

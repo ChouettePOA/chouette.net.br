@@ -183,19 +183,19 @@ Like for routing (menu trails), the cache rebuild process stores pre-compiled re
 
 To work around those limitations, instead, this is what I've settled for in this prototype instead. Examples :
 
-In an entity content definition, e.g. `src/entities/content/page/blog.json`, the pre-compiled results are written directly alongside the props **in the same file** :
+In an entity content definition, e.g. `src/entities/content/page/blog.json`, the pre-compiled results are written directly alongside the props **in the same file** (adding the `cache` key as illustrated below) :
 
 ```html
 "content": [
   {
     "c": "View",
     "props": {
-      "filters": [
+      "filters": [                   ← This comes from content editor.
         {
           "in": "content/blog"
         }
       ],
-      "cache": {
+      "cache": {                     ← This is generated during cache rebuild.
         "settings": {},
         "results": []
       }
@@ -206,11 +206,11 @@ In an entity content definition, e.g. `src/entities/content/page/blog.json`, the
 
 In a route handler, e.g. `src/routes/tag/[slug].svelte`, the use of the `preload()` technique is necessary to fetch a single generated JSON cache file corresponding to the props AND arguments.
 
-It was necessary to find a way to generate all pre-compiled results possible, and the choice is currently to use an URL using parameters formatted in a similar fashion as in Apache Solr which is written directly in the route handler source code as a placeholder comment then parsed in `src/lib/views.js` :
+It was necessary to find a way to generate all pre-compiled results possible, and the choice is currently to use an URL using parameters written directly in the route handler source code as a placeholder comment then parsed in `src/lib/views.js` :
 
 ```html
 <!-- placeholder://src/lib/views.js?f[0][referencing]=term/tag:$1&f[0][in]=content/blog -->
-<View cache={my_view_cache} />
+<View cache={my_view_cache_data} />
 ```
 
 ### Localization, content translation
