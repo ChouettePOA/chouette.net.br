@@ -10,7 +10,7 @@ const fs = require('fs');
 
 export async function get(req, res, next) {
 	const { slug } = req.params;
-	const file = 'src/cache/views/' + slug.join('/') + '.json';
+	const file = 'src/cache/views/' + slug.join('/');
 
 	const content_json = fs.readFileSync(file).toString();
 

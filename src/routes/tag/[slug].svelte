@@ -28,12 +28,19 @@
 		const full_slug = 'tag/' + slug;
 
 		const uuid = tag_get_uuid_by_path(full_slug);
-		const views_props = `f[0][by_term]=$1&f[0][in]=content/blog`;
+		const views_props = 'f[0][by_term]=$1&f[0][in]=content/blog';
+		const views_cache_path = views_get_cache_file_path(views_props, uuid);
 
-		// Debug
-		const cache = views_get_cache_file_path(views_props, uuid);
+		const res = await this.fetch(`views-cache/${views_cache_path}`);
 
-		return { full_slug, cache };
+		if (res.status !== 200) {
+			this.error(res.status, `The path ${views_cache_path} was not found`);
+			return {};
+		}
+
+		const views_cache = await res.json();
+
+		return { full_slug, uuid, views_cache };
 	}
 </script>
 
@@ -44,24 +51,22 @@
 	import View from '../../components/content/View.svelte';
 
 	export let full_slug;
-	export let cache;
+	export let uuid;
+	export let views_cache;
 
 	const global_data = getContext('global_data');
 	let model = {};
 
-	for (const [uuid, data] of Object.entries(tags)) {
-		if ($route.lang in data && data[$route.lang].path === full_slug) {
-			model = data[$route.lang];
-			model.lang = $route.lang;
-			model.uuid = uuid;
-		}
-		else if (global_data.default_lang in data && data[global_data.default_lang].path === full_slug) {
-			model = data[global_data.default_lang];
-			model.lang = global_data.default_lang;
-			model.uuid = uuid;
-		}
+	if ($route.lang in tags[uuid]) {
+		model = tags[uuid][$route.lang];
+		model.lang = $route.lang;
+	}
+	else if (global_data.default_lang in tags[uuid]) {
+		model = tags[uuid][global_data.default_lang];
+		model.lang = global_data.default_lang;
 	}
 
+	model.uuid = uuid;
 	model.slug = full_slug;
 
 	// Specific nav state for tags pages.
@@ -77,10 +82,10 @@
 		{ "in": "content/blog" },
 		{ "by_term": model.uuid }
 	]} /> -->
-	<!-- <View {cache} /> -->
+	<!-- <View {views_cache} /> -->
 
 	<!-- DEBUG -->
-	<pre>tag/[slug].svelte : cache = {JSON.stringify(cache, null, 2)}</pre>
+	<pre>tag/[slug].svelte : views_cache = {JSON.stringify(views_cache, null, 2)}</pre>
 	<!-- <pre>tag/[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : full_slug = {JSON.stringify(full_slug, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
