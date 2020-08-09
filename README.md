@@ -131,8 +131,8 @@ Nesting example - goal :
 
 ```html
 <Responsive w="43rem,21rem" attr={{ "class":"c-media-grid bg-content p-v--l" }}>
-	<Lede text="The text to display through the Lede component."/>
-	<Map/>
+  <Lede text="The text to display through the Lede component."/>
+  <Map/>
 </Responsive>
 ```
 
@@ -144,22 +144,22 @@ Nesting example - goal :
     "c": "Responsive",
     "props": {
       "w": "43rem,21rem",
-			"attr": {
-				"class": "c-media-grid bg-content p-v--l"
-			}
+      "attr": {
+        "class": "c-media-grid bg-content p-v--l"
+      }
     },
-		"content": [
-			{
-				"c": "Lede",
-				"props": {
-					"text": "The text to display through the Lede component."
-				}
-			},
-			{
-				"c": "Map",
-				"props": {}
-			}
-		]
+    "content": [
+      {
+        "c": "Lede",
+        "props": {
+          "text": "The text to display through the Lede component."
+        }
+      },
+      {
+        "c": "Map",
+        "props": {}
+      }
+    ]
   }
 ]
 ```
@@ -194,11 +194,11 @@ In an entity content definition, e.g. `src/entities/content/page/blog.json`, the
         {
           "in": "content/blog"
         }
-			],
-			"cache": {
-				"settings": {},
-				"results": []
-			}
+      ],
+      "cache": {
+        "settings": {},
+        "results": []
+      }
     }
   }
 ]
