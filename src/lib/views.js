@@ -192,7 +192,8 @@ const views_process_result = (result, settings) => {
  * TODO evaluate "exposed" capability (i.e. using URL params like for pagers).
  */
 const build_views_cache = () => {
-	const views_cache = [];
+	const views_cache_in_routes = [];
+	const views_cache_in_entities = [];
 
 	// Find all occurrences of views in entities.
 	const content_entities = content_entities_load_all();
@@ -219,11 +220,19 @@ const build_views_cache = () => {
 				const results = views_get_results(settings);
 
 				// Assemble as a single object for storage in cache backend.
-				views_cache.push({
-					"source": data.storage,
+				// views_cache.push({
+				// 	"source": data.storage,
+				// 	"settings": settings,
+				// 	"results": results,
+				// });
+
+				// Update : instead, we have to return the modified entity data to write
+				// "in place".
+				data.content[i].props.cache = {
 					"settings": settings,
-					"results": results,
-				});
+					"results": results
+				};
+				views_cache_in_entities.push(data);
 
 				view_nb++;
 			});
@@ -243,11 +252,13 @@ const build_views_cache = () => {
 				for (let p of searchParams) {
 					console.log(p);
 				}
+				views_cache_in_routes.push({});
 			}
 		);
 	});
 
-	return views_cache;
+	// return views_cache;
+	return {views_cache_in_routes, views_cache_in_entities};
 };
 
 module.exports = {

@@ -96,53 +96,6 @@ TODO evaluate if we really need to force the use of UUIDs in menus (instead of "
 
 The `src/cache/page_routing_trails.json` cache file must be generated every time a modification impacts the navigation tree. It is currently implemented as a "standalone" Node script `src/cache_rebuild.js` which is called in `src/git_hooks/pre_commit.js` and `./package.json` NPM run scripts.
 
-### Views (= collections : pagers, filters, sorts)
-
-TODO currently work in progress.
-
-By default, views list 10 entities per page sorted by publication date in descending order (if available) using the layout `src/components/views_displays/ViewDisplayGrid.svelte` and the entity "view mode" `src/components/entity_view_modes/Card.svelte` for individual results.
-
-There are 2 ways to build lists of entities : either by placing a `<View>` component in an entity `content` definition (see section *Rich content editing* below), or using it in route handlers such as `src/routes/tag/[slug].svelte`.
-
-Like for routing (menu trails), cache files are generated - in this case, for storing pre-compiled results. The files are matched by the path of the page on which the views appear, and by a simple counter in case there are several views to display on the same page.
-
-Examples :
-
-In an entity content definition, e.g. `src/entities/content/page/blog.json` :
-
-```html
-"content": [
-  {
-    "c": "View",
-    "props": {
-      "filters": [
-        {
-          "in": "content/blog"
-        }
-      ]
-    }
-  }
-]
-```
-
-In a route handler (the comment uses a syntax allowing to generate pre-compiled results), e.g. `src/routes/tag/[slug].svelte` :
-
-```html
-<!-- placeholder://src/lib/views.js?f[0][by_term]=tag&f[0][in]=content/blog -->
-<View filters={[
-  { "by_term": model.uuid },
-  { "in": "content/blog" }
-]} />
-```
-
-### Localization, content translation
-
-[ISO 639-1 Language Codes](https://www.w3schools.com/Tags/ref_language_codes.asp) are used to define entities's language. The default language defined in `src/entities/config/global.json` is used as fallback for cases like main menu not yet translated.
-
-Content entity pages set the general UI language for things like menus and string translations (defined in `src/entities/config/translation.json`). When contents written in another language are displayed - e.g. by views, they will automatically get a corresponding `lang` attribute on their wrapper element.
-
-Path collisions must be handled manually, i.e. the page using the `/blog` URL is defined in `src/entities/content/page/blog.json` and if one or more of its translations used the same title (thus the same slug), we would have to define it using another path - e.g. `src/entities/content/page/blog-fr.json` (= `/blog-fr` URL).
-
 ### Rich content editing
 
 In Drupal, editors may combine (and nest) a variety of components to build their page contents. This is provided by modules like [bricks](https://www.drupal.org/project/bricks) or [paragraphs](https://www.drupal.org/project/paragraphs).
@@ -171,6 +124,102 @@ This is what I've currently settled for. In order to get the equivalent of :
   }
 ]
 ```
+
+TODO wip evaluate if this is doable :
+
+Nesting example - goal :
+
+```html
+<Responsive w="43rem,21rem" attr={{ "class":"c-media-grid bg-content p-v--l" }}>
+	<Lede text="The text to display through the Lede component."/>
+	<Map/>
+</Responsive>
+```
+
+... corresponding entity object `content` definition :
+
+```
+"content": [
+  {
+    "c": "Responsive",
+    "props": {
+      "w": "43rem,21rem",
+			"attr": {
+				"class": "c-media-grid bg-content p-v--l"
+			}
+    },
+		"content": [
+			{
+				"c": "Lede",
+				"props": {
+					"text": "The text to display through the Lede component."
+				}
+			},
+			{
+				"c": "Map",
+				"props": {}
+			}
+		]
+  }
+]
+```
+
+### Views (= collections : pagers, filters, sorts)
+
+TODO currently work in progress.
+
+By default, views list 10 entities per page sorted by publication date in descending order (if available) using the layout `src/components/views_displays/ViewDisplayGrid.svelte` and the entity "view mode" `src/components/entity_view_modes/Card.svelte` for individual results.
+
+There are 2 ways to build lists of entities : either by placing a `<View>` component in an entity `content` definition (see section *Rich content editing*), or using it in route handlers such as `src/routes/tag/[slug].svelte`.
+
+Like for routing (menu trails), the cache rebuild process stores pre-compiled results. Due to Svelte limitations, the initial implementation plan could not be done - it would have ideally been for example :
+
+```txt
+<View filters={[
+  { "in": "content/blog" },
+  { "referencing": "term/tag:" + uuid }
+]} />
+```
+
+To work around those limitations, instead, this is what I've settled for in this prototype instead. Examples :
+
+In an entity content definition, e.g. `src/entities/content/page/blog.json`, the pre-compiled results are written directly alongside the props **in the same file** :
+
+```html
+"content": [
+  {
+    "c": "View",
+    "props": {
+      "filters": [
+        {
+          "in": "content/blog"
+        }
+			],
+			"cache": {
+				"settings": {},
+				"results": []
+			}
+    }
+  }
+]
+```
+
+In a route handler, e.g. `src/routes/tag/[slug].svelte`, the use of the `preload()` technique is necessary to fetch a single generated JSON cache file corresponding to the props AND arguments.
+
+It was necessary to find a way to generate all pre-compiled results possible, and the choice is currently to use an URL using parameters formatted in a similar fashion as in Apache Solr which is written directly in the route handler source code as a placeholder comment then parsed in `src/lib/views.js` :
+
+```html
+<!-- placeholder://src/lib/views.js?f[0][referencing]=term/tag:$1&f[0][in]=content/blog -->
+<View cache={my_view_cache} />
+```
+
+### Localization, content translation
+
+[ISO 639-1 Language Codes](https://www.w3schools.com/Tags/ref_language_codes.asp) are used to define entities's language. The default language defined in `src/entities/config/global.json` is used as fallback for cases like main menu not yet translated.
+
+Content entity pages set the general UI language for things like menus and string translations (defined in `src/entities/config/translation.json`). When contents written in another language are displayed - e.g. by views, they will automatically get a corresponding `lang` attribute on their wrapper element.
+
+Path collisions must be handled manually, i.e. the page using the `/blog` URL is defined in `src/entities/content/page/blog.json` and if one or more of its translations used the same title (thus the same slug), we would have to define it using another path - e.g. `src/entities/content/page/blog-fr.json` (= `/blog-fr` URL).
 
 ### [Responsive components](https://philipwalton.github.io/responsive-components/) / element queries
 
