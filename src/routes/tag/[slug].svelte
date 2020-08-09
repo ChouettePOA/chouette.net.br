@@ -28,7 +28,7 @@
 		const full_slug = 'tag/' + slug;
 
 		const uuid = tag_get_uuid_by_path(full_slug);
-		const views_props = 'f[0][by_term]=$1&f[0][in]=content/blog';
+		const views_props = 'f[0][referencing]=term/tag/$1&f[0][in]=content/blog';
 		const views_cache_path = views_get_cache_file_path(views_props, uuid);
 
 		const res = await this.fetch(`views-cache/${views_cache_path}`);
@@ -77,15 +77,18 @@
 
 <LayoutContentPage {model}>
 
-	<!-- placeholder://src/lib/views.js?f[0][by_term]=$1&f[0][in]=content/blog -->
-	<!-- <View filters={[
-		{ "in": "content/blog" },
-		{ "by_term": model.uuid }
-	]} /> -->
-	<!-- <View {views_cache} /> -->
+	<!-- placeholder://src/lib/views.js?f[0][referencing]=term/tag/$1&f[0][in]=content/blog -->
+	<View {views_cache} />
+
+	<!--
+		<View filters={[
+			{ "in": "content/blog" },
+			{ "referencing": "term/tag/" + model.uuid }
+		]} />
+	-->
 
 	<!-- DEBUG -->
-	<pre>tag/[slug].svelte : views_cache = {JSON.stringify(views_cache, null, 2)}</pre>
+	<!-- <pre>tag/[slug].svelte : views_cache = {JSON.stringify(views_cache, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : full_slug = {JSON.stringify(full_slug, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->
