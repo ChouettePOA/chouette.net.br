@@ -134,7 +134,7 @@ const views_process_filters = (filters) => {
  * Merges views props with default settings.
  */
 const views_get_settings = (props) => {
-	const settings = views_default_props;
+	const settings = {...views_default_props};
 
 	// Views display settings.
 	if ("display" in props) {
@@ -217,28 +217,73 @@ const views_hash_props = (str, seed = 0) => {
 
 /**
  * Converts "stringified" views props into object.
+ *
+ * Example of stringified_props :
+ *  f.0.referencing=term/tag:$1&f.0.in=content/blog
+ *
+ * Rules :
+ * - filters & sorts keys are grouped by numerical counter (starting from 0)
+ * - filters values are always prefixed by <entity_type>/<bundle> (wildcard : *)
+ * - arguments are integers separated from filters using ':' and prefixed by '$'
  */
-const views_stringified_props_2_object = (stringified_props) => {
-	// TODO [wip]
+const views_extract_stringified_props = (stringified_props) => {
+	const props = {...views_default_props};
+	const args = [];
 	const searchParams = new URLSearchParams(stringified_props);
 
+	let max_filter_group_nb = 0;
+
 	for (let p of searchParams) {
-		console.log(p);
+		const key_parts = p[0].split('.');
+		switch (key_parts[0]) {
+
+			// Views filters.
+			case 'f':
+				const filter_group = key_parts[1];
+				const filter_type = key_parts[2];
+				if (filter_group > max_filter_group_nb) {
+					max_filter_group_nb = filter_group;
+				}
+
+				const value_parts = p[1].split('/');
+				value_parts.forEach(v => {
+					if (v.indexOf(':') !== -1) {
+						const arg_parts = v.split(':');
+						args.push({
+							"arg": arg_parts[1],
+							"filter_group": filter_group,
+							"filter_type": filter_type,
+							"entity_type": value_parts[0],
+							"bundle": arg_parts[0]
+						});
+					}
+				});
+
+				// TODO [wip] for now only support root group.
+				// @see views_process_filters()
+				props.filters.items.push({filter_type:p[1]});
+				// console.log(filter_type + ' = ' + p[1]);
+
+				break;
+
+			// TODO [wip] Views sorts.
+			case 's':
+				break;
+
+			// TODO [wip] Views pagers.
+			case 'p':
+				break;
+		}
 
 		// let filters = views_default_props.filters;
 		// filters.items = p[0].split('.');
 	}
 
-	return "";
+	return {props, args};
 };
 
 /**
  * Builds views cache.
- *
- * A view is like a collection of entities to be rendered as a block. It binds
- * together filters, sorting criterias, and presentational options.
- *
- * TODO evaluate "exposed" capability (i.e. using URL params like for pagers).
  */
 const build_views_cache = () => {
 	const views_in_routes_cache = [];
@@ -304,12 +349,13 @@ const build_views_cache = () => {
 				// const cache_file_path = views_get_cache_file_path(capture);
 				// console.log(cache_file_path);
 
-				// TODO [wip] generate all possible arguments to generate all cache files.
-				const props = views_stringified_props_2_object(stringified_props);
-				console.log(props);
+				const {props, args} = views_extract_stringified_props(stringified_props);
+				const settings = views_get_settings(props);
 
-				// const settings = views_get_settings(content.props);
-				// const results = views_get_results(settings);
+				// TODO [wip] generate all possible arguments to generate all cache files.
+				console.log(settings);
+				console.log(args);
+				// const results = views_get_results(settings, args);
 
 				// Assemble as a single object for storage in cache backend.
 				// views_in_routes_cache.push({
