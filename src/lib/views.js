@@ -31,7 +31,8 @@ const views_default_props = {
 	"sorts": [
 		{ "published": "desc" }
 	],
-	"pager": {"items": 10}
+	"pager": {"items": 10},
+	"exposed": {}
 };
 
 /**
