@@ -42,20 +42,29 @@ const views_default_props = {
 const views_get_results = (settings) => {
 	let results = [];
 
-	// Get all results matching the filters.
-	// TODO in a traditional setup, this would be a database query builder,
-	// and if we were to make something generic / reusable here, we'd need
-	// to implement a convenient way to switch approaches.
-	// TODO generic filters with AND/OR nestable groups - for now, just take
-	// the first and require to filter by type(s) (OR if passing an array).
-	const filter = settings.filters.items[0];
-	if (typeof filter.type === "string") {
-		results = content_entities_load_all_by_type(filter.type);
+	// TODO [wip] evaluate if nested filter groups are useful, and how to approach
+	// the implementation. For now, only AND root group filters are implemented.
+	const f = views_process_filters(settings.filters);
+	if ('content_types' in f) {
+		f.content_types.forEach(ct => {
+			// results.concat(content_entities_load_all_by_type(ct));
+			content_entities_load_all_by_type(ct).forEach(r => results.push(r));
+		});
 	}
-	else {
-		filter.type.forEach(type_filter => results.concat(
-			content_entities_load_all_by_type(type_filter)
-		));
+
+	// TODO [wip] map entity references (for now always assume tags).
+	if ('referencing' in f) {
+		results.forEach((result, i) => {
+			if (!('tags' in result)) {
+				results.splice(i, 1);
+				return;
+			}
+			f.referencing.forEach(ref => {
+				if (!result.tags.includes(ref)) {
+					results.splice(i, 1);
+				}
+			});
+		});
 	}
 
 	// URL to content entities is the path to the JSON data file relative to
@@ -66,10 +75,58 @@ const views_get_results = (settings) => {
 
 	// Process the results to shave off some weight (no need to store entire
 	// content entities).
-	// TODO for non file-based storage, a complete round trip to fetch the
-	// results in a more traditional fashion would be needed.
-	// For now, hardcode this approach.
 	return results.map(result => views_process_result(result, settings));
+};
+
+/**
+ * Breaks down potentially nested filter groups into parts easier to work with.
+ *
+ * TODO [wip] prototype currently only working for a single AND root group.
+ */
+const views_process_filters = (filters) => {
+	const verbose = [];
+	const content_types = [];
+	const referencing = [];
+
+	if ('items' in filters) {
+		filters.items.forEach(f => {
+			Object.keys(f).forEach(key => {
+				switch (key) {
+					case 'by_term':
+						verbose.push(filters.op + " referencing: " + f[key]);
+
+						// TODO [wip] map entity references (for now always assume tags).
+						referencing.push(f[key]);
+
+						break;
+
+					case 'in':
+						verbose.push(filters.op + " in: " + f[key]);
+
+						// TODO [wip] For now, just work with content entities. Need to
+						// support any entity type though. Add the necessary helpers in
+						// src/lib/entity.js
+						if (f[key].indexOf('content/') === 0) {
+							content_types.push(f[key].replace('content/', ''));
+						}
+
+						break;
+				}
+			});
+		});
+	}
+
+	// TODO [wip] Nested groups.
+	else if ('group' in filters) {
+		let { nested_verbose_str, nested_content_types } = views_process_filters(filters.group);
+		verbose.push(
+			filters.op + ' ( ' + nested_verbose_str + ' )'
+		);
+		content_types.concat(nested_content_types);
+	}
+
+	const verbose_str = verbose.join(' ');
+	return { verbose_str, content_types };
 };
 
 /**
@@ -83,10 +140,13 @@ const views_get_settings = (props) => {
 		settings.display = {...settings.display, ...props.display};
 	}
 
-	// TODO wip : when array, assume first group items.
 	// Views filters.
+	// When array, assume it's the items of the first group.
 	if ("filters" in props) {
-		settings.filters = {...settings.filters, ...props.filters};
+		const passed_filters = Array.isArray(props.filters) ?
+			{"items":props.filters} :
+			props.filters;
+		settings.filters = {...settings.filters, ...passed_filters};
 	}
 
 	// Views pager settings.
@@ -117,7 +177,7 @@ const views_process_result = (result, settings) => {
 		if (fields_blacklist.indexOf(key) !== -1) {
 			delete result[key];
 		}
-	})
+	});
 
 	return result;
 };

@@ -52,8 +52,8 @@
 
 	<!-- placeholder://src/lib/views.js?f[0][by_term]=tag&f[0][in]=content/blog -->
 	<View filters={[
-		{ "by_term": model.uuid },
-		{ "in": "content/blog" }
+		{ "in": "content/blog" },
+		{ "by_term": model.uuid }
 	]} />
 
 	<!-- DEBUG -->
