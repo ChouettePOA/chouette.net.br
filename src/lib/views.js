@@ -46,12 +46,16 @@ const views_default_props = {
  *
  * Transforms settings into results.
  */
-const views_get_results = (settings, args_arr = []) => {
+const views_get_results = (settings, args = []) => {
 	let results = [];
+	const f = views_process_filters(settings.filters);
+
+	// Debug
+	// console.log(settings.filters.items);
+	// console.log(f);
 
 	// TODO [wip] evaluate if nested filter groups are useful, and how to approach
-	// the implementation. For now, only AND root group filters are implemented.
-	const f = views_process_filters(settings.filters);
+	// the implementation. For now, only OR root group filters are implemented.
 	if ('content_types' in f) {
 		f.content_types.forEach(ct => {
 			// results.concat(content_entities_load_all_by_type(ct));
@@ -59,19 +63,26 @@ const views_get_results = (settings, args_arr = []) => {
 		});
 	}
 
-	// TODO [wip] map entity references (for now always assume tags).
-	if ('referencing' in f) {
-		results.forEach((result, i) => {
-			if (!('tags' in result)) {
-				results.splice(i, 1);
-				return;
-			}
-			f.referencing.forEach(ref => {
-				if (!result.tags.includes(ref)) {
-					results.splice(i, 1);
+	// TODO [wip]
+	if ('referencing' in f && f.referencing.length) {
+		const ref_def = f.referencing[0];
+
+		if ('arg' in ref_def && args.length) {
+			results.forEach((result, i) => {
+				if (ref_def.entity_type == 'term') {
+					if (!('tags' in result)) {
+						results.splice(i, 1);
+						return;
+					}
+
+					const arg_val = args[ref_def.arg.i - 1];
+
+					if (!result.tags.includes(arg_val)) {
+						results.splice(i, 1);
+					}
 				}
 			});
-		});
+		}
 	}
 
 	// URL to content entities is the path to the JSON data file relative to
@@ -99,11 +110,11 @@ const views_process_filters = (filters) => {
 		filters.items.forEach(f => {
 			Object.keys(f).forEach(key => {
 				switch (key) {
-					case 'by_term':
+					case 'referencing':
 						verbose.push(filters.op + " referencing: " + f[key]);
 
 						// TODO [wip] map entity references (for now always assume tags).
-						referencing.push(f[key]);
+						referencing.push(views_extract_filter(key, f[key]));
 
 						break;
 
@@ -133,7 +144,50 @@ const views_process_filters = (filters) => {
 	}
 
 	const verbose_str = verbose.join(' ');
-	return { verbose_str, content_types };
+	return { verbose_str, content_types, referencing };
+};
+
+/**
+ * Converts a single views filter value into entity type, bundle, and arg.
+ *
+ * @param {String} filter_type : Examples :
+ *  - referencing
+ *  - in
+ * @param {String} filter_value : Examples :
+ *  - 'term/tag:$1'
+ *  - 'content/blog'
+ *
+ * @return {Object} {entity_type, bundle, arg}
+ */
+const views_extract_filter = (filter_type, filter_value) => {
+	let arg = null;
+	const f_item = {};
+	const value_parts = filter_value.split('/');
+
+	value_parts.forEach(v => {
+		if (v.indexOf(':') !== -1) {
+			const arg_parts = v.split(':');
+			arg = {
+				"i": arg_parts[1].replace('$', ''),
+				"entity_type": value_parts[0],
+				"filter_type": filter_type,
+				"bundle": arg_parts[0]
+			};
+		}
+	});
+
+	f_item[filter_type] = filter_value;
+	f_item.entity_type = value_parts[0];
+
+	if (arg) {
+		f_item.arg = arg;
+		f_item.bundle = arg.bundle;
+	}
+	else {
+		f_item.bundle = value_parts[1];
+	}
+
+	return f_item;
 };
 
 /**
@@ -250,26 +304,11 @@ const views_extract_stringified_props = (stringified_props) => {
 				if (filter_group > max_filter_group_nb) {
 					max_filter_group_nb = filter_group;
 				}
-
-				const value_parts = p[1].split('/');
-				value_parts.forEach(v => {
-					if (v.indexOf(':') !== -1) {
-						const arg_parts = v.split(':');
-						args.push({
-							"i": arg_parts[1].replace('$', ''),
-							"filter_group": filter_group,
-							"filter_type": filter_type,
-							"entity_type": value_parts[0],
-							"bundle": arg_parts[0]
-						});
-					}
-				});
-
-				// TODO [wip] for now only support root group.
-				// @see views_process_filters()
-				props.filters.items.push({filter_type:p[1]});
-				// console.log(filter_type + ' = ' + p[1]);
-
+				const extracted_filter = views_extract_filter(filter_type, p[1]);
+				props.filters.items.push(extracted_filter);
+				if (extracted_filter.arg) {
+					args.push(extracted_filter.arg);
+				}
 				break;
 
 			// TODO [wip] Views sorts.
