@@ -15,7 +15,7 @@
 				}
 			}
 		}
-	}
+	};
 
 	/**
 	 * Implements Sapper route preload "hook".
@@ -23,25 +23,36 @@
 	 * @param page : object containing `{ path, params, query }`.
 	 * @param session : used for credentialled requests.
 	 * @return object : custom props.
+	 *
+	 * @see src/routes/views-cache/[...slug].json.js
 	 */
 	export async function preload(page, session) {
 		const { slug } = page.params;
 		const full_slug = 'tag/' + slug;
 
 		const uuid = tag_get_uuid_by_path(full_slug);
-		const views_props = 'f.0.referencing=term/tag:$1&f.0.in=content/blog';
-		const views_cache_path = views_get_cache_file_path(views_props, [uuid]);
+		const cached_views_data = [];
+		const views_on_this_page = [
+			{
+				"stringified_props": "f.0.referencing=term/tag:$1&f.0.in=content/blog",
+				"args": [uuid]
+			}
+		];
 
-		const res = await this.fetch(`views-cache/${views_cache_path}`);
+		for (let i = 0; i < views_on_this_page.length; i++) {
+			const v = views_on_this_page[i];
+			const views_cache_path = views_get_cache_file_path(v.stringified_props, v.args);
+			const res = await this.fetch(`views-cache/${views_cache_path}`);
 
-		if (res.status !== 200) {
-			this.error(res.status, `The path ${views_cache_path} was not found`);
-			return {};
+			if (res.status !== 200) {
+				this.error(res.status, `The path ${views_cache_path} was not found`);
+				return {};
+			}
+
+			cached_views_data.push(await res.json());
 		}
 
-		const views_cache = await res.json();
-
-		return { full_slug, uuid, views_cache };
+		return { full_slug, uuid, cached_views_data };
 	}
 </script>
 
@@ -53,7 +64,7 @@
 
 	export let full_slug;
 	export let uuid;
-	export let views_cache;
+	export let cached_views_data;
 
 	const global_data = getContext('global_data');
 	let model = {};
@@ -79,7 +90,7 @@
 <LayoutContentPage {model}>
 
 	<!-- placeholder://src/lib/views.js?f.0.referencing=term/tag:$1&f.0.in=content/blog -->
-	<View {views_cache} />
+	<View cache={cached_views_data[0]} />
 
 	<!--
 		<View filters={[
@@ -89,7 +100,7 @@
 	-->
 
 	<!-- DEBUG -->
-	<!-- <pre>tag/[slug].svelte : views_cache = {JSON.stringify(views_cache, null, 2)}</pre> -->
+	<!-- <pre>tag/[slug].svelte : cached_view1_data = {JSON.stringify(cached_view1_data, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : route = {JSON.stringify($route, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : full_slug = {JSON.stringify(full_slug, null, 2)}</pre> -->
 	<!-- <pre>tag/[slug].svelte : model = {JSON.stringify(model, null, 2)}</pre> -->

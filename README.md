@@ -209,8 +209,8 @@ In a route handler, e.g. `src/routes/tag/[slug].svelte`, the use of the `preload
 It was necessary to find a way to generate all pre-compiled results possible, and the choice is currently to use an URL using parameters written directly in the route handler source code as a placeholder comment then parsed in `src/lib/views.js` :
 
 ```html
-<!-- placeholder://src/lib/views.js?f[0][referencing]=term/tag:$1&f[0][in]=content/blog -->
-<View cache={my_view_cache_data} />
+<!-- placeholder://src/lib/views.js?f.0.referencing=term/tag:$1&f.0.in=content/blog -->
+<View cache={cached_views_data[0]} />
 ```
 
 ### Localization, content translation

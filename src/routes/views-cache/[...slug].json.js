@@ -4,6 +4,7 @@
  *
  * @see src/lib/views.js
  * @see src/lib/cache.js
+ * @see src/routes/tag/[slug].svelte
  */
 
 const fs = require('fs');

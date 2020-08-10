@@ -7,6 +7,23 @@
 // import * as path from 'path';
 const fs = require('fs');
 const path = require('path');
+const mkdirp = require('mkdirp');
+
+/**
+ * Helper to write file creating missing parent folder(s) if necessary.
+ *
+ * See https://stackoverflow.com/a/50927704/2592338
+ *
+ * @param {String} file_path
+ * @param {String} content
+ */
+const write_file = async (file_path, content) => {
+	const dirname = path.dirname(file_path);
+	if (!fs.existsSync(dirname)) {
+		await mkdirp.sync(dirname);
+	}
+  fs.writeFileSync(file_path, content);
+}
 
 /**
  * Recursively gets file paths from given dir.
@@ -30,4 +47,7 @@ const walk = (dir, extension) => {
 	return files.sort();
 }
 
-module.exports = { "walk": walk };
+module.exports = {
+	"walk": walk,
+	"write_file": write_file
+};

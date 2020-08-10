@@ -13,7 +13,13 @@
 
 const fs = require('fs');
 const { walk } = require('./fs');
-const { content_entities_load_all, content_entities_load_all_by_type, content_entities_get_path } = require('./entity');
+const {
+	content_entities_get_path,
+	content_entities_load_all,
+	content_entities_load_all_by_type,
+	taxonomy_terms_load_all,
+	taxonomy_terms_load_all_by_vocabulary
+} = require('./entity');
 
 const views_default_props = {
 	"display": {
@@ -40,32 +46,42 @@ const views_default_props = {
  *
  * Transforms settings into results.
  */
-const views_get_results = (settings, args_arr = []) => {
+const views_get_results = (settings, args = []) => {
 	let results = [];
+	const f = views_process_filters(settings.filters);
+
+	// Debug
+	// console.log(settings.filters.items);
+	// console.log(f);
 
 	// TODO [wip] evaluate if nested filter groups are useful, and how to approach
-	// the implementation. For now, only AND root group filters are implemented.
-	const f = views_process_filters(settings.filters);
+	// the implementation. For now, only OR root group filters are implemented.
 	if ('content_types' in f) {
 		f.content_types.forEach(ct => {
-			// results.concat(content_entities_load_all_by_type(ct));
-			content_entities_load_all_by_type(ct).forEach(r => results.push(r));
+			content_entities_load_all_by_type(ct).forEach(r => results.push({...r}));
 		});
 	}
 
-	// TODO [wip] map entity references (for now always assume tags).
-	if ('referencing' in f) {
-		results.forEach((result, i) => {
-			if (!('tags' in result)) {
-				results.splice(i, 1);
-				return;
-			}
-			f.referencing.forEach(ref => {
-				if (!result.tags.includes(ref)) {
-					results.splice(i, 1);
+	// TODO [wip]
+	if ('referencing' in f && f.referencing.length) {
+		const ref_def = f.referencing[0];
+
+		if ('arg' in ref_def && args.length) {
+			results.forEach((result, i) => {
+				if (ref_def.entity_type == 'term') {
+					if (!('tags' in result)) {
+						results.splice(i, 1);
+						return;
+					}
+
+					const arg_val = args[ref_def.arg.i - 1];
+
+					if (!result.tags.includes(arg_val)) {
+						results.splice(i, 1);
+					}
 				}
 			});
-		});
+		}
 	}
 
 	// URL to content entities is the path to the JSON data file relative to
@@ -93,11 +109,11 @@ const views_process_filters = (filters) => {
 		filters.items.forEach(f => {
 			Object.keys(f).forEach(key => {
 				switch (key) {
-					case 'by_term':
+					case 'referencing':
 						verbose.push(filters.op + " referencing: " + f[key]);
 
 						// TODO [wip] map entity references (for now always assume tags).
-						referencing.push(f[key]);
+						referencing.push(views_extract_filter(key, f[key]));
 
 						break;
 
@@ -127,7 +143,50 @@ const views_process_filters = (filters) => {
 	}
 
 	const verbose_str = verbose.join(' ');
-	return { verbose_str, content_types };
+	return { verbose_str, content_types, referencing };
+};
+
+/**
+ * Converts a single views filter value into entity type, bundle, and arg.
+ *
+ * @param {String} filter_type : Examples :
+ *  - referencing
+ *  - in
+ * @param {String} filter_value : Examples :
+ *  - 'term/tag:$1'
+ *  - 'content/blog'
+ *
+ * @return {Object} {entity_type, bundle, arg}
+ */
+const views_extract_filter = (filter_type, filter_value) => {
+	let arg = null;
+	const f_item = {};
+	const value_parts = filter_value.split('/');
+
+	value_parts.forEach(v => {
+		if (v.indexOf(':') !== -1) {
+			const arg_parts = v.split(':');
+			arg = {
+				"i": arg_parts[1].replace('$', ''),
+				"entity_type": value_parts[0],
+				"filter_type": filter_type,
+				"bundle": arg_parts[0]
+			};
+		}
+	});
+
+	f_item[filter_type] = filter_value;
+	f_item.entity_type = value_parts[0];
+
+	if (arg) {
+		f_item.arg = arg;
+		f_item.bundle = arg.bundle;
+	}
+	else {
+		f_item.bundle = value_parts[1];
+	}
+
+	return f_item;
 };
 
 /**
@@ -164,6 +223,8 @@ const views_get_settings = (props) => {
  * Only keeps the values that will actually be used by the rendering.
  */
 const views_process_result = (result, settings) => {
+	// result = {...result};
+
 	// We may not need configurable fields for content entities (loosely modelled
 	// after Drupal nodes) in this type of project.
 	const fields_blacklist = [
@@ -244,26 +305,11 @@ const views_extract_stringified_props = (stringified_props) => {
 				if (filter_group > max_filter_group_nb) {
 					max_filter_group_nb = filter_group;
 				}
-
-				const value_parts = p[1].split('/');
-				value_parts.forEach(v => {
-					if (v.indexOf(':') !== -1) {
-						const arg_parts = v.split(':');
-						args.push({
-							"arg": arg_parts[1],
-							"filter_group": filter_group,
-							"filter_type": filter_type,
-							"entity_type": value_parts[0],
-							"bundle": arg_parts[0]
-						});
-					}
-				});
-
-				// TODO [wip] for now only support root group.
-				// @see views_process_filters()
-				props.filters.items.push({filter_type:p[1]});
-				// console.log(filter_type + ' = ' + p[1]);
-
+				const extracted_filter = views_extract_filter(filter_type, p[1]);
+				props.filters.items.push(extracted_filter);
+				if (extracted_filter.arg) {
+					args.push(extracted_filter.arg);
+				}
 				break;
 
 			// TODO [wip] Views sorts.
@@ -274,12 +320,91 @@ const views_extract_stringified_props = (stringified_props) => {
 			case 'p':
 				break;
 		}
-
-		// let filters = views_default_props.filters;
-		// filters.items = p[0].split('.');
 	}
 
 	return {props, args};
+};
+
+/**
+ * Generates cache entries based on filters and arguments.
+ */
+const views_generate_cache_entries = (o) => {
+	const {props, args, stringified_props} = o;
+	const cache_entries = [];
+	const settings = views_get_settings(props);
+
+	if (!args || !args.length) {
+		const results = views_get_results(settings);
+		cache_entries.push({
+			"settings": settings,
+			"results": results
+		});
+
+		return cache_entries;
+	}
+
+	// With arguments, we will need much more processing.
+	// Generate all possible arguments to generate all cache files.
+	const args_values = [];
+	const args_results = [];
+
+	args.forEach(arg => {
+		args_values[arg.i] = [];
+
+		// First, load all entities data.
+		switch (arg.entity_type) {
+			case 'content':
+				if ('bundle' in arg && arg.bundle.length) {
+					args_results[arg.i] = content_entities_load_all_by_type(arg.bundle);
+				}
+				else {
+					args_results[arg.i] = content_entities_load_all();
+				}
+				break;
+
+			case 'term':
+				if ('bundle' in arg && arg.bundle.length) {
+					args_results[arg.i] = taxonomy_terms_load_all_by_vocabulary(arg.bundle);
+				}
+				else {
+					args_results[arg.i] = taxonomy_terms_load_all();
+				}
+				break;
+		}
+
+		// Depending on the type of filter, we may need to keep only 1 key.
+		switch (arg.filter_type) {
+			// TODO [wip] do the other types.
+			case 'referencing':
+				args_results[arg.i].forEach(data => {
+					// Terms translations share the same UUID (the plan was to use
+					// different keys like "uuid_fr" for example).
+					// Here, we only need results by tag, whichever language the tag is,
+					// because it represents the same "reference" - so, deduplicate.
+					if (args_values[arg.i].indexOf(data.uuid) === -1) {
+						args_values[arg.i].push(data.uuid);
+					}
+				})
+				break;
+		}
+	});
+
+	// TODO [wip] match filters with arg position + combinatory expanding.
+	// For now, process just a single arg.
+	args_values.forEach((arg_values, i) => {
+		arg_values.forEach(val => {
+			cache_entries.push({
+				"storage": {
+					"backend": "file",
+					"file_path": views_get_cache_file_path(stringified_props, [val])
+				},
+				"settings": settings,
+				"results": views_get_results(settings, [val])
+			});
+		});
+	});
+
+	return cache_entries;
 };
 
 /**
@@ -290,17 +415,14 @@ const build_views_cache = () => {
 	const views_in_entities_cache = [];
 
 	// Find all occurrences of views in entities.
+	// The cache rebuild process will inject cache entries "in place", so in this
+	// case, the entire entity data is returned (it will be entirely rewritten).
 	const content_entities = content_entities_load_all();
 	for (const [content_type, entities] of Object.entries(content_entities)) {
 		entities.forEach(data => {
 			if (!("content" in data) || typeof data.content !== 'object') {
 				return;
 			}
-
-			// In case several views are set in the same content, we need to
-			// differenciate them.
-			let view_nb = 0;
-
 			data.content.forEach((content, i) => {
 				if (content.c !== 'View') {
 					return;
@@ -308,27 +430,12 @@ const build_views_cache = () => {
 				if (!("props" in content)) {
 					content.props = {};
 				}
-				data.storage.i = view_nb;
-
-				const settings = views_get_settings(content.props);
-				const results = views_get_results(settings);
-
-				// Assemble as a single object for storage in cache backend.
-				// views_cache.push({
-				// 	"source": data.storage,
-				// 	"settings": settings,
-				// 	"results": results,
-				// });
-
-				// Update : instead, we have to return the modified entity data to write
-				// "in place".
-				data.content[i].props.cache = {
-					"settings": settings,
-					"results": results
-				};
-				views_in_entities_cache.push(data);
-
-				view_nb++;
+				// Without args, a single cache entry is returned.
+				const cache_entries = views_generate_cache_entries(content);
+				if (cache_entries.length) {
+					data.content[i].props.cache = cache_entries.pop();
+					views_in_entities_cache.push(data);
+				}
 			});
 		});
 	}
@@ -343,26 +450,13 @@ const build_views_cache = () => {
 		source_code.replace(
 			/<!-- placeholder:\/\/src\/lib\/views.js\?([^ ]*) -->/gm,
 			(match, stringified_props) => {
-
-				// Debug.
-				// console.log(capture);
-				// const cache_file_path = views_get_cache_file_path(capture);
-				// console.log(cache_file_path);
-
 				const {props, args} = views_extract_stringified_props(stringified_props);
-				const settings = views_get_settings(props);
-
-				// TODO [wip] generate all possible arguments to generate all cache files.
-				console.log(settings);
-				console.log(args);
-				// const results = views_get_results(settings, args);
-
-				// Assemble as a single object for storage in cache backend.
-				// views_in_routes_cache.push({
-				// 	"source": data.storage,
-				// 	"settings": settings,
-				// 	"results": results,
-				// });
+				const cache_entries = views_generate_cache_entries({props, args, stringified_props});
+				if (cache_entries.length) {
+					cache_entries.forEach(cache_entry => {
+						views_in_routes_cache.push(cache_entry);
+					});
+				}
 			}
 		);
 	});
