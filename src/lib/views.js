@@ -13,7 +13,13 @@
 
 const fs = require('fs');
 const { walk } = require('./fs');
-const { content_entities_load_all, content_entities_load_all_by_type, content_entities_get_path } = require('./entity');
+const {
+	content_entities_load_all,
+	content_entities_load_all_by_type,
+	content_entities_get_path,
+	taxonomy_terms_load_all,
+	taxonomy_terms_load_all_by_vocabulary
+} = require('./entity');
 
 const views_default_props = {
 	"display": {
@@ -250,7 +256,7 @@ const views_extract_stringified_props = (stringified_props) => {
 					if (v.indexOf(':') !== -1) {
 						const arg_parts = v.split(':');
 						args.push({
-							"arg": arg_parts[1],
+							"i": arg_parts[1].replace('$', ''),
 							"filter_group": filter_group,
 							"filter_type": filter_type,
 							"entity_type": value_parts[0],
@@ -274,9 +280,6 @@ const views_extract_stringified_props = (stringified_props) => {
 			case 'p':
 				break;
 		}
-
-		// let filters = views_default_props.filters;
-		// filters.items = p[0].split('.');
 	}
 
 	return {props, args};
@@ -343,26 +346,63 @@ const build_views_cache = () => {
 		source_code.replace(
 			/<!-- placeholder:\/\/src\/lib\/views.js\?([^ ]*) -->/gm,
 			(match, stringified_props) => {
-
-				// Debug.
-				// console.log(capture);
-				// const cache_file_path = views_get_cache_file_path(capture);
-				// console.log(cache_file_path);
-
 				const {props, args} = views_extract_stringified_props(stringified_props);
 				const settings = views_get_settings(props);
 
-				// TODO [wip] generate all possible arguments to generate all cache files.
-				console.log(settings);
-				console.log(args);
-				// const results = views_get_results(settings, args);
+				// Generate all possible arguments to generate all cache files.
+				const args_values = [];
+				args.forEach(arg => {
 
-				// Assemble as a single object for storage in cache backend.
-				// views_in_routes_cache.push({
-				// 	"source": data.storage,
-				// 	"settings": settings,
-				// 	"results": results,
-				// });
+					// First, load all entities data.
+					switch (arg.entity_type) {
+						case 'content':
+							if ('bundle' in arg && arg.bundle.length) {
+								args_values[arg.i] = content_entities_load_all_by_type(arg.bundle);
+							}
+							else {
+								args_values[arg.i] = content_entities_load_all();
+							}
+							break;
+
+						case 'term':
+							if ('bundle' in arg && arg.bundle.length) {
+								args_values[arg.i] = taxonomy_terms_load_all_by_vocabulary(arg.bundle);
+							}
+							else {
+								args_values[arg.i] = taxonomy_terms_load_all();
+							}
+							break;
+					}
+
+					// Depending on the type of filter, we may need to keep only 1 key.
+					switch (arg.filter_type) {
+
+						// TODO [wip] do the other types.
+						case 'referencing':
+							args_values[arg.i].forEach((data, i) => {
+								args_values[arg.i][i] = data.uuid;
+							})
+							break;
+					}
+				});
+
+				// TODO [wip] match filters with arg position + combinatory expanding.
+				// For now, process just a single arg.
+				args_values.forEach((arg_values, i) => {
+					arg_values.forEach(val => {
+						const results = views_get_results(settings, [val]);
+
+						// Assemble as a single object for storage in cache backend.
+						views_in_routes_cache.push({
+							"source": {
+								"backend": "file",
+								"file_path": views_get_cache_file_path(stringified_props, [val])
+							},
+							"settings": settings,
+							"results": results
+						});
+					});
+				});
 			}
 		);
 	});

@@ -45,6 +45,32 @@ const content_entities_load_all_by_type = content_type => {
 };
 
 /**
+ * Gets taxonomy terms from all vocabularies.
+ */
+const taxonomy_terms_load_all = () => {
+	const terms = {};
+	content_entities_load_all_by_type('taxonomy').forEach(data => {
+		const vocabulary = content_entities_get_path(data).split('/')[0];
+		if (!(vocabulary in terms)) {
+			terms[vocabulary] = [];
+		}
+		terms[vocabulary].push(data);
+	});
+	return terms;
+};
+
+/**
+ * Loads all taxonomy terms data by vocabulary.
+ */
+const taxonomy_terms_load_all_by_vocabulary = vocabulary => {
+	const terms = taxonomy_terms_load_all();
+	if (!(vocabulary in terms)) {
+		return;
+	}
+	return terms[vocabulary];
+};
+
+/**
  * Gets content entity path.
  *
  * For file-based storage, the URL of content entities is the path to the JSON
@@ -69,5 +95,7 @@ const content_entities_get_path = (entity) => {
 module.exports = {
 	"content_entities_get_path": content_entities_get_path,
 	"content_entities_load_all": content_entities_load_all,
-	"content_entities_load_all_by_type": content_entities_load_all_by_type
+	"content_entities_load_all_by_type": content_entities_load_all_by_type,
+	"taxonomy_terms_load_all": taxonomy_terms_load_all,
+	"taxonomy_terms_load_all_by_vocabulary": taxonomy_terms_load_all_by_vocabulary
 };

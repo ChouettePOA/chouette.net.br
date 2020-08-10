@@ -23,21 +23,25 @@ const cache_page_routing_trails = () => {
 /**
  * Writes the views cache.
  *
- * Unlike cache_page_routing_trails(), the generated code will be "injected"
- * directly in place (inside the entity definition where the view is placed).
- *
  * @see build_views_results()
  */
 const cache_views_results = () => {
 	const {views_in_routes_cache, views_in_entities_cache} = build_views_cache();
 
+	// For views in route handlers, we need to pre-compile every possible argument
+	// values as distinct files.
+	views_in_routes_cache.forEach(data => {
+		// TODO [wip]
+		console.log(data);
+	});
+
+	// For views in entities content, the generated code will be "injected"
+ 	// directly in place (inside the entity definition where the view is placed).
 	views_in_entities_cache.forEach(data => {
 		const file_path = data.storage.file_path;
 		delete data.storage;
 		fs.writeFileSync(file_path, JSON.stringify(data, null, '	'));
 	});
-
-	// console.log(views_get_cache_file_path({"test":"hello"}));
 }
 
 /**
