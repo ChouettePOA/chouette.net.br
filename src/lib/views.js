@@ -286,6 +286,88 @@ const views_extract_stringified_props = (stringified_props) => {
 };
 
 /**
+ * Generates cache entries based on filters and arguments.
+ */
+const views_generate_cache_entries = (o) => {
+	const {props, args, stringified_props} = o;
+	const cache_entries = [];
+	const settings = views_get_settings(props);
+
+	if (!args || !args.length) {
+		const results = views_get_results(settings);
+		cache_entries.push({
+			"settings": settings,
+			"results": results
+		});
+
+		return cache_entries;
+	}
+
+	// With arguments, we will need much more processing.
+	// Generate all possible arguments to generate all cache files.
+	const args_values = [];
+	const args_results = [];
+
+	args.forEach(arg => {
+		args_values[arg.i] = [];
+
+		// First, load all entities data.
+		switch (arg.entity_type) {
+			case 'content':
+				if ('bundle' in arg && arg.bundle.length) {
+					args_results[arg.i] = content_entities_load_all_by_type(arg.bundle);
+				}
+				else {
+					args_results[arg.i] = content_entities_load_all();
+				}
+				break;
+
+			case 'term':
+				if ('bundle' in arg && arg.bundle.length) {
+					args_results[arg.i] = taxonomy_terms_load_all_by_vocabulary(arg.bundle);
+				}
+				else {
+					args_results[arg.i] = taxonomy_terms_load_all();
+				}
+				break;
+		}
+
+		// Depending on the type of filter, we may need to keep only 1 key.
+		switch (arg.filter_type) {
+			// TODO [wip] do the other types.
+			case 'referencing':
+				args_results[arg.i].forEach(data => {
+					// Terms translations share the same UUID (the plan was to use
+					// different keys like "uuid_fr" for example).
+					// Here, we only need results by tag, whichever language the tag is,
+					// because it represents the same "reference" - so, deduplicate.
+					if (args_values[arg.i].indexOf(data.uuid) === -1) {
+						args_values[arg.i].push(data.uuid);
+					}
+				})
+				break;
+		}
+	});
+
+	// TODO [wip] match filters with arg position + combinatory expanding.
+	// For now, process just a single arg.
+	args_values.forEach((arg_values, i) => {
+		arg_values.forEach(val => {
+			cache_entries.push({
+				"storage": {
+					"backend": "file",
+					"file_path": views_get_cache_file_path(stringified_props, [val])
+				},
+				"settings": settings,
+				"results": views_get_results(settings, [val])
+			});
+		});
+	});
+
+	return cache_entries;
+};
+
+/**
  * Builds views cache.
  */
 const build_views_cache = () => {
@@ -293,17 +375,14 @@ const build_views_cache = () => {
 	const views_in_entities_cache = [];
 
 	// Find all occurrences of views in entities.
+	// The cache rebuild process will inject cache entries "in place", so in this
+	// case, the entire entity data is returned (it will be entirely rewritten).
 	const content_entities = content_entities_load_all();
 	for (const [content_type, entities] of Object.entries(content_entities)) {
 		entities.forEach(data => {
 			if (!("content" in data) || typeof data.content !== 'object') {
 				return;
 			}
-
-			// In case several views are set in the same content, we need to
-			// differenciate them.
-			let view_nb = 0;
-
 			data.content.forEach((content, i) => {
 				if (content.c !== 'View') {
 					return;
@@ -311,27 +390,12 @@ const build_views_cache = () => {
 				if (!("props" in content)) {
 					content.props = {};
 				}
-				data.storage.i = view_nb;
-
-				const settings = views_get_settings(content.props);
-				const results = views_get_results(settings);
-
-				// Assemble as a single object for storage in cache backend.
-				// views_cache.push({
-				// 	"source": data.storage,
-				// 	"settings": settings,
-				// 	"results": results,
-				// });
-
-				// Update : instead, we have to return the modified entity data to write
-				// "in place".
-				data.content[i].props.cache = {
-					"settings": settings,
-					"results": results
-				};
-				views_in_entities_cache.push(data);
-
-				view_nb++;
+				// Without args, a single cache entry is returned.
+				const cache_entries = views_generate_cache_entries(content);
+				if (cache_entries.length) {
+					data.content[i].props.cache = cache_entries.pop();
+					views_in_entities_cache.push(data);
+				}
 			});
 		});
 	}
@@ -347,62 +411,12 @@ const build_views_cache = () => {
 			/<!-- placeholder:\/\/src\/lib\/views.js\?([^ ]*) -->/gm,
 			(match, stringified_props) => {
 				const {props, args} = views_extract_stringified_props(stringified_props);
-				const settings = views_get_settings(props);
-
-				// Generate all possible arguments to generate all cache files.
-				const args_values = [];
-				args.forEach(arg => {
-
-					// First, load all entities data.
-					switch (arg.entity_type) {
-						case 'content':
-							if ('bundle' in arg && arg.bundle.length) {
-								args_values[arg.i] = content_entities_load_all_by_type(arg.bundle);
-							}
-							else {
-								args_values[arg.i] = content_entities_load_all();
-							}
-							break;
-
-						case 'term':
-							if ('bundle' in arg && arg.bundle.length) {
-								args_values[arg.i] = taxonomy_terms_load_all_by_vocabulary(arg.bundle);
-							}
-							else {
-								args_values[arg.i] = taxonomy_terms_load_all();
-							}
-							break;
-					}
-
-					// Depending on the type of filter, we may need to keep only 1 key.
-					switch (arg.filter_type) {
-
-						// TODO [wip] do the other types.
-						case 'referencing':
-							args_values[arg.i].forEach((data, i) => {
-								args_values[arg.i][i] = data.uuid;
-							})
-							break;
-					}
-				});
-
-				// TODO [wip] match filters with arg position + combinatory expanding.
-				// For now, process just a single arg.
-				args_values.forEach((arg_values, i) => {
-					arg_values.forEach(val => {
-						const results = views_get_results(settings, [val]);
-
-						// Assemble as a single object for storage in cache backend.
-						views_in_routes_cache.push({
-							"source": {
-								"backend": "file",
-								"file_path": views_get_cache_file_path(stringified_props, [val])
-							},
-							"settings": settings,
-							"results": results
-						});
+				const cache_entries = views_generate_cache_entries({props, args, stringified_props});
+				if (cache_entries.length) {
+					cache_entries.forEach(cache_entry => {
+						views_in_routes_cache.push(cache_entry);
 					});
-				});
+				}
 			}
 		);
 	});

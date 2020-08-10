@@ -1,0 +1,1 @@
+{"settings":{"display":{"c":"ViewDisplayGrid","props":{"align":"center","space":"large","view_mode":"Card"}},"filters":{"op":"AND","items":[{"filter_type":"term/tag:$1"},{"filter_type":"content/blog"}]},"sorts":[{"published":"desc"}],"pager":{"items":10},"exposed":{}},"results":[]}
