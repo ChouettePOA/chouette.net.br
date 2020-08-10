@@ -14,9 +14,9 @@
 const fs = require('fs');
 const { walk } = require('./fs');
 const {
+	content_entities_get_path,
 	content_entities_load_all,
 	content_entities_load_all_by_type,
-	content_entities_get_path,
 	taxonomy_terms_load_all,
 	taxonomy_terms_load_all_by_vocabulary
 } = require('./entity');
@@ -58,8 +58,7 @@ const views_get_results = (settings, args = []) => {
 	// the implementation. For now, only OR root group filters are implemented.
 	if ('content_types' in f) {
 		f.content_types.forEach(ct => {
-			// results.concat(content_entities_load_all_by_type(ct));
-			content_entities_load_all_by_type(ct).forEach(r => results.push(r));
+			content_entities_load_all_by_type(ct).forEach(r => results.push({...r}));
 		});
 	}
 
@@ -224,6 +223,8 @@ const views_get_settings = (props) => {
  * Only keeps the values that will actually be used by the rendering.
  */
 const views_process_result = (result, settings) => {
+	// result = {...result};
+
 	// We may not need configurable fields for content entities (loosely modelled
 	// after Drupal nodes) in this type of project.
 	const fields_blacklist = [
