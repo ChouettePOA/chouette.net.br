@@ -35,7 +35,16 @@ See how the content editing / hosting part was approached in these projects (if 
 
 ## Features
 
-This section presents how basic, common needs were implemented on top of the chosen foundation - here : Sapper / Svelte.
+This section presents how basic, common needs were implemented on top of the chosen foundation - here : Sapper / Svelte. These were inspired by Drupal.
+
+In short, the Drupal bits that make sense for small-scale static projects (obviously not to be implemented identically - it's about conceptual inspiration) :
+
+1. **Entities** = structure anything that can be edited. Can have 2 "levels" if it makes sense - i.e. entity type / bundle (~ class / sub-class), ex : content / page, taxonomy term / tag, user / content editor, etc.
+Entities may have URLs (i.e. pages, articles, users, or even taxonomy terms), or not (i.e. config, blocks, menus).
+Entity types or bundles share the same fields.
+Differences in rendering for a single entity type or bundle can be implemented as "view modes", i.e. default (full page), teaser, card, etc.
+2. **Entity references** define associations between entities, like article -> tag. For static projects, UUIDs make sense in order to avoid having to impact referers when a referee is modified, e.g. if a tag gets renamed (no need to update all articles using the tag), a page URL changes (no need to change all menu items pointing to it), etc.
+3. **Views** (perhaps a better name could be *Collections*) = lists of entities with params to filter, paginate, sort, display and render results. Optionally provides "exposed" filters and/or sorts, i.e. search form(s) and sorting links.
 
 ### Content data model
 
