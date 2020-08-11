@@ -58,6 +58,11 @@ const taxonomy_terms_load_all = () => {
 		if (!(vocabulary in term_entities)) {
 			term_entities[vocabulary] = [];
 		}
+		const data = JSON.parse(fs.readFileSync(file_path).toString());
+		data.storage = {
+			"backend": "file",
+			"file_path": file_path
+		};
 		term_entities[vocabulary].push(data);
 	});
 	return term_entities;
@@ -90,6 +95,7 @@ const content_entities_get_path = (entity) => {
 	if (entity.storage.backend === 'file') {
 		path = entity.storage.file_path;
 		path = path.replace(new RegExp('src/entities/content/[^/]+/'), '');
+		path = path.replace(new RegExp('src/entities/taxonomy/'), '');
 		path = path.replace(new RegExp('\.json$'), '');
 	}
 
