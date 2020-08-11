@@ -2,14 +2,14 @@
  * @file
  * Maps content data for root-level page routes.
  *
- * @see src/routes/[slug].svelte
+ * @see src/routes/[...slug].svelte
  */
 
 const fs = require('fs');
 
 export async function get(req, res, next) {
 	const { slug } = req.params;
-	const file = 'src/entities/content/page/' + slug + '.json';
+	const file = 'src/entities/content/page/' + slug.join('/') + '.json';
 
 	const content_json = fs.readFileSync(file).toString();
 

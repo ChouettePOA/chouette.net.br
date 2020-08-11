@@ -47,27 +47,31 @@ const content_entities_load_all_by_type = content_type => {
 /**
  * Gets taxonomy terms from all vocabularies.
  */
+let term_entities = null;
 const taxonomy_terms_load_all = () => {
-	const terms = {};
-	content_entities_load_all_by_type('taxonomy').forEach(data => {
-		const vocabulary = content_entities_get_path(data).split('/')[0];
-		if (!(vocabulary in terms)) {
-			terms[vocabulary] = [];
+	if (term_entities) {
+		return term_entities;
+	}
+	term_entities = {};
+	walk('src/entities/taxonomy', '.json').map(file_path => {
+		const vocabulary = file_path.split('/')[3];
+		if (!(vocabulary in term_entities)) {
+			term_entities[vocabulary] = [];
 		}
-		terms[vocabulary].push(data);
+		term_entities[vocabulary].push(data);
 	});
-	return terms;
+	return term_entities;
 };
 
 /**
  * Loads all taxonomy terms data by vocabulary.
  */
 const taxonomy_terms_load_all_by_vocabulary = vocabulary => {
-	const terms = taxonomy_terms_load_all();
-	if (!(vocabulary in terms)) {
+	const term_entities = taxonomy_terms_load_all();
+	if (!(vocabulary in term_entities)) {
 		return;
 	}
-	return terms[vocabulary];
+	return term_entities[vocabulary];
 };
 
 /**

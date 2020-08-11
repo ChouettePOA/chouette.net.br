@@ -4,7 +4,7 @@
  *
  * It seems the crawler is unable to follow links that are rendered to the DOM
  * during the Svelte afterUpdate "hook".
- * @see src/routes/[slug].svelte
+ * @see src/routes/[...slug].svelte
  *
  * This script adds all page paths using the '--entry' arg.
  */
