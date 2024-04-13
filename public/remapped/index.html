@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Eleventy Base WebC</title>
+		<meta name="description" content="A minimalist bare-bones starter project using Eleventy and WebC.">
+		<meta name="generator" content="Eleventy v3.0.0">
+
+		
+		
+
+		<style>:root {
+	--font-family: system-ui, sans-serif;
+
+	--background-color: #fff;
+	--text-color: #333;
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+header,
+main,
+footer {
+	padding: .5rem;
+	margin: 0 auto;
+	max-width: 60rem;
+}
+footer {
+	font-style: italic;
+	font-size: 0.9375em; /* 15px /16 */
+}</style>
+	</head>
+	<body>
+		<header>
+			<a href="/"><strong>Eleventy Base WebC</strong></a>
+		</header>
+
+		<h1>test</h1>
+
+		<main><p>This is another page.</p>
+
+<hello-component place="world"></hello-component>
+
+<p><a href="/">Go back</a>.</p>
+</main>
+
+		<footer>
+			©2024
+			Built with <a href="https://www.11ty.dev/">Eleventy</a>.
+			<a href="https://github.com/11ty/eleventy-base-webc">Source code on GitHub</a>.
+		</footer>
+
+		<script type="module"></script>
+	
+
+</body>
+</html>
