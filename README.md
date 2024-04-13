@@ -1,3 +1,8 @@
+
+# Update 2024-04-13
+
+Below is the archived Git backup of the old Sapper base. The README at the time stated :
+
 # Chouette static site conversion
 
 This repository contains an investigation of a partial [Drupal](https://stackoverflow.blog/2020/06/23/is-it-time-to-give-drupal-another-look) site conversion into a simpler static site. The current take at this is made using [Sapper / Svelte](https://sapper.svelte.dev/) : see the demo at [infallible-dubinsky-bfb500.netlify.app](https://infallible-dubinsky-bfb500.netlify.app/).
