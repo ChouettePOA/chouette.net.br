@@ -38,10 +38,11 @@ npm run build
   │   │   ├── html.css     ← Inline ("critical") CSS injected in <head>
   │   │   ├── html.webc    ← Outermost template (all-encompassing wrap)
   │   │   └── ...
-  │   └── routes/                  ← 11ty Input Directory
-  │       ├── routes.11tydata.js   ← Overridable default values available in all templates in src/routes
-  │       ├── index.webp           ← Homepage contents
-  │       └── ...
+  │   ├── routes/                  ← 11ty Input Directory
+  │   │   ├── routes.11tydata.js   ← Overridable default values available in all templates in src/routes
+  │   │   ├── index.webp           ← Homepage contents
+  │   │   └── ...
+  │   └── static/          ← "Static" assets (e.g. logo img, favicon, robots.txt, etc).
   ├── .editorconfig
   ├── .gitignore
   ├── .nvmrc

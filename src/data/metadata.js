@@ -1,10 +1,13 @@
-import { createRequire } from 'node:module';
+// import { createRequire } from 'node:module';
 
-const require = createRequire(import.meta.url);
-const pkg = require("../../package.json");
+// const require = createRequire(import.meta.url);
+// const pkg = require("../../package.json");
 
 export default {
-	title: "Eleventy Base WebC" || pkg.name,
-	description: "" || pkg.description,
-	language: "en",
+	language: "pt-br",
+	title: "Chouette - Institut de Français",
+	description: "Escola de língua francesa em Porto Alegre para ensinar e trocar conhecimentos e experiências em torno da cultura francófona.",
+	og_image: "",
+	og_url: "http://chouette.net.br",
+	og_type: "website",
 };

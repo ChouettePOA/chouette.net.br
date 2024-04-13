@@ -18,6 +18,9 @@ export default function(eleventyConfig) {
 		domDiff: false
 	});
 
+	// "Static" assets (e.g. logo img, favicon, robots.txt, etc).
+	eleventyConfig.addPassthroughCopy({ "src/static": '.' });
+
 	return {
 		dir: {
 			input: "src/routes",

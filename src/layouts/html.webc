@@ -1,30 +1,57 @@
 <!doctype html>
-<html :lang="metadata.language">
+<html class="no-js" lang="pt-br">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title @text="title || metadata.title"></title>
 		<meta name="description" :content="description || metadata.description">
-		<meta name="generator" :content="eleventy.generator">
+
+		<!-- TODO [wip] Remove when ready to publish. -->
+		<meta name="robots" content="noindex" />
+
+		<link rel="canonical" href="https://chouette.net.br" />
+
+		<meta property="og:title" :content="title || metadata.title" />
+		<meta property="og:type" :content="og_type || metadata.og_type" />
+		<meta property="og:url" :content="og_url || metadata.og_url" />
+		<meta property="og:image" :content="og_image || metadata.og_image" />
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#004281" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" webc:keep />
 
 		<!--- This is rolled into the bundle. --->
 		<link rel="stylesheet" href="html.css">
-
 		<style webc:keep @raw="getBundle('css')"></style>
 	</head>
-	<body>
+
+	<body id="page-top">
 		<header>
-			<a href="/"><strong @text="metadata.title"></strong></a>
+			<div class="BgTexture u-container">
+				<div class="u-container-inner">
+					<a href="/">
+						<img class="Logo" src="/img/chouette-logo.svg" alt="Logo Chouette - Institut de Français" width="546" height="296" />
+					</a>
+				</div>
+			</div>
 		</header>
 
-		<h1>test</h1>
+		<main id="page-content" @raw="content"></main>
 
-		<main @raw="content"></main>
-
-		<footer>
-			©<span webc:nokeep @text="(new Date()).getFullYear()"></span>
-			Built with <a href="https://www.11ty.dev/">Eleventy</a>.
-			<a href="https://github.com/11ty/eleventy-base-webc">Source code on GitHub</a>.
+		<footer class="Footer s-dark">
+			<div class="u-container">
+				<div class="u-container-inner">
+					<p>©<span webc:nokeep @text="(new Date()).getFullYear()"></span> Chouette - Institut de Français </p>
+				</div>
+			</div>
 		</footer>
 
 		<script type="module" webc:keep @raw="getBundle('js')"></script>
