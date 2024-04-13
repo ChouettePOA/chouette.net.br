@@ -14,28 +14,33 @@ npm i
 npm run start
 ```
 
+(I like to use http://www.chouette.localhost:8080/ for loval dev)
+
 or build manually :
 
 ```sh
 npm run build
 ```
 
-http://www.chouette.localhost:8080/
-
 ## File structure
 
 ```txt
 ./chouette.net.br/         ← Project root dir
-  ├── components/
-  ├── data/                ← 11ty Directory for Global Data Files
-  │   └── metadata.js      ← Global <head> data (title, description, language)
   ├── node_modules/        ← [git-ignored]
   ├── public/              ← 11ty Output Directory (static site generated files, web server doc root)
-  ├── routes/              ← 11ty Input Directory
-  ├── src/                 ← 11ty Directory for Includes
-  │   └── layouts/         ← 11ty Layouts (special templates that can be used to wrap other content)
-  │       ├── html.css     ← Inline ("critical") CSS injected in <head>
-  │       ├── html.webc    ← Outermost template (all-encompassing wrap)
+  ├── src/
+  │   ├── components/
+  │   ├── data/            ← 11ty Directory for Global Data Files
+  │   │   ├── metadata.js  ← Global <head> data (title, description, language)
+  │   │   └── ...
+  │   ├── includes/        ← 11ty Directory for Includes
+  │   ├── layouts/         ← 11ty Layouts (special templates that can be used to wrap other content)
+  │   │   ├── html.css     ← Inline ("critical") CSS injected in <head>
+  │   │   ├── html.webc    ← Outermost template (all-encompassing wrap)
+  │   │   └── ...
+  │   └── routes/                  ← 11ty Input Directory
+  │       ├── routes.11tydata.js   ← Overridable default values available in all templates in src/routes
+  │       ├── index.webp           ← Homepage contents
   │       └── ...
   ├── .editorconfig
   ├── .gitignore
@@ -46,3 +51,8 @@ http://www.chouette.localhost:8080/
   ├── package.json
   └── README.md
 ```
+
+## Tested on
+
+- Debian Linux 11
+- NodeJS 20.11.1 (see `.nvmrc`)
