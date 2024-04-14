@@ -7,6 +7,8 @@ import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
 // const { CleanCSS } = pkg;
 
 import postcss from "postcss";
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 
 // const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 import { eleventyImagePlugin } from "@11ty/eleventy-img";
@@ -43,10 +45,20 @@ export default function(eleventyConfig) {
 			async function(content) {
 				if (this.type === 'css') {
 					// Same as Eleventy transforms, this.page is available here.
-					const result = await postcss().process(content, {
+					const result = await postcss([autoprefixer, cssnano]).process(content, {
 						from: this.page.inputPath,
 						to: null
 					});
+
+					// Debug.
+					if (content && content.length) {
+						console.log({
+							"this": this,
+							"content": content,
+							"result": result
+						});
+					}
+
 					return result.css;
 				}
 				return content;
