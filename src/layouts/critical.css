@@ -1,37 +1,4 @@
-<!doctype html>
-<html lang="pt-br" class="no-js">
-<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Chouette - Institut de Français</title>
-		<meta name="description" content="Escola de língua francesa em Porto Alegre para ensinar e trocar conhecimentos e experiências em torno da cultura francófona.">
-
-		
-		<meta name="robots" content="noindex">
-
-		<link rel="canonical" href="https://chouette.net.br">
-
-		<meta property="og:title" content="Chouette - Institut de Français">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://chouette.net.br">
-		<meta property="og:image" content="">
-
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#004281">
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#ffffff">
-
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
-
-		
-		
-		<style>/**
+/**
  * @file
  * chouette.net.br critical CSS.
  *
@@ -206,43 +173,4 @@ h2 {
   background-size: cover;
   background-image: url('/img/bg-paper-texture-01.webp');
   background-position: 50%;
-}</style>
-
-		
-		<link rel="stylesheet" href="" media="print" onload="this.media='all'">
-	</head>
-
-	<body id="page-top">
-		<header>
-			<div class="BgTexture u-container">
-				<div class="u-container-inner">
-					<a href="/">
-						<img src="/img/chouette-logo.svg" alt="Logo Chouette - Institut de Français" width="546" height="296" class="Logo">
-					</a>
-				</div>
-			</div>
-		</header>
-
-		<main id="page-content"><p>This is another page.</p>
-
-<hello-component place="world"></hello-component>
-
-<p><a href="/">Go back</a>.</p>
-</main>
-
-		<footer>
-			<div class="u-container">
-				<div class="u-container-inner">
-					<p>
-						©2024
-						Chouette - Institut de Français
-					</p>
-				</div>
-			</div>
-		</footer>
-
-		<script type="module"></script>
-	
-
-</body>
-</html>
+}

@@ -6,7 +6,7 @@
 		<title @text="title || metadata.title"></title>
 		<meta name="description" :content="description || metadata.description">
 
-		<!-- TODO [wip] Remove when ready to publish. -->
+		<!--- TODO [wip] Remove when ready to publish. --->
 		<meta name="robots" content="noindex" />
 
 		<link rel="canonical" href="https://chouette.net.br" />
@@ -24,13 +24,32 @@
 		<meta name="msapplication-TileColor" content="#da532c" />
 		<meta name="theme-color" content="#ffffff" />
 
+		<!---
+			Custom font from Google web fonts : Karla.
+		--->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" webc:keep />
 
-		<!--- This is rolled into the bundle. --->
-		<link rel="stylesheet" href="html.css">
-		<style webc:keep @raw="getBundle('css')"></style>
+		<!---
+			Inline the critical CSS.
+			@link https://www.11ty.dev/docs/languages/webc/#css-and-js-(bundler-mode)
+		--->
+		<link rel="stylesheet" href="critical.css" webc:bucket="critical" />
+		<style webc:keep @raw="getBundle('css', 'critical')"></style>
+
+		<!---
+			Load the rest of the CSS asynchronously (without preload since we've
+			already inlined the critical CSS).
+			@link https://www.filamentgroup.com/lab/load-css-simpler/
+		--->
+		<link
+			webc:keep
+			rel="stylesheet"
+			:href="getBundleFileUrl('css')"
+			media="print"
+			onload="this.media='all'"
+		/>
 	</head>
 
 	<body id="page-top">
@@ -46,10 +65,13 @@
 
 		<main id="page-content" @raw="content"></main>
 
-		<footer class="Footer s-dark">
+		<footer>
 			<div class="u-container">
 				<div class="u-container-inner">
-					<p>©<span webc:nokeep @text="(new Date()).getFullYear()"></span> Chouette - Institut de Français </p>
+					<p>
+						©<span webc:nokeep @text="(new Date()).getFullYear()"></span>
+						<span webc:nokeep @text="title || metadata.title"></span>
+					</p>
 				</div>
 			</div>
 		</footer>

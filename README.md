@@ -35,7 +35,7 @@ npm run build
   │   │   └── ...
   │   ├── includes/        ← 11ty Directory for Includes
   │   ├── layouts/         ← 11ty Layouts (special templates that can be used to wrap other content)
-  │   │   ├── html.css     ← Inline ("critical") CSS injected in <head>
+  │   │   ├── critical.css ← Inline ("critical") CSS injected in <head>
   │   │   ├── html.webc    ← Outermost template (all-encompassing wrap)
   │   │   └── ...
   │   ├── routes/                  ← 11ty Input Directory
@@ -52,6 +52,20 @@ npm run build
   ├── package.json
   └── README.md
 ```
+
+## Assets bundling
+
+### Styles
+
+TODO
+
+### Images
+
+TODO
+
+### Scripts
+
+TODO
 
 ## Tested on
 
