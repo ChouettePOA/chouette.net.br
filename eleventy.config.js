@@ -1,17 +1,11 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import { eleventyImagePlugin } from "@11ty/eleventy-img";
 import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
-
-// // import { CleanCSS } from "clean-css";
-// import pkg from 'clean-css';
-// const { CleanCSS } = pkg;
-
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
-
-// const { eleventyImagePlugin } = require("@11ty/eleventy-img");
-import { eleventyImagePlugin } from "@11ty/eleventy-img";
+import htmlmin from "html-minifier";
 
 const core11tyOptions = {
 	dir: {
@@ -39,7 +33,20 @@ export default function(eleventyConfig) {
 		]
 	});
 
-	// Assets optimization.
+	// HTML minification.
+	eleventyConfig.addTransform("htmlmin", function (content) {
+		if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
+			let minified = htmlmin.minify(content, {
+				useShortDoctype: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			});
+			return minified;
+		}
+		return content;
+	});
+
+	// CSS + JS optimization.
 	eleventyConfig.addPlugin(bundlerPlugin, {
 		transforms: [
 			async function(content) {
@@ -56,7 +63,7 @@ export default function(eleventyConfig) {
 		]
 	});
 
-	// Responsive images.
+	// Images optimization.
 	eleventyConfig.addPlugin(eleventyImagePlugin, {
 		formats: ["webp", "jpeg"],
 		urlPath: "/img/optimized/",
