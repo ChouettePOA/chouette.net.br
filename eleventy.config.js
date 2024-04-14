@@ -33,7 +33,7 @@ export default function(eleventyConfig) {
 	// Webc components "autoload" + load "vendor" components.
 	eleventyConfig.addPlugin(pluginWebc, {
 		components: [
-			"./components/**/*.webc",
+			"./src/components/**/*.webc",
 			"npm:@11ty/is-land/*.webc",
 			"npm:@11ty/eleventy-img/*.webc"
 		]
@@ -49,16 +49,6 @@ export default function(eleventyConfig) {
 						from: this.page.inputPath,
 						to: null
 					});
-
-					// Debug.
-					if (content && content.length) {
-						console.log({
-							"this": this,
-							"content": content,
-							"result": result
-						});
-					}
-
 					return result.css;
 				}
 				return content;
@@ -66,10 +56,10 @@ export default function(eleventyConfig) {
 		]
 	});
 
-	// Responsive images. TODO [wip]
+	// Responsive images.
 	eleventyConfig.addPlugin(eleventyImagePlugin, {
 		formats: ["webp", "jpeg"],
-		urlPath: "/img/",
+		urlPath: "/img/optimized/",
 		defaultAttributes: {
 			loading: "lazy",
 			decoding: "async",

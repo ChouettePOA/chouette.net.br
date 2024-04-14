@@ -1,0 +1,19 @@
+<footer class="Footer" webc:keep>
+	<div class="u-container">
+		<div class="u-container-inner">
+			<p>
+				©<span webc:nokeep @text="(new Date()).getFullYear()"></span>
+				<span webc:nokeep @text="title"></span>
+			</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.Footer {
+		margin-top: 40px;
+		padding-top: 64px;
+		padding-bottom: 64px;
+		text-align: center;
+	}
+</style>

@@ -1,0 +1,24 @@
+<header webc:keep>
+	<div class="BgTexture u-container">
+		<div class="u-container-inner">
+			<a href="/">
+				<img
+					class="Logo"
+					src="/img/chouette-logo.svg"
+					alt="Logo Chouette - Institut de Français"
+					width="546"
+					height="296"
+				/>
+				<!---
+				<img
+					class="Logo"
+					src="src/assets-to-optimize/chouette-logo-test-compression.svg"
+					alt="Logo Chouette - Institut de Français"
+					webc:is="eleventy-image"
+					formats="svg, png"
+				/>
+				--->
+			</a>
+		</div>
+	</div>
+</header>

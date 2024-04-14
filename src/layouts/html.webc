@@ -40,7 +40,7 @@
 
 		<!---
 			Load the rest of the CSS asynchronously (without preload since we've
-			already inlined the critical CSS).
+			already inlined the critical CSS above).
 			@link https://www.filamentgroup.com/lab/load-css-simpler/
 		--->
 		<link
@@ -53,29 +53,10 @@
 	</head>
 
 	<body id="page-top">
-		<header>
-			<div class="BgTexture u-container">
-				<div class="u-container-inner">
-					<a href="/">
-						<img class="Logo" src="/img/chouette-logo.svg" alt="Logo Chouette - Institut de Français" width="546" height="296" />
-					</a>
-				</div>
-			</div>
-		</header>
-
+		<page-header></page-header>
 		<main id="page-content" @raw="content"></main>
-
-		<footer>
-			<div class="u-container">
-				<div class="u-container-inner">
-					<p>
-						©<span webc:nokeep @text="(new Date()).getFullYear()"></span>
-						<span webc:nokeep @text="title || metadata.title"></span>
-					</p>
-				</div>
-			</div>
-		</footer>
-
+		<page-footer :@title="title || metadata.title"></page-footer>
 		<script type="module" webc:keep @raw="getBundle('js')"></script>
 	</body>
+
 </html>
