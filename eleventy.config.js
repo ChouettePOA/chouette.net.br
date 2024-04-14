@@ -1,14 +1,34 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
 
-// import { CleanCSS } from "clean-css";
-import pkg from 'clean-css';
-const { CleanCSS } = pkg;
+// // import { CleanCSS } from "clean-css";
+// import pkg from 'clean-css';
+// const { CleanCSS } = pkg;
+
+import postcss from "postcss";
+
+// const { eleventyImagePlugin } = require("@11ty/eleventy-img");
+import { eleventyImagePlugin } from "@11ty/eleventy-img";
+
+const core11tyOptions = {
+	dir: {
+		input: "src/routes",
+		output: "public",
+		includes: "../includes", 	// relative to input directory
+		layouts: "../layouts", 		// relative to input directory
+		data: "../data" 					// relative to input directory
+	}
+};
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 export default function(eleventyConfig) {
 	eleventyConfig.ignores.add("README.md");
 
+	// Required by pluginWebc.
+	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+
+	// Webc components "autoload" + load "vendor" components.
 	eleventyConfig.addPlugin(pluginWebc, {
 		components: [
 			"./components/**/*.webc",
@@ -17,7 +37,32 @@ export default function(eleventyConfig) {
 		]
 	});
 
-	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+	// Assets optimization.
+	eleventyConfig.addPlugin(bundlerPlugin, {
+		transforms: [
+			async function(content) {
+				if (this.type === 'css') {
+					// Same as Eleventy transforms, this.page is available here.
+					const result = await postcss().process(content, {
+						from: this.page.inputPath,
+						to: null
+					});
+					return result.css;
+				}
+				return content;
+			}
+		]
+	});
+
+	// Responsive images. TODO [wip]
+	eleventyConfig.addPlugin(eleventyImagePlugin, {
+		formats: ["webp", "jpeg"],
+		urlPath: "/img/",
+		defaultAttributes: {
+			loading: "lazy",
+			decoding: "async",
+		},
+	});
 
 	eleventyConfig.setServerOptions({
 		domDiff: false
@@ -26,18 +71,5 @@ export default function(eleventyConfig) {
 	// "Static" assets (e.g. logo img, favicon, robots.txt, etc).
 	eleventyConfig.addPassthroughCopy({ "src/static": '.' });
 
-	// Minify CSS.
-	eleventyConfig.addFilter("cssmin", function (code) {
-		return new CleanCSS({}).minify(code).styles;
-	});
-
-	return {
-		dir: {
-			input: "src/routes",
-			output: "public",
-			includes: "../includes", 	// relative to input directory
-			layouts: "../layouts", 		// relative to input directory
-			data: "../data" 					// relative to input directory
-		}
-	};
+	return core11tyOptions;
 };

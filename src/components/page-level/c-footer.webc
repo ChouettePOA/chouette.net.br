@@ -1,8 +1,0 @@
-<div class="u-container">
-	<div class="u-container-inner">
-		<p>
-			©<span webc:nokeep @text="(new Date()).getFullYear()"></span>
-			<span webc:nokeep @text="title || metadata.title"></span>
-		</p>
-	</div>
-</div>
