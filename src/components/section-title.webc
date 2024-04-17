@@ -1,0 +1,12 @@
+<script webc:type="js" webc:root="override">
+	if (!tag) {
+		tag = 'h1';
+	}
+	`<${tag} class="Section-title"><slot></slot></${tag}>`;
+</script>
+
+<style>
+	.Section-title {
+		margin-top: 40px;
+	}
+</style>

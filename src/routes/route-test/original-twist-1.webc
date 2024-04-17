@@ -1,10 +1,13 @@
+---
+tags: variant
+title: Variant 2
+---
+<!---
 ---node
 function permalink(data) {
 	return "/remapped/";
 }
 ---
-<p>This is another page.</p>
-
-<hello-component place="world"></hello-component>
-
+--->
+<h3 @text="title"></h3>
 <p><a href="index.webc">Go back</a>.</p>
