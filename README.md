@@ -7,15 +7,15 @@ Chouette main web homepage based on [Eleventy-official "webc" starter project](h
 - Ecoconception is (and arguably: should be) nowadays an essential aspect of the "modern" web. This implies a minimal approach, including for the compilation (or build) process ; notably in terms of dependencies and overall weight.
 - Design decisions should follow the same logic.
 - But we still need some automation for common "best practices".
-- Heavier tools like [Sveltekit](https://kit.svelte.dev/) or [Solid start](https://github.com/solidjs/solid-start) were ruled out given that our requirements here are nothing more than publishing a few static web pages on the web.
-- [Eleventy (11ty)](https://www.11ty.dev/) version 3 (canary) was chosen. [Hugo](https://gohugo.io/) and [Plenti](https://plenti.co/) were tested too, but nobody's perfect 😅
+- Heavier tools like [Sveltekit](https://kit.svelte.dev) or [Solid start](https://github.com/solidjs/solid-start) were ruled out given that our requirements here are nothing more than publishing a few static web pages on the web.
+- [Eleventy (11ty)](https://www.11ty.dev) version 3 (canary) was chosen. [Hugo](https://gohugo.io), [Plenti](https://plenti.co) and [Publii](https://getpublii.com) were tested too, but nobody's perfect 😅
 
 ## Goals
 
 1. Aim for no more than 300 kB in total weight sent over the wire for any "cold" page load, only loading what is necessary. This applies to HTML, CSS, JS, and media assets.
 1. Compilation should optimize and minify code assets (HTML, CSS, JS).
 1. Compilation should optimize media assets like images and prepare them for the minimum browser-based requirements, especially in terms of display resolution (i.e. generate the same image in different resolutions).
-1. Future plan : a desktop application UI (e.g. using [Tauri](https://tauri.app/)) where this build tool could be embedded.
+1. Future plan : a desktop application UI (e.g. using [Tauri](https://tauri.app/)) where this build tool could be embedded (or maybe just convert to a custom Publii theme, no real plan at this stage).
 
 ## Getting started
 
@@ -146,7 +146,7 @@ export default function(eleventyConfig) {
 };
 ```
 
-### Images
+### Media (images) optimization
 
 Uses [11ty plugin "image"](https://www.11ty.dev/docs/plugins/image/). The sizes can be set on a per-image basis, e.g. :
 
