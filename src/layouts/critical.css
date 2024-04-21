@@ -10,6 +10,18 @@
 	box-sizing: border-box;
 }
 
+:root {
+	@utopia spaceScale({
+		minWidth: 320,
+		maxWidth: 1240,
+		minSize: 16,
+		maxSize: 18,
+		positiveSteps: [1.5, 2, 3],
+		negativeSteps: [0.75, 0.5],
+		customSizes: ['s-l'],
+	});
+}
+
 html {
 	position: relative;
 	scroll-behavior: smooth;

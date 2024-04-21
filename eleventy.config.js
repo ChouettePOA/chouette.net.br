@@ -6,6 +6,7 @@ import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import htmlmin from "html-minifier";
+import utopia from "postcss-utopia";
 
 const core11tyOptions = {
 	dir: {
@@ -52,7 +53,7 @@ export default function(eleventyConfig) {
 			async function(content) {
 				if (this.type === 'css') {
 					// Same as Eleventy transforms, this.page is available here.
-					const result = await postcss([autoprefixer, cssnano]).process(content, {
+					const result = await postcss([utopia, autoprefixer, cssnano]).process(content, {
 						from: this.page.inputPath,
 						to: null
 					});

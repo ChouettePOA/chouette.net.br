@@ -38,6 +38,7 @@
 		"autoprefixer": "^10.4.19",
 		"cssnano": "^6.1.2",
 		"html-minifier": "^4.0.0",
-		"postcss": "^8.4.38"
+		"postcss": "^8.4.38",
+		"postcss-utopia": "^1.0.1"
 	}
 }

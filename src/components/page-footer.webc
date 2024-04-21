@@ -1,5 +1,5 @@
 <hr />
-<footer class="u-container u-vspacer">
+<footer class="Footer u-container u-vspacer">
 	<!--- <img src="/img/chouette.svg" :alt="title" width="137" height="151" /> --->
 	<svg xmlns="http://www.w3.org/2000/svg" width="136.777" height="150.571">
 		<path fill="#D71921" d="M118.432 74.325c2.708 7.432 4.208 15.437 4.285 23.779 8.252-11.095 13.379-24.649 14.051-39.373a38.668 38.668 0 0 1-18.336 15.594zm-14.726-7.274 3.331-8.183h-6.661z"/>
@@ -29,10 +29,15 @@
 </footer>
 
 <style>
+	.Footer {
+		padding: utopia.clamp(16, 40);
+	}
+
 	.Footer-mobile-icon {
 		display: inline-block;
 		transform: rotate(20deg);
 	}
+
 	.Email {
 		white-space: nowrap;
 	}

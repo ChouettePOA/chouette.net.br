@@ -117,11 +117,14 @@ export default function(eleventyConfig) {
 
 ### Styles (CSS) optimization
 
+Also loads the plugin ["PostCSS Utopia"](https://github.com/trys/postcss-utopia).
+
 ```js
 import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
+import utopia from "postcss-utopia";
 // (snip)
 export default function(eleventyConfig) {
   // (snip)
@@ -129,7 +132,7 @@ export default function(eleventyConfig) {
     transforms: [
       async function(content) {
         if (this.type === 'css') {
-          const result = await postcss([autoprefixer, cssnano]).process(content, {
+          const result = await postcss([utopia, autoprefixer, cssnano]).process(content, {
             from: this.page.inputPath,
             to: null
           });
