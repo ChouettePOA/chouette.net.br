@@ -1,0 +1,55 @@
+<div class="HomeHero" webc:keep>
+
+	<header>
+		<div class="Nav">
+			<pre>TODO Nav</pre>
+		</div>
+		<h1 class="HomeHero-logo">
+			<img
+				src="/img/chouette-logo.svg"
+				alt="Logo image of Chouette - Institut de Français"
+			/>
+			<span class="visually-hidden">
+				Chouette Institut de Français - Cursos de Francês
+			</span>
+		</h1>
+	</header>
+
+	<main>
+		<section class="HomeHero-intro">
+			<h2 class="HomeHero-intro-title">
+				<span class="HomeHero-title-p1">Escola de francês</span>
+				<span class="HomeHero-title-p2">Aulas online e presenciais</span>
+			</h2>
+			<p class="HomeHero-lede">
+				Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil.
+			</p>
+		</section>
+
+		<section class="HomeHero-body">
+			<h2 class="HomeHero-body-title">
+				Cursos de francês
+			</h2>
+			<div class="s-rich-text">
+				<ul>
+					<li>Aulas presenciais ou online ao vivo em grupo de até 6 pessoas</li>
+					<li>Aulas particulares para fins específicos</li>
+					<li>Turmas especiais com ritmo e metodologia adaptados para todas as idades</li>
+					<li>Conversação para níveis avançado e intermediário</li>
+					<li>Ateliers diversos: Atelier Diplomatique, Atelier Cuisine, Atelier Grammaire, Atelier Écriture Créative, Atelier Musique</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+</div>
+
+<style>
+	@media only screen and (min-width: 35em) {
+		.HomeHero {
+			background-size: cover;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjgwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZmlsbD0iIzAwNDI4MSIgZD0iTTAgNTE4Ljk5NGMxMDEuMzQ3IDU3LjY0MyAyMTYuNDgyIDkzLjg1NCAzMzkuMzQyIDEwMS45OTYtNDIuNzkgMTguMTUxLTg2LjkzMiAzMy43MTMtMTMyLjM1NyA0Ni4xMzQgMTAzLjQyNSA1OS40NzIgMjIzLjA5IDk0LjA3OCAzNTAuODk5IDk1LjA3NiAzOTUuNzU1IDMuMTQxIDcxOS4wNzUtMzE1LjIyMyA3MjIuMjUxLTcxMC45NDEuMTI2LTE3LjIwMS0uMzczLTMzLjc0Ni0xLjQ1OC01MS4yNTlINjc0LjY5MUM1MjUuNjIyIDI0OS41NjQgMjg1LjM0OSA0MzcuNTUyIDAgNTE4Ljk5NHoiLz48L3N2Zz4=');
+			background-position: 50%;
+		}
+	}
+</style>

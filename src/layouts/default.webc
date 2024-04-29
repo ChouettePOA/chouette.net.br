@@ -1,0 +1,6 @@
+---
+layout: "html.webc"
+---
+<page-header></page-header>
+<main id="page-content" @raw="content"></main>
+<page-footer :@title="title || metadata.title"></page-footer>

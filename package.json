@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "npx @11ty/eleventy",
+		"dev": "npx @11ty/eleventy --serve --quiet --incremental",
 		"start": "npx @11ty/eleventy --serve --quiet --incremental",
 		"debug": "DEBUG=Eleventy* npx @11ty/eleventy",
 		"benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"

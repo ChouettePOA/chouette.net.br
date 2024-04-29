@@ -1,0 +1,49 @@
+<pre>test start</pre>
+<!---
+	<pre webc:for="value of Object.values(collections.variant)" @text="Object.keys(value)"></pre>
+	<pre webc:for="value of Object.values(collections.variant)" @text="Object.keys(value.data)"></pre>
+	<pre webc:for="value of Object.values(collections.variant)" @text="value.data.title"></pre>
+--->
+<div webc:for="value of Object.values(collections.variant)">
+	<h3 @text="value.data.title"></h3>
+	<pre @text="Object.keys(value.data)"></pre>
+</div>
+<pre>test end</pre>
+
+<div class="u-container">
+	<div class="u-container-inner">
+		<section-title>Inscrições abertas</section-title>
+	</div>
+</div>
+
+<div class="u-container u-vspacer">
+	<section class="u-container-inner">
+		<h2>Section title</h2>
+		<p>Section content</p>
+	</section>
+</div>
+
+<div class="s-dark u-vspacer">
+	<div class="u-container">
+		<section class="u-container-inner">
+			<h2>Section title</h2>
+			<p>Section content</p>
+		</section>
+	</div>
+</div>
+
+<div class="u-container u-vspacer">
+	<section class="u-container-inner">
+		<h2>Section title</h2>
+		<p>Section content</p>
+	</section>
+</div>
+
+<div class="s-dark u-container u-container--spaced u-vspacer">
+	<div class="u-container-inner">
+		<section>
+			<h2>Section title</h2>
+			<p>Section content</p>
+		</section>
+	</div>
+</div>

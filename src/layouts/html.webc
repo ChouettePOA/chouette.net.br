@@ -25,13 +25,6 @@
 		<meta name="theme-color" content="#ffffff" />
 
 		<!---
-			Custom font from Google web fonts : Karla.
-		--->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" webc:keep />
-
-		<!---
 			Inline the critical CSS.
 			@link https://www.11ty.dev/docs/languages/webc/#css-and-js-(bundler-mode)
 		--->
@@ -50,12 +43,28 @@
 			media="print"
 			onload="this.media='all'"
 		/>
+
+		<!---
+			Custom font from Google web fonts : Karla.
+			Update : use the fonts of the old site for now.
+			From the archived project of the time :
+				- Quattrocento Sans: 400,400i,700
+				- Raleway: 200,400,500,500i,700
+		--->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" webc:keep /> -->
+		<link
+			webc:keep
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+			media="print"
+			onload="this.media='all'"
+		/>
 	</head>
 
 	<body id="page-top">
-		<page-header></page-header>
-		<main id="page-content" @raw="content"></main>
-		<page-footer :@title="title || metadata.title"></page-footer>
+		<div id="page-content" @raw="content"></div>
 		<script type="module" webc:keep @raw="getBundle('js')"></script>
 	</body>
 
