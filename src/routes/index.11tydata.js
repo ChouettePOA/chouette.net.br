@@ -1,4 +1,3 @@
 export default {
-	layout: "html.webc",
-	tags: ["variant"]
+	layout: "html.webc"
 };

@@ -23,7 +23,7 @@
 	</section>
 </div>
 
-<div class="s-dark u-vspacer">
+<div class="s-invert u-vspacer">
 	<div class="u-container">
 		<section class="u-container-inner">
 			<h2>Section title</h2>
@@ -39,7 +39,7 @@
 	</section>
 </div>
 
-<div class="s-dark u-container u-container--spaced u-vspacer">
+<div class="s-invert u-container u-container--spaced u-vspacer">
 	<div class="u-container-inner">
 		<section>
 			<h2>Section title</h2>

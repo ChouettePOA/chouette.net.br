@@ -12,9 +12,9 @@ const core11tyOptions = {
 	dir: {
 		input: "src/routes",
 		output: "public",
-		includes: "../includes", 	// relative to input directory
-		layouts: "../layouts", 		// relative to input directory
-		data: "../data" 					// relative to input directory
+		includes: "../includes",  // relative to input directory
+		layouts: "../layouts",    // relative to input directory
+		data: "../data"           // relative to input directory
 	}
 };
 

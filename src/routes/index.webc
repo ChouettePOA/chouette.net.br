@@ -1,1 +1,14 @@
 <home-hero></home-hero>
+<page-section>
+	<h2 slot="title">Aulas presenciais</h2>
+	<div slot="body" class="s-rich-text">
+		A Chouette oferece aulas em grupo de até 6 pessoas. A sede da escola conta com salas de aula climatizadas, material didático de apoio e uma rica biblioteca com livros para todos os níveis de francês, do iniciante ao avançado. Além, é claro, de um espaço de convívio para nossos estudantes e de um café sempre quentinho.
+	</div>
+</page-section>
+<page-section>
+	<h2 slot="title">Aulas online</h2>
+	<div slot="body" class="s-rich-text">
+		As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
+	</div>
+</page-section>
+<page-footer :@title="title || metadata.title"></page-footer>

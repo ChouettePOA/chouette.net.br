@@ -1,0 +1,4 @@
+<section>
+	<slot name="title"></slot>
+	<slot name="body"></slot>
+</section>

@@ -4,7 +4,7 @@
 		<div class="Nav">
 			<pre>TODO Nav</pre>
 		</div>
-		<h1 class="HomeHero-logo">
+		<h1 class="HomeHero-logo s-invert">
 			<img
 				src="/img/chouette-logo.svg"
 				alt="Logo image of Chouette - Institut de Français"
@@ -45,6 +45,13 @@
 </div>
 
 <style>
+	.HomeHero-logo {
+		padding: 10%;
+	}
+	.HomeHero-logo > img {
+		display: block;
+		margin: 0 auto;
+	}
 	@media only screen and (min-width: 35em) {
 		.HomeHero {
 			background-size: cover;
