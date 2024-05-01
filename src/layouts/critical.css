@@ -29,7 +29,7 @@
 		maxFontSize: 24,
 		minTypeScale: 1.2,
 		maxTypeScale: 1.25,
-		positiveSteps: 4,
+		positiveSteps: 5,
 		negativeSteps: 1,
 		prefix: "step",
 	});
@@ -97,6 +97,13 @@ video {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+h1,
+h2,
+h3 {
+	font-family: Raleway, sans-serif;
+	line-height: 1.1;
 }
 
 
