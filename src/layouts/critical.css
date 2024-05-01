@@ -11,28 +11,26 @@
 }
 
 :root {
-	/*
-	@utopia spaceScale({
-		minWidth: 320,
-		maxWidth: 1240,
-		minSize: 16,
-		maxSize: 18,
-		positiveSteps: [1.5, 2, 3],
-		negativeSteps: [0.75, 0.5],
-		customSizes: ['s-l'],
-	});
-	*/
 	@utopia typeScale({
 		minWidth: 320,
 		maxWidth: 1240,
 		minFontSize: 18,
-		maxFontSize: 24,
+		maxFontSize: 22,
 		minTypeScale: 1.2,
 		maxTypeScale: 1.25,
 		positiveSteps: 5,
 		negativeSteps: 1,
-		prefix: "step",
+		prefix: "size",
 	});
+	/* @utopia spaceScale({
+		minWidth: 320,
+		maxWidth: 1240,
+		minSize: 18,
+		maxSize: 22,
+		positiveSteps: [1.5, 2, 3],
+		negativeSteps: [0.75, 0.5],
+		customSizes: ['s-l'],
+	}); */
 }
 
 html {
@@ -42,7 +40,7 @@ html {
 	color: #FFF;
 	font-family: 'Quattrocento Sans', sans-serif;
 	font-weight: 400;
-	font-size: var(--step-0);
+	font-size: var(--size-0);
 	line-height: utopia.clamp(21, 23);
 }
 
@@ -101,7 +99,9 @@ img {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
+	margin: 0;
 	font-family: Raleway, sans-serif;
 	line-height: 1.1;
 }
@@ -147,22 +147,24 @@ h3 {
 */
 
 .u-vspacer {
-	padding-bottom: 2rem; /* 32px */
+	padding-bottom: var(--size-0);
 }
 .u-vspacer + .u-vspacer {
-	padding-top: 2rem; /* 32px */
+	padding-top: var(--size-0);
 }
 .u-vspacer + .u-vspacer .u-container-inner > :first-child {
 	margin-top: 0;
 }
+/*
 @media only screen and (min-width: 35em) {
 	.u-vspacer {
-		padding-bottom: 2.5rem; /* 40px */
+		padding-bottom: 2.5rem;
 	}
 	.u-vspacer + .u-vspacer {
-		padding-top: 2.5rem; /* 40px */
+		padding-top: 2.5rem;
 	}
 }
+*/
 
 
 /*

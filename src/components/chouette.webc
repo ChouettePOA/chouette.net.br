@@ -14,10 +14,10 @@
 		align-items: center; /* Vertical centering */
 		border-radius: 50%;
 		margin: 0 auto;
-		padding: var(--step-2);
+		padding: var(--size-2);
 		background: #FFF;
-		width: calc(var(--step-0) * 8);
-		height: calc(var(--step-0) * 8);
+		width: calc(var(--size-0) * 8);
+		height: calc(var(--size-0) * 8);
 	}
 	/* Make the image look visually centered */
 	.Chouette > svg {

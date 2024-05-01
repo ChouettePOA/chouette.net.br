@@ -1,37 +1,34 @@
 <div class="HomeHero" webc:keep>
-
-	<header>
-		<div class="Nav">
-			<pre>TODO Nav</pre>
-		</div>
-		<h1 class="HomeHero-logo s-invert">
-			<img
-				src="/img/chouette-logo.svg"
-				alt="Logo image of Chouette - Institut de Français"
-			/>
-			<span class="visually-hidden">
-				Chouette Institut de Français - Cursos de Francês
-			</span>
-		</h1>
-	</header>
-
-	<main>
-		<section class="HomeHero-intro">
+	<div class="Nav">
+		<pre>TODO Nav</pre>
+	</div>
+	<h1 class="HomeHero-logo s-invert">
+		<img
+			src="/img/chouette-logo.svg"
+			alt="Logo image of Chouette - Institut de Français"
+		/>
+		<span class="visually-hidden">
+			Chouette Institut de Français - Cursos de Francês
+		</span>
+	</h1>
+	<div class="HomeHero-intro u-container">
+		<section class="u-container-inner">
 			<h2 class="HomeHero-intro-title">
-				<span class="HomeHero-title-p1">Escola de francês</span>
-				<span class="HomeHero-title-p2">Aulas online e presenciais</span>
+				<em>Escola de francês</em>
+				com aulas online e presenciais
 			</h2>
 			<p class="HomeHero-lede">
 				Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil.
 			</p>
 		</section>
-
-		<section class="HomeHero-body">
-			<h2 class="HomeHero-body-title s-invert">
-				<em>Cursos</em>
-				de francês
-			</h2>
-			<div class="s-rich-text">
+	</div>
+	<section class="HomeHero-body">
+		<h2 class="HomeHero-body-title s-invert">
+			<em>Cursos</em>
+			de francês
+		</h2>
+		<div class="u-container">
+			<div class="u-container-inner s-rich-text">
 				<ul>
 					<li>Aulas presenciais ou online ao vivo em grupo de até 6 pessoas</li>
 					<li>Aulas particulares para fins específicos</li>
@@ -40,9 +37,8 @@
 					<li>Ateliers diversos: Atelier Diplomatique, Atelier Cuisine, Atelier Grammaire, Atelier Écriture Créative, Atelier Musique</li>
 				</ul>
 			</div>
-		</section>
-	</main>
-
+		</div>
+	</section>
 </div>
 
 <style>
@@ -54,13 +50,13 @@
 		margin: 0 auto;
 	}
 	.HomeHero-body-title {
-		padding: 5% 10%;
+		padding: 2.5% 5%;
 		text-align: center;
 		text-transform: uppercase;
 		color: #004281;
 		letter-spacing: .2em;
 		font-weight: 400;
-		font-size: var(--step-1);
+		font-size: var(--size-1);
 	}
 	.HomeHero-body-title {
 		font-weight: 400;
@@ -70,7 +66,7 @@
 		display: block;
 		color: #004281;
 		font-style: normal;
-		font-size: var(--step-4);
+		font-size: var(--size-4);
 	}
 	@media only screen and (min-width: 35em) {
 		.HomeHero {

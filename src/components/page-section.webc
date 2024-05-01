@@ -1,4 +1,9 @@
-<section>
-	<slot name="title"></slot>
-	<slot name="body"></slot>
-</section>
+<div class="u-container u-vspacer">
+	<section class="u-container-inner">
+		<h2 @text="title"></h2>
+		<!--- TODO optional media (becomes a Card component) ? --->
+		<div class="s-rich-text">
+			<slot name="body"></slot>
+		</div>
+	</section>
+</div>
