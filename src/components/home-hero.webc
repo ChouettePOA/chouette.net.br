@@ -49,8 +49,22 @@
 		display: block;
 		margin: 0 auto;
 	}
+	.HomeHero-intro-title {
+		text-align: center;
+		font-size: var(--size--1);
+		line-height: 1.3;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+	}
+	.HomeHero-intro-title em {
+		display: block;
+		font-size: var(--size-1);
+		font-style: normal;
+		font-weight: 400;
+	}
 	.HomeHero-body-title {
-		padding: 2.5% 5%;
+		padding: var(--size-0) 5%;
 		text-align: center;
 		text-transform: uppercase;
 		color: #004281;

@@ -97,13 +97,32 @@ img {
 	height: auto;
 }
 
+
+/*
+	Base : Headings / titles.
+*/
+
 h1,
 h2,
 h3,
 h4 {
-	margin: 0;
 	font-family: Raleway, sans-serif;
 	line-height: 1.1;
+}
+
+
+/*
+	Base : vertical rhythm.
+*/
+
+h1,
+h2,
+h3,
+h4,
+p,
+.s-rich-text ul,
+.s-rich-text ol {
+	margin: 0 0 var(--size-0) 0;
 }
 
 
@@ -201,4 +220,14 @@ h4 {
 	background-size: cover;
 	background-image: url('/img/bg-paper-texture-01.webp');
 	background-position: 50%;
+}
+
+
+/*
+	Rich text scope
+*/
+
+.s-rich-text ul,
+.s-rich-text ol {
+	padding: 0 0 0 var(--size-0);
 }
