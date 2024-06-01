@@ -1,0 +1,28 @@
+<script webc:setup>
+	const id = Math.random().toString(36).substring(2, 9);
+</script>
+
+<span :aria-labelledby="'dropcap-' + id">
+	<span aria-hidden="true">
+		<span :class="'u-dropcap' + (variant ? ' ' + variant : '')" @text="content.substring(0, 1)"></span>
+		<p @html="content.substring(1)" webc:nokeep></p>
+	</span>
+	<span class="visually-hidden" :id="'dropcap-' + id" @html="content"></span>
+</span>
+
+<style>
+	.u-dropcap {
+		float: left;
+		padding-right: .1em;
+		font-size: 290%;
+		line-height: .9;
+	}
+	@media (min-width:75em) {
+		.u-dropcap--l {
+			font-size: 460%;
+			line-height: .75;
+			font-weight: 400;
+			padding-top: .05em;
+		}
+	}
+</style>

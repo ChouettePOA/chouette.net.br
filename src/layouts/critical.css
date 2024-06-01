@@ -277,7 +277,7 @@ p:last-child,
 	padding: 0 0 0 var(--size-0);
 }
 .s-rich-text li + li {
-	margin-top: .33rem;
+	margin-top: .2rem;
 }
 
 

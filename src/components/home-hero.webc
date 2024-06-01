@@ -18,7 +18,7 @@
 				com aulas online e presenciais
 			</h2>
 			<p class="HomeHero-lede">
-				Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil.
+				<drop-cap @content="Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil."></drop-cap>
 			</p>
 		</section>
 	</div>
