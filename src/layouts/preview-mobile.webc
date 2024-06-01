@@ -1,0 +1,6 @@
+---
+layout: "html.webc"
+---
+<preview-frame>
+	<main id="page-content" @raw="content"></main>
+</preview-frame>

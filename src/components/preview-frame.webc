@@ -1,0 +1,34 @@
+<div class="PreviewFrame">
+	<img
+		class="PreviewFrame-visual"
+		src="/img/iphone-frame.png"
+		alt="Preview smartphone view"
+		width="411"
+		height="751"
+	/>
+	<div class="PreviewFrame-content">
+		<slot></slot>
+	</div>
+</div>
+
+<style>
+	.PreviewFrame {
+		position: relative;
+	}
+	.PreviewFrame-visual {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+	}
+	.PreviewFrame-content {
+		position: absolute;
+		top: 34px;
+		left: 53px;
+		z-index: 1;
+		width: 325px;
+		height: 667px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+</style>
