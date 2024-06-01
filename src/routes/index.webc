@@ -1,6 +1,6 @@
 <home-hero class="u-vspacer"></home-hero>
 
-<page-section @title="Aulas presenciais">
+<page-section @title="Aulas presenciais" @class="s-invert">
 	<p slot="body">
 		A Chouette oferece aulas em grupo de até 6 pessoas. A sede da escola conta com salas de aula climatizadas, material didático de apoio e uma rica biblioteca com livros para todos os níveis de francês, do iniciante ao avançado. Além, é claro, de um espaço de convívio para nossos estudantes e de um café sempre quentinho.
 	</p>
@@ -12,7 +12,7 @@
 	</p>
 </page-section>
 
-<page-section @title="Diferenciais da Chouette !">
+<page-section @title="Diferenciais da Chouette !" @class="s-invert">
 	<ul slot="body" class="CheckedList">
 		<li>✅ Ações afirmativas para pessoas negras, trans e indígenas - 30% de desconto não acumulativo.</li>
 		<li>✅ Não cobramos taxa de matrícula e materiais didáticos.</li>

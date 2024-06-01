@@ -2,8 +2,21 @@
  * @file
  * chouette.net.br critical CSS.
  *
+ * TODO reevaluate the need to embed this inline.
+ * @link https://csswizardry.com/2022/09/critical-css-not-so-fast/
+ *
+ * Used for :
+ *   - minimal CSS reset,
+ *   - shared constants (e.g. font-size / spacing values),
+ *   - styling base, raw tags,
+ *   - generic utilities,
+ *   - and any styles which need to be inherited.
+ *
  * Based on HTML5 Boilerplate v9.0.0-RC1 | MIT License
  * @link https://html5boilerplate.com/
+ *
+ * Uses the "Utopia" fluid responsive design utility.
+ * @link https://utopia.fyi/blog/postcss-utopia/
  */
 
 * {
@@ -110,6 +123,15 @@ h4 {
 	line-height: 1.1;
 }
 
+h2 {
+	font-weight: 400;
+	/* text-transform: uppercase; */
+	/* letter-spacing: .1em; */
+	font-feature-settings: "c2sc";
+	font-variant: small-caps;
+	letter-spacing: .05em;
+}
+
 
 /*
 	Base : vertical rhythm.
@@ -123,6 +145,11 @@ p,
 .s-rich-text ul,
 .s-rich-text ol {
 	margin: 0 0 var(--size-0) 0;
+}
+p:last-child,
+.s-rich-text ul:last-child,
+.s-rich-text ol:last-child {
+	margin-bottom: 0;
 }
 
 
@@ -199,6 +226,12 @@ p,
 .s-invert,
 .s-invert * {
 	color: #222;
+}
+.s-invert h1,
+.s-invert h2,
+.s-invert h3,
+.s-invert h4 {
+	color: #004281;
 }
 
 

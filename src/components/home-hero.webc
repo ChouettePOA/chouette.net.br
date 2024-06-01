@@ -49,6 +49,10 @@
 		display: block;
 		margin: 0 auto;
 	}
+	.HomeHero-intro,
+	.HomeHero-body {
+		padding-bottom: var(--size-0);
+	}
 	.HomeHero-intro-title {
 		text-align: center;
 		font-size: var(--size--1);

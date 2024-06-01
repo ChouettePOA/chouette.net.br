@@ -1,4 +1,4 @@
-<div class="u-container u-vspacer">
+<div :class="'u-container u-vspacer' + (this.class ? ' ' + this.class : '')">
 	<section class="u-container-inner">
 		<h2 @text="title"></h2>
 		<!--- TODO optional media (becomes a Card component) ? --->
