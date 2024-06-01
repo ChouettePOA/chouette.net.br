@@ -23,6 +23,10 @@
 </footer>
 
 <style>
+	hr {
+		margin-top: var(--size-3);
+		margin-bottom: var(--size-2);
+	}
 	.Footer-mobile-icon {
 		display: inline-block;
 		transform: rotate(20deg);

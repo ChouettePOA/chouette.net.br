@@ -134,6 +134,17 @@ h2 {
 
 
 /*
+	Base : typographic separators.
+*/
+
+hr {
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.75),hsla(0,0%,100%,0));
+}
+
+
+/*
 	Base : vertical rhythm.
 */
 
@@ -141,6 +152,7 @@ h1,
 h2,
 h3,
 h4,
+hr,
 p,
 .s-rich-text ul,
 .s-rich-text ol {
@@ -257,10 +269,35 @@ p:last-child,
 
 
 /*
-	Rich text scope
+	Rich text scope.
 */
 
 .s-rich-text ul,
 .s-rich-text ol {
 	padding: 0 0 0 var(--size-0);
+}
+.s-rich-text li + li {
+	margin-top: .33rem;
+}
+
+
+/*
+	Lists.
+
+	Override :
+	.s-rich-text ul, .s-rich-text ol
+*/
+
+.EmojiList.EmojiList.EmojiList {
+	padding-left: var(--size-2);
+	list-style: none;
+}
+.EmojiList > li {
+	position: relative;
+}
+.EmojiList > li::before {
+	content: attr(data-emoji);
+	position: absolute;
+	top: .05em; /* Because it visually appears a bit off-centered */
+	left: calc(var(--size-2) * -1);
 }
