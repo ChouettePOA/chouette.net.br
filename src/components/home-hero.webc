@@ -1,7 +1,10 @@
 <div class="HomeHero" webc:keep>
-	<div class="Nav">
-		<pre>TODO Nav</pre>
-	</div>
+	<nav class="Nav">
+		<a href="/sobre-a-escola">Sobre a escola</a>
+		<a href="/modalidades-de-cursos">Modalidades de cursos</a>
+		<a href="/metodologia-chouette">Metodologia Chouette</a>
+		<a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a>
+	</nav>
 	<h1 class="HomeHero-logo s-invert">
 		<img
 			src="/img/chouette-logo.svg"
@@ -42,6 +45,10 @@
 </div>
 
 <style>
+	.Nav {
+		display: flex;
+		flex-wrap: wrap;
+	}
 	.HomeHero-logo {
 		padding: 10% 20%;
 	}
