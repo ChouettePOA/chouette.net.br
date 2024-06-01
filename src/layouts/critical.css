@@ -134,6 +134,22 @@ h2 {
 
 
 /*
+	Base : links.
+*/
+
+a {
+	border-bottom: 1px solid currentColor;
+	text-decoration: none;
+	color: inherit;
+	transition: color .3s;
+}
+a:hover,
+a:focus {
+	color: #f25921;
+}
+
+
+/*
 	Base : typographic separators.
 */
 
