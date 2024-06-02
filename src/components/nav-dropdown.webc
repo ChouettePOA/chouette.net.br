@@ -31,20 +31,20 @@
 		const button = item.querySelector("button");
 
 		button.addEventListener("click", (event) => {
-			if (button.ariaExpanded === "false") {
+			if (button.getAttribute("aria-expanded") === "false") {
 				expandSubMenu(item);
 			} else {
 				collapseSubMenu(item);
 			}
 		});
 
-		item.addEventListener("mouseenter", () => {
-			expandSubMenu(item);
-		});
+		// item.addEventListener("mouseenter", () => {
+		// 	expandSubMenu(item);
+		// });
 
-		item.addEventListener("mouseleave", () => {
-			collapseSubMenu(item);
-		});
+		// item.addEventListener("mouseleave", () => {
+		// 	collapseSubMenu(item);
+		// });
 
 		// Handling keyboard navigation
 		button.addEventListener("keydown", (event) => {
@@ -76,11 +76,16 @@
 	<nav class="MainNav js-dropdown" aria-labelledby="pages-heading">
 		<h2 class="visually-hidden" id="pages-heading">Pages navigation</h2>
 		<button class="MainNav-toggle" aria-label="Toggle menu" aria-expanded="false">
+			<!---
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185.343 185.343" xml:space="preserve">
 				<path d="M51.707 185.343a10.692 10.692 0 0 1-7.593-3.149 10.724 10.724 0 0 1 0-15.175l74.352-74.347L44.114 18.32c-4.194-4.194-4.194-10.987 0-15.175 4.194-4.194 10.987-4.194 15.18 0l81.934 81.934c4.194 4.194 4.194 10.987 0 15.175l-81.934 81.939a10.678 10.678 0 0 1-7.587 3.15z"/>
 			</svg>
+			--->
+			<span></span>
+			<span></span>
+			<span></span>
 		</button>
-		<ul class="MainNav-items">
+		<ul class="MainNav-items" aria-hidden="true">
 			<li><a href="/sobre-a-escola">Sobre a escola</a></li>
 			<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
 			<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
@@ -101,16 +106,55 @@
 		justify-content: flex-end;
 		padding: .25rem .5rem;
 	}
+
 	.MainNav-toggle {
-		border: 1px solid currentColor;
+		position: relative;
+		border: 0 none;
 		padding: .25em .5em;
 		background-color: transparent;
 		cursor: pointer;
 	}
+	/*
 	.MainNav-toggle > svg {
 		width: 1em;
 		transform: rotate(90deg);
 	}
+	*/
+	.MainNav-toggle span {
+		display: block;
+		width: var(--size-2);
+		height: 4px;
+		margin-bottom: 5px;
+		position: relative;
+		background-color: #004281;
+		border-radius: 3px;
+		z-index: 1;
+		transform-origin: 0 0;
+		transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+			background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+			opacity 0.55s ease;
+	}
+	.MainNav-toggle span:first-child {
+		transform-origin: 0% 0%;
+	}
+	.MainNav-toggle span:nth-last-child(2) {
+		transform-origin: 0% 100%;
+	}
+	.MainNav-toggle[aria-expanded="true"] span {
+		opacity: 1;
+		/* transform: rotate(45deg) translate(-2px, -1px); */
+		transform: rotate(45deg);
+		background: #f25921;
+	}
+	.MainNav-toggle[aria-expanded="true"] span:nth-last-child(2)	{
+		opacity: 0;
+		transform: rotate(0deg) scale(0.2, 0.2);
+	}
+	.MainNav-toggle[aria-expanded="true"] span:last-child {
+		/* transform: rotate(-45deg) translate(0, -1px); */
+		transform: rotate(-45deg);
+	}
+
 	.MainNav-items {
 		display: none;
 		position: absolute;
@@ -118,6 +162,7 @@
 		left: 0;
 		padding: var(--size-0);
 		background-color: #004281;
+		list-style: none;
 	}
 	.MainNav[data-expanded="true"] > .MainNav-items {
 		display: block;
