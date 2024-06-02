@@ -1,33 +1,51 @@
-<div class="PreviewFrame">
-	<img
-		class="PreviewFrame-visual"
-		src="/img/iphone-frame.png"
-		alt="Preview smartphone view"
-		width="411"
-		height="751"
-	/>
-	<div class="PreviewFrame-content">
-		<slot></slot>
+<div class="PreviewFrame-wrap">
+	<div class="PreviewFrame">
+		<img
+			class="PreviewFrame-img"
+			src="/img/iphone-frame.png"
+			alt="Preview smartphone view"
+			width="411"
+			height="751"
+		/>
+		<div class="PreviewFrame-content">
+			<slot></slot>
+		</div>
 	</div>
 </div>
 
 <style>
+	.PreviewFrame-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100vh;
+	}
 	.PreviewFrame {
 		position: relative;
+		/* Make it a bit larger */
+		width: 480px;
+		height: 877px;
 	}
-	.PreviewFrame-visual {
+	.PreviewFrame-img {
 		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 0;
+		object-fit: cover; /* Make it a bit larger */
+		width: 100%;
 	}
 	.PreviewFrame-content {
 		position: absolute;
-		top: 34px;
-		left: 53px;
+		/* top: 34px; */
+		/* left: 53px; */
+		top: 67px;
+		left: 63px;
 		z-index: 1;
-		width: 325px;
-		height: 667px;
+		/* width: 325px; */
+		/* height: 667px; */
+		width: 362px;
+		height: 753px;
 		overflow-x: hidden;
 		overflow-y: scroll;
 	}

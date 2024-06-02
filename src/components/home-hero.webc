@@ -50,7 +50,8 @@
 		flex-wrap: wrap;
 	}
 	.HomeHero-logo {
-		padding: 10% 20%;
+		/* padding: 10% 20%; */
+		padding: 7.5% 15%;
 	}
 	.HomeHero-logo > img {
 		display: block;

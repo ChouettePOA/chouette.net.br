@@ -24,7 +24,7 @@
 }
 
 :root {
-	@utopia typeScale({
+	/* @utopia typeScale({
 		minWidth: 320,
 		maxWidth: 1240,
 		minFontSize: 18,
@@ -34,7 +34,20 @@
 		positiveSteps: 5,
 		negativeSteps: 1,
 		prefix: "size",
-	});
+	}); */
+
+	/*
+		TODO [wip] preview mobile only
+		@see src/components/preview-frame.webc
+	*/
+	--size-5: 2.7994rem;
+	--size-4: 2.3328rem;
+	--size-3: 1.944rem;
+	--size-2: 1.62rem;
+	--size-1: 1.35rem;
+	--size-0: 1.125rem;
+	--size--1: 0.9375rem;
+
 	/* @utopia spaceScale({
 		minWidth: 320,
 		maxWidth: 1240,
@@ -54,7 +67,13 @@ html {
 	font-family: 'Quattrocento Sans', sans-serif;
 	font-weight: 400;
 	font-size: var(--size-0);
-	line-height: utopia.clamp(21, 23);
+
+	/*
+		TODO [wip] preview mobile only
+		@see src/components/preview-frame.webc
+	*/
+	/* line-height: utopia.clamp(21, 23); */
+	line-height: 1.333333;
 }
 
 html,
