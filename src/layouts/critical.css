@@ -336,3 +336,13 @@ p:last-child,
 	top: .05em; /* Because it visually appears a bit off-centered */
 	left: calc(var(--size-2) * -1);
 }
+
+
+/*
+	All page contents are positionned relatively to this wrapper (useful for cases
+	where we use the preview-frame).
+*/
+
+#page-content {
+	position: relative;
+}

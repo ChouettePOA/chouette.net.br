@@ -1,0 +1,125 @@
+<script>
+	// Accessible dropdown behavior based on :
+	// @link https://www.a11y-collective.com/design/mastering-web-accessibility-making-drop-down-menus-user-friendly/
+	const menuItems = document.querySelectorAll(".js-dropdown");
+
+	let expandedItem = null;
+
+	const expandSubMenu = (item) => {
+		const subMenu = item.querySelector("ul");
+		const button = item.querySelector("button");
+		expandedItem = item;
+
+		subMenu.setAttribute("aria-hidden","false");
+		button.setAttribute("aria-expanded","true");
+		item.dataset.expanded = "true";
+		subMenu.querySelectorAll("a")[0].focus(); // Focus on the first link in the submenu
+	};
+
+	const collapseSubMenu = (item) => {
+		const subMenu = item.querySelector("ul");
+		const button = item.querySelector("button");
+		expandedItem = null;
+
+		subMenu.setAttribute("aria-hidden","true");
+		button.setAttribute("aria-expanded","false");
+		item.dataset.expanded = "false";
+		button.focus(); // Focus back on the button
+	};
+
+	menuItems.forEach((item) => {
+		const button = item.querySelector("button");
+
+		button.addEventListener("click", (event) => {
+			if (button.ariaExpanded === "false") {
+				expandSubMenu(item);
+			} else {
+				collapseSubMenu(item);
+			}
+		});
+
+		item.addEventListener("mouseenter", () => {
+			expandSubMenu(item);
+		});
+
+		item.addEventListener("mouseleave", () => {
+			collapseSubMenu(item);
+		});
+
+		// Handling keyboard navigation
+		button.addEventListener("keydown", (event) => {
+			if (event.key === "Enter" || event.key === " ") { // Space or Enter key
+				event.preventDefault(); // Prevent the default action to stop scrolling when pressing Space
+				if (button.ariaExpanded === "false") {
+					expandSubMenu(item);
+				} else {
+					collapseSubMenu(item);
+				}
+			}
+		});
+
+		// Handling tab key inside submenu to loop back to the button
+		const subMenuLinks = item.querySelectorAll("ul a");
+		if (subMenuLinks.length) {
+			const lastLink = subMenuLinks[subMenuLinks.length - 1];
+			lastLink.addEventListener("keydown", (event) => {
+				if (event.key === "Tab" && !event.shiftKey) {
+					event.preventDefault();
+					button.focus(); // Move focus back to the button
+				}
+			});
+		}
+	});
+</script>
+
+<div class="MainNav-wrap">
+	<nav class="MainNav js-dropdown" aria-labelledby="pages-heading">
+		<h2 class="visually-hidden" id="pages-heading">Pages navigation</h2>
+		<button class="MainNav-toggle" aria-label="Toggle menu" aria-expanded="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185.343 185.343" xml:space="preserve">
+				<path d="M51.707 185.343a10.692 10.692 0 0 1-7.593-3.149 10.724 10.724 0 0 1 0-15.175l74.352-74.347L44.114 18.32c-4.194-4.194-4.194-10.987 0-15.175 4.194-4.194 10.987-4.194 15.18 0l81.934 81.934c4.194 4.194 4.194 10.987 0 15.175l-81.934 81.939a10.678 10.678 0 0 1-7.587 3.15z"/>
+			</svg>
+		</button>
+		<ul class="MainNav-items">
+			<li><a href="/sobre-a-escola">Sobre a escola</a></li>
+			<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
+			<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
+			<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
+		</ul>
+	</nav>
+</div>
+
+<style>
+	.MainNav-wrap {
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	.MainNav {
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+		padding: .25rem .5rem;
+	}
+	.MainNav-toggle {
+		border: 1px solid currentColor;
+		padding: .25em .5em;
+		background-color: transparent;
+		cursor: pointer;
+	}
+	.MainNav-toggle > svg {
+		width: 1em;
+		transform: rotate(90deg);
+	}
+	.MainNav-items {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: var(--size-0);
+		background-color: #004281;
+	}
+	.MainNav[data-expanded="true"] > .MainNav-items {
+		display: block;
+	}
+</style>
