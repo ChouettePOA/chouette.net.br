@@ -39,10 +39,13 @@ npm run build
 
 ## File structure
 
+NB : Github pages requires either to use a different branch for the build, or
+to name the output dir `docs`.
+
 ```txt
 ./chouette.net.br/         ← Project root dir
+  ├── docs/                ← 11ty Output Directory (static site generated files, web server doc root)
   ├── node_modules/        ← [git-ignored]
-  ├── public/              ← 11ty Output Directory (static site generated files, web server doc root)
   ├── src/
   │   ├── components/
   │   ├── data/            ← 11ty Directory for Global Data Files
@@ -76,7 +79,7 @@ This is configured in `eleventy.config.js` in the project root dir - here's the 
 const core11tyOptions = {
   dir: {
     input: "src/routes",
-    output: "public",
+    output: "docs",
     includes: "../includes",  // relative to input directory
     layouts: "../layouts",    // relative to input directory
     data: "../data"           // relative to input directory

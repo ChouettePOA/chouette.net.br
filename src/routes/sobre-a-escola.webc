@@ -1,4 +1,6 @@
-<h1>Sobre a escola</h1>
+---
+title: "Sobre a escola"
+---
 
 <page-section>
 	<p slot="body">

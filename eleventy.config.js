@@ -11,7 +11,7 @@ import utopia from "postcss-utopia";
 const core11tyOptions = {
 	dir: {
 		input: "src/routes",
-		output: "public",
+		output: "docs",
 		includes: "../includes",  // relative to input directory
 		layouts: "../layouts",    // relative to input directory
 		data: "../data"           // relative to input directory

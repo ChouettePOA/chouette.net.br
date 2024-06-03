@@ -1,4 +1,6 @@
-<h1>Modalidades de cursos</h1>
+---
+title: "Modalidades de cursos"
+---
 
 <page-section>
 	<p slot="body">

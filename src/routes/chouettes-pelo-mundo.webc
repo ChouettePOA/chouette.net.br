@@ -1,4 +1,6 @@
-<h1>Chouettes pelo mundo</h1>
+---
+title: "Chouettes pelo mundo"
+---
 
 <page-section>
 	<p slot="body">
