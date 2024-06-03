@@ -1,5 +1,5 @@
 ---
-layout: "html.webc"
+layout: "preview-mobile.webc"
 ---
 <page-header></page-header>
 <main id="page-content" @raw="content"></main>

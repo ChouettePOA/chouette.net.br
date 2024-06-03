@@ -1,0 +1,58 @@
+<h1>Chouettes pelo mundo</h1>
+
+<page-section>
+	<p slot="body">
+		<drop-cap @content="depoimentos de alunos e ex–alunos" webc:nokeep></drop-cap>
+	</p>
+</page-section>
+
+<page-section @title="Mellina Lizot" @class="s-invert">
+	<p slot="body">
+		A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho. Desde o material didático próprio, a metodologia e abordagens personalizadas,  até a equipe de profes entusiasmadas que se tornam amigas e parceiras de vida, a Chouette te cativa a cada vez que se entra na casinha azul da rua Garibaldi. Obrigada por todo conhecimento adquirido, discutido e compartilhado (de francês e de vida).
+	</p>
+</page-section>
+
+<page-section @title="Bruno Marques">
+	<p slot="body">
+		A Chouette tem um método de ensino muito bom, moderno e efetivo. Em apenas um ano consegui obter um nível de francês suficiente para imigrar para o Québec. Saber o idioma francês me ajudou bastante a me adaptar ao Canadá. Foi só depois de chegar aqui que eu percebi que a Chouette não me ensinou a passar em um teste, mas sim a me virar no idioma, e isso é fundamental se você quer morar em um país francófono. Falar francês gera empatia nas pessoas que conheço, me ajuda a entender melhor os costumes e cultura, e me faz aproveitar melhor a experiência em praticamente todas as atividades. Antes de conhecer a Chouette eu tentei estudar por conta própria, professor particular, aplicativos, mas nada supera a experiência de ir essa escola incrível. É um programa honesto e efetivo que vale o investimento, e todos professores que tive são maravilhosos. As aulas têm temáticas interessantes, dinâmicas e úteis, nada de ficar horas estudando gramática e repetindo regras sem sentido. Isso sem contar os inúmeros eventos sociais extras - muitos de graça - que nos colocam em contato com outros alunos e ex-alunos dos mais diferentes níveis. Neles fiz bons amigos, dos quais tenho saudades. Então se você quer aprender o idioma francês para morar fora, não perde tempo e marca logo uma aula experimental. Tenho certeza que você vai gostar!
+	</p>
+</page-section>
+
+<page-section @title="Cibele Silva Molski de Ávila" @class="s-invert">
+	<p slot="body">
+		« A escola Chouette eu vi nascer e tenho o maior orgulho de ter escolhido a escola de francês mais personalizada que poderia ter em Porto Alegre! Não tenho dúvida que quando aprendemos uma nova língua precisamos de entusiasmo e inspiração que na Chouette tem de sobra com ambiente acolhedor, professoras competentes e conteúdo original. Fiz grandes amizades, pessoas especiais que terei para sempre em meu coração e que a distância não me faz esquecer do elo em que se criou! Gratidão por toda dedicação, vida longa a Chouette! Com carinho Cibele em Québec desde 2017.»
+	</p>
+</page-section>
+
+<page-section @title="Gabriel Guerra Câmara">
+	<p slot="body">
+		Não tem como não lembrar com muito carinho da Chouette, espaço onde conquistei, mais do uma segunda língua, amigos e amigas de verdade, nas pessoas das excelentes professoras e dos queridos colegas, todas e todos meus amigos até hoje. Às professoras, fica meu eterno agradecimento por uma didática rigorosa e paciente, a qual foi a responsável por eu ter conseguido conquistar a fluência na língua francesa que futuramente seria decisiva, para mim, em uma questão de conquista profissional. Na escola, em realidade, retomei o estudo da língua francesa, abandonada anos antes por uma experiência não muito satisfatória em outro espaço, satisfação essa que encontrei na Chouette. Retomei, assim, desde o início o estudo da língua, chegando até o nível intermediário, com certa fluência. Ainda não completei, em sua integralidade, o curso, o que faz com que eu seja um privilegiado “ex-aluno”, que a qualquer momento pode bater na porta da escola novamente, sabendo que lá encontrarei a ajuda que sempre me foi dada.
+	</p>
+</page-section>
+
+<page-section @title="Lina Strak e Bruno Marques" @class="s-invert">
+	<p slot="body">
+		- Onde tu estudou francês?<br/>
+		- Na Chouette, não tem erro.<br/>
+		- Poxa, eu vi que começam aulas amanhã. Mas hoje é domingo, não sei se vou conseguir que me respondam.<br/>
+		<br/>
+		Me responderam, em pleno domingo, dizendo que tinham vagas pra esse casal que não sabia nada além de bonjour e toilette(s).<br/>
+		Começamos já nos super intensivos, quatro vezes por semana das 8h às 10h da manhã. Nos dias que eu acordava cansada, mal-humorada e não queria ir, o Bruno me dizia "Vamos sim! Toda vez que tu chega lá tu te anima em cinco minutos, vem!" E era verdade, as aulas sempre foram tão alegres e felizes que eu nem queria ir embora depois.<br/>
+		Depois de um ano, fazendo super intensivos e intensivos, a gente teve que se despedir e como foi duro dizer adeus pra essa escola que nos deu tanto.<br/>
+		Viemos para o Canadá, falamos francês todos os dias. Todo mundo que nos encontra por aqui diz que falamos muito bem e ficam chocados quando dizemos que estudamos apenas um ano antes de vir.<br/>
+		A Chouette nos permitiu realizar o nosso sonho e nos trouxe pessoas que guardaremos com carinho no coração pro resto das nossas vidas!<br/>
+		<br/>
+		PS: Nos despedimos pessoalmente sim, mas agora fazemos aulas online e conseguimos nos sentir um pouquinho Chouette mesmo estando tão longe!<br/>
+		<br/>
+		Se você se pergunta, será que vale a pena? Na Chouette, não tem erro!<br/>
+		<br/>
+		Lina Strack e Bruno Marques
+	</p>
+</page-section>
+
+<page-section @title="João Sulzbach">
+	<p slot="body">
+		O Chouette me cativou desde o início com o material próprio de alta qualidade e com professores muito profissionais e extremamente entusiasmados. Fiz aulas em grupo nas modalidades extensiva e superintensiva, ambas com o mesmo alto padrão da escola que percebi logo de início. Além disso, também tive aulas particulares preparatórias para o DELF que com certeza foram essenciais para o meu sucesso no exame. Tudo isso em um ambiente muito receptivo e amigável, que torna as aulas muito prazerosas e eficientes.<br/>
+		Ainda mais importante do que os pontos anteriores, a metodologia de ensino do Chouette me permitiu aprender muito mais do que as regras gramaticais da língua, ampliando meu conhecimento sobre diversos aspectos da cultura francófona e sobre a forma de comunicação particular do francês. Essa preocupação com a formação cultural dos alunos também fica clara a partir da disponibilização de diversos filmes, livros e revistas que viabilizam o fácil contato com várias obras na íntegra. Assim, para alguém que pretende morar em um país francófono, as aulas são realmente inspiradoras para continuar a seguir esse sonho.
+	</p>
+</page-section>

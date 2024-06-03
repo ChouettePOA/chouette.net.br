@@ -109,9 +109,10 @@
 
 	.MainNav-toggle {
 		position: relative;
+		z-index: 2;
 		border: 0 none;
-		padding: .25em .5em;
-		background-color: transparent;
+		padding: var(--size--1);
+		background-color: white;
 		cursor: pointer;
 	}
 	/*
@@ -130,14 +131,14 @@
 		border-radius: 3px;
 		z-index: 1;
 		transform-origin: 0 0;
-		transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-			background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+		transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+			background 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0),
 			opacity 0.55s ease;
 	}
 	.MainNav-toggle span:first-child {
 		transform-origin: 0% 0%;
 	}
-	.MainNav-toggle span:nth-last-child(2) {
+	.MainNav-toggle span:nth-child(2) {
 		transform-origin: 0% 100%;
 	}
 	.MainNav-toggle[aria-expanded="true"] span {
@@ -146,7 +147,7 @@
 		transform: rotate(45deg);
 		background: #f25921;
 	}
-	.MainNav-toggle[aria-expanded="true"] span:nth-last-child(2)	{
+	.MainNav-toggle[aria-expanded="true"] span:nth-child(2)	{
 		opacity: 0;
 		transform: rotate(0deg) scale(0.2, 0.2);
 	}
@@ -156,15 +157,20 @@
 	}
 
 	.MainNav-items {
-		display: none;
+		/* display: none; */
 		position: absolute;
 		top: 0;
 		left: 0;
+		margin: 0;
 		padding: var(--size-0);
+		width: 100%;
 		background-color: #004281;
 		list-style: none;
+		transform: translate(0, calc(var(--size-0) * -2 - 100%));
+		transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 	}
 	.MainNav[data-expanded="true"] > .MainNav-items {
-		display: block;
+		/* display: block; */
+		transform: none;
 	}
 </style>

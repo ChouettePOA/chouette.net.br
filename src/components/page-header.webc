@@ -1,7 +1,7 @@
 <header webc:keep>
-	<div class="BgTexture u-container">
+	<div class="u-container s-invert">
 		<div class="u-container-inner">
-			<a href="/">
+			<a class="PageHeader-logo" href="/">
 				<img
 					class="Logo"
 					src="/img/chouette-logo.svg"
@@ -21,4 +21,22 @@
 			</a>
 		</div>
 	</div>
+	<nav-dropdown></nav-dropdown>
 </header>
+
+<style>
+	.PageHeader-logo {
+		display: block;
+		padding: 7.5% 15%;
+	}
+	.PageHeader-logo,
+	.PageHeader-logo:hover,
+	.PageHeader-logo:focus {
+		border: 0 none;
+		text-decoration: none;
+	}
+	.PageHeader-logo > img {
+		display: block;
+		margin: 0 auto;
+	}
+</style>

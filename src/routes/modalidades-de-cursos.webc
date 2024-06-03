@@ -1,0 +1,47 @@
+<h1>Modalidades de cursos</h1>
+
+<page-section>
+	<p slot="body">
+		<drop-cap @content="Na Chouette, você pode aprender francês em grupos de no máximo 6 pessoas ou em aulas particulares.<br/>As aulas presenciais acontecem na sede da escola, no bairro Bom Fim em Porto Alegre, num ambiente acolhedor que conta com muitos materiais francófonos.<br/>Quanto às aulas online, você tem acesso ao material no seu Drive da Chouette e todas as aulas são realizadas ao vivo com um professor." webc:nokeep></drop-cap>
+	</p>
+</page-section>
+
+<page-section @class="s-invert">
+	<p slot="body">
+		Os grupos possuem no máximo 6 alunos, proporcionando um aprendizado eficaz, dinâmico e personalizado. <br/>
+		Oferecemos diferentes modalidades em grupo durante o ano:<br/>
+		<br/>
+		Francês 1x por semana - 32 horas de aula<br/>
+		16 aulas de 2 horas cada - 2h semanais<br/>
+		Duração do nível: 4 meses<br/>
+		<br/>
+		Francês 2x por semana  - 32 horas de aula<br/>
+		16 aulas de 2 horas cada - 4h semanais<br/>
+		Duração do nível: 2 meses<br/>
+		<br/>
+		Francês Todo Dia - 32 horas de aula - disponível somente nos meses de janeiro, fevereiro, julho e dezembro
+		16 aulas de 2 horas de duração, de segunda a quinta ou de segunda a sexta
+		Duração do nível: 1 mês
+	</p>
+</page-section>
+
+<page-section @title="Francês para crianças e adolescentes">
+	<p slot="body">
+		A Chouette oferece aulas para crianças e adolescentes através de uma metodologia leve, divertida e lúdica.<br/>
+		O ensino de uma língua adicional pode ser trabalhado com a criança e adolescente, dentro de contextos que lhes correspondem, sem que o aprendizado da língua materna seja comprometido, visto que ambos navegam naturalmente em ambientes multilíngues.<br/>
+		O estudo da língua francesa estimula a curiosidade, desenvolvendo uma ampla percepção de mundo e ampliando os horizontes da criança e adolescente.
+	</p>
+</page-section>
+
+<page-section @title="Ateliers diversos" @class="s-invert">
+	<p slot="body">
+		Na Chouette promovemos diversos ateliers ao longo do ano para que a prática da língua francesa seja mais rica e inspiradora. Alguns exemplos de ateliers que realizamos: atelier cuisine, atelier musique, atelier diplomatique, atelier psychanalyse, atelier écriture créative, atelier grammaire…
+	</p>
+</page-section>
+
+<page-section @title="Horários">
+	<p slot="body">
+		Oferecemos aulas presenciais e online no período da manhã, meio-dia, tarde e noite, além de grupos aos sábados pela manhã.<br/>
+		Clique aqui para saber mais!
+	</p>
+</page-section>

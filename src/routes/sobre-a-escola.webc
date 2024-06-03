@@ -1,8 +1,35 @@
+<h1>Sobre a escola</h1>
+
 <page-section>
 	<p slot="body">
-		Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.
-		Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês.
-		Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.
-		Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante.
+		<drop-cap @content="Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.<br/>Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês.<br/>Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.<br/>Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante." webc:nokeep></drop-cap>
+	</p>
+</page-section>
+
+<page-section @title="Professoras e professores" @class="s-invert">
+	<p slot="body">
+		Bia Isabel Noy é formada em Artes Cênicas pela Universidade Federal de Santa Maria - RS. Mudou-se para Paris no início de 2004 com o objetivo de estudar a língua francesa e continuar sua formação na área das Artes. Bia fez especialização e mestrado em Arts de la Scène na Université Paris 8 - Saint Denis. Ainda, cursou o Conservatório de Teatro do VI Arrondissement de Paris. Após 6 anos de estudos, voltou para Porto Alegre e desde então dá aulas de francês. Com o intuito de continuar seus estudos, Bia ingressou no doutorado em Literatura Comparada, pela Universidade Federal do Rio Grande do Sul. Sua pesquisa direcionou-se para a literatura francesa, fazendo-a voltar para a França a fim de realizar uma parte de sua pesquisa na Université Sorbonne Nouvelle. Após a defesa de sua tese de doutorado, em 2015, Bia dedicou-se, juntamente com a professora Marina Pelle, à criação do método de ensino utilizado no Chouette - Institut de Français.
+	</p>
+	<p slot="body">
+		Marina Pelle formou-se em Artes Cênicas na Universidade Federal de Santa Maria em 2003. Alguns meses depois, decidiu ir à Paris para aprender a língua francesa. Entre 2005 e 2009, teve a oportunidade de fazer uma especialização e um Mestrado no Département des Arts du Spectacle na Université Paris 8 - Saint Denis. Continuou trabalhando e morando na região parisiense e em 2013 começou uma formação universitária em FLE - formação para professores de francês para estrangeiros - até 2014, quando decidiu voltar para Porto Alegre. Durante dois anos, Marina deu aulas em escolas, testando diferentes métodos. Nas suas aulas particulares, ela começou a colocar em prática a abordagem acional que aprendeu na sua formação e, em parceria com a professora Bia Isabel Noy, começou a desenvolver o método que você pode conhecer hoje no Chouette - Institut de Français.
+	</p>
+</page-section>
+
+<page-section @title="Professores parceiros">
+	<p slot="body">
+		Além das profes Bia e Marina, a Chouette possui outros excelentes profissionais com vasta experiência no ensino da língua francesa.
+	</p>
+</page-section>
+
+<page-section @title="Biblioteca" @class="s-invert">
+	<p slot="body">
+		Para complementar o aprendizado da língua francesa, a Chouette conta com uma biblioteca física e virtual que acompanha todos os níveis oferecidos, do iniciante ao avançado.<br/>
+		Além disso, em cada semestre, nossos alunos participam do Clube do livro, com leituras escolhidas desde o primeiro nível, onde discutimos os diferentes temas em francês!
+	</p>
+</page-section>
+
+<page-section @title="Grupo tira-dúvidas">
+	<p slot="body">
+		A Chouette disponibiliza a todos os alunos um grupo de whatsapp que serve como tira-dúvidas. Sabemos que muitas vezes nossas questões aparecem fora do horário da aula, quando estamos revisando, vendo um filme, escutando uma música… por isso, a equipe da Chouette está sempre atenta para te ajudar!
 	</p>
 </page-section>

@@ -30,4 +30,13 @@
 	</p>
 </page-section>
 
+<page-section @title="Saiba mais">
+	<ul slot="body">
+		<li><a href="/sobre-a-escola">Sobre a escola</a></li>
+		<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
+		<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
+		<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
+	</ul>
+</page-section>
+
 <page-footer :@title="title || metadata.title"></page-footer>

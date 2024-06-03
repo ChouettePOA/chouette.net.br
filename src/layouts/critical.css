@@ -295,12 +295,12 @@ p:last-child,
 	Component : BgTexture.
 */
 
-.BgTexture {
+/* .BgTexture {
 	width: 100%;
 	background-size: cover;
 	background-image: url('/img/bg-paper-texture-01.webp');
 	background-position: 50%;
-}
+} */
 
 
 /*
