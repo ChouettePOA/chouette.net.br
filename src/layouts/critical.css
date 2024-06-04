@@ -189,11 +189,13 @@ h3,
 h4,
 hr,
 p,
+blockquote,
 .s-rich-text ul,
 .s-rich-text ol {
 	margin: 0 0 var(--size-0) 0;
 }
 p:last-child,
+blockquote:last-child,
 .s-rich-text ul:last-child,
 .s-rich-text ol:last-child {
 	margin-bottom: 0;
@@ -212,6 +214,9 @@ p:last-child,
 }
 .u-text-block > *:last-child {
 	margin-bottom: 0;
+}
+.u-align-r {
+	text-align: right;
 }
 
 
@@ -335,6 +340,19 @@ p:last-child,
 	position: absolute;
 	top: .05em; /* Because it visually appears a bit off-centered */
 	left: calc(var(--size-2) * -1);
+}
+
+
+/*
+	Quotes.
+*/
+
+blockquote {
+	border-left: .1rem solid #FFF;
+	padding-left: var(--size-0);
+}
+.s-invert blockquote {
+	border-color: #004281;
 }
 
 
