@@ -7,9 +7,19 @@
 </page-section>
 
 <page-section @title="Aulas online">
-	<p slot="body">
-		As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
-	</p>
+	<div slot="body">
+		<p class="u-vspacer">
+			As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
+		</p>
+		<p class="u-vspacer">
+			<wrap-chouette>
+				<btn>Criar uma conta</btn>
+			</wrap-chouette>
+		</p>
+		<p class="u-vspacer">
+			Faça seu teste de nivelamento grátis e tenha acesso a materiais exclusivos e gratuitos.
+		</p>
+	</div>
 </page-section>
 
 <page-section @title="Diferenciais da Chouette !" @class="s-invert">
