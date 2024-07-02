@@ -1,14 +1,21 @@
-<!--
+<!---
 	@file
 	Based on Pure CSS
 
 	@link https://github.com/pure-css/pure/blob/master/src/buttons/css/buttons-core.css
 	@link https://github.com/pure-css/pure/blob/master/src/buttons/css/buttons.css
--->
+--->
 
-<a class="Btn">
-	<slot></slot>
-</a>
+<script webc:type="js" webc:root="override">
+	if (!tag) {
+		tag = 'a';
+	}
+	`
+	<${tag} class="Btn${(this.class? ' ' + this.class : '')}">
+		<slot></slot>
+	</${tag}>
+	`;
+</script>
 
 <style>
 	.Btn {
@@ -83,8 +90,12 @@
 		pointer-events: none;
 	}
 
-	.Btn--hidden {
+	/* .Btn--hidden {
 		display: none;
+	} */
+
+	.Btn--block {
+		display: block;
 	}
 
 	.Btn--primary,

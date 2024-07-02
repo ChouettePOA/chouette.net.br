@@ -1,0 +1,14 @@
+<div class="WrapChouette" webc:keep>
+	<slot></slot>
+</div>
+
+<style>
+	.WrapChouette {
+		margin: auto;
+		padding-top: 41%;
+		width: 100%;
+		max-width: 400px;
+		background: url(/img/deco-chouette-top.webp) no-repeat;
+		background-size: cover;
+	}
+</style>
