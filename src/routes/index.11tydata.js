@@ -1,3 +1,3 @@
 export default {
-	layout: "preview-mobile.webc"
+	layout: "home.webc"
 };

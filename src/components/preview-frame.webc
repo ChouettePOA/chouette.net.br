@@ -22,10 +22,19 @@
 		height: 100vh;
 	}
 	.PreviewFrame {
+		--size-5: 2.7994rem;
+		--size-4: 2.3328rem;
+		--size-3: 1.944rem;
+		--size-2: 1.62rem;
+		--size-1: 1.35rem;
+		--size-0: 1.125rem;
+		--size--1: 0.9375rem;
+
 		position: relative;
 		/* Make it a bit larger */
 		width: 480px;
 		height: 877px;
+		line-height: 1.333333;
 	}
 	.PreviewFrame-img {
 		position: absolute;

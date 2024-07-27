@@ -1,6 +1,6 @@
 ---
-layout: "preview-mobile.webc"
+layout: "html.webc"
 ---
 <page-header :@title="title || metadata.title"></page-header>
-<main id="page-content" @raw="content"></main>
+<main class="Page" @raw="content"></main>
 <page-footer :@title="title || metadata.title"></page-footer>

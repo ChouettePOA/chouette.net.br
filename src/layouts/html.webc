@@ -24,24 +24,11 @@
 		<meta name="msapplication-TileColor" content="#da532c" />
 		<meta name="theme-color" content="#ffffff" />
 
-		<!---
-			Inline the critical CSS.
-			@link https://www.11ty.dev/docs/languages/webc/#css-and-js-(bundler-mode)
-		--->
-		<link rel="stylesheet" href="critical.css" webc:bucket="critical" />
-		<style webc:keep @raw="getBundle('css', 'critical')"></style>
-
-		<!---
-			Load the rest of the CSS asynchronously (without preload since we've
-			already inlined the critical CSS above).
-			@link https://www.filamentgroup.com/lab/load-css-simpler/
-		--->
+		<link rel="stylesheet" href="main.css" />
 		<link
 			webc:keep
 			rel="stylesheet"
 			:href="getBundleFileUrl('css')"
-			media="print"
-			onload="this.media='all'"
 		/>
 
 		<!---
