@@ -47,7 +47,25 @@ export default function(eleventyConfig) {
 		return content;
 	});
 
-	// CSS + JS optimization.
+	// Transform CSS files in input (src/routes) "as is"
+	// (i.e. src/routes/main.css -> /main.css processed by postcss).
+	eleventyConfig.addExtension("css", {
+		outputFileExtension: "css",
+
+		// `compile` is called once per .css file in the input directory.
+		compile: function (content) {
+			// This is the render function, `data` is the full data cascade.
+			return async data => {
+				const result = await postcss([utopia, autoprefixer, cssnano]).process(content, {
+					from: this.page.inputPath,
+					to: null
+				});
+				return result.css;
+			};
+		},
+	});
+
+	// Bundle CSS styles aggregated from components.
 	eleventyConfig.addPlugin(bundlerPlugin, {
 		transforms: [
 			async function(content) {
