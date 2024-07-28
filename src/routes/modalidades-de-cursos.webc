@@ -3,7 +3,7 @@ title: "Modalidades de cursos"
 ---
 
 <page-section>
-	<div slot="body">
+	<div class="s-rich-text">
 		<p>
 			<drop-cap @content="Na Chouette, você pode aprender francês em grupos de no máximo 6 pessoas ou em aulas particulares. As aulas presenciais acontecem na sede da escola, no bairro Bom Fim em Porto Alegre, num ambiente acolhedor que conta com muitos materiais francófonos." webc:nokeep></drop-cap>
 		</p>
@@ -14,40 +14,48 @@ title: "Modalidades de cursos"
 </page-section>
 
 <page-section @class="s-invert">
-	<p slot="body">
-		Os grupos possuem no máximo 6 alunos, proporcionando um aprendizado eficaz, dinâmico e personalizado. Oferecemos diferentes modalidades em grupo durante o ano:<br/>
-		<br/>
-		Francês 1x por semana - 32 horas de aula<br/>
-		16 aulas de 2 horas cada - 2h semanais<br/>
-		Duração do nível: 4 meses<br/>
-		<br/>
-		Francês 2x por semana  - 32 horas de aula<br/>
-		16 aulas de 2 horas cada - 4h semanais<br/>
-		Duração do nível: 2 meses<br/>
-		<br/>
-		Francês Todo Dia - 32 horas de aula - disponível somente nos meses de janeiro, fevereiro, julho e dezembro
-		16 aulas de 2 horas de duração, de segunda a quinta ou de segunda a sexta
-		Duração do nível: 1 mês
-	</p>
+	<div class="s-rich-text">
+		<p>
+			Os grupos possuem no máximo 6 alunos, proporcionando um aprendizado eficaz, dinâmico e personalizado. Oferecemos diferentes modalidades em grupo durante o ano:<br/>
+			<br/>
+			Francês 1x por semana - 32 horas de aula<br/>
+			16 aulas de 2 horas cada - 2h semanais<br/>
+			Duração do nível: 4 meses<br/>
+			<br/>
+			Francês 2x por semana  - 32 horas de aula<br/>
+			16 aulas de 2 horas cada - 4h semanais<br/>
+			Duração do nível: 2 meses<br/>
+			<br/>
+			Francês Todo Dia - 32 horas de aula - disponível somente nos meses de janeiro, fevereiro, julho e dezembro
+			16 aulas de 2 horas de duração, de segunda a quinta ou de segunda a sexta
+			Duração do nível: 1 mês
+		</p>
+	</div>
 </page-section>
 
 <page-section @title="Francês para crianças e adolescentes">
-	<p slot="body">
-		A Chouette oferece aulas para crianças e adolescentes através de uma metodologia leve, divertida e lúdica.<br/>
-		O ensino de uma língua adicional pode ser trabalhado com a criança e adolescente, dentro de contextos que lhes correspondem, sem que o aprendizado da língua materna seja comprometido, visto que ambos navegam naturalmente em ambientes multilíngues.<br/>
-		O estudo da língua francesa estimula a curiosidade, desenvolvendo uma ampla percepção de mundo e ampliando os horizontes da criança e adolescente.
-	</p>
+	<div class="s-rich-text">
+		<p>
+			A Chouette oferece aulas para crianças e adolescentes através de uma metodologia leve, divertida e lúdica.<br/>
+			O ensino de uma língua adicional pode ser trabalhado com a criança e adolescente, dentro de contextos que lhes correspondem, sem que o aprendizado da língua materna seja comprometido, visto que ambos navegam naturalmente em ambientes multilíngues.<br/>
+			O estudo da língua francesa estimula a curiosidade, desenvolvendo uma ampla percepção de mundo e ampliando os horizontes da criança e adolescente.
+		</p>
+	</div>
 </page-section>
 
 <page-section @title="Ateliers diversos" @class="s-invert">
-	<p slot="body">
-		Na Chouette promovemos diversos ateliers ao longo do ano para que a prática da língua francesa seja mais rica e inspiradora. Alguns exemplos de ateliers que realizamos: atelier cuisine, atelier musique, atelier diplomatique, atelier psychanalyse, atelier écriture créative, atelier grammaire…
-	</p>
+	<div class="s-rich-text">
+		<p>
+			Na Chouette promovemos diversos ateliers ao longo do ano para que a prática da língua francesa seja mais rica e inspiradora. Alguns exemplos de ateliers que realizamos: atelier cuisine, atelier musique, atelier diplomatique, atelier psychanalyse, atelier écriture créative, atelier grammaire…
+		</p>
+	</div>
 </page-section>
 
 <page-section @title="Horários">
-	<p slot="body">
-		Oferecemos aulas presenciais e online no período da manhã, meio-dia, tarde e noite, além de grupos aos sábados pela manhã.<br/>
-		Clique aqui para saber mais!
-	</p>
+	<div class="s-rich-text">
+		<p>
+			Oferecemos aulas presenciais e online no período da manhã, meio-dia, tarde e noite, além de grupos aos sábados pela manhã.<br/>
+			<a href="https://virtual.chouette.net.br/">Clique aqui para saber mais!</a>
+		</p>
+	</div>
 </page-section>

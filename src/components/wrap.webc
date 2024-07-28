@@ -1,6 +1,6 @@
-<div>
+<wrap webc:nokeep>
 	<slot></slot>
-</div>
+</wrap>
 
 <style>
 	wrap {

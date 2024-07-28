@@ -1,5 +1,6 @@
 <!---
 	@file
+	TODO [wip] Refacto: buttons design.
 	Based on Pure CSS
 
 	@link https://github.com/pure-css/pure/blob/master/src/buttons/css/buttons-core.css
@@ -10,8 +11,17 @@
 	if (!tag) {
 		tag = 'a';
 	}
+
+	if (!this.class) {
+		this.class = 'Btn';
+	} else {
+		this.class = 'Btn ' + this.class;
+	}
+
+	// <${tag} class="Btn${this.class}" @attributes>
+
 	`
-	<${tag} class="Btn${(this.class? ' ' + this.class : '')}">
+	<${tag} class="${this.class}" :href="href">
 		<slot></slot>
 	</${tag}>
 	`;
@@ -94,7 +104,7 @@
 		display: none;
 	} */
 
-	.Btn--block {
+	.Btn.b {
 		display: block;
 	}
 

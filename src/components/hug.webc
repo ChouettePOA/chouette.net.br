@@ -1,0 +1,15 @@
+<hug webc:nokeep>
+	<slot></slot>
+</hug>
+
+<style>
+	hug {
+		display: flex;
+	}
+	hug.s {
+		max-width: 8ch;
+	}
+	hug.m {
+		max-width: 23ch;
+	}
+</style>

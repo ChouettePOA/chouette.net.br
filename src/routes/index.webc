@@ -1,19 +1,19 @@
 <home-hero class="u-vspacer"></home-hero>
 
 <page-section @title="Aulas presenciais" @class="s-invert">
-	<p slot="body">
+	<p>
 		A Chouette oferece aulas em grupo de até 6 pessoas. A sede da escola conta com salas de aula climatizadas, material didático de apoio e uma rica biblioteca com livros para todos os níveis de francês, do iniciante ao avançado. Além, é claro, de um espaço de convívio para nossos estudantes e de um café sempre quentinho.
 	</p>
 </page-section>
 
 <page-section @title="Aulas online">
-	<div slot="body">
+	<div class="s-rich-text">
 		<p class="u-vspacer">
 			As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
 		</p>
 		<wrap class="m u-vspacer">
 			<deco-chouette-bg-wrap>
-				<btn class="Btn--block">Criar uma conta</btn>
+				<btn class="b" href="https://virtual.chouette.net.br/">Criar uma conta</btn>
 			</deco-chouette-bg-wrap>
 		</wrap>
 		<p class="u-vspacer">
@@ -35,7 +35,7 @@
 </page-section>
 
 <page-section @title="Pourquoi Chouette&nbsp;?">
-	<p slot="body">
+	<p>
 		Chouette, em francês significa “coruja”, animal de olhos atentos que é conhecido popularmente por ser o símbolo do conhecimento, além disso, na língua francesa, “chouette” é uma gíria para dizer “ótimo”, “muito bom”, “legal”!
 	</p>
 </page-section>

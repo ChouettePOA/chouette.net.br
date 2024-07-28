@@ -3,7 +3,7 @@ title: "Chouettes pelo mundo"
 ---
 
 <page-section>
-	<p slot="body">
+	<p>
 		<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️" webc:nokeep></drop-cap>
 	</p>
 </page-section>
