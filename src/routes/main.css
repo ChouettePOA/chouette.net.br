@@ -1,13 +1,10 @@
 /**
  * @file
- * chouette.net.br critical CSS.
- *
- * TODO reevaluate the need to embed this inline.
- * @link https://csswizardry.com/2022/09/critical-css-not-so-fast/
+ * chouette.net.br main CSS.
  *
  * Used for :
  *   - minimal CSS reset,
- *   - shared constants (e.g. font-size / spacing values),
+ *   - shared constants (e.g. font-size / spacing values, colors, etc),
  *   - styling base, raw tags,
  *   - generic utilities,
  *   - and any styles which need to be inherited.

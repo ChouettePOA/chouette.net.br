@@ -49,15 +49,13 @@ export default function(eleventyConfig) {
 
 	// Transform CSS files in input (src/routes) "as is"
 	// (i.e. src/routes/main.css -> /main.css processed by postcss).
+	eleventyConfig.addTemplateFormats("css");
 	eleventyConfig.addExtension("css", {
 		outputFileExtension: "css",
-
-		// `compile` is called once per .css file in the input directory.
-		compile: function (content) {
-			// This is the render function, `data` is the full data cascade.
+		compile: async content => {
 			return async data => {
 				const result = await postcss([utopia, autoprefixer, cssnano]).process(content, {
-					from: this.page.inputPath,
+					from: core11tyOptions.dir.input,
 					to: null
 				});
 				return result.css;

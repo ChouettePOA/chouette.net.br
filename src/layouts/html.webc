@@ -24,13 +24,6 @@
 		<meta name="msapplication-TileColor" content="#da532c" />
 		<meta name="theme-color" content="#ffffff" />
 
-		<link rel="stylesheet" href="main.css" />
-		<link
-			webc:keep
-			rel="stylesheet"
-			:href="getBundleFileUrl('css')"
-		/>
-
 		<!---
 			Custom font from Google web fonts : Karla.
 			Update : use the fonts of the old site for now.
@@ -40,14 +33,10 @@
 		--->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" webc:keep /> -->
-		<link
-			webc:keep
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-			media="print"
-			onload="this.media='all'"
-		/>
+		<link webc:keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" />
+
+		<link webc:keep rel="stylesheet" href="/main.css" />
+		<link webc:keep rel="stylesheet" :href="getBundleFileUrl('css')" />
 	</head>
 
 	<body id="page-top">
