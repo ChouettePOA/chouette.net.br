@@ -4,7 +4,7 @@ title: "Metodologia Chouette"
 
 <page-section>
 	<p slot="body">
-		<drop-cap @content="O método da Chouette é desenvolvido pelas criadoras do Instituto, Bia Isabel Noy e Marina Pelle e conta com a colaboração dos professores da Chouette.<br/>Trabalhamos a partir da didática atual Abordagem Acional (Approche Actionnelle), com objetivo de proporcionar uma experiência próxima do que você poderia encontrar em um país francófono, para que você se sinta independente e seguro para agir em diferentes situações." webc:nokeep></drop-cap>
+		<drop-cap @content="O método da Chouette é desenvolvido pelas criadoras do Instituto, Bia Isabel Noy e Marina Pelle e conta com a colaboração dos professores da Chouette. Trabalhamos a partir da didática atual Abordagem Acional (Approche Actionnelle), com objetivo de proporcionar uma experiência próxima do que você poderia encontrar em um país francófono, para que você se sinta independente e seguro para agir em diferentes situações." webc:nokeep></drop-cap>
 	</p>
 </page-section>
 

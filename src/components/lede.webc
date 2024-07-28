@@ -1,0 +1,8 @@
+<page-section>
+	<div slot="body">
+		<p>
+			<drop-cap @content="firstLine ? firstLine : 'test'" webc:nokeep></drop-cap>
+		</p>
+		<slot></slot>
+	</div>
+</page-section>

@@ -95,16 +95,21 @@
 	--blue-light: var(--color-4);
 	--yellow: var(--color-5);
 	--green: var(--color-6);
+	--grey-dark: var(--color-grey-1);
+
+	--base-bg-color: var(--blue);
+	--base-text-color: white;
+
+	--inverted-bg-color: white;
+	--inverted-text-color: var(--grey-dark);
 }
 
 html {
-	--html-bg-color: var(--blue);
-
 	position: relative;
 	scroll-behavior: smooth;
-	background-color: var(--html-bg-color);
-	color: var(--text-color, white);
-	font-family: 'Quattrocento Sans', sans-serif;
+	background-color: var(--base-bg-color);
+	color: var(--base-text-color);
+	font-family: 'Quattrocento Sans', var(--sans-serif, sans-serif);
 	font-weight: 400;
 	font-size: var(--size-0);
 	line-height: utopia.clamp(21, 23);
@@ -176,6 +181,11 @@ h4 {
 	line-height: 1.1;
 }
 
+h1 {
+	font-size: var(--size-4);
+	font-weight: 200;
+}
+
 h2 {
 	font-weight: 400;
 	/* text-transform: uppercase; */
@@ -209,7 +219,7 @@ a:focus {
 hr {
 	border: 0;
 	height: 1px;
-	background-image: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.75),hsla(0,0%,100%,0));
+	background-image: linear-gradient(90deg, hsla(0,0%,100%,0), hsla(0,0%,100%,.75), hsla(0,0%,100%,0));
 }
 
 
@@ -241,8 +251,8 @@ blockquote:last-child,
 */
 
 ::selection {
-	background-color: #b3d4fc;
-	color: #000000;
+	background-color: var(--inverted-bg-color);
+	color: var(--inverted-text-color);
 	text-shadow: none;
 }
 
@@ -274,12 +284,12 @@ blockquote:last-child,
 */
 
 .u-container {
-	margin: 0 auto;
-	max-width: 90rem; /* 1440px */
+	padding-left: var(--space-m);
+	padding-right: var(--space-m);
 }
 .u-container-inner {
-	padding-left: 6.666%;
-	padding-right: 6.666%;
+	margin: 0 auto;
+	max-width: 62ch;
 }
 
 
@@ -322,13 +332,16 @@ blockquote:last-child,
 }
 .s-invert,
 .s-invert * {
-	color: #222;
+	color: var(--inverted-text-color);
 }
-.s-invert h1,
 .s-invert h2,
 .s-invert h3,
 .s-invert h4 {
-	color: #004281;
+	color: var(--blue);
+}
+.s-invert ::selection {
+	background-color: var(--base-bg-color);
+	color: var(--base-text-color);
 }
 
 
@@ -397,7 +410,7 @@ blockquote {
 	padding-left: var(--size-0);
 }
 .s-invert blockquote {
-	border-color: #004281;
+	border-color: var(--blue);
 }
 
 

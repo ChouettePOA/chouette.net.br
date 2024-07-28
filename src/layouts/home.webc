@@ -1,6 +1,5 @@
 ---
 layout: "html.webc"
 ---
-<home-hero class="u-vspacer"></home-hero>
 <main class="Home" @raw="content"></main>
 <page-footer :@title="title || metadata.title"></page-footer>

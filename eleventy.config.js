@@ -52,10 +52,10 @@ export default function(eleventyConfig) {
 	eleventyConfig.addTemplateFormats("css");
 	eleventyConfig.addExtension("css", {
 		outputFileExtension: "css",
-		compile: async content => {
-			return async data => {
+		compile: async (content, srcFilePath) => {
+			return async () => {
 				const result = await postcss([utopia, autoprefixer, cssnano]).process(content, {
-					from: core11tyOptions.dir.input,
+					from: srcFilePath,
 					to: null
 				});
 				return result.css;

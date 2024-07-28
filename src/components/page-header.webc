@@ -49,6 +49,5 @@
 	.PageHeader-title {
 		margin: 0;
 		width: 75%;
-		font-weight: 400;
 	}
 </style>

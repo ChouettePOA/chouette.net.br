@@ -3,10 +3,22 @@ title: "Sobre a escola"
 ---
 
 <page-section>
-	<p slot="body">
-		<drop-cap @content="Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.<br/>Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês.<br/>Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.<br/>Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante." webc:nokeep></drop-cap>
-	</p>
+	<div slot="body">
+		<p>
+			<drop-cap @content="Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa." webc:nokeep></drop-cap>
+		</p>
+		<p>
+			Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.
+		</p>
+		<p>
+			Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante.
+		</p>
+	</div>
 </page-section>
+
+<lede @first-line="Testing drop cap">
+	<p>Test lorem ipsum.</p>
+</lede>
 
 <page-section @title="Professoras e professores" @class="s-invert">
 	<p slot="body">
