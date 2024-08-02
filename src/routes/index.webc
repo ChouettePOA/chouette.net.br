@@ -23,7 +23,7 @@
 </page-section>
 
 <page-section @title="Diferenciais da Chouette !" @class="s-invert">
-	<ul slot="body" class="EmojiList">
+	<ul class="EmojiList">
 		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas - 30% de desconto não acumulativo.</li>
 		<li data-emoji="✅">Não cobramos taxa de matrícula e materiais didáticos.</li>
 		<li data-emoji="✅">O material didático é atualizado anualmente e é exclusivo da Chouette Institut de Français. </li>
@@ -41,7 +41,7 @@
 </page-section>
 
 <page-section @title="Saiba mais">
-	<ul slot="body">
+	<ul>
 		<li><a href="/">Pagina inicial</a></li>
 		<li><a href="/sobre-a-escola">Sobre a escola</a></li>
 		<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>

@@ -34,6 +34,18 @@ export default function(eleventyConfig) {
 		]
 	});
 
+	// Image plugin.
+	// @link https://www.11ty.dev/docs/plugins/image/#webc
+	// TODO [evol] compare with https://github.com/ascorbic/unpic-img
+	eleventyConfig.addPlugin(eleventyImagePlugin, {
+		formats: ["webp", "jpeg"],
+		urlPath: "/img/",
+		defaultAttributes: {
+			loading: "lazy",
+			decoding: "async",
+		},
+	});
+
 	// HTML minification.
 	eleventyConfig.addTransform("htmlmin", function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {

@@ -1,0 +1,48 @@
+<!---
+	TODO I can't get nested components working the way I want to.
+	-> giving up (postponed).
+
+<page-section @attributes class="Media">
+	<hug>
+		<div class="Media-img">
+			<slot name="img"></slot>
+		</div>
+		<div class="Media-content">
+			<slot name="body"></slot>
+		</div>
+	</hug>
+</page-section>
+
+--->
+
+<media webc:nokeep>
+	<section class="u-container-inner">
+		<h2 @text="title"></h2>
+		<div class="Media">
+			<div class="Media-img">
+				<img
+					:src="src"
+					:alt="title"
+					webc:is="eleventy-image"
+					sizes="200,600"
+				/>
+			</div>
+			<div class="Media-content">
+				<slot></slot>
+			</div>
+		</div>
+	</section>
+</media>
+
+<style>
+	media {
+		display: block;
+	}
+	.Media {
+		display: flex;
+		gap: var(--space-m);
+	}
+	.Media-img {
+		max-width: 600px;
+	}
+</style>

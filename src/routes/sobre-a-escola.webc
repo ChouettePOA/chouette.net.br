@@ -18,7 +18,7 @@ title: "Sobre a escola"
 
 <!---
 	TODO [wip] debug alternative take on dropcaps + lede.
-<lede @first-line="Testing drop cap">
+<lede @firstLine="Testing drop cap">
 	<p>Test lorem ipsum.</p>
 </lede>
 --->
@@ -42,14 +42,18 @@ title: "Sobre a escola"
 	</div>
 </page-section>
 
-<page-section @title="Biblioteca" @class="s-invert">
+<media
+	class="u-container u-vspacer s-invert"
+	@title="Biblioteca"
+	@src="src/media/Bibliotheque.jpg"
+>
 	<div class="s-rich-text">
 		<p>
 			Para complementar o aprendizado da língua francesa, a Chouette conta com uma biblioteca física e virtual que acompanha todos os níveis oferecidos, do iniciante ao avançado.<br/>
 			Além disso, em cada semestre, nossos alunos participam do Clube do livro, com leituras escolhidas desde o primeiro nível, onde discutimos os diferentes temas em francês!
 		</p>
 	</div>
-</page-section>
+</media>
 
 <page-section @title="Grupo tira-dúvidas">
 	<div class="s-rich-text">

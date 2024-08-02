@@ -1,4 +1,6 @@
-<page-section webc:keep>
-	<drop-cap slot="body" @content="firstLine ? firstLine : 'test'" webc:nokeep></drop-cap>
-	<slot></slot>
-</page-section>
+<div :class="'u-container u-vspacer' + (this.class ? ' ' + this.class : '')">
+	<div class="u-container-inner">
+		<drop-cap @content="firstLine" webc:nokeep></drop-cap>
+		<slot></slot>
+	</div>
+</div>

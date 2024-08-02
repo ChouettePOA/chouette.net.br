@@ -300,10 +300,10 @@ blockquote:last-child,
 */
 
 .u-vspacer {
-	padding-bottom: var(--size-0);
+	padding-bottom: var(--space-m);
 }
 .u-vspacer + .u-vspacer {
-	padding-top: var(--size-0);
+	padding-top: var(--space-m);
 }
 .u-vspacer + .u-vspacer .u-container-inner > :first-child {
 	margin-top: 0;
