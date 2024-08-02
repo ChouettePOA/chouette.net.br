@@ -1,32 +1,6 @@
-<!---
-	TODO I can't get nested components working the way I want to.
-	-> giving up (postponed).
-
-<page-section webc:root class="Media">
-	<hug>
-		<div class="Media-img">
-			<slot name="img"></slot>
-		</div>
-		<div class="Media-content">
-			<slot name="body"></slot>
-		</div>
-	</hug>
-</page-section>
-
---->
-
-<script webc:type="js" webc:root class="u-container u-vspacer">
-
-	if (title) {
-		title = '<h2 @text="title"></h2>';
-	} else {
-		title = '';
-	}
-
-	`
-<media webc:root>
+<media webc:root class="u-container u-vspacer">
 	<section class="u-container-inner">
-		${title}
+		<h2 webc:if="title" @html="title"></h2>
 		<div class="Media">
 			<div class="Media-img">
 				<img
@@ -42,9 +16,6 @@
 		</div>
 	</section>
 </media>
-`;
-
-</script>
 
 <style>
 	media {

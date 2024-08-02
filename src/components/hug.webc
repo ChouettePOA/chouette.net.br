@@ -5,11 +5,13 @@
 <style>
 	hug {
 		display: flex;
+		gap: var(--space-m);
+		justify-content: center;
 	}
-	hug.s {
-		max-width: 8ch;
+	hug.s > * {
+		width: 23rem;
 	}
-	hug.m {
-		max-width: 23ch;
+	hug.m > * {
+		width: var(--line-length);
 	}
 </style>

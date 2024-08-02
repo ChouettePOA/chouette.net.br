@@ -49,6 +49,14 @@
 		customSizes: ['s-l'],
 	});
 
+	/*
+		Measures.
+	*/
+	--line-length: 36rem;
+
+	/*
+		Z-index.
+	*/
 	--z-index-offcanvas: 16;
 	--z-index-overlay: 8;
 	--z-index-menu: 4;
@@ -258,24 +266,6 @@ blockquote:last-child,
 
 
 /*
-	Utility : typography-related utilities.
-*/
-
-.u-text-block {
-	max-width: 80ch;
-}
-.u-text-block > *:first-child {
-	margin-top: 0;
-}
-.u-text-block > *:last-child {
-	margin-bottom: 0;
-}
-.u-align-r {
-	text-align: right;
-}
-
-
-/*
 	Utility : u-container.
 
 	Le inner-wrapper centré, max 1440px de large, avec un padding-left générique.
@@ -289,7 +279,7 @@ blockquote:last-child,
 }
 .u-container-inner {
 	margin: 0 auto;
-	max-width: 62ch;
+	max-width: var(--line-length);
 }
 
 
