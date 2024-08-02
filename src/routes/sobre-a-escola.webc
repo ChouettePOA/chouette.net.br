@@ -16,6 +16,12 @@ title: "Sobre a escola"
 	</div>
 </page-section>
 
+<page-section>
+	<div class="s-rich-text">
+		<p>test</p>
+	</div>
+</page-section>
+
 <!---
 	TODO [wip] debug alternative take on dropcaps + lede.
 <lede @firstLine="Testing drop cap">
@@ -43,7 +49,7 @@ title: "Sobre a escola"
 </page-section>
 
 <media
-	class="u-container u-vspacer s-invert"
+	class="s-invert"
 	@title="Biblioteca"
 	@src="src/media/Bibliotheque.jpg"
 >

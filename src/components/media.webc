@@ -2,7 +2,7 @@
 	TODO I can't get nested components working the way I want to.
 	-> giving up (postponed).
 
-<page-section @attributes class="Media">
+<page-section webc:root class="Media">
 	<hug>
 		<div class="Media-img">
 			<slot name="img"></slot>
@@ -15,16 +15,25 @@
 
 --->
 
-<media webc:nokeep>
+<script webc:type="js" webc:root class="u-container u-vspacer">
+
+	if (title) {
+		title = '<h2 @text="title"></h2>';
+	} else {
+		title = '';
+	}
+
+	`
+<media webc:root>
 	<section class="u-container-inner">
-		<h2 @text="title"></h2>
+		${title}
 		<div class="Media">
 			<div class="Media-img">
 				<img
 					:src="src"
 					:alt="title"
 					webc:is="eleventy-image"
-					sizes="200,600"
+					eleventy:widths="400,600"
 				/>
 			</div>
 			<div class="Media-content">
@@ -33,6 +42,9 @@
 		</div>
 	</section>
 </media>
+`;
+
+</script>
 
 <style>
 	media {
