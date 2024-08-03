@@ -53,6 +53,7 @@
 		Measures.
 	*/
 	--line-length: 36rem;
+	--max-length: calc(var(--line-length) * 2 + var(--space-m));
 
 	/*
 		Z-index.
@@ -332,6 +333,17 @@ blockquote:last-child,
 .s-invert ::selection {
 	background-color: var(--base-bg-color);
 	color: var(--base-text-color);
+}
+
+
+/*
+	Scope : s-rich-text.
+*/
+
+.s-rich-text > p {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: var(--line-length);
 }
 
 

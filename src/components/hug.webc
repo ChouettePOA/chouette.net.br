@@ -1,4 +1,4 @@
-<hug webc:nokeep>
+<hug webc:root>
 	<slot></slot>
 </hug>
 
@@ -7,11 +7,40 @@
 		display: flex;
 		gap: var(--space-m);
 		justify-content: center;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: var(--max-length);
 	}
-	hug.s > * {
-		width: 23rem;
+
+	hug > * {
+		margin: 0;
 	}
+
 	hug.m > * {
 		width: var(--line-length);
+	}
+
+	hug.equal-w > * {
+		flex: 1 1 0;
+		width: 0;
+	}
+
+	hug.equal-w.from-75rem > * {
+		flex: 1 0 0;
+		width: auto;
+	}
+
+	hug.from-75rem {
+		flex-direction: column;
+	}
+
+	@media (min-width: 75rem) {
+		hug.from-75rem {
+			flex-direction: row;
+		}
+		hug.from-75rem.equal-w > * {
+			flex: 1 1 0;
+			width: 0;
+		}
 	}
 </style>
