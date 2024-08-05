@@ -21,11 +21,24 @@
 	media {
 		display: block;
 	}
+
 	.Media {
 		display: flex;
+		flex-direction: column;
 		gap: var(--space-m);
 	}
+
 	.Media-img {
-		max-width: 600px;
+		display: none;
+	}
+
+	@media (min-width: 55rem) {
+		.Media {
+			flex-direction: row;
+		}
+		.Media-img {
+			display: block;
+			max-width: 50%;
+		}
 	}
 </style>

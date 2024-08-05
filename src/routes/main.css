@@ -282,6 +282,9 @@ blockquote:last-child,
 	margin: 0 auto;
 	max-width: var(--line-length);
 }
+.u-container-inner > .s-rich-text:first-child {
+	padding-top: var(--space-m);
+}
 
 
 /*

@@ -26,5 +26,7 @@
 	.Chouette > svg {
 		position: relative;
 		right: 5%;
+		width: 6rem;
+		max-width: 100%;
 	}
 </style>

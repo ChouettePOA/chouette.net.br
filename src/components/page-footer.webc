@@ -1,6 +1,6 @@
 <hr />
 <footer class="Footer u-container u-vspacer">
-	<hug class="from-75rem">
+	<hug class="from-60rem">
 		<chouette></chouette>
 		<div class="s-rich-text">
 			<h2 class="Footer-title">
@@ -20,14 +20,14 @@
 			<a href="https://www.facebook.com/chouettepoa" target="_blank">facebook.com/chouettepoa</a>
 			<br />
 			<a href="https://www.instagram.com/chouette.frances" target="_blank">instagram.com/chouette.frances</a>
-			<div class="Footer-separator">• •</div>
-			<div class="Footer-smallPrint">
-				Copyright © 2015–<span @text="new Date().getFullYear()"></span><br />
-				<span @text="title"></span>
-				<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr>
-			</div>
 		</div>
 	</hug>
+	<div class="Footer-separator">• •</div>
+	<div class="Footer-smallPrint">
+		Copyright © 2015–<span @text="new Date().getFullYear()"></span><br />
+		<span @text="title"></span>
+		<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr>
+	</div>
 </footer>
 
 <style>
@@ -35,17 +35,21 @@
 		margin-top: var(--size-3);
 		margin-bottom: var(--size-2);
 	}
+
 	.Footer {
 		text-align: center;
 	}
+
 	.Footer-mobile-icon {
 		display: inline-block;
 		transform: rotate(20deg);
 		font-size: var(--size-4);
 	}
+
 	.Email {
 		white-space: nowrap;
 	}
+
 	.Footer-title {
 		margin: var(--size-0) 0;
 		font-size: var(--size-4);
@@ -54,16 +58,20 @@
 		font-variant: normal;
 		letter-spacing: 0;
 	}
+
 	.Footer-smartphone-icon {
 		padding-left: .33em;
 	}
 	.Footer-smartphone-icon svg {
 		fill: white;
-		transform: scale(1.5) rotate(20deg);
+		transform: scale(3.33) rotate(20deg);
 	}
+
 	.Footer-separator {
 		margin: var(--size-0) 0;
+		font-size: var(--size-3);
 	}
+
 	.Footer-smallPrint,
 	.Footer-smallPrint * {
 		font-size: var(--size--1);

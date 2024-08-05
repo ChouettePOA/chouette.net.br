@@ -30,8 +30,18 @@
 		width: auto;
 	}
 
+	hug.from-60rem {
+		flex-direction: column;
+	}
+
 	hug.from-75rem {
 		flex-direction: column;
+	}
+
+	@media (min-width: 60rem) {
+		hug.from-60rem {
+			flex-direction: row;
+		}
 	}
 
 	@media (min-width: 75rem) {
