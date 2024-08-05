@@ -1,0 +1,25 @@
+<block webc:nokeep>
+	<slot></slot>
+</block>
+
+<style>
+	block {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		width: var(--line-length);
+		max-width: 100%;
+	}
+	block.ib {
+		display: inline-block;
+	}
+	block.s {
+		width: 8ch;
+	}
+	block.m {
+		width: 23ch;
+	}
+	block.l {
+		width: 88ch;
+	}
+</style>

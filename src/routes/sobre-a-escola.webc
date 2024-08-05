@@ -24,14 +24,14 @@ title: "Sobre a escola"
 --->
 
 <page-section class="s-invert wide" @title="Professoras e professores">
-	<hug class="u-vspacer m">
+	<block class="u-vspacer">
 		<img
 			src="src/media/Marina-Pelle-e-Bia-Noy.jpg"
 			alt="Profes da Chouette : Marina Pelle e Bia Noy"
 			webc:is="eleventy-image"
 			eleventy:widths="400,900"
 		/>
-	</hug>
+	</block>
 	<hug class="s-rich-text equal-w from-75rem">
 		<p>
 			<drop-cap @content="Marina Pelle formou-se em Artes Cênicas na Universidade Federal de Santa Maria em 2003. Alguns meses depois, decidiu ir à Paris para aprender a língua francesa. Entre 2005 e 2009, teve a oportunidade de fazer uma especialização e um Mestrado no Département des Arts du Spectacle na Université Paris 8 - Saint Denis. Continuou trabalhando e morando na região parisiense e em 2013 começou uma formação universitária em FLE - formação para professores de francês para estrangeiros - até 2014, quando decidiu voltar para Porto Alegre. Durante dois anos, Marina deu aulas em escolas, testando diferentes métodos. Nas suas aulas particulares, ela começou a colocar em prática a abordagem acional que aprendeu na sua formação e, em parceria com a professora Bia Isabel Noy, começou a desenvolver o método que você pode conhecer hoje no Chouette - Institut de Français." webc:nokeep></drop-cap>

@@ -1,9 +1,10 @@
 <header class="s-invert" webc:keep>
 	<nav-dropdown></nav-dropdown>
-	<wrap>
+	<main-menu></main-menu>
+	<block class="l">
 		<div class="PageHeader">
 			<div class="PageHeader-logo">
-				<wrap class="s ib">
+				<block class="s ib">
 					<a class="PageHeader-logo-link" href="/" title="Voltar na pagina inicial">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136.777 150.571" preserveAspectRatio="xMidYMid meet">
 							<path fill="#D71921" d="M118.432 74.325c2.708 7.432 4.208 15.437 4.285 23.779 8.252-11.095 13.379-24.649 14.051-39.373a38.668 38.668 0 0 1-18.336 15.594zm-14.726-7.274 3.331-8.183h-6.661z"/>
@@ -12,11 +13,11 @@
 							<circle fill="#004281" cx="121.037" cy="47.362" r="5.042"/>
 						</svg>
 					</a>
-				</wrap>
+				</block>
 			</div>
 			<h1 class="PageHeader-title" @text="title"></h1>
 		</div>
-	</wrap>
+	</block>
 </header>
 
 <style>
@@ -58,6 +59,8 @@
 	@media (min-width: 40rem) {
 		.PageHeader {
 			gap: var(--space-m);
+			padding-right: 0;
+			padding-left: 0;
 		}
 
 		.PageHeader-logo {

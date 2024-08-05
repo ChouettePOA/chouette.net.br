@@ -3,56 +3,64 @@ title: "Chouettes pelo mundo"
 ---
 
 <page-section>
-	<p>
-		<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️" webc:nokeep></drop-cap>
-	</p>
+	<div class="s-rich-text">
+		<p>
+			<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️" webc:nokeep></drop-cap>
+		</p>
+	</div>
 </page-section>
 
-<page-section @title="Cibele" @class="s-invert">
-	<div class="u-vspacer" slot="media">
+<page-section class="s-invert" @title="Cibele">
+	<block class="u-vspacer">
 		<img
 			src="src/media/Cibele.jpg"
 			alt="Cibele"
 			webc:is="eleventy-image"
 			sizes="500,1000"
 		/>
+	</block>
+	<div class="s-rich-text">
+		<blockquote>
+			« A escola Chouette eu vi nascer e tenho o maior orgulho de ter escolhido a escola de francês mais personalizada que poderia ter em Porto Alegre! Não tenho dúvida que quando aprendemos uma nova língua precisamos de entusiasmo e inspiração que na Chouette tem de sobra com ambiente acolhedor, professoras competentes e conteúdo original. Fiz grandes amizades, pessoas especiais que terei para sempre em meu coração e que a distância não me faz esquecer do elo em que se criou! Gratidão por toda dedicação, vida longa a Chouette! Com carinho Cibele em Québec desde 2017.»
+			<p class="u-align-r"><br/>&mdash;&nbsp;Cibele Silva Molski de Ávila</p>
+		</blockquote>
 	</div>
-	<blockquote>
-		« A escola Chouette eu vi nascer e tenho o maior orgulho de ter escolhido a escola de francês mais personalizada que poderia ter em Porto Alegre! Não tenho dúvida que quando aprendemos uma nova língua precisamos de entusiasmo e inspiração que na Chouette tem de sobra com ambiente acolhedor, professoras competentes e conteúdo original. Fiz grandes amizades, pessoas especiais que terei para sempre em meu coração e que a distância não me faz esquecer do elo em que se criou! Gratidão por toda dedicação, vida longa a Chouette! Com carinho Cibele em Québec desde 2017.»
-		<p class="u-align-r"><br/>&mdash;&nbsp;Cibele Silva Molski de Ávila</p>
-	</blockquote>
 </page-section>
 
 <page-section @title="Lina e Bruno">
-	<div class="u-vspacer" slot="media">
+	<block class="u-vspacer">
 		<img
 			src="src/media/Lina-e-Bruno.jpg"
 			alt="Cibele"
 			webc:is="eleventy-image"
 			sizes="500,1000"
 		/>
+	</block>
+	<div class="s-rich-text">
+		<blockquote>
+			- Onde tu estudou francês?<br/>
+			- Na Chouette, não tem erro.<br/>
+			- Poxa, eu vi que começam aulas amanhã. Mas hoje é domingo, não sei se vou conseguir que me respondam.<br/>
+			<br/>
+			Me responderam, em pleno domingo, dizendo que tinham vagas pra esse casal que não sabia nada além de bonjour e toilette(s).<br/>
+			Começamos já nos super intensivos, quatro vezes por semana das 8h às 10h da manhã. Nos dias que eu acordava cansada, mal-humorada e não queria ir, o Bruno me dizia "Vamos sim! Toda vez que tu chega lá tu te anima em cinco minutos, vem!" E era verdade, as aulas sempre foram tão alegres e felizes que eu nem queria ir embora depois.<br/>
+			Depois de um ano, fazendo super intensivos e intensivos, a gente teve que se despedir e como foi duro dizer adeus pra essa escola que nos deu tanto.<br/>
+			Viemos para o Canadá, falamos francês todos os dias. Todo mundo que nos encontra por aqui diz que falamos muito bem e ficam chocados quando dizemos que estudamos apenas um ano antes de vir.<br/>
+			A Chouette nos permitiu realizar o nosso sonho e nos trouxe pessoas que guardaremos com carinho no coração pro resto das nossas vidas!<br/>
+			<br/>
+			PS: Nos despedimos pessoalmente sim, mas agora fazemos aulas online e conseguimos nos sentir um pouquinho Chouette mesmo estando tão longe!<br/>
+			<br/>
+			Se você se pergunta, será que vale a pena? Na Chouette, não tem erro!
+			<p class="u-align-r"><br/>&mdash;&nbsp;Lina Strack e Bruno Marques</p>
+		</blockquote>
 	</div>
-	<blockquote>
-		- Onde tu estudou francês?<br/>
-		- Na Chouette, não tem erro.<br/>
-		- Poxa, eu vi que começam aulas amanhã. Mas hoje é domingo, não sei se vou conseguir que me respondam.<br/>
-		<br/>
-		Me responderam, em pleno domingo, dizendo que tinham vagas pra esse casal que não sabia nada além de bonjour e toilette(s).<br/>
-		Começamos já nos super intensivos, quatro vezes por semana das 8h às 10h da manhã. Nos dias que eu acordava cansada, mal-humorada e não queria ir, o Bruno me dizia "Vamos sim! Toda vez que tu chega lá tu te anima em cinco minutos, vem!" E era verdade, as aulas sempre foram tão alegres e felizes que eu nem queria ir embora depois.<br/>
-		Depois de um ano, fazendo super intensivos e intensivos, a gente teve que se despedir e como foi duro dizer adeus pra essa escola que nos deu tanto.<br/>
-		Viemos para o Canadá, falamos francês todos os dias. Todo mundo que nos encontra por aqui diz que falamos muito bem e ficam chocados quando dizemos que estudamos apenas um ano antes de vir.<br/>
-		A Chouette nos permitiu realizar o nosso sonho e nos trouxe pessoas que guardaremos com carinho no coração pro resto das nossas vidas!<br/>
-		<br/>
-		PS: Nos despedimos pessoalmente sim, mas agora fazemos aulas online e conseguimos nos sentir um pouquinho Chouette mesmo estando tão longe!<br/>
-		<br/>
-		Se você se pergunta, será que vale a pena? Na Chouette, não tem erro!
-		<p class="u-align-r"><br/>&mdash;&nbsp;Lina Strack e Bruno Marques</p>
-	</blockquote>
 </page-section>
 
-<page-section @title="Mellina" @class="s-invert">
-	<blockquote>
-		A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho. Desde o material didático próprio, a metodologia e abordagens personalizadas,  até a equipe de profes entusiasmadas que se tornam amigas e parceiras de vida, a Chouette te cativa a cada vez que se entra na casinha azul da rua Garibaldi. Obrigada por todo conhecimento adquirido, discutido e compartilhado (de francês e de vida).
-		<p class="u-align-r"><br/>&mdash;&nbsp;Mellina</p>
-	</blockquote>
+<page-section class="s-invert" @title="Mellina">
+	<div class="s-rich-text">
+		<blockquote>
+			A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho. Desde o material didático próprio, a metodologia e abordagens personalizadas,  até a equipe de profes entusiasmadas que se tornam amigas e parceiras de vida, a Chouette te cativa a cada vez que se entra na casinha azul da rua Garibaldi. Obrigada por todo conhecimento adquirido, discutido e compartilhado (de francês e de vida).
+			<p class="u-align-r"><br/>&mdash;&nbsp;Mellina</p>
+		</blockquote>
+	</div>
 </page-section>

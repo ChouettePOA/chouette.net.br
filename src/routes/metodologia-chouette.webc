@@ -3,28 +3,34 @@ title: "Metodologia Chouette"
 ---
 
 <page-section>
-	<p>
-		<drop-cap @content="O método da Chouette é desenvolvido pelas criadoras do Instituto, Bia Isabel Noy e Marina Pelle e conta com a colaboração dos professores da Chouette. Trabalhamos a partir da didática atual Abordagem Acional (Approche Actionnelle), com objetivo de proporcionar uma experiência próxima do que você poderia encontrar em um país francófono, para que você se sinta independente e seguro para agir em diferentes situações." webc:nokeep></drop-cap>
-	</p>
+	<div class="s-rich-text">
+		<p>
+			<drop-cap @content="O método da Chouette é desenvolvido pelas criadoras do Instituto, Bia Isabel Noy e Marina Pelle e conta com a colaboração dos professores da Chouette. Trabalhamos a partir da didática atual Abordagem Acional (Approche Actionnelle), com objetivo de proporcionar uma experiência próxima do que você poderia encontrar em um país francófono, para que você se sinta independente e seguro para agir em diferentes situações." webc:nokeep></drop-cap>
+		</p>
+	</div>
 </page-section>
 
-<page-section @title="Abordagem acional & unidades temáticas" @class="s-invert">
-	<p>
-		O método de abordagem acional é fortemente recomendado pelo Quadro Europeu Comum de Referência para as Línguas (Cadre Européen de Référence pour les Langues - CECRL) que orienta os critérios para a classificação dos níveis (de A1 a C2) e as provas de proficiência (TCF, DELF e DALF).
-	</p>
-	<p>
-		Na Chouette - Institut de Français, cada nível é composto por 32 horas e é dividido em unidades temáticas que apresentam um vocabulário vasto e aspectos gramaticais que são necessários para agir e interagir naquele tema. No final de cada unidade, trabalhamos as 4 competências (fala, escuta, leitura e escrita) e ainda propomos um projeto prático a fim de revisar e utilizar o conteúdo aprendido.<br/>
-		Ao final de cada nível, convidamos você a fazer um teste baseado em testes de proficiência para que você avalie o próprio aprendizado, juntamente com um retorno personalizado de seu professor ou sua professora.<br/>
-		As aulas, desde os níveis iniciais, são todas ministradas em francês, proporcionando uma experiência de imersão na língua.
-	</p>
+<page-section class="s-invert" @title="Abordagem acional & unidades temáticas">
+	<div class="s-rich-text">
+		<p>
+			O método de abordagem acional é fortemente recomendado pelo Quadro Europeu Comum de Referência para as Línguas (Cadre Européen de Référence pour les Langues - CECRL) que orienta os critérios para a classificação dos níveis (de A1 a C2) e as provas de proficiência (TCF, DELF e DALF).
+		</p>
+		<p>
+			Na Chouette - Institut de Français, cada nível é composto por 32 horas e é dividido em unidades temáticas que apresentam um vocabulário vasto e aspectos gramaticais que são necessários para agir e interagir naquele tema. No final de cada unidade, trabalhamos as 4 competências (fala, escuta, leitura e escrita) e ainda propomos um projeto prático a fim de revisar e utilizar o conteúdo aprendido.<br/>
+			Ao final de cada nível, convidamos você a fazer um teste baseado em testes de proficiência para que você avalie o próprio aprendizado, juntamente com um retorno personalizado de seu professor ou sua professora.<br/>
+			As aulas, desde os níveis iniciais, são todas ministradas em francês, proporcionando uma experiência de imersão na língua.
+		</p>
+	</div>
 </page-section>
 
 <page-section @title="Material didático">
-	<p>
-		O material didático exclusivo conta com documentos originais atuais, para que você descubra e aprofunde seu conhecimento de vocabulário, gramática e cultura francófona.
-	</p>
-	<p>
-		Constantemente atualizado por uma equipe de professores da Chouette, nossas aulas são um convite para abordar temas necessários não somente para a vida quotidiana como para discussões pertinentes à nossa sociedade.<br/>
-		Por meio de vídeos, reportagens, programas de televisão e de rádio, músicas, literatura, poesia… você tem acesso a conteúdos ricos que dão vontade de compartilhar ideias em francês desde a primeira aula.
-	</p>
+	<div class="s-rich-text">
+		<p>
+			O material didático exclusivo conta com documentos originais atuais, para que você descubra e aprofunde seu conhecimento de vocabulário, gramática e cultura francófona.
+		</p>
+		<p>
+			Constantemente atualizado por uma equipe de professores da Chouette, nossas aulas são um convite para abordar temas necessários não somente para a vida quotidiana como para discussões pertinentes à nossa sociedade.<br/>
+			Por meio de vídeos, reportagens, programas de televisão e de rádio, músicas, literatura, poesia… você tem acesso a conteúdos ricos que dão vontade de compartilhar ideias em francês desde a primeira aula.
+		</p>
+	</div>
 </page-section>

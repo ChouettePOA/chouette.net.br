@@ -13,7 +13,7 @@ title: "Modalidades de cursos"
 	</div>
 </page-section>
 
-<page-section @class="s-invert">
+<page-section class="s-invert">
 	<div class="s-rich-text">
 		<p>
 			Os grupos possuem no máximo 6 alunos, proporcionando um aprendizado eficaz, dinâmico e personalizado. Oferecemos diferentes modalidades em grupo durante o ano:<br/>
@@ -43,7 +43,7 @@ title: "Modalidades de cursos"
 	</div>
 </page-section>
 
-<page-section @title="Ateliers diversos" @class="s-invert">
+<page-section class="s-invert" @title="Ateliers diversos">
 	<div class="s-rich-text">
 		<p>
 			Na Chouette promovemos diversos ateliers ao longo do ano para que a prática da língua francesa seja mais rica e inspiradora. Alguns exemplos de ateliers que realizamos: atelier cuisine, atelier musique, atelier diplomatique, atelier psychanalyse, atelier écriture créative, atelier grammaire…

@@ -304,6 +304,9 @@ blockquote:last-child,
 .u-vspacer + .u-vspacer .u-container-inner > :first-child {
 	margin-top: 0;
 }
+.u-vspacer + .u-vspacer .u-container-inner > .s-rich-text:first-child {
+	padding-top: 0;
+}
 /*
 @media only screen and (min-width: 35em) {
 	.u-vspacer {
