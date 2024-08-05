@@ -111,6 +111,8 @@
 
 	--inverted-bg-color: white;
 	--inverted-text-color: var(--grey-dark);
+
+	--overlay-white-bg-color: var(--color-white-t-3);
 }
 
 html {
@@ -322,7 +324,7 @@ blockquote:last-child,
 */
 
 .s-invert {
-	background-color: #FFF;
+	background-color: var(--inverted-bg-color);
 }
 .s-invert,
 .s-invert * {

@@ -7,13 +7,14 @@
 		display: block;
 		margin-right: auto;
 		margin-left: auto;
-		max-width: 88ch;
+		width: 88ch;
+		max-width: 100%;
 	}
 	wrap.s {
-		max-width: 8ch;
+		width: 8ch;
 	}
 	wrap.m {
-		max-width: 23ch;
+		width: 23ch;
 	}
 	wrap.ib {
 		display: inline-block;

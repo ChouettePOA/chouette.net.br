@@ -22,13 +22,14 @@
 <style>
 	.PageHeader {
 		display: flex;
-		padding: var(--space-l) 0;
+		padding: var(--space-l) var(--space-s);
 		justify-content: center;
 		align-items: center;
-		gap: var(--size-2);
+		gap: var(--space-s);
 	}
+
 	.PageHeader-logo {
-		width: 25%;
+		width: 17.5%;
 		text-align: right;
 	}
 	.PageHeader-logo,
@@ -37,6 +38,7 @@
 		border: 0 none;
 		text-decoration: none;
 	}
+
 	.PageHeader-logo-link {
 		display: block;
 		border: 0 none;
@@ -46,8 +48,25 @@
 	.PageHeader-logo-link svg {
 		width: 100%;
 	}
+
 	.PageHeader-title {
 		margin: 0;
-		width: 75%;
+		width: 82.5%;
+		font-size: var(--size-3);
+	}
+
+	@media (min-width: 40rem) {
+		.PageHeader {
+			gap: var(--space-m);
+		}
+
+		.PageHeader-logo {
+			width: 25%;
+		}
+
+		.PageHeader-title {
+			width: 75%;
+			font-size: var(--size-4);
+		}
 	}
 </style>

@@ -77,35 +77,42 @@
 	});
 </script>
 
-<div class="MainNav-wrap">
+<nav-dropdown webc:root class="MainNav-wrap">
 	<nav class="MainNav js-dropdown" aria-labelledby="pages-heading">
 		<h2 class="visually-hidden" id="pages-heading">Pages navigation</h2>
 		<button class="MainNav-toggle" aria-label="Toggle menu" aria-expanded="false">
-			<!---
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185.343 185.343" xml:space="preserve">
 				<path d="M51.707 185.343a10.692 10.692 0 0 1-7.593-3.149 10.724 10.724 0 0 1 0-15.175l74.352-74.347L44.114 18.32c-4.194-4.194-4.194-10.987 0-15.175 4.194-4.194 10.987-4.194 15.18 0l81.934 81.934c4.194 4.194 4.194 10.987 0 15.175l-81.934 81.939a10.678 10.678 0 0 1-7.587 3.15z"/>
 			</svg>
-			--->
-			<span></span>
-			<span></span>
-			<span></span>
 		</button>
-		<ul class="MainNav-items" aria-hidden="true">
-			<li><a href="/">Pagina inicial</a></li>
-			<li><a href="/sobre-a-escola">Sobre a escola</a></li>
-			<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
-			<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
-			<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
-		</ul>
+		<div class="MainNav-items" aria-hidden="true">
+			<div class="u-container s-invert">
+				<ul class="u-container-inner">
+					<li><a href="/">Pagina inicial</a></li>
+					<li><a href="/sobre-a-escola">Sobre a escola</a></li>
+					<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
+					<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
+					<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
+				</ul>
+			</div>
+		</div>
 	</nav>
-</div>
+</nav-dropdown>
 
 <style>
 	.MainNav-wrap {
+		display: block;
 		position: absolute;
 		top: 0;
 		width: 100%;
 	}
+
+	@media (min-width: 60rem) {
+		.MainNav-wrap {
+			display: none;
+		}
+	}
+
 	.MainNav {
 		position: relative;
 		padding: .25rem .5rem;
@@ -118,50 +125,20 @@
 		z-index: 2;
 		border: 0 none;
 		padding: var(--size--1);
-		background-color: white;
 		cursor: pointer;
 	}
-	/*
 	.MainNav-toggle > svg {
-		width: 1em;
+		width: 1.5em;
 		transform: rotate(90deg);
+		transition: transform 0.2s ease-in-out;
 	}
-	*/
-	.MainNav-toggle span {
-		position: relative;
-		z-index: 1;
-		display: block;
-		border-radius: 3px;
-		width: var(--size-2);
-		height: 4px;
-		background-color: #004281;
-		transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-			background 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-			opacity 0.55s ease;
+	.MainNav-toggle[aria-expanded="true"] > svg {
+		transform: rotate(-90deg);
 	}
-	.MainNav-toggle span + span {
-		margin-top: 6px;
-	}
-	.MainNav-toggle span:first-child {
-		transform-origin: 2px 7px;
-	}
-	.MainNav-toggle span:nth-child(2) {
-		transform-origin: 0% 100%;
-	}
-	.MainNav-toggle span:last-child {
-		transform-origin: 2px -1px;
-	}
-	.MainNav-toggle[aria-expanded="true"] span {
-		opacity: 1;
-		transform: rotate(45deg);
-		background: #f25921;
-	}
-	.MainNav-toggle[aria-expanded="true"] span:nth-child(2)	{
-		opacity: 0;
-		transform: rotate(0deg) scale(0.2, 0.2);
-	}
-	.MainNav-toggle[aria-expanded="true"] span:last-child {
-		transform: rotate(-45deg);
+
+	.MainNav-toggle,
+	.MainNav-items .s-invert {
+		background-color: var(--overlay-white-bg-color);
 	}
 
 	.MainNav-items {
@@ -170,10 +147,8 @@
 		top: 0;
 		left: 0;
 		margin: 0;
-		padding: var(--size-0);
+		padding: 0;
 		width: 100%;
-		background-color: #004281;
-		list-style: none;
 		transform: translate(0, calc(var(--size-0) * -2 - 100%));
 		transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 	}
@@ -182,5 +157,11 @@
 	}
 	.MainNav[data-expanded="true"] > .MainNav-items {
 		transform: none;
+	}
+
+	.MainNav-items ul {
+		list-style: none;
+		padding: var(--space-m);
+		text-align: right;
 	}
 </style>
