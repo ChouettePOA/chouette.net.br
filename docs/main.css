@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap">
 
 		<link rel="stylesheet" href="/main.css">
-		<link rel="stylesheet" href="/bundle/R6GhzxWCGv.css">
+		<link rel="stylesheet" href="/bundle/oZZFgLlIoD.css">
 	</head>
 
 	<body id="page-top">
@@ -59,14 +59,38 @@
 
 
 </nav-dropdown>
-	<main-menu class="u-container">
-	<div class="u-container-inner">
-		<nav class="MainMenu"><ul><li><a href="/chouettes-pelo-mundo/">Chouettes pelo mundo</a></li>
-<li><a href="/metodologia-chouette/">Metodologia Chouette</a></li>
-<li><a href="/modalidades-de-cursos/">Modalidades de cursos</a></li>
-<li><a href="/sobre-a-escola/">Sobre a escola</a></li></ul></nav>
-		
-	</div>
+	<main-menu>
+
+	
+
+
+	
+
+
+	
+
+	<nav class="Menu">
+		<a href="/">Pagina inicial</a>
+<a href="/sobre-a-escola" aria-current="page">
+	Sobre a escola
+</a>
+<a href="/modalidades-de-cursos">
+	Modalidades de cursos
+</a>
+<a href="/metodologia-chouette">
+	Metodologia Chouette
+</a>
+<a href="/chouettes-pelo-mundo">
+	Chouettes pelo mundo
+</a>
+
+<div>
+	Debug :
+	<pre style="margin:0">/sobre-a-escola/</pre>
+</div>
+
+	</nav>
+
 
 
 

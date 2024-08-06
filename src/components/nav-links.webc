@@ -23,4 +23,8 @@
 >
 	Chouettes pelo mundo
 </a>
-<span @text="page.url"></span>
+
+<div>
+	Debug :
+	<pre @text="page.url" style="margin:0"></pre>
+</div>

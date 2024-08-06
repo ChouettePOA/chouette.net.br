@@ -1,36 +1,77 @@
-<main-menu webc:root class="u-container">
-	<div class="u-container-inner">
-		<nav
-			class="MainMenu"
-			@html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all))"
-		></nav>
-		<!---
-		<ul class="MainMenu">
-			<li webc:for="value of Object.values(data.collections.main_menu)">
-				<a @text="value"></a>
-			</li>
-		</ul>
+<main-menu webc:root>
+
+	<!---
+
+		Test n°1 : FAIL
+		The "order" in front matter is not taken into account.
+
+	<nav
+		class="Menu"
+		@html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all))"
+	></nav>
+
+	--->
+
+
+	<!---
+
+		Test n°2 : FAIL
+		Cannot read properties of undefined (reading 'collections')
+
+		And when using the dynamic attribute syntax : $data :
+		Cannot convert undefined or null to object (via Error)
+
+	<ul class="Menu">
+		<li webc:for="value of Object.values($data.collections.main_menu)">
+			debug :
+			<pre @text="Object.keys(value.data)"></pre>
+		</li>
+	</ul>
+
+	--->
+
+
+	<!---
+
+		Test n°3 : FAIL
+		in src/components/nav-links.webc the page.url is always the same value.
+
+	--->
+
+	<nav class="Menu">
 		<nav-links></nav-links>
-		--->
-	</div>
+	</nav>
+
 </main-menu>
 
 <style>
-	.MainMenu {
+	main-menu {
 		display: none;
 	}
+
 	@media (min-width: 60rem) {
-		.MainMenu {
+		main-menu {
+			display: block;
+			padding: var(--space-s);
+		}
+
+		.Menu {
 			display: flex;
 			gap: var(--space-s);
 			justify-content: center;
 			list-style: none;
 		}
-		.MainMenu a {
+
+		.Menu a {
 			border: 0 none;
+			padding: var(--space-2xs) var(--space-xs);
 		}
-		.MainMenu a[aria-current="page"] {
+		.Menu a + a {
+			border-left: 1px solid currentColor;
+		}
+		.Menu a[aria-current="page"] {
 			color: var(--orange);
+			font-weight: bold;
 		}
 	}
 </style>
