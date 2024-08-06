@@ -41,5 +41,8 @@
 		"html-minifier": "^4.0.0",
 		"postcss": "^8.4.38",
 		"postcss-utopia": "^1.0.1"
+	},
+	"dependencies": {
+		"@11ty/eleventy-navigation": "^0.3.5"
 	}
 }

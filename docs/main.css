@@ -48,7 +48,6 @@
 		<div aria-hidden="true" class="MainNav-items s-invert">
 			<ul>
 				<li><a href="/">Pagina inicial</a></li>
-				<li><a href="/">/sobre-a-escola/</a></li>
 				<li><a href="/sobre-a-escola">Sobre a escola</a></li>
 				<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
 				<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
@@ -62,23 +61,11 @@
 </nav-dropdown>
 	<main-menu class="u-container">
 	<div class="u-container-inner">
-		<nav class="MainMenu">
-			<a href="/">Pagina inicial</a>
-<a href="/sobre-a-escola" aria-current="page">
-	Sobre a escola
-</a>
-<a href="/modalidades-de-cursos">
-	Modalidades de cursos
-</a>
-<a href="/metodologia-chouette">
-	Metodologia Chouette
-</a>
-<a href="/chouettes-pelo-mundo">
-	Chouettes pelo mundo
-</a>
-<span>/sobre-a-escola/</span>
-
-		</nav>
+		<nav class="MainMenu"><ul><li><a href="/chouettes-pelo-mundo/">Chouettes pelo mundo</a></li>
+<li><a href="/metodologia-chouette/">Metodologia Chouette</a></li>
+<li><a href="/modalidades-de-cursos/">Modalidades de cursos</a></li>
+<li><a href="/sobre-a-escola/">Sobre a escola</a></li></ul></nav>
+		
 	</div>
 
 

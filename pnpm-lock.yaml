@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@11ty/eleventy-navigation':
+        specifier: ^0.3.5
+        version: 0.3.5
     devDependencies:
       '@11ty/eleventy':
         specifier: 3.0.0-alpha.5
@@ -56,6 +60,9 @@ packages:
   '@11ty/eleventy-img@4.0.2':
     resolution: {integrity: sha512-MSCkZRJk9rWa7nojx9HBMZJePOrm+V3XNpT091qguj61SG5UsgXbxAkoeejO3npmKIQJTyVIV/rrA6d7xZYOvw==}
     engines: {node: '>=18'}
+
+  '@11ty/eleventy-navigation@0.3.5':
+    resolution: {integrity: sha512-4aKW5aIQDFed8xs1G1pWcEiFPcDSwZtA4IH1eERtoJ+Xy+/fsoe0pzbDmw84bHZ9ACny5jblENhfZhcCxklqQw==}
 
   '@11ty/eleventy-plugin-bundle@1.0.5':
     resolution: {integrity: sha512-Esv97j+mOo/yfxjaWl4j8CyszOBsRjU/DOUWOBqVnnDLM8VDXeus2LTJUxF70nAU0g+z+b6fRn8fKnm6b2a/UQ==}
@@ -1360,6 +1367,10 @@ snapshots:
       - encoding
       - supports-color
 
+  '@11ty/eleventy-navigation@0.3.5':
+    dependencies:
+      dependency-graph: 0.11.0
+
   '@11ty/eleventy-plugin-bundle@1.0.5':
     dependencies:
       debug: 4.3.5
@@ -2177,8 +2188,9 @@ snapshots:
     dependencies:
       a-sync-waterfall: 1.0.1
       asap: 2.0.6
-      chokidar: 3.6.0
       commander: 5.1.0
+    optionalDependencies:
+      chokidar: 3.6.0
 
   object-keys@1.1.1: {}
 

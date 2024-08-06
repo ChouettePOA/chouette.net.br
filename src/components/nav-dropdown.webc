@@ -90,7 +90,6 @@
 		<div class="MainNav-items s-invert" aria-hidden="true">
 			<ul>
 				<li><a href="/">Pagina inicial</a></li>
-				<li><a href="/" @text="page.url"></a></li>
 				<li><a href="/sobre-a-escola">Sobre a escola</a></li>
 				<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
 				<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>

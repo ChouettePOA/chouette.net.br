@@ -1,6 +1,9 @@
 ---
 title: "Modalidades de cursos"
 tags: menu_main
+eleventyNavigation:
+  key: Modalidades de cursos
+	order: 2
 ---
 
 <page-section>

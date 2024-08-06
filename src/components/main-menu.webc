@@ -1,8 +1,17 @@
 <main-menu webc:root class="u-container">
 	<div class="u-container-inner">
-		<nav class="MainMenu">
-			<nav-links></nav-links>
-		</nav>
+		<nav
+			class="MainMenu"
+			@html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all))"
+		></nav>
+		<!---
+		<ul class="MainMenu">
+			<li webc:for="value of Object.values(data.collections.main_menu)">
+				<a @text="value"></a>
+			</li>
+		</ul>
+		<nav-links></nav-links>
+		--->
 	</div>
 </main-menu>
 

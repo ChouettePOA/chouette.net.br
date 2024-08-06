@@ -1,6 +1,9 @@
 ---
 title: "Metodologia Chouette"
 tags: menu_main
+eleventyNavigation:
+  key: Metodologia Chouette
+	order: 3
 ---
 
 <page-section>
