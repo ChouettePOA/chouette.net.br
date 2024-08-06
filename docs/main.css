@@ -70,8 +70,10 @@
 	
 
 	<nav class="Menu">
-		<a href="/">Pagina inicial</a>
-<a href="/sobre-a-escola" aria-current="page">
+		
+
+<a href="/">Pagina inicial</a>
+<a href="/sobre-a-escola">
 	Sobre a escola
 </a>
 <a href="/modalidades-de-cursos">
@@ -80,13 +82,13 @@
 <a href="/metodologia-chouette">
 	Metodologia Chouette
 </a>
-<a href="/chouettes-pelo-mundo">
+<a href="/chouettes-pelo-mundo" aria-current="page">
 	Chouettes pelo mundo
 </a>
 
 <div>
 	Debug :
-	<pre style="margin:0">/sobre-a-escola/</pre>
+	<pre style="margin:0">/chouettes-pelo-mundo/</pre>
 </div>
 
 	</nav>

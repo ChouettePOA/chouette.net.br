@@ -1,3 +1,15 @@
+<!---
+<script webc:type="js">
+	let mainNav = $data.mainNav;
+	Object.keys(mainNav).map((key) => `<li><a href="${mainNav[key]}">${key}</a></li>`).join('');
+</script>
+--->
+
+<script webc:setup>
+	// This test failed too (does not change anything).
+	const page = $data.page;
+</script>
+
 <a href="/">Pagina inicial</a>
 <a
 	href="/sobre-a-escola"
