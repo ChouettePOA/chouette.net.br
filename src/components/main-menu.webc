@@ -1,12 +1,9 @@
 <main-menu webc:root class="u-container">
-	<nav class="u-container-inner">
-		<ul class="MainMenu">
-			<li><a href="/sobre-a-escola">Sobre a escola</a></li>
-			<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
-			<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
-			<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
-		</ul>
-	</nav>
+	<div class="u-container-inner">
+		<nav class="MainMenu">
+			<nav-links></nav-links>
+		</nav>
+	</div>
 </main-menu>
 
 <style>
@@ -19,6 +16,12 @@
 			gap: var(--space-s);
 			justify-content: center;
 			list-style: none;
+		}
+		.MainMenu a {
+			border: 0 none;
+		}
+		.MainMenu a[aria-current="page"] {
+			color: var(--orange);
 		}
 	}
 </style>

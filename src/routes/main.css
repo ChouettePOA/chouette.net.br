@@ -219,7 +219,7 @@ a {
 }
 a:hover,
 a:focus {
-	color: #f25921;
+	color: var(--orange);
 }
 
 
