@@ -1,0 +1,47 @@
+<script>
+	import { SVG, registerWindow } from '@svgdotjs/svg.js';
+	registerWindow(window, document);
+
+	const id = Math.random().toString(36).substring(2, 9);
+	const draw = SVG().addTo('#' + id).size('100%', '100%');
+
+	// Function to generate a vine-like structure
+	function createVine(x, y, length, angle, depth) {
+			if (depth === 0) return;
+
+			const radian = (angle * Math.PI) / 180;
+			const x2 = x + length * Math.cos(radian);
+			const y2 = y + length * Math.sin(radian);
+
+			draw.line(x, y, x2, y2).stroke({ width: 2, color: '#000' });
+
+			const newLength = length * 0.75;
+			const newDepth = depth - 1;
+
+			createVine(x2, y2, newLength, angle - 30, newDepth);
+			createVine(x2, y2, newLength, angle + 30, newDepth);
+	}
+
+	// Initial vine parameters
+	const startX = 200;
+	const startY = 400;
+	const initialLength = 100;
+	const initialAngle = -90; // Straight up
+	const depth = 5;
+
+	// Create the vine
+	createVine(startX, startY, initialLength, initialAngle, depth);
+</script>
+
+<deco-vine-wrap class="WrapVine" webc:root>
+	<div :id="id"></div>
+	<div class="WrapVin-content">
+		<slot></slot>
+	</div>
+</deco-vine-wrap>
+
+<style>
+	.WrapVine {
+		display: block;
+	}
+</style>

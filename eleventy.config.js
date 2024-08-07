@@ -2,7 +2,6 @@ import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import { eleventyImagePlugin } from "@11ty/eleventy-img";
 import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
-import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
@@ -26,11 +25,6 @@ export default function(eleventyConfig) {
 
 	// Required by pluginWebc.
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
-
-	// Menu links.
-	eleventyConfig.addPlugin(eleventyNavigationPlugin, {
-		activeAnchorClass: "is-on"
-	});
 
 	// Webc components "autoload" + load "vendor" components.
 	eleventyConfig.addPlugin(pluginWebc, {

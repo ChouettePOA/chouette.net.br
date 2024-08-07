@@ -10,6 +10,11 @@
 <pre>test end</pre>
 --->
 
+<deco-vine-wrap>
+	<h2>test</h2>
+	<p>test</p>
+</deco-vine-wrap>
+
 <div class="u-container">
 	<div class="u-container-inner">
 		<section-title>Inscrições abertas</section-title>

@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@11ty/eleventy-navigation':
-        specifier: ^0.3.5
-        version: 0.3.5
+      '@svgdotjs/svg.js':
+        specifier: ^3.2.4
+        version: 3.2.4
     devDependencies:
       '@11ty/eleventy':
         specifier: 3.0.0-alpha.5
@@ -60,9 +60,6 @@ packages:
   '@11ty/eleventy-img@4.0.2':
     resolution: {integrity: sha512-MSCkZRJk9rWa7nojx9HBMZJePOrm+V3XNpT091qguj61SG5UsgXbxAkoeejO3npmKIQJTyVIV/rrA6d7xZYOvw==}
     engines: {node: '>=18'}
-
-  '@11ty/eleventy-navigation@0.3.5':
-    resolution: {integrity: sha512-4aKW5aIQDFed8xs1G1pWcEiFPcDSwZtA4IH1eERtoJ+Xy+/fsoe0pzbDmw84bHZ9ACny5jblENhfZhcCxklqQw==}
 
   '@11ty/eleventy-plugin-bundle@1.0.5':
     resolution: {integrity: sha512-Esv97j+mOo/yfxjaWl4j8CyszOBsRjU/DOUWOBqVnnDLM8VDXeus2LTJUxF70nAU0g+z+b6fRn8fKnm6b2a/UQ==}
@@ -231,6 +228,9 @@ packages:
   '@sindresorhus/transliterate@1.6.0':
     resolution: {integrity: sha512-doH1gimEu3A46VX6aVxpHTeHrytJAG6HgdxntYnCFiIFHEM/ZGpG8KiZGBChchjQmG0XFIBL552kBTjVcMZXwQ==}
     engines: {node: '>=12'}
+
+  '@svgdotjs/svg.js@3.2.4':
+    resolution: {integrity: sha512-BjJ/7vWNowlX3Z8O4ywT58DqbNRyYlkk6Yz/D13aB7hGmfQTvGX4Tkgtm/ApYlu9M7lCQi15xUEidqMUmdMYwg==}
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -1367,10 +1367,6 @@ snapshots:
       - encoding
       - supports-color
 
-  '@11ty/eleventy-navigation@0.3.5':
-    dependencies:
-      dependency-graph: 0.11.0
-
   '@11ty/eleventy-plugin-bundle@1.0.5':
     dependencies:
       debug: 4.3.5
@@ -1552,6 +1548,8 @@ snapshots:
   '@sindresorhus/transliterate@1.6.0':
     dependencies:
       escape-string-regexp: 5.0.0
+
+  '@svgdotjs/svg.js@3.2.4': {}
 
   '@trysound/sax@0.2.0': {}
 
