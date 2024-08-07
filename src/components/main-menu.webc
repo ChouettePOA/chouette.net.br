@@ -1,47 +1,13 @@
 <main-menu webc:root>
-
-	<!---
-
-		Test n°1 : FAIL
-		The "order" in front matter is not taken into account.
-
-	<nav
-		class="Menu"
-		@html="eleventyNavigationToHtml(eleventyNavigation($data.collections.all))"
-	></nav>
-
-	--->
-
-
-	<!---
-
-		Test n°2 : FAIL
-		Cannot read properties of undefined (reading 'collections')
-
-		And when using the dynamic attribute syntax : $data :
-		Cannot convert undefined or null to object (via Error)
-
 	<ul class="Menu">
-		<li webc:for="value of Object.values($data.collections.main_menu)">
-			debug :
-			<pre @text="Object.keys(value.data)"></pre>
+		<li webc:for="link of $data.main_menu.links">
+			<a
+				:href="link.href"
+				:aria-current="$data.page.url == link.href ? 'page' : false"
+				@text="link.title"
+			></a>
 		</li>
 	</ul>
-
-	--->
-
-
-	<!---
-
-		Test n°3 : FAIL
-		in src/components/nav-links.webc the page.url is always the same value.
-
-	--->
-
-	<nav class="Menu">
-		<nav-links></nav-links>
-	</nav>
-
 </main-menu>
 
 <style>
@@ -59,15 +25,17 @@
 			display: flex;
 			gap: var(--space-s);
 			justify-content: center;
+			margin: 0;
+			padding: 0;
 			list-style: none;
+		}
+
+		.Menu li {
+			padding: var(--space-2xs) var(--space-xs);
 		}
 
 		.Menu a {
 			border: 0 none;
-			padding: var(--space-2xs) var(--space-xs);
-		}
-		.Menu a + a {
-			border-left: 1px solid currentColor;
 		}
 		.Menu a[aria-current="page"] {
 			color: var(--orange);

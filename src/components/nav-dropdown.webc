@@ -89,11 +89,13 @@
 		</button>
 		<div class="MainNav-items s-invert" aria-hidden="true">
 			<ul>
-				<li><a href="/">Pagina inicial</a></li>
-				<li><a href="/sobre-a-escola">Sobre a escola</a></li>
-				<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
-				<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
-				<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
+				<li webc:for="link of $data.main_menu.links">
+					<a
+						:href="link.href"
+						:aria-current="$data.page.url == link.href ? 'page' : false"
+						@text="link.title"
+					></a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -121,14 +123,14 @@
 	.MainNav-toggle {
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: var(--space-s);
 		z-index: 2;
 		border: 0 none;
-		padding: var(--size--1);
+		padding: var(--space-2xs) var(--space-s);
 		cursor: pointer;
 	}
 	.MainNav-toggle > svg {
-		width: 1.5em;
+		width: 2em;
 		transform: rotate(90deg);
 		transition: transform 0.2s ease-in-out;
 	}
@@ -160,8 +162,9 @@
 	}
 
 	.MainNav-items ul {
-		list-style: none;
+		margin: var(--space-s) 0 0 0;
 		padding: var(--space-l) var(--space-l) var(--space-l) var(--space-s);
+		list-style: none;
 		text-align: right;
 	}
 
