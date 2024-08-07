@@ -2,4 +2,4 @@
 layout: "html.webc"
 ---
 <main class="Home" @raw="content"></main>
-<page-footer :@title="title || metadata.title"></page-footer>
+<page-footer></page-footer>

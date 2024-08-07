@@ -163,7 +163,7 @@
 
 	.MainNav-items ul {
 		margin: var(--space-s) 0 0 0;
-		padding: var(--space-l) var(--space-l) var(--space-l) var(--space-s);
+		padding: var(--space-l) 14% var(--space-l) var(--space-s);
 		list-style: none;
 		text-align: right;
 	}
@@ -175,5 +175,10 @@
 	.MainNav-items a {
 		font-size: var(--size-1);
 		line-height: utopia.clamp(26, 30);
+	}
+
+	.MainNav-items a[aria-current="page"] {
+		color: var(--orange);
+		font-weight: bold;
 	}
 </style>

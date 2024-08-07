@@ -25,7 +25,7 @@
 	<div class="Footer-separator">• •</div>
 	<div class="Footer-smallPrint">
 		Copyright © 2015–<span @text="new Date().getFullYear()"></span><br />
-		<span @text="title"></span>
+		<span @text="$data.metadata.title"></span>
 		<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr>
 	</div>
 </footer>
@@ -68,12 +68,12 @@
 	}
 
 	.Footer-separator {
-		margin: var(--size-0) 0;
+		margin: var(--space-m) 0;
 		font-size: var(--size-3);
 	}
 
 	.Footer-smallPrint,
 	.Footer-smallPrint * {
-		font-size: var(--size--1);
+		font-size: var(--size-xs);
 	}
 </style>

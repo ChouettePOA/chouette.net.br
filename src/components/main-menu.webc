@@ -1,9 +1,12 @@
 <main-menu webc:root>
 	<ul class="Menu">
-		<li webc:for="link of $data.main_menu.links">
+		<li
+			webc:for="link of $data.main_menu.links"
+			:class="$data.page.url == link.href ? 'is-on' : ''"
+		>
 			<a
 				:href="link.href"
-				:aria-current="$data.page.url == link.href ? 'page' : false"
+				:aria-current="$data.page.url == link.href && 'page'"
 				@text="link.title"
 			></a>
 		</li>
@@ -33,13 +36,16 @@
 		.Menu li {
 			padding: var(--space-2xs) var(--space-xs);
 		}
+		.Menu li.is-on {
+			border-top: 2px solid #fff;
+		}
 
 		.Menu a {
 			border: 0 none;
 		}
+		/*
 		.Menu a[aria-current="page"] {
-			color: var(--orange);
-			font-weight: bold;
 		}
+		*/
 	}
 </style>
