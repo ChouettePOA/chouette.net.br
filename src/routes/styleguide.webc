@@ -12,12 +12,18 @@ title: "Styleguide Chouette 2024"
 	<hug class="wrap u-vspacer">
 		<hug
 			class="tight"
-			webc:for="space of ['2xs', 'xs', 'xs-s', 's', 's-m', 's-l', 'm', 'l', 'l-xl', 'xl']"
+			webc:for="space of ['2xs', 'xs', 'xs-s', 's', 's-m', 'm', 'l', 'l-xl', 'xl']"
 		>
 			<pre @text="'var(--space-' + space + ')'"></pre>
 			<span>→</span>
 			<measure :style="'width: var(--space-' + space + ')'"></measure>
 		</hug>
+	</hug>
+	<hug class="tight" style="font-size: 1rem">
+		<pre>1 rem</pre>
+		<p style="font-style: italic">Italic</p>
+		<p>Handgloves</p>
+		<p style="font-weight: bold">Bold</p>
 	</hug>
 	<hug class="wrap u-vspacer">
 		<hug
@@ -26,17 +32,17 @@ title: "Styleguide Chouette 2024"
 			:style="'font-size: var(--size-' + size + ')'"
 		>
 			<pre @text="'var(--size-' + size + ')'"></pre>
-			<p style="font-style: italic" @text="'Italic'"></p>
-			<p @text="'Handgloves'"></p>
-			<p style="font-weight: bold" @text="'Bold'"></p>
+			<p style="font-style: italic">Italic</p>
+			<p>Handgloves</p>
+			<p style="font-weight: bold">Bold</p>
 		</hug>
 	</hug>
 </page-section>
 
 <page-section class="u-vspacer">
-	<deco-vine-wrap>
+	<deco-vine>
 		<h2>Deco vine wrap test</h2>
-	</deco-vine-wrap>
+	</deco-vine>
 	<div class="s-rich-text">
 		<p>Body text</p>
 	</div>

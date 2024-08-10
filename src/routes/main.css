@@ -35,7 +35,7 @@
 		minTypeScale: 1.2,
 		maxTypeScale: 1.25,
 		positiveSteps: 5,
-		negativeSteps: 1,
+		negativeSteps: 2,
 		prefix: "size",
 	});
 
@@ -46,7 +46,6 @@
 		maxSize: 22,
 		positiveSteps: [1.5, 2, 3],
 		negativeSteps: [0.75, 0.5],
-		customSizes: ['s-l'],
 	});
 
 	/*
