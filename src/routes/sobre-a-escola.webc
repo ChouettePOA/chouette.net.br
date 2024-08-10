@@ -1,9 +1,5 @@
 ---
 title: "Sobre a escola"
-tags: menu_main
-eleventyNavigation:
-  key: Sobre a escola
-	order: 1
 ---
 
 <page-section>

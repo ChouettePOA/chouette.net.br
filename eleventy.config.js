@@ -110,5 +110,10 @@ export default function(eleventyConfig) {
 	// "Static" assets (e.g. logo img, favicon, robots.txt, etc).
 	eleventyConfig.addPassthroughCopy({ "src/static": '.' });
 
+	// Make some Node modules available in components.
+	eleventyConfig.addPassthroughCopy({
+		"node_modules/@svgdotjs/svg.js/dist/svg.min.js": "js/svg.min.js"
+	});
+
 	return core11tyOptions;
 };

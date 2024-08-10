@@ -1,6 +1,9 @@
+
+<script webc:keep src="/js/svg.min.js"></script>
+<!-- <link webc:keep rel="stylesheet" href="/main.css" /> -->
+
 <script>
-	import { SVG, registerWindow } from '@svgdotjs/svg.js';
-	registerWindow(window, document);
+	SVG.registerWindow(window, document);
 
 	const id = Math.random().toString(36).substring(2, 9);
 	const draw = SVG().addTo('#' + id).size('100%', '100%');

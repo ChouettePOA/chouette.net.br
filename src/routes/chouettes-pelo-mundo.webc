@@ -1,9 +1,5 @@
 ---
 title: "Chouettes pelo mundo"
-tags: menu_main
-eleventyNavigation:
-  key: Chouettes pelo mundo
-	order: 4
 ---
 
 <page-section>
