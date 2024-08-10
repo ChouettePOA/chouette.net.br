@@ -1,18 +1,13 @@
 
 <script webc:keep src="/js/svg.min.js"></script>
 
-<script webc:type="js">
-	// TODO [wip] debug
-	const currentDate = new Date();
-	`<h2>Hello from ${currentDate.getFullYear()}</h2>`;
-</script>
-
 <script>
 	SVG.registerWindow(window, document);
 
 	// console.log('uid');
 	// console.log(uid);
 	// const draw = SVG().addTo('#' + uid).size('100%', '100%');
+	const test_id = 'test';
 
 	const draw = SVG().addTo('#test-deco-vine').size('100%', '100%');
 
@@ -24,7 +19,8 @@
 			const x2 = x + length * Math.cos(radian);
 			const y2 = y + length * Math.sin(radian);
 
-			draw.line(x, y, x2, y2).stroke({ width: 2, color: '#000' });
+			// draw.line(x, y, x2, y2).stroke({ width: 2, color: '#000' });
+			draw.line(x, y, x2, y2).stroke({ width: depth, color: '#000' });
 
 			const newLength = length * 0.75;
 			const newDepth = depth - 1;
@@ -35,7 +31,7 @@
 
 	// Initial vine parameters
 	const startX = 200;
-	const startY = 400;
+	const startY = 300;
 	const initialLength = 100;
 	const initialAngle = -90; // Straight up
 	const depth = 5;
@@ -44,16 +40,30 @@
 	createVine(startX, startY, initialLength, initialAngle, depth);
 </script>
 
-<deco-vine class="WrapVine" webc:root>
+<deco-vine class="DecoVine" webc:root>
 	<!--- <div :id="uid"></div> --->
-	<div id="test-deco-vine">test-deco-vine</div>
-	<div class="WrapVine-content">
+	<div class="DecoVine-graphics" id="test-deco-vine"></div>
+	<div class="DecoVine-content">
 		<slot></slot>
 	</div>
 </deco-vine>
 
 <style>
-	.WrapVine {
+	.DecoVine {
 		display: block;
+		position: relative;
+	}
+	.DecoVine-graphics {
+		position: absolute;
+		top: 0;
+		z-index: 1;
+		width: 100%;
+	}
+	.DecoVine-graphics > svg {
+		height: 400px;
+	}
+	.DecoVine-content {
+		position: relative;
+		z-index: 2;
 	}
 </style>
