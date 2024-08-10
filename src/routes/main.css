@@ -244,12 +244,14 @@ h3,
 h4,
 hr,
 p,
+pre,
 blockquote,
 .s-rich-text ul,
 .s-rich-text ol {
 	margin: 0 0 var(--size-0) 0;
 }
 p:last-child,
+pre:last-child,
 blockquote:last-child,
 .s-rich-text ul:last-child,
 .s-rich-text ol:last-child {
@@ -348,7 +350,8 @@ blockquote:last-child,
 	Scope : s-rich-text.
 */
 
-.s-rich-text > p {
+.s-rich-text > p,
+.s-rich-text > pre {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: var(--line-length);

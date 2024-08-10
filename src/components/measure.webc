@@ -1,0 +1,11 @@
+<measure webc:nokeep>
+	<slot></slot>
+</measure>
+
+<style>
+	measure {
+		display: block;
+		height: var(--line-height);
+		background-color: currentColor;
+	}
+</style>

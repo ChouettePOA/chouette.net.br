@@ -12,6 +12,14 @@
 		max-width: var(--max-length);
 	}
 
+	hug.wrap {
+		flex-wrap: wrap;
+	}
+
+	hug.tight {
+		gap: 1rem;
+	}
+
 	hug > * {
 		margin: 0;
 	}
