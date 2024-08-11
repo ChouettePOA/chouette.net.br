@@ -1,3 +1,19 @@
+<!---
+--->
+
+<script>
+  class Ro extends HTMLElement {
+    connectedCallback() {
+      const element = this.querySelector("ro");
+      // Swap out the template with its contents so they become visible.
+      element.replaceWith(template.content);
+    }
+  }
+  customElements.define("ro", Ro);
+</script>
+
+<!---
+--->
 
 <script webc:type="js" context="module">
 	// console.log(Object.keys(this));
@@ -31,25 +47,27 @@
 	}
 </script>
 
-<template webc:is="span" webc:root="override">
-	<script webc:type="js">
-		// console.log(Object.keys(this));
-		console.log(Object.keys($data));
-		// console.log(Object.keys($data.eleventy));
-		// console.log(Object.keys($data.eleventy.env));
+<!---
+<script webc:type="js">
+	// console.log(Object.keys(this));
+	console.log(Object.keys($data));
+	// console.log(Object.keys($data.eleventy));
+	// console.log(Object.keys($data.eleventy.env));
 
-		const uid = this.uid;
-		// const self = document.getElementById(uid);
+	const uid = this.uid;
+	// const self = document.getElementById(uid);
 
-		// console.log(self);
-		console.log(uid + ' from the <script>.');
-		// console.log(uid + ' source = ' + $data.eleventy.env.source);
-		// console.log(uid + ' root = ' + $data.eleventy.env.root);
+	// console.log(self);
+	console.log(uid + ' from the <script>.');
+	// console.log(uid + ' source = ' + $data.eleventy.env.source);
+	// console.log(uid + ' root = ' + $data.eleventy.env.root);
 
-		// document.getElementById(uid + '--after').textContent = uid;
-		''
-	</script>
+	// document.getElementById(uid + '--after').textContent = uid;
+	''
+</script>
+--->
 
+<ro webc:root>
 	<span :id="uid">
 		<span :id="uid + '--before'"></span>
 		<span>
@@ -57,4 +75,7 @@
 		</span>
 		<span :id="uid + '--after'"></span>
 	</span>
-</template>
+</ro>
+
+<!---
+--->

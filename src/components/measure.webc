@@ -1,8 +1,8 @@
 
 <measure webc:nokeep>
-	<resize-observer>
+	<!--- <ro> --->
 		<slot></slot>
-	</resize-observer>
+	<!--- </ro> --->
 </measure>
 
 <style>
