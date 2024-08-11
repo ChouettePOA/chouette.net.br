@@ -2,19 +2,26 @@
 --->
 
 <script>
-  class Ro extends HTMLElement {
+  /**
+	 * TODO [wip]
+	 * @link https://11ty.rocks/posts/introduction-webc/
+	 */
+  class SpanRo extends HTMLElement {
     connectedCallback() {
-      const element = this.querySelector("ro");
+      const template = this.querySelector("template");
+
+			// Debug.
+			// console.log(template);
+			console.log(uid + ' from the connectedCallback()');
+
       // Swap out the template with its contents so they become visible.
-      element.replaceWith(template.content);
+      template.replaceWith(template.content);
     }
   }
-  customElements.define("ro", Ro);
+  customElements.define("span-ro", SpanRo);
 </script>
 
 <!---
---->
-
 <script webc:type="js" context="module">
 	// console.log(Object.keys(this));
 	// console.log(uid);
@@ -46,6 +53,7 @@
 		return pixels;
 	}
 </script>
+--->
 
 <!---
 <script webc:type="js">
@@ -67,7 +75,11 @@
 </script>
 --->
 
-<ro webc:root>
+<!---
+<r-o webc:root>
+<template>
+--->
+<span-ro>
 	<span :id="uid">
 		<span :id="uid + '--before'"></span>
 		<span>
@@ -75,7 +87,11 @@
 		</span>
 		<span :id="uid + '--after'"></span>
 	</span>
-</ro>
+</span-ro>
+<!---
+</template>
+</r-o>
+--->
 
 <!---
 --->
