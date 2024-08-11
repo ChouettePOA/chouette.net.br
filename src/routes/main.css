@@ -30,7 +30,7 @@
 	@utopia typeScale({
 		minWidth: 320,
 		maxWidth: 1240,
-		minFontSize: 18,
+		minFontSize: 19,
 		maxFontSize: 22,
 		minTypeScale: 1.2,
 		maxTypeScale: 1.25,

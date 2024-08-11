@@ -5,13 +5,16 @@
 				webc:for="link of $data.main_menu.links"
 				:class="$data.page.url == link.href ? 'is-on' : ''"
 			>
+				<!---
 				<div
 					web:if="$data.page.url == link.href"
 					class="Menu-deco"
 					aria-hidden="hidden"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" xml:space="preserve"><path fill="#004281" d="M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1280 800"><path fill="#004281" d="M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z"/></svg>
 				</div>
+				--->
+				<span class="Menu-deco" aria-hidden="hidden"></span>
 				<a
 					:href="link.href"
 					:aria-current="$data.page.url == link.href && 'page'"
@@ -46,49 +49,55 @@
 
 		.Menu li {
 			position: relative;
-			border-top: 2px solid transparent;
 			/* padding: var(--space-2xs) var(--space-xs); */
-			padding-top: .35em;
 			text-align: center;
 		}
 
-		.Menu li.is-on {
+		/* .Menu li.is-on {
 			border-color: #fff;
 			/* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' xml:space='preserve'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
-			background-size: contain; */
-		}
-
-		/* .Menu li.is-on::before {
-			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' xml:space='preserve'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
-			display: block;
-			position: absolute;
-			top: -.25rem;
-			left: 50%;
-			margin-left: -7rem;
-			width: 13rem;
+			background-size: contain; *
 		} */
 
 		.Menu-deco {
+			display: none;
+		}
+		.Menu li.is-on .Menu-deco {
+			position: absolute;
+			top: -2.3rem;
+			left: 50%;
+			display: block;
+			margin-left: -5rem;
+		}
+		.Menu-deco::before {
+			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 1280 800'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
+			display: block;
+			width: 10rem;
+			transform: scaleX(-1);
+		}
+
+		/* .Menu-deco {
 			position: absolute;
 			z-index: 1;
 			top: -.25rem;
 			left: 50%;
 			margin-left: -7rem;
 			width: 13rem;
-		}
+		} */
 
 		.Menu a {
+			position: relative;
+			z-index: 1;
 			border: 0 none;
+			border-top: 2px solid transparent;
+			padding-top: .35em;
 			text-transform: uppercase;
 			letter-spacing: .1em;
 		}
-		/*
 		.Menu a[aria-current="page"],
 		.Menu a[aria-current="page"]:focus,
 		.Menu a[aria-current="page"]:hover {
 			border-top: 2px solid #fff;
-			padding-top: .35rem;
 		}
-		*/
 	}
 </style>
