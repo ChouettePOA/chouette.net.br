@@ -170,10 +170,12 @@ video {
 
 
 /*
-	Base : Images.
+	Base : Visuals.
 */
 
-img {
+img,
+svg,
+video {
 	max-width: 100%;
 	height: auto;
 }

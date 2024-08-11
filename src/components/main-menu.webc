@@ -5,10 +5,17 @@
 				webc:for="link of $data.main_menu.links"
 				:class="$data.page.url == link.href ? 'is-on' : ''"
 			>
+				<div
+					web:if="$data.page.url == link.href"
+					class="Menu-deco"
+					aria-hidden="hidden"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" xml:space="preserve"><path fill="#004281" d="M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z"/></svg>
+				</div>
 				<a
 					:href="link.href"
 					:aria-current="$data.page.url == link.href && 'page'"
-					@text="link.title"
+					@text="link.title_short"
 				></a>
 			</li>
 		</ul>
@@ -23,13 +30,14 @@
 	@media (min-width: 60rem) {
 		main-menu {
 			display: block;
-			padding: var(--space-s);
-			font-size: var(--size--2);
+			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--size--3);
+			line-height: 1.25;
 		}
 
 		.Menu {
 			display: flex;
-			gap: var(--space-s);
+			gap: var(--space-m);
 			justify-content: center;
 			margin: 0;
 			padding: 0;
@@ -37,13 +45,36 @@
 		}
 
 		.Menu li {
+			position: relative;
+			border-top: 2px solid transparent;
 			/* padding: var(--space-2xs) var(--space-xs); */
-			padding-top: .35rem;
+			padding-top: .35em;
 			text-align: center;
 		}
 
 		.Menu li.is-on {
-			border-top: 2px solid #fff;
+			border-color: #fff;
+			/* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' xml:space='preserve'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
+			background-size: contain; */
+		}
+
+		/* .Menu li.is-on::before {
+			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' xml:space='preserve'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
+			display: block;
+			position: absolute;
+			top: -.25rem;
+			left: 50%;
+			margin-left: -7rem;
+			width: 13rem;
+		} */
+
+		.Menu-deco {
+			position: absolute;
+			z-index: 1;
+			top: -.25rem;
+			left: 50%;
+			margin-left: -7rem;
+			width: 13rem;
 		}
 
 		.Menu a {
