@@ -4,29 +4,57 @@
 	// console.log(uid);
 	console.log(uid + ' from the <script context="module">.');
 
-	// this.self = document.getElementById(uid);
-	const self = document.getElementById(uid);
-</script>
+	/**
+	 * Converts current font-size to any value.
+	 */
+	function fontSizeTo(format) {
+		const component = document.getElementById(uid);
 
-<script>
-	console.log(self);
-	console.log(self.uid + ' from the <script>.');
+		// div.style.width = "1000em";
+		// parentElement.appendChild(div);
+		// var pixels = div.offsetWidth / 1000;
+		// parentElement.removeChild(div);
+		// return pixels;
 
-	document.getElementById(uid + '--after').textContent = self.uid;
-</script>
+		let test = document.createElement('div');
 
-<span :id="uid">
-	<span :id="uid + '--before'"></span>
-	<span>
-		<slot></slot>
-	</span>
-	<span :id="uid + '--after'"></span>
-</span>
+		Object.assign(test.style, {
+			position: 'absolute',
+			width: component.style.fontSize
+		});
 
-<style>
-	measure {
-		display: block;
-		height: var(--line-height);
-		background-color: currentColor;
+		component.target.appendChild(test);
+		let pixels = test.offsetWidth;
+		component.target.removeChild(test);
+
+		return pixels;
 	}
-</style>
+</script>
+
+<template webc:is="span" webc:root="override">
+	<script webc:type="js">
+		// console.log(Object.keys(this));
+		console.log(Object.keys($data));
+		// console.log(Object.keys($data.eleventy));
+		// console.log(Object.keys($data.eleventy.env));
+
+		const uid = this.uid;
+		// const self = document.getElementById(uid);
+
+		// console.log(self);
+		console.log(uid + ' from the <script>.');
+		// console.log(uid + ' source = ' + $data.eleventy.env.source);
+		// console.log(uid + ' root = ' + $data.eleventy.env.root);
+
+		// document.getElementById(uid + '--after').textContent = uid;
+		''
+	</script>
+
+	<span :id="uid">
+		<span :id="uid + '--before'"></span>
+		<span>
+			<slot></slot>
+		</span>
+		<span :id="uid + '--after'"></span>
+	</span>
+</template>
