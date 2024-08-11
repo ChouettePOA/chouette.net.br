@@ -27,20 +27,17 @@
 	--line-height: utopia.clamp(21, 23);
 	--sans-serif: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 
-	/* @link https://utopia.fyi/type/calculator?c=320,8,1.125,1240,42,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
 	@utopia typeScale({
 		minWidth: 320,
 		maxWidth: 1240,
-		minFontSize: 8,
-		maxFontSize: 42,
-		minTypeScale: 1.125,
+		minFontSize: 18,
+		maxFontSize: 22,
+		minTypeScale: 1.2,
 		maxTypeScale: 1.25,
 		positiveSteps: 5,
-		negativeSteps: 2,
+		negativeSteps: 3,
 		prefix: "size",
-		relativeTo: "container"
-  });
+	});
 
 	@utopia spaceScale({
 		minWidth: 320,

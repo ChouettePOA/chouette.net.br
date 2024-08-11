@@ -1,10 +1,9 @@
-<!---
---->
-
 <script>
   /**
 	 * TODO [wip]
 	 * @link https://11ty.rocks/posts/introduction-webc/
+	 * @link https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements
+	 * @link https://www.zachleat.com/web/a-taxonomy-of-web-component-types/
 	 */
   class SpanRo extends HTMLElement {
 
@@ -40,7 +39,7 @@
 		 */
     connectedCallback() {
 			// Debug.
-			console.log(this);
+			// console.log(this);
 			// console.log(this.getAttributeValue('id'));
 
       // const template = this.querySelector("template");
@@ -100,9 +99,7 @@
 --->
 <template webc:root class="SpanRo" :id="uid">
 	<span class="SpanRo-before"></span>
-	<span>
-		<slot></slot>
-	</span>
+	<slot></slot>
 	<span class="SpanRo-after"></span>
 </template>
 <!---

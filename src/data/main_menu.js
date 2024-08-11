@@ -1,9 +1,9 @@
 export default {
 	links: [
-		{
-			title: 'Página inicial',
-			href: '/',
-		},
+		// {
+		// 	title: 'Página inicial',
+		// 	href: '/',
+		// },
 		{
 			title: 'Sobre a escola',
 			href: '/sobre-a-escola/',
