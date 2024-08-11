@@ -8,6 +8,16 @@ title: "Styleguide Chouette 2024"
 	</div>
 </page-section>
 
+<page-section>
+	<hug class="tight s-rich-text">
+		<resize-observer>Resize observer item</resize-observer>
+		<resize-observer>Resize observer item</resize-observer>
+		<resize-observer>Resize observer item</resize-observer>
+		<resize-observer>Resize observer item</resize-observer>
+		<resize-observer>Resize observer item</resize-observer>
+	</hug>
+</page-section>
+
 <page-section class="s-invert wide" @title="Space & Sizes">
 	<hug class="wrap u-vspacer">
 		<hug
@@ -27,7 +37,7 @@ title: "Styleguide Chouette 2024"
 	</hug>
 	<hug class="wrap u-vspacer">
 		<hug
-			class="tight"
+			class="tight wrap"
 			webc:for="size of ['-2', '-1', '0', '1', '2', '3', '4', '5']"
 			:style="'font-size: var(--size-' + size + ')'"
 		>

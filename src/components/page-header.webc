@@ -1,6 +1,6 @@
 <header webc:keep>
 	<nav-dropdown></nav-dropdown>
-	<main-menu></main-menu>
+	<main-menu class="tight"></main-menu>
 	<div class="PageHeader-wrap s-invert">
 		<block class="l">
 			<div class="PageHeader">

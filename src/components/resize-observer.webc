@@ -1,0 +1,32 @@
+
+<script webc:type="js" context="module">
+	// console.log(Object.keys(this));
+	// console.log(uid);
+	console.log(uid + ' from the <script context="module">.');
+
+	// this.self = document.getElementById(uid);
+	const self = document.getElementById(uid);
+</script>
+
+<script>
+	console.log(self);
+	console.log(self.uid + ' from the <script>.');
+
+	document.getElementById(uid + '--after').textContent = self.uid;
+</script>
+
+<span :id="uid">
+	<span :id="uid + '--before'"></span>
+	<span>
+		<slot></slot>
+	</span>
+	<span :id="uid + '--after'"></span>
+</span>
+
+<style>
+	measure {
+		display: block;
+		height: var(--line-height);
+		background-color: currentColor;
+	}
+</style>

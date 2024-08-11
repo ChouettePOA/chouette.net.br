@@ -74,6 +74,6 @@
 
 	.Footer-smallPrint,
 	.Footer-smallPrint * {
-		font-size: var(--size-xs);
+		font-size: var(--size--2);
 	}
 </style>

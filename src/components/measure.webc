@@ -1,5 +1,39 @@
+<script webc:type="js" context="module">
+	// console.log(Object.keys(this));
+	// console.log(uid);
+
+	/**
+	 * Converts current font-size to any value.
+	 */
+	function fontSizeTo(format) {
+		const component = document.getElementById(uid);
+
+		// div.style.width = "1000em";
+		// parentElement.appendChild(div);
+		// var pixels = div.offsetWidth / 1000;
+		// parentElement.removeChild(div);
+		// return pixels;
+
+		let test = document.createElement('div');
+
+		Object.assign(test.style, {
+			position: 'absolute',
+			width: component.style.fontSize
+		});
+
+		component.target.appendChild(test);
+		let pixels = test.offsetWidth;
+		component.target.removeChild(test);
+
+		return pixels;
+	}
+</script>
+
 <measure webc:nokeep>
-	<slot></slot>
+	<span :id="uid">
+		<slot></slot>
+		<span ></span>
+	</span>
 </measure>
 
 <style>
