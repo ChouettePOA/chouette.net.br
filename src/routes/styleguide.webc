@@ -16,8 +16,10 @@ title: "Styleguide Chouette 2024"
 		>
 			<pre @text="'var(--space-' + space + ')'"></pre>
 			<span>→</span>
-			<!--- <measure :style="'width: var(--space-' + space + ')'"></measure> --->
-			<ro :style="'width: var(--space-' + space + ')'"></ro>
+			<!--- <span-ro :style="'width: var(--space-' + space + ')'">test</span-ro> --->
+			<span-ro>
+				<measure :style="'width: var(--space-' + space + ')'"></measure>
+			</span-ro>
 		</hug>
 	</hug>
 	<hug class="tight" style="font-size: 1rem">

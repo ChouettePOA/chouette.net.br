@@ -7,56 +7,73 @@
 	 * @link https://11ty.rocks/posts/introduction-webc/
 	 */
   class SpanRo extends HTMLElement {
+
+		/**
+		 * Converts current font-size to any value.
+		 */
+		fontSizeTo(format) {
+			// const component = document.getElementById(uid);
+
+			// div.style.width = "1000em";
+			// parentElement.appendChild(div);
+			// var pixels = div.offsetWidth / 1000;
+			// parentElement.removeChild(div);
+			// return pixels;
+
+			let test = document.createElement('div');
+
+			// TODO [wip]
+			Object.assign(test.style, {
+				position: 'absolute',
+				width: component.style.fontSize
+			});
+
+			component.target.appendChild(test);
+			let pixels = test.offsetWidth;
+			component.target.removeChild(test);
+
+			return pixels;
+		}
+
+		/**
+		 * Instanciation callback.
+		 */
     connectedCallback() {
-      const template = this.querySelector("template");
+			// Debug.
+			console.log(this);
+			// console.log(this.getAttributeValue('id'));
+
+      // const template = this.querySelector("template");
+      // const component = this.firstChild();
+      // const uid = component.getAttribute("id");
 
 			// Debug.
 			// console.log(template);
-			console.log(uid + ' from the connectedCallback()');
+			// console.log(template.getAttributeValue('id'));
+			// console.log(template.content);
+			// console.log(template.content.getAttributeValue('id'));
+			// console.log(uid + ' from the connectedCallback()');
 
       // Swap out the template with its contents so they become visible.
-      template.replaceWith(template.content);
+      // template.replaceWith(template.content);
     }
   }
+
   customElements.define("span-ro", SpanRo);
 </script>
 
 <!---
 <script webc:type="js" context="module">
+	// Debug.
 	// console.log(Object.keys(this));
 	// console.log(uid);
 	console.log(uid + ' from the <script context="module">.');
-
-	/**
-	 * Converts current font-size to any value.
-	 */
-	function fontSizeTo(format) {
-		const component = document.getElementById(uid);
-
-		// div.style.width = "1000em";
-		// parentElement.appendChild(div);
-		// var pixels = div.offsetWidth / 1000;
-		// parentElement.removeChild(div);
-		// return pixels;
-
-		let test = document.createElement('div');
-
-		Object.assign(test.style, {
-			position: 'absolute',
-			width: component.style.fontSize
-		});
-
-		component.target.appendChild(test);
-		let pixels = test.offsetWidth;
-		component.target.removeChild(test);
-
-		return pixels;
-	}
 </script>
 --->
 
 <!---
 <script webc:type="js">
+	// Debug.
 	// console.log(Object.keys(this));
 	console.log(Object.keys($data));
 	// console.log(Object.keys($data.eleventy));
@@ -65,6 +82,7 @@
 	const uid = this.uid;
 	// const self = document.getElementById(uid);
 
+	// Debug.
 	// console.log(self);
 	console.log(uid + ' from the <script>.');
 	// console.log(uid + ' source = ' + $data.eleventy.env.source);
@@ -77,21 +95,27 @@
 
 <!---
 <r-o webc:root>
+<span-ro>
 <template>
 --->
-<span-ro>
-	<span :id="uid">
-		<span :id="uid + '--before'"></span>
-		<span>
-			<slot></slot>
-		</span>
-		<span :id="uid + '--after'"></span>
+<template webc:root class="SpanRo" :id="uid">
+	<span class="SpanRo-before"></span>
+	<span>
+		<slot></slot>
 	</span>
-</span-ro>
-<!---
+	<span class="SpanRo-after"></span>
 </template>
+<!---
+</span-ro>
 </r-o>
 --->
 
 <!---
+<span :id="uid">
+	<span :id="uid + '--before'"></span>
+	<span>
+		<slot></slot>
+	</span>
+	<span :id="uid + '--after'"></span>
+</span>
 --->
