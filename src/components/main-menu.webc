@@ -2,7 +2,7 @@
 	<block>
 		<ul class="Menu">
 			<li>
-				<a href="/" titl="Pagina inicial">🏠</a>
+				<a href="/" title="Pagina inicial">🏠</a>
 			</li>
 			<li
 				webc:for="link of $data.main_menu.links"
@@ -13,6 +13,7 @@
 					:href="link.href"
 					:aria-current="$data.page.url == link.href && 'page'"
 					@text="link.title_short"
+					:title="link.title"
 				></a>
 			</li>
 		</ul>
@@ -57,6 +58,16 @@
 			display: block;
 			margin-left: -5rem;
 		}
+		/*
+			TODO alternative implementaion to preserve CSS var() for color :
+			@link https://stackoverflow.com/a/58536915/2592338
+
+			.icon {
+				background: var(--primary-color);
+				-webkit-mask-image: url("data:image/svg+xml,(snip)");
+				mask-image: url("data:image/svg+xml,(snip)");
+			}
+		*/
 		.Menu-deco::before {
 			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 1280 800'%3E%3Cpath fill='%23004281' d='M0 518.994c101.347 57.643 216.482 93.854 339.342 101.996-42.79 18.151-86.932 33.713-132.357 46.134 103.425 59.472 223.09 94.078 350.899 95.076 395.755 3.141 719.075-315.223 722.251-710.941.126-17.201-.373-33.746-1.458-51.259H674.691C525.622 249.564 285.349 437.552 0 518.994z'/%3E%3C/svg%3E");
 			display: block;
