@@ -4,9 +4,7 @@ title: "Modalidades de cursos"
 
 <page-section>
 	<div class="s-rich-text">
-		<p>
-			<drop-cap @content="Na Chouette, você pode aprender francês em grupos de no máximo 6 pessoas ou em aulas particulares. As aulas presenciais acontecem na sede da escola, no bairro Bom Fim em Porto Alegre, num ambiente acolhedor que conta com muitos materiais francófonos." webc:nokeep></drop-cap>
-		</p>
+		<drop-cap @content="Na Chouette, você pode aprender francês em grupos de no máximo 6 pessoas ou em aulas particulares. As aulas presenciais acontecem na sede da escola, no bairro Bom Fim em Porto Alegre, num ambiente acolhedor que conta com muitos materiais francófonos."></drop-cap>
 		<p>
 			Quanto às aulas online, você tem acesso ao material no seu Drive da Chouette e todas as aulas são realizadas ao vivo com um professor.
 		</p>

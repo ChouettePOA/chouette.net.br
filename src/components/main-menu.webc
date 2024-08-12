@@ -1,11 +1,14 @@
 <main-menu webc:root>
 	<block>
 		<ul class="Menu">
+			<li>
+				<a href="/" titl="Pagina inicial">🏠</a>
+			</li>
 			<li
 				webc:for="link of $data.main_menu.links"
 				:class="$data.page.url == link.href ? 'is-on' : ''"
 			>
-				<span class="Menu-deco" aria-hidden="hidden"></span>
+				<span class="Menu-deco" aria-hidden="true"></span>
 				<a
 					:href="link.href"
 					:aria-current="$data.page.url == link.href && 'page'"
@@ -45,6 +48,7 @@
 
 		.Menu-deco {
 			display: none;
+			pointer-events: none;
 		}
 		.Menu li.is-on .Menu-deco {
 			position: absolute;

@@ -4,9 +4,7 @@ title: "Chouettes pelo mundo"
 
 <page-section>
 	<div class="s-rich-text">
-		<p>
-			<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️" webc:nokeep></drop-cap>
-		</p>
+		<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️"></drop-cap>
 	</div>
 </page-section>
 

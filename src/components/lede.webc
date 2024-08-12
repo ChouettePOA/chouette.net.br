@@ -1,6 +1,6 @@
 <div :class="'u-container u-vspacer' + (this.class ? ' ' + this.class : '')">
 	<div class="u-container-inner">
-		<drop-cap @content="firstLine" webc:nokeep></drop-cap>
+		<drop-cap @content="firstLine"></drop-cap>
 		<slot></slot>
 	</div>
 </div>

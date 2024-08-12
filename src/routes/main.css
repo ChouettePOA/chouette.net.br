@@ -207,6 +207,14 @@ h2 {
 	letter-spacing: .05em;
 }
 
+h3 {
+	font-size: var(--size--1);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	/* letter-spacing: .05em; */
+}
+
 
 /*
 	Base : links.
@@ -247,6 +255,7 @@ hr,
 p,
 pre,
 blockquote,
+drop-cap,
 .s-rich-text ul,
 .s-rich-text ol {
 	margin: 0 0 var(--size-0) 0;
@@ -254,6 +263,7 @@ blockquote,
 p:last-child,
 pre:last-child,
 blockquote:last-child,
+drop-cap:last-child,
 .s-rich-text ul:last-child,
 .s-rich-text ol:last-child {
 	margin-bottom: 0;
@@ -352,7 +362,8 @@ blockquote:last-child,
 */
 
 .s-rich-text > p,
-.s-rich-text > pre {
+.s-rich-text > pre,
+.s-rich-text > drop-cap {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: var(--line-length);
@@ -401,7 +412,7 @@ blockquote:last-child,
 */
 
 .EmojiList.EmojiList.EmojiList {
-	padding-left: var(--size-2);
+	padding-left: var(--space-s);
 	list-style: none;
 }
 .EmojiList > li {
@@ -411,7 +422,7 @@ blockquote:last-child,
 	content: attr(data-emoji);
 	position: absolute;
 	top: .05em; /* Because it visually appears a bit off-centered */
-	left: calc(var(--size-2) * -1);
+	left: calc(var(--space-s) * -1);
 }
 
 

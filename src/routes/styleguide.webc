@@ -62,8 +62,8 @@ title: "Styleguide Chouette 2024"
 
 <page-section class="u-vspacer">
 	<div class="s-rich-text">
-		<drop-cap webc:nokeep @content="Body text with drop cap."></drop-cap>
-		<drop-cap webc:nokeep @content="Another body text with drop cap (clearing test)."></drop-cap>
+		<drop-cap @content="Body text with drop cap."></drop-cap>
+		<drop-cap @content="Another body text with drop cap (clearing test)."></drop-cap>
 	</div>
 </page-section>
 

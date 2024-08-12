@@ -38,14 +38,14 @@
 	<p>
 		Chouette, em francês significa “coruja”, animal de olhos atentos que é conhecido popularmente por ser o símbolo do conhecimento, além disso, na língua francesa, “chouette” é uma gíria para dizer “ótimo”, “muito bom”, “legal”!
 	</p>
-</page-section>
-
-<page-section @title="Saiba mais">
-	<ul>
-		<li><a href="/">Pagina inicial</a></li>
-		<li><a href="/sobre-a-escola">Sobre a escola</a></li>
-		<li><a href="/modalidades-de-cursos">Modalidades de cursos</a></li>
-		<li><a href="/metodologia-chouette">Metodologia Chouette</a></li>
-		<li><a href="/chouettes-pelo-mundo">Chouettes pelo mundo</a></li>
+	<h3>Saiba mais</h3>
+	<ul class="EmojiList">
+		<li
+			webc:for="link of $data.main_menu.links"
+			:class="$data.page.url == link.href ? 'is-on' : ''"
+			data-emoji="→"
+		>
+			<a :href="link.href" @text="link.title"></a>
+		</li>
 	</ul>
 </page-section>
