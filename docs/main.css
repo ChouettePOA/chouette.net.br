@@ -71,23 +71,23 @@
 	
 		<ul class="Menu">
 			<li>
-				<a href="/" titl="Pagina inicial">🏠</a>
+				<a href="/" title="Pagina inicial">🏠</a>
 			</li>
 			<li>
 				<span aria-hidden="true" class="Menu-deco"></span>
-				<a href="/sobre-a-escola/">Sobre</a>
+				<a href="/sobre-a-escola/" title="Sobre a escola">Sobre</a>
 			</li>
 <li>
 				<span aria-hidden="true" class="Menu-deco"></span>
-				<a href="/modalidades-de-cursos/">Cursos</a>
+				<a href="/modalidades-de-cursos/" title="Modalidades dos cursos">Cursos</a>
 			</li>
 <li>
 				<span aria-hidden="true" class="Menu-deco"></span>
-				<a href="/metodologia-chouette/">Metodologia</a>
+				<a href="/metodologia-chouette/" title="Metodologia Chouette">Metodologia</a>
 			</li>
 <li>
 				<span aria-hidden="true" class="Menu-deco"></span>
-				<a href="/chouettes-pelo-mundo/">Depoimentos</a>
+				<a href="/chouettes-pelo-mundo/" title="Chouettes pelo mundo">Depoimentos</a>
 			</li>
 		</ul>
 	
