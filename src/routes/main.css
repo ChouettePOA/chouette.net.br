@@ -55,6 +55,11 @@
 	--max-length: calc(var(--line-length) * 2 + var(--space-m));
 
 	/*
+		1240px converted with 1rem = var(--size-0) = ~ 20px @ 630px (100vw)
+	*/
+	--scale-max-width: 62rem;
+
+	/*
 		Z-index.
 	*/
 	--z-index-offcanvas: 16;
