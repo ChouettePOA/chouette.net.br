@@ -124,18 +124,21 @@
 		position: absolute;
 		right: 0;
 		top: var(--space-s);
-		z-index: 2;
+		z-index: 5;
 		border: 0 none;
 		padding: var(--space-2xs) var(--space-s);
 		cursor: pointer;
 	}
-	.MainNav-toggle > svg {
+	.MainNav-toggle svg {
 		width: 2em;
 		transform: rotate(90deg);
 		transition: transform 0.2s ease-in-out;
 	}
-	.MainNav-toggle[aria-expanded="true"] > svg {
+	.MainNav-toggle[aria-expanded="true"] svg {
 		transform: rotate(-90deg);
+	}
+	.MainNav-toggle svg path {
+		transition: fill .3s;
 	}
 
 	.MainNav-toggle,
@@ -153,6 +156,7 @@
 		width: 100%;
 		transform: translate(0, calc(var(--size-0) * -2 - 100%));
 		transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+		z-index: 4;
 	}
 	.MainNav.has-toggled .MainNav-items {
 		visibility: visible;

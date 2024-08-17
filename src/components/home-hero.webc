@@ -20,7 +20,7 @@
 				<section class="u-container-inner">
 					<h2 class="HomeHero-intro-title">
 						<em>Escola de francês</em>
-						com aulas online e presenciais
+						<span>com aulas online e presenciais</span>
 					</h2>
 					<drop-cap @content="Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil."></drop-cap>
 				</section>
@@ -30,7 +30,7 @@
 		<section class="HomeHero-body">
 			<h2 class="HomeHero-body-title s-invert">
 				<em>Cursos</em>
-				de francês
+				<span>de francês</span>
 			</h2>
 			<div class="u-container">
 				<div class="u-container-inner s-rich-text">
@@ -131,9 +131,11 @@
 		.HomeHero-top .MainNav-toggle {
 			top: var(--space-xs);
 			right: var(--space-s);
+			border: 1px dashed var(--nav-btn-white-bg-color);
 			border-radius: 50%;
 			width: 2.5rem;
 			height: 2.5rem;
+			background-color: transparent;
 		}
 		.HomeHero-top .MainNav-toggle svg {
 			position: absolute;
@@ -141,6 +143,16 @@
 			left: 25%;
 			width: 50%;
 			height: 50%;
+		}
+		.HomeHero-top .MainNav-toggle svg path {
+			fill: var(--nav-btn-white-bg-color);
+		}
+		.HomeHero-top .MainNav-toggle:hover svg path,
+		.HomeHero-top .MainNav-toggle:focus svg path {
+			fill: white;
+		}
+		.HomeHero-top .MainNav-toggle[aria-expanded="true"] svg path {
+			fill: var(--inverted-text-color);
 		}
 		.HomeHero-wing {
 			pointer-events: none;
@@ -157,17 +169,33 @@
 			position: relative;
 			z-index: 1;
 			margin-left: auto;
-			padding: var(--space-xl) var(--space-s);
+			padding: var(--space-s) var(--space-s) var(--space-xl) 0;
 			width: 65%;
 		}
 		.HomeHero-intro-title.HomeHero-intro-title {
+			position: relative;
 			margin-left: auto;
-			width: 90%;
+			margin-bottom: 14%;
+			width: 75%;
 		}
 		.HomeHero-intro-title.HomeHero-intro-title em {
+			/* width: 9em; */
+			width: 92%;
 			font-size: 5vw;
 			line-height: 1.7;
 			font-weight: 200;
+		}
+		.HomeHero-intro-title span {
+			position: absolute;
+			top: 43%;
+			left: 0;
+			width: 92%;
+			font-size: var(--size--3);
+		}
+		.HomeHero-intro drop-cap {
+			position: relative;
+			left: -10%;
+			width: 90%;
 		}
 		.HomeHero-body.HomeHero-body * {
 			position: relative;
