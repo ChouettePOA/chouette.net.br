@@ -128,6 +128,20 @@
 		.HomeHero-top {
 			position: relative;
 		}
+		.HomeHero-top .MainNav-toggle {
+			top: var(--space-xs);
+			right: var(--space-s);
+			border-radius: 50%;
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+		.HomeHero-top .MainNav-toggle svg {
+			position: absolute;
+			top: 25%;
+			left: 25%;
+			width: 50%;
+			height: 50%;
+		}
 		.HomeHero-wing {
 			pointer-events: none;
 			position: absolute;
@@ -156,7 +170,12 @@
 			font-weight: 200;
 		}
 		.HomeHero-body.HomeHero-body * {
+			position: relative;
+			z-index: 1;
 			color: var(--inverted-text-color);
+		}
+		.HomeHero-body-title.HomeHero-body-title {
+			background: transparent;
 		}
 	}
 </style>
