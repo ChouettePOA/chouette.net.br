@@ -27,6 +27,12 @@
 			</div>
 		</div>
 
+		<ul class="HomeHero-menu">
+			<li webc:for="link of $data.main_menu.links">
+				<a :href="link.href" :title="link.title" @text="link.title_short"></a>
+			</li>
+		</ul>
+
 		<section class="HomeHero-body">
 			<h2 class="HomeHero-body-title s-invert">
 				<em>Cursos</em>
@@ -83,6 +89,10 @@
 		font-size: var(--size-1);
 		font-style: normal;
 		font-weight: 400;
+	}
+	.HomeHero-menu {
+		display: none;
+		list-style: none;
 	}
 	.HomeHero-body-title {
 		padding: var(--size-0) 5%;
@@ -224,4 +234,35 @@
 			font-size: inherit;
 		}
 	}
+
+
+	/*
+		3. Transition to full design breakpoint.
+	*/
+
+	@media (min-width: 60em) {
+		.HomeHero-menu.HomeHero-menu {
+			position: absolute;
+			top: 24%;
+			right: 15%;
+			z-index: 3;
+			display: flex;
+			gap: var(--space-s);
+		}
+		.HomeHero-intro drop-cap {
+			padding-top: var(--space-s);
+		}
+	}
+
+
+	/*
+		3. Full design breakpoint.
+	*/
+
+	@media (min-width: 1060px) {
+		.HomeHero-intro.HomeHero-intro drop-cap {
+			padding-top: 0;
+		}
+	}
+
 </style>
