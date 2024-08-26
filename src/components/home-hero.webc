@@ -241,13 +241,31 @@
 	*/
 
 	@media (min-width: 60em) {
+		.HomeHero.HomeHero {
+			max-width: calc(var(--scale-max-width) + 10vw);
+		}
+		.HomeHero-intro .u-container-inner {
+			margin: 0;
+			max-width: 100%;
+		}
+		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title {
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 0;
+		}
+		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title em {
+			font-size: var(--size-3);
+		}
 		.HomeHero-menu.HomeHero-menu {
 			position: absolute;
-			top: 24%;
+			top: 16%;
 			right: 15%;
 			z-index: 3;
 			display: flex;
 			gap: var(--space-s);
+		}
+		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
+			min-height: 0;
 		}
 		.HomeHero-intro drop-cap {
 			padding-top: var(--space-s);
