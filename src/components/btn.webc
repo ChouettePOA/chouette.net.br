@@ -1,12 +1,3 @@
-<!---
-	@file
-	TODO [wip] Refacto: buttons design.
-	Based on Pure CSS
-
-	@link https://github.com/pure-css/pure/blob/master/src/buttons/css/buttons-core.css
-	@link https://github.com/pure-css/pure/blob/master/src/buttons/css/buttons.css
---->
-
 <script webc:type="js" webc:root="override">
 	if (!tag) {
 		tag = 'a';
@@ -21,7 +12,7 @@
 	// <${tag} class="Btn${this.class}" @attributes>
 
 	`
-	<${tag} class="${this.class}" :href="href">
+	<${tag} class="${this.class}" :href="href || false">
 		<slot></slot>
 	</${tag}>
 	`;
@@ -30,6 +21,7 @@
 <style>
 	.Btn {
 		display: inline-block;
+		padding: .33em .5em;
 		line-height: normal;
 		white-space: nowrap;
 		vertical-align: middle;
@@ -37,7 +29,6 @@
 		cursor: pointer;
 		-webkit-user-drag: none;
 		user-select: none;
-		box-sizing: border-box;
 	}
 	/* Firefox: Get rid of the inner focus border */
 	.Btn::-moz-focus-inner {
@@ -45,38 +36,23 @@
 		border: 0;
 	}
 
-	/*
-	.Btn-group {
-		letter-spacing: -0.31em; /* Webkit: collapse white-space between units *
-		text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility *
-	}
-	.opera-only :-o-prefocus,
-	.Btn-group {
-		word-spacing: -0.43em;
-	}
-	.Btn-group .Btn {
-		letter-spacing: normal;
-		word-spacing: normal;
-		vertical-align: top;
-		text-rendering: auto;
-	}
-	*/
-
 	.Btn {
 		font-family: inherit;
-		font-size: 100%;
-		padding: 0.5em 1em;
-		color: rgba(0, 0, 0, 0.80);
+		color: inherit;
 		border: none rgba(0, 0, 0, 0);
-		background-color: #E6E6E6;
+		background-color: var(--color-white-t-2);
+		font-size: var(--size--3);
 		text-decoration: none;
-		border-radius: 2px;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		transition: background-color .2s linear;
 	}
 
 	.Btn--hover,
 	.Btn:hover,
 	.Btn:focus {
-		background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+		background: white;
+		color: var(--inverted-text-color);
 	}
 	.Btn:focus {
 		outline: 0;
@@ -92,17 +68,11 @@
 	.Btn--disabled:hover,
 	.Btn--disabled:focus,
 	.Btn--disabled:active {
-		border: none;
-		background-image: none;
 		opacity: 0.40;
 		cursor: not-allowed;
 		box-shadow: none;
 		pointer-events: none;
 	}
-
-	/* .Btn--hidden {
-		display: none;
-	} */
 
 	.Btn.b {
 		display: block;

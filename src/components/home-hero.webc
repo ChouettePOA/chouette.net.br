@@ -24,7 +24,7 @@
 					</h2>
 					<ul class="HomeHero-menu">
 						<li webc:for="link of $data.main_menu.links">
-							<a :href="link.href" :title="link.title" @text="link.title_short"></a>
+							<btn :href="link.href" :title="link.title" @text="link.title_short"></btn>
 						</li>
 					</ul>
 					<drop-cap @content="Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil."></drop-cap>
@@ -249,7 +249,7 @@
 		}
 		.HomeHero-top.HomeHero-top {
 			position: relative;
-			height: 100vh;
+			min-height: 90vh;
 		}
 		.HomeHero-body.HomeHero-body.HomeHero-body {
 			padding: 0;
@@ -281,7 +281,7 @@
 			z-index: 3;
 			display: flex;
 			justify-content: center;
-			gap: var(--space-s);
+			gap: var(--space-xs);
 			margin: 0 0 0 auto;
 			padding: 0;
 		}
@@ -290,7 +290,7 @@
 			width: 85%;
 		}
 		.HomeHero-intro drop-cap {
-			padding-top: 10vw;
+			padding-top: 9vw;
 		}
 	}
 
@@ -301,10 +301,10 @@
 
 	@media (min-width: 80em) {
 		.HomeHero.HomeHero {
-			height: 100vh;
+			min-height: 62.5vh;
 		}
 		.HomeHero-top.HomeHero-top {
-			height: auto;
+			min-height: 0;
 		}
 		.HomeHero-logo.HomeHero-logo.HomeHero-logo.HomeHero-logo {
 			width: calc(var(--space-l) * 6.479338843); /* 392px with var(--space-l) = 60.5px */
