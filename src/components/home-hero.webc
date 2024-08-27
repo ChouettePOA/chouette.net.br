@@ -22,16 +22,15 @@
 						<em>Escola de francês</em>
 						<span>com aulas online e presenciais</span>
 					</h2>
+					<ul class="HomeHero-menu">
+						<li webc:for="link of $data.main_menu.links">
+							<a :href="link.href" :title="link.title" @text="link.title_short"></a>
+						</li>
+					</ul>
 					<drop-cap @content="Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil."></drop-cap>
 				</section>
 			</div>
 		</div>
-
-		<ul class="HomeHero-menu">
-			<li webc:for="link of $data.main_menu.links">
-				<a :href="link.href" :title="link.title" @text="link.title_short"></a>
-			</li>
-		</ul>
 
 		<section class="HomeHero-body">
 			<h2 class="HomeHero-body-title s-invert">
@@ -243,7 +242,20 @@
 	@media (min-width: 60em) {
 		.HomeHero.HomeHero {
 			max-width: calc(var(--space-l) * 25.690909091); /* 1554.3px with var(--space-l) = 60.5px */
+		}
+		.HomeHero-logo.HomeHero-logo.HomeHero-logo {
+			left: 7%;
+			width: 27%;
+		}
+		.HomeHero-top.HomeHero-top {
+			position: relative;
 			height: 100vh;
+		}
+		.HomeHero-body.HomeHero-body.HomeHero-body {
+			padding: 0;
+		}
+		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
+			min-height: 0;
 		}
 		.HomeHero-intro > .u-container-inner {
 			margin: 0;
@@ -264,20 +276,21 @@
 			top: 45%;
 			left: calc(50% - 45ch / 2);
 		}
-		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title em,
-		.HomeHero-intro-title.HomeHero-intro-title span {
-			margin: auto;
-		}
 		.HomeHero-menu.HomeHero-menu {
-			position: absolute;
-			top: 24%;
-			right: 15%;
+			position: relative;
 			z-index: 3;
 			display: flex;
+			justify-content: center;
 			gap: var(--space-s);
+			margin: 0 0 0 auto;
+			padding: 0;
+		}
+		.HomeHero-menu.HomeHero-menu,
+		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title {
+			width: 85%;
 		}
 		.HomeHero-intro drop-cap {
-			padding-top: var(--space-s);
+			padding-top: 10vw;
 		}
 	}
 
@@ -286,16 +299,18 @@
 		3. Full design breakpoint.
 	*/
 
-	@media (min-width: 90em) {
-		.HomeHero-logo.HomeHero-logo.HomeHero-logo {
+	@media (min-width: 80em) {
+		.HomeHero.HomeHero {
+			height: 100vh;
+		}
+		.HomeHero-top.HomeHero-top {
+			height: auto;
+		}
+		.HomeHero-logo.HomeHero-logo.HomeHero-logo.HomeHero-logo {
 			width: calc(var(--space-l) * 6.479338843); /* 392px with var(--space-l) = 60.5px */
-			left: 7%;
 		}
 		.HomeHero-wing.HomeHero-wing {
 			left: -4%;
-		}
-		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
-			min-height: 0;
 		}
 		.HomeHero-intro.HomeHero-intro drop-cap {
 			padding-top: 0;

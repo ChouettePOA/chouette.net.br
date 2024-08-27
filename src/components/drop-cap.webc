@@ -8,7 +8,7 @@
 
 <style>
 	drop-cap {
-		display: flow-root;
+		display: flow-root; /* clearfix */
 	}
 	.Dropcap {
 		float: left;
@@ -17,7 +17,7 @@
 		line-height: .9;
 	}
 	@media (min-width:75em) {
-		.Dropcap {
+		.Dropcap.L {
 			font-size: 521%;
 			line-height: .77;
 			font-weight: 400;
