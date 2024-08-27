@@ -242,30 +242,39 @@
 
 	@media (min-width: 60em) {
 		.HomeHero.HomeHero {
-			max-width: calc(var(--scale-max-width) + 10vw);
+			max-width: calc(var(--space-l) * 25.690909091); /* 1554.3px with var(--space-l) = 60.5px */
+			height: 100vh;
 		}
-		.HomeHero-intro .u-container-inner {
+		.HomeHero-intro > .u-container-inner {
 			margin: 0;
 			max-width: 100%;
 		}
 		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title {
-			margin-top: 0;
+			margin-top: 2%;
 			margin-right: 0;
 			margin-bottom: 0;
 		}
 		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title em {
+			margin: 0 auto;
 			font-size: var(--size-3);
+			width: 12ch;
+		}
+		.HomeHero-intro-title.HomeHero-intro-title span {
+			width: 45ch;
+			top: 45%;
+			left: calc(50% - 45ch / 2);
+		}
+		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title em,
+		.HomeHero-intro-title.HomeHero-intro-title span {
+			margin: auto;
 		}
 		.HomeHero-menu.HomeHero-menu {
 			position: absolute;
-			top: 16%;
+			top: 24%;
 			right: 15%;
 			z-index: 3;
 			display: flex;
 			gap: var(--space-s);
-		}
-		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
-			min-height: 0;
 		}
 		.HomeHero-intro drop-cap {
 			padding-top: var(--space-s);
@@ -277,7 +286,17 @@
 		3. Full design breakpoint.
 	*/
 
-	@media (min-width: 1060px) {
+	@media (min-width: 90em) {
+		.HomeHero-logo.HomeHero-logo.HomeHero-logo {
+			width: calc(var(--space-l) * 6.479338843); /* 392px with var(--space-l) = 60.5px */
+			left: 7%;
+		}
+		.HomeHero-wing.HomeHero-wing {
+			left: -4%;
+		}
+		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
+			min-height: 0;
+		}
 		.HomeHero-intro.HomeHero-intro drop-cap {
 			padding-top: 0;
 		}
