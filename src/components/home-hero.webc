@@ -303,17 +303,30 @@
 		.HomeHero.HomeHero {
 			min-height: 62.5vh;
 		}
+		.HomeHero-wing.HomeHero-wing {
+			top: -4%;
+			left: -4%;
+		}
 		.HomeHero-top.HomeHero-top {
 			min-height: 0;
 		}
 		.HomeHero-logo.HomeHero-logo.HomeHero-logo.HomeHero-logo {
+			left: 3%;
 			width: calc(var(--space-l) * 6.479338843); /* 392px with var(--space-l) = 60.5px */
 		}
-		.HomeHero-wing.HomeHero-wing {
-			left: -4%;
+		.HomeHero-intro.HomeHero-intro.HomeHero-intro.HomeHero-intro {
+			padding-top: 0;
+		}
+		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title {
+			margin-top: 0;
+		}
+		.HomeHero-menu.HomeHero-menu.HomeHero-menu {
+			margin: 0 0 var(--space-xs) auto;
 		}
 		.HomeHero-intro.HomeHero-intro drop-cap {
+			left: 6%;
 			padding-top: 0;
+			width: 80%;
 		}
 	}
 
