@@ -301,7 +301,9 @@
 
 	@media (min-width: 80em) {
 		.HomeHero.HomeHero {
+			margin-bottom: 8%;
 			min-height: 62.5vh;
+			max-width: 1430px;
 		}
 		.HomeHero-wing.HomeHero-wing {
 			top: -4%;
@@ -316,6 +318,8 @@
 		}
 		.HomeHero-intro.HomeHero-intro.HomeHero-intro.HomeHero-intro {
 			padding-top: 0;
+			/* padding-bottom: var(--space-s); */
+			padding-bottom: 3%;
 		}
 		.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title.HomeHero-intro-title {
 			margin-top: 0;
@@ -324,9 +328,24 @@
 			margin: 0 0 var(--space-xs) auto;
 		}
 		.HomeHero-intro.HomeHero-intro drop-cap {
-			left: 6%;
-			padding-top: 0;
-			width: 80%;
+			left: 4%;
+			padding-top: 6%;
+			width: 70%;
+		}
+		.HomeHero-body.HomeHero-body.HomeHero-body.HomeHero-body {
+			position: relative;
+			left: -9%;
+			margin: auto;
+			width: 60%;
+			font-size: var(--size--2);
+			line-height: 1.2;
+		}
+		.HomeHero-body.HomeHero-body.HomeHero-body.HomeHero-body,
+		.HomeHero-body.HomeHero-body.HomeHero-body.HomeHero-body * {
+			color: var(--base-text-color);
+		}
+		.HomeHero-body.HomeHero-body.HomeHero-body.HomeHero-body > .u-container {
+			padding: 0 var(--space-xs);
 		}
 	}
 
