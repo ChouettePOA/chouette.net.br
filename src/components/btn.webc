@@ -1,4 +1,4 @@
-<script webc:type="js" webc:root="override">
+<script webc:type="js">
 	if (!tag) {
 		tag = 'a';
 	}
@@ -105,4 +105,11 @@
 		border-right: none;
 	}
 	*/
+
+
+	@media (min-width: 80em) {
+		.Btn {
+			font-size: var(--size--2);
+		}
+	}
 </style>
