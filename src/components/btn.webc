@@ -82,8 +82,28 @@
 	.Btn--selected,
 	a.Btn--primary,
 	a.Btn--selected {
-		background-color: rgb(0, 120, 231);
-		color: #fff;
+		background-color: var(--blue-light);
+		color: #FFF;
+	}
+
+	.Btn--inverted,
+	a.Btn--inverted {
+		background-color: var(--inverted-bg-color);
+		color: var(--inverted-text-color);
+	}
+	.Btn--hover.Btn--inverted,
+	.Btn.Btn--inverted:hover,
+	.Btn.Btn--inverted:focus {
+		border: 1px solid var(--inverted-bg-color);
+		margin-top: -1px;
+		margin-bottom: -1px;
+		color: var(--base-text-color);
+		background-color: var(--base-bg-color);
+	}
+
+	.Btn.l,
+	a.Btn.l {
+		font-size: var(--size-1);
 	}
 
 	/* Button Groups */
@@ -110,6 +130,11 @@
 	@media (min-width: 80em) {
 		.Btn {
 			font-size: var(--size--2);
+		}
+
+		.Btn.l,
+		a.Btn.l {
+			font-size: var(--size-2);
 		}
 	}
 </style>

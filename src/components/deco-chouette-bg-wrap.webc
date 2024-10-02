@@ -1,9 +1,10 @@
-<div class="WrapChouette" webc:keep>
+<deco-chouette-bg-wrap webc:root>
 	<slot></slot>
-</div>
+</deco-chouette-bg-wrap>
 
 <style>
-	.WrapChouette {
+	deco-chouette-bg-wrap {
+		display: block;
 		margin: auto;
 		padding-top: 41%;
 		width: 100%;

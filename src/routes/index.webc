@@ -12,9 +12,9 @@
 			As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
 		</p>
 		<block class="m u-vspacer">
-			<deco-chouette-bg-block>
-				<btn class="b" href="https://virtual.chouette.net.br/">Criar uma conta</btn>
-			</deco-chouette-bg-block>
+			<deco-chouette-bg-wrap>
+				<btn class="Btn--inverted b" href="https://virtual.chouette.net.br/" webc:nokeep>Criar uma conta</btn>
+			</deco-chouette-bg-wrap>
 		</block>
 		<p class="u-vspacer">
 			Faça seu teste de nivelamento grátis e tenha acesso a materiais exclusivos e gratuitos.
