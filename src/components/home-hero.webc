@@ -249,13 +249,14 @@
 		}
 		.HomeHero-top.HomeHero-top {
 			position: relative;
-			min-height: 90vh;
+			/* min-height: 90vh; */
 		}
 		.HomeHero-body.HomeHero-body.HomeHero-body {
-			padding: 0;
+			padding: 0 0 0 var(--space-m);
 		}
 		.HomeHero-intro.HomeHero-intro.HomeHero-intro {
 			min-height: 0;
+			margin-bottom: 18%;
 		}
 		.HomeHero-intro > .u-container-inner {
 			margin: 0;
@@ -300,6 +301,10 @@
 	*/
 
 	@media (min-width: 80em) {
+		/* home-hero {
+			margin-bottom: calc(var(--space-m) * -1);
+			min-height: 100vh;
+		} */
 		.HomeHero.HomeHero {
 			margin-bottom: 8%;
 			min-height: 62.5vh;
@@ -317,6 +322,7 @@
 			width: calc(var(--space-l) * 6.479338843); /* 392px with var(--space-l) = 60.5px */
 		}
 		.HomeHero-intro.HomeHero-intro.HomeHero-intro.HomeHero-intro {
+			margin-bottom: 0;
 			padding-top: 0;
 			/* padding-bottom: var(--space-s); */
 			padding-bottom: 3%;
