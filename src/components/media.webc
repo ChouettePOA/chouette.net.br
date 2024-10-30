@@ -32,6 +32,15 @@
 		display: none;
 	}
 
+	/*
+		Variant : mobile image (mi).
+	*/
+	.mi .Media-img {
+		display: block;
+		margin: 0 auto;
+		max-width: min(100%, 38ch);
+	}
+
 	@media (min-width: 55rem) {
 		.Media {
 			flex-direction: row;
@@ -39,6 +48,24 @@
 		.Media-img {
 			display: block;
 			max-width: 50%;
+		}
+
+		/*
+			Variant : equal-width (ew).
+		*/
+		.ew > .u-container-inner {
+			max-width: var(--scale-max-width);
+		}
+		.ew .Media > * {
+			flex: 1 1 0;
+  		width: 0;
+		}
+
+		/*
+			Variant : order-invert (oi).
+		*/
+		.oi .Media {
+			flex-direction: row-reverse;
 		}
 	}
 </style>

@@ -8,32 +8,24 @@ title: "Chouettes pelo mundo"
 	</div>
 </page-section>
 
-<page-section class="s-invert" @title="Cibele">
-	<block class="u-vspacer">
-		<img
-			src="src/media/Cibele.jpg"
-			alt="Cibele"
-			webc:is="eleventy-image"
-			sizes="500,1000"
-		/>
-	</block>
+<media
+	class="s-invert ew mi"
+	@title="Cibele"
+	@src="src/media/Cibele.jpg"
+>
 	<div class="s-rich-text">
 		<blockquote>
 			« A escola Chouette eu vi nascer e tenho o maior orgulho de ter escolhido a escola de francês mais personalizada que poderia ter em Porto Alegre! Não tenho dúvida que quando aprendemos uma nova língua precisamos de entusiasmo e inspiração que na Chouette tem de sobra com ambiente acolhedor, professoras competentes e conteúdo original. Fiz grandes amizades, pessoas especiais que terei para sempre em meu coração e que a distância não me faz esquecer do elo em que se criou! Gratidão por toda dedicação, vida longa a Chouette! Com carinho Cibele em Québec desde 2017.»
 			<p class="u-align-r"><br/>&mdash;&nbsp;Cibele Silva Molski de Ávila</p>
 		</blockquote>
 	</div>
-</page-section>
+</media>
 
-<page-section @title="Lina e Bruno">
-	<block class="u-vspacer">
-		<img
-			src="src/media/Lina-e-Bruno.jpg"
-			alt="Cibele"
-			webc:is="eleventy-image"
-			sizes="500,1000"
-		/>
-	</block>
+<media
+	class="ew oi mi"
+	@title="Lina e Bruno"
+	@src="src/media/Lina-e-Bruno.jpg"
+>
 	<div class="s-rich-text">
 		<blockquote>
 			- Onde tu estudou francês?<br/>
@@ -52,9 +44,15 @@ title: "Chouettes pelo mundo"
 			<p class="u-align-r"><br/>&mdash;&nbsp;Lina Strack e Bruno Marques</p>
 		</blockquote>
 	</div>
+</media>
+
+<page-section class="s-invert">
+	<div class="s-rich-text">
+		<p></p>
+	</div>
 </page-section>
 
-<page-section class="s-invert" @title="Mellina">
+<page-section @title="Mellina">
 	<div class="s-rich-text">
 		<blockquote>
 			A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho. Desde o material didático próprio, a metodologia e abordagens personalizadas,  até a equipe de profes entusiasmadas que se tornam amigas e parceiras de vida, a Chouette te cativa a cada vez que se entra na casinha azul da rua Garibaldi. Obrigada por todo conhecimento adquirido, discutido e compartilhado (de francês e de vida).
