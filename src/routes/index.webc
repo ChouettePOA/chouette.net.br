@@ -8,16 +8,17 @@
 
 <page-section @title="Aulas online">
 	<div class="s-rich-text">
-		<p class="u-vspacer">
+		<p>
 			As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
 		</p>
-		<block class="m u-vspacer">
-			<deco-chouette-bg-wrap>
-				<btn class="Btn--inverted b" href="https://virtual.chouette.net.br/" webc:nokeep>Criar uma conta</btn>
-			</deco-chouette-bg-wrap>
-		</block>
-		<p class="u-vspacer">
-			Faça seu teste de nivelamento grátis e tenha acesso a materiais exclusivos e gratuitos.
+		<deco-oval-penwriting>
+			<!--- <img src="/img/inscricoes-abertas.png" alt="Insriçoes abertas !" /> --->
+			<block class="m">
+				<btn class="Btn Btn--inverted b m" href="https://virtual.chouette.net.br/" webc:nokeep>Criar uma conta</btn>
+			</block>
+		</deco-oval-penwriting>
+		<p>
+			Faça seu teste de nivelamento grátis e tenha acesso a materiais exclusivos e gratuitos :)
 		</p>
 	</div>
 </page-section>

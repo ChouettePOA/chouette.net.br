@@ -271,8 +271,7 @@ p:last-child,
 pre:last-child,
 blockquote:last-child,
 drop-cap:last-child,
-.s-rich-text ul:last-child,
-.s-rich-text ol:last-child {
+.s-rich-text.s-rich-text > *:last-child {
 	margin-bottom: 0;
 }
 
