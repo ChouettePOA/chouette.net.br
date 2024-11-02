@@ -11,24 +11,31 @@
 		<p>
 			As aulas online da Chouette são ministradas ao vivo por uma professora. Cada aluno recebe uma pasta individual com seu material. As lições estão totalmente adaptadas para que você interaja de maneira dinâmica e prática.
 		</p>
+
 		<deco-oval-penwriting>
-			<!--- <img src="/img/inscricoes-abertas.png" alt="Insriçoes abertas !" /> --->
+			<!---
+			<img src="/img/inscricoes-abertas.png" alt="Insriçoes abertas !" />
 			<block class="m">
 				<btn class="Btn Btn--inverted b m" href="https://virtual.chouette.net.br/" webc:nokeep>Criar uma conta</btn>
 			</block>
+			--->
+			<whatsapp webc:nokeep></whatsapp>
 		</deco-oval-penwriting>
+
 		<p>
 			Faça seu teste de nivelamento grátis e tenha acesso a materiais exclusivos e gratuitos :)
 		</p>
+
 	</div>
 </page-section>
 
 <page-section @title="Diferenciais da Chouette !" @class="s-invert">
 	<ul class="EmojiList">
-		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas - 30% de desconto não acumulativo.</li>
+		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas. Consulte mais informações 🙂</li>
 		<li data-emoji="✅">Não cobramos taxa de matrícula e materiais didáticos.</li>
-		<li data-emoji="✅">O material didático é atualizado anualmente e é exclusivo da Chouette Institut de Français. </li>
-		<li data-emoji="✅">Os horários e formatos (online e presencial) de aula são conforme a sua disponibilidade. </li>
+		<li data-emoji="✅">O material didático é atualizado anualmente e é exclusivo da Chouette Institut de Français.</li>
+		<li data-emoji="✅">Grupos pequenos de 2 a 6 alunos</li>
+		<li data-emoji="✅">Encontros online quinzenais de conversação, em grupo, de acordo com seu nível.</li>
 		<li data-emoji="✅">Clube do livro</li>
 		<li data-emoji="✅">Plantão Tira Dúvidas no WhatsApp</li>
 		<li data-emoji="✅">Biblioteca (acervo digital e físico)</li>
