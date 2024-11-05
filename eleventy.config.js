@@ -40,6 +40,7 @@ export default function(eleventyConfig) {
 	// TODO [evol] compare with https://github.com/ascorbic/unpic-img
 	eleventyConfig.addPlugin(eleventyImagePlugin, {
 		formats: ["webp", "jpeg"],
+		widths: [150, 300, 500, 900],
 		urlPath: "/img/",
 		defaultAttributes: {
 			loading: "lazy",
