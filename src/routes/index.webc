@@ -31,7 +31,7 @@
 
 <page-section @title="Diferenciais da Chouette !" @class="s-invert">
 	<ul class="EmojiList">
-		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas. Consulte mais informações 🙂</li>
+		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas. Nos consulte para mais informações 🙂</li>
 		<li data-emoji="✅">Não cobramos taxa de matrícula e materiais didáticos.</li>
 		<li data-emoji="✅">O material didático é atualizado anualmente e é exclusivo da Chouette Institut de Français.</li>
 		<li data-emoji="✅">Grupos pequenos de 2 a 6 alunos</li>
