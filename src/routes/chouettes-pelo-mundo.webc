@@ -11,7 +11,7 @@ title: "Chouettes pelo mundo"
 <media
 	class="s-invert ew mi"
 	@title="Cibele"
-	@src="src/media/Cibele.jpg"
+	@src="src/media/Cibele-opti.jpg"
 >
 	<div class="s-rich-text">
 		<blockquote>
@@ -21,12 +21,8 @@ title: "Chouettes pelo mundo"
 	</div>
 </media>
 
-<media
-	class="ew oi mi"
-	@title="Lina e Bruno"
-	@src="src/media/Lina-e-Bruno.jpg"
->
-	<div class="s-rich-text">
+<page-section class="wide" @title="Lina e Bruno">
+	<hug class="s-rich-text equal-w from-75rem">
 		<blockquote>
 			- Onde tu estudou francês?<br/>
 			- Na Chouette, não tem erro.<br/>
@@ -35,6 +31,14 @@ title: "Chouettes pelo mundo"
 			Me responderam, em pleno domingo, dizendo que tinham vagas pra esse casal que não sabia nada além de bonjour e toilette(s).<br/>
 			Começamos já nos super intensivos, quatro vezes por semana das 8h às 10h da manhã. Nos dias que eu acordava cansada, mal-humorada e não queria ir, o Bruno me dizia "Vamos sim! Toda vez que tu chega lá tu te anima em cinco minutos, vem!" E era verdade, as aulas sempre foram tão alegres e felizes que eu nem queria ir embora depois.<br/>
 			Depois de um ano, fazendo super intensivos e intensivos, a gente teve que se despedir e como foi duro dizer adeus pra essa escola que nos deu tanto.<br/>
+		</blockquote>
+		<img
+			src="src/media/Lina-e-Bruno-opti.jpg"
+			alt="Lina e Bruno"
+			style="display:block;margin:auto;max-width:min(100%, 38ch)"
+			webc:is="eleventy-image"
+		/>
+		<blockquote>
 			Viemos para o Canadá, falamos francês todos os dias. Todo mundo que nos encontra por aqui diz que falamos muito bem e ficam chocados quando dizemos que estudamos apenas um ano antes de vir.<br/>
 			A Chouette nos permitiu realizar o nosso sonho e nos trouxe pessoas que guardaremos com carinho no coração pro resto das nossas vidas!<br/>
 			<br/>
@@ -43,20 +47,44 @@ title: "Chouettes pelo mundo"
 			Se você se pergunta, será que vale a pena? Na Chouette, não tem erro!
 			<p class="u-align-r"><br/>&mdash;&nbsp;Lina Strack e Bruno Marques</p>
 		</blockquote>
-	</div>
-</media>
-
-<page-section class="s-invert">
-	<div class="s-rich-text">
-		<p></p>
-	</div>
+	</hug>
 </page-section>
 
-<page-section @title="Mellina">
+<page-section @title="Mellina" class="s-invert">
 	<div class="s-rich-text">
 		<blockquote>
 			A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho. Desde o material didático próprio, a metodologia e abordagens personalizadas,  até a equipe de profes entusiasmadas que se tornam amigas e parceiras de vida, a Chouette te cativa a cada vez que se entra na casinha azul da rua Garibaldi. Obrigada por todo conhecimento adquirido, discutido e compartilhado (de francês e de vida).
 			<p class="u-align-r"><br/>&mdash;&nbsp;Mellina</p>
 		</blockquote>
+	</div>
+</page-section>
+
+<media
+	class="ew mi"
+	@title="Juliana Richter"
+	@src="src/media/Juliana-Richter.jpg"
+>
+	<div class="s-rich-text">
+		<blockquote>
+			<p>Oi, Bia, Marina! Tudo bem? Queria compartilhar com vocês a minha alegria em ver o resultado das aulas de francês!</p>
+			<p>No final de semana eu encontrei com uma conhecida que é professora de francês e pedi pra praticar conversação com ela. Ela elogiou a minha compreensão, fala e pronúncia. Nesse momento pensei como o  estudo vale a pena!</p>
+			<p>Percebo como o desenvolvimento da minha fala melhorou demais com as aulas de conversação! E também como foi importante ter continuado as aulas nas férias pra manter o contato com o idioma e reforçar alguns aspectos.</p>
+			<p>Por mais que exista ansiedade no aprender e a dificuldade gramatical, perceber esse crescimento me motiva ainda mais a continuar essa jornada.</p>
+			<p>Além disso, a profe Rafa e as colegas do grupo são incríveis!</p>
+			<p>Então, queria agradecer por todo o esforço desde a preparação dos livros, escolha dos professores, e atendimento, mas principalmente pela oportunidade de praticar o francês nas férias e das aulas de conversação.</p>
+			<p>Obrigada 🥰</p>
+		</blockquote>
+
+		<!---
+		TODO [wip] debug failed attempt to use lite-youtube :
+
+		<div class="vspacer">
+			<lite-youtube
+				videoid="vv1UrWoyWLg"
+				playlabel="Depoimento video do Igor"
+			></lite-youtube>
+		</div>
+		--->
+
 	</div>
 </page-section>

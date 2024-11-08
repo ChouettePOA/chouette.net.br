@@ -2,6 +2,7 @@ import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
 import { eleventyImagePlugin } from "@11ty/eleventy-img";
 import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
+import liteYoutube from "eleventy-plugin-lite-youtube";
 
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
@@ -47,6 +48,10 @@ export default function(eleventyConfig) {
 			decoding: "async",
 		},
 	});
+
+	// Lite YouTube.
+	// @link https://github.com/ulfschneider/eleventy-plugin-lite-youtube
+	eleventyConfig.addPlugin(liteYoutube);
 
 	// HTML minification.
 	eleventyConfig.addTransform("htmlmin", function (content) {

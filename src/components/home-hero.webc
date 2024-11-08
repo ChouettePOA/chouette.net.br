@@ -341,6 +341,9 @@
 			margin: 0 0 var(--space-xs) auto;
 			width: 100%;
 		}
+		.HomeHero-menu.HomeHero-menu.HomeHero-menu .Btn.s {
+			font-size: var(--size--2);
+		}
 		.HomeHero-intro.HomeHero-intro drop-cap {
 			left: 4%;
 			padding-top: 6%;

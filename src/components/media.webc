@@ -1,6 +1,6 @@
 <media webc:root class="u-container u-vspacer">
 	<section class="u-container-inner">
-		<h2 webc:if="title" @html="title"></h2>
+		<h2 class="Media-title" webc:if="title" @html="title"></h2>
 		<div class="Media">
 			<div class="Media-img">
 				<img
@@ -20,6 +20,12 @@
 <style>
 	media {
 		display: block;
+	}
+
+	.Media-title {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--line-length);
 	}
 
 	.Media {

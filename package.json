@@ -43,6 +43,7 @@
 		"postcss-utopia": "^1.0.1"
 	},
 	"dependencies": {
-		"@svgdotjs/svg.js": "^3.2.4"
+		"@svgdotjs/svg.js": "^3.2.4",
+		"eleventy-plugin-lite-youtube": "^0.1.9"
 	}
 }
