@@ -4,3 +4,4 @@ layout: "html.webc"
 <page-header :title="title || metadata.title"></page-header>
 <main class="Page" @raw="content"></main>
 <page-footer></page-footer>
+<whatsapp-fixed webc:nokeep></whatsapp-fixed>

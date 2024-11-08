@@ -24,7 +24,13 @@
 					</h2>
 					<ul class="HomeHero-menu">
 						<li webc:for="link of $data.main_menu.links">
-							<btn :href="link.href" :title="link.title" @text="link.title_short" webc:nokeep></btn>
+							<btn
+								class="s"
+								:href="link.href"
+								:title="link.title"
+								@text="link.title_short"
+								webc:nokeep
+							></btn>
 						</li>
 					</ul>
 					<drop-cap @content="Na Chouette você aprende francês com um método exclusivo e atual, concebido pelas próprias professoras que possuem uma grande vivência na França e experiência no ensino do idioma no Brasil."></drop-cap>

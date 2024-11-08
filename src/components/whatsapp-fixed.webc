@@ -1,0 +1,80 @@
+
+<whatsapp-fixed webc:root>
+	<a
+		href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
+		target="_blank"
+		class="animated-button"
+	>
+		<svg viewBox="0 0 32 32" width="60" height="60">
+			<circle id="whatsapp_icon_path" cx="15.8" cy="15.8" r="15.2" fill="#4DC247"></circle>
+			<path d="M18.9,17c-0.3,0-1,1.3-1.4,1.3c-0.1,0-0.2,0-0.3-0.1c-0.8-0.4-1.4-0.8-2-1.4 c-0.5-0.5-1.1-1.2-1.4-1.8c0-0.1-0.1-0.1-0.1-0.2c0-0.3,0.9-0.9,0.9-1.4c0-0.1-0.7-2-0.8-2.2c-0.1-0.3-0.2-0.5-0.6-0.5 c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5,0.1-0.7,0.3c-0.6,0.6-1,1.2-1,2.1v0.1c0,0.9,0.4,1.9,1,2.6c1.2,1.7,2.4,3.2,4.3,4.1 c0.6,0.3,1.9,0.8,2.6,0.8c0.8,0,2-0.5,2.3-1.2c0.1-0.3,0.2-0.7,0.2-1c0-0.1,0-0.1,0-0.2C21.3,18.2,19.1,17,18.9,17z M16.2,24.2 c-1.6,0-3.3-0.5-4.6-1.4l-3.3,1l1.1-3.1c-1-1.4-1.6-3.2-1.6-5c0-4.7,3.8-8.4,8.4-8.4s8.4,3.8,8.4,8.4 C24.6,20.4,20.8,24.2,16.2,24.2z M16.2,5.6C10.6,5.6,6,10.1,6,15.7c0,1.8,0.5,3.7,1.5,5.2l-1.8,5.4l5.6-1.8 c4.9,2.7,11.1,0.9,13.8-4c0.8-1.5,1.3-3.2,1.3-4.9C26.3,10.1,21.8,5.6,16.2,5.6L16.2,5.6z" id="whatsapp_icon_path" fill="#fff"></path>
+		</svg>
+		<span class="visually-hidden">Contato WhatsApp</span>
+	</a>
+</whatsapp-fixed>
+
+<style>
+	.animated-button {
+		position: fixed;
+		bottom: 2ch;
+		right: 2ch;
+		border: 0 none;
+		opacity: 0;
+		transform: translate(2rem, 2rem) scale(0.9);
+		animation: slideIn .5s ease-out forwards, scalePulse 1s ease-in-out;
+	}
+
+	.animated-button > svg {
+		width: 5ch;
+		height: auto;
+		max-width: 100%;
+		animation: mouseOut .2s forwards;
+	}
+
+	.animated-button:focus > svg,
+	.animated-button:hover > svg {
+		animation: mouseOver .2s forwards;
+	}
+
+	/* Slide-in animation from bottom-right */
+	@keyframes slideIn {
+		to {
+			opacity: 1;
+			transform: translate(0, 0) scale(1);
+		}
+	}
+
+	/* Scale-up and scale-down animation */
+	@keyframes scalePulse {
+		0%, 100% {
+			transform: scale(1);
+			rotate: 0deg;
+		}
+		50% {
+			transform: scale(1.25);
+			rotate: -15deg;
+		}
+	}
+
+	/* mouse over / mouse out */
+	@keyframes mouseOver {
+		0% {
+			transform: scale(1);
+			rotate: 0deg;
+		}
+		100% {
+			transform: scale(1.25);
+			rotate: -15deg;
+		}
+	}
+	@keyframes mouseOut {
+		0% {
+			transform: scale(1.25);
+			rotate: -15deg;
+		}
+		100% {
+			transform: scale(1);
+			rotate: 0deg;
+		}
+	}
+</style>

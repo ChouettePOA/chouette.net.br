@@ -41,7 +41,7 @@
 		color: inherit;
 		border: none rgba(0, 0, 0, 0);
 		background-color: var(--color-white-t-2);
-		font-size: var(--size--3);
+		font-size: var(--size--2);
 		text-decoration: none;
 		text-transform: uppercase;
 		letter-spacing: .1em;
@@ -101,9 +101,14 @@
 		background-color: var(--base-bg-color);
 	}
 
+	.Btn.s,
+	a.Btn.s {
+		font-size: var(--size--3);
+	}
+
 	.Btn.m,
 	a.Btn.m {
-		font-size: var(--size--2);
+		font-size: var(--size--1);
 	}
 
 	.Btn.l,
