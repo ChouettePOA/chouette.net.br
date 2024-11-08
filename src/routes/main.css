@@ -418,7 +418,7 @@ drop-cap:last-child,
 */
 
 .EmojiList.EmojiList.EmojiList {
-	padding-left: var(--space-s);
+	padding-left: 3ch;
 	list-style: none;
 }
 .EmojiList > li {
@@ -428,7 +428,7 @@ drop-cap:last-child,
 	content: attr(data-emoji);
 	position: absolute;
 	top: .05em; /* Because it visually appears a bit off-centered */
-	left: calc(var(--space-s) * -1);
+	left: -3ch;
 }
 
 
