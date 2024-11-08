@@ -118,7 +118,8 @@ export default function(eleventyConfig) {
 
 	// Make some Node modules available in components.
 	eleventyConfig.addPassthroughCopy({
-		"node_modules/@svgdotjs/svg.js/dist/svg.min.js": "js/svg.min.js"
+		"node_modules/@svgdotjs/svg.js/dist/svg.min.js": "js/svg.min.js",
+		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "js/lite-yt-embed.js"
 	});
 
 	return core11tyOptions;

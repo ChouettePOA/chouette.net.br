@@ -14,6 +14,9 @@ importers:
       eleventy-plugin-lite-youtube:
         specifier: ^0.1.9
         version: 0.1.9
+      lite-youtube-embed:
+        specifier: ^0.3.3
+        version: 0.3.3
     devDependencies:
       '@11ty/eleventy':
         specifier: ^3.0.0
@@ -872,6 +875,9 @@ packages:
 
   lite-youtube-embed@0.3.0:
     resolution: {integrity: sha512-3DUqE1C4s/+a8PVM4ik8anBsmHOW0zUavPyFQWugBulKyQpbZFE+/268Aq/pDNW7hRQJXkXpk4QjdSCpwf7Cvg==}
+
+  lite-youtube-embed@0.3.3:
+    resolution: {integrity: sha512-gFfVVnj6NRjxVfJKo3qoLtpi0v5mn3AcR4eKD45wrxQuxzveFJUb+7Cr6uV6n+DjO8X3p0UzPPquhGt0H/y+NA==}
 
   lodash.memoize@4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
@@ -2422,6 +2428,8 @@ snapshots:
   list-to-array@1.1.0: {}
 
   lite-youtube-embed@0.3.0: {}
+
+  lite-youtube-embed@0.3.3: {}
 
   lodash.memoize@4.1.2: {}
 

@@ -4,7 +4,7 @@ title: "Chouettes pelo mundo"
 
 <page-section>
 	<div class="s-rich-text">
-		<drop-cap @content="Veja o que algumas/alguns das/dos nossas/nossos alunas/alunos estao falando sobre nos ❤️"></drop-cap>
+		<drop-cap @content="Vem conferir o depoimento de alguns chouettes que já ganharam o mundo ❤️"></drop-cap>
 	</div>
 </page-section>
 
@@ -73,18 +73,20 @@ title: "Chouettes pelo mundo"
 			<p>Além disso, a profe Rafa e as colegas do grupo são incríveis!</p>
 			<p>Então, queria agradecer por todo o esforço desde a preparação dos livros, escolha dos professores, e atendimento, mas principalmente pela oportunidade de praticar o francês nas férias e das aulas de conversação.</p>
 			<p>Obrigada 🥰</p>
+			<p class="u-align-r"><br/>&mdash;&nbsp;Juliana Richter</p>
 		</blockquote>
-
-		<!---
-		TODO [wip] debug failed attempt to use lite-youtube :
-
-		<div class="vspacer">
-			<lite-youtube
-				videoid="vv1UrWoyWLg"
-				playlabel="Depoimento video do Igor"
-			></lite-youtube>
-		</div>
-		--->
-
 	</div>
+</media>
+
+<page-section>
+	<yt-video
+		variant="Video--tall"
+		videoid="vv1UrWoyWLg"
+		playlabel="Depoimento video do Igor"
+	></yt-video>
 </page-section>
+
+<!---
+<script src="/js/lite-yt-embed.js"></script>
+--->
+<script src="../../node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
