@@ -4,7 +4,7 @@
 		webc:nokeep
 		href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
 		target="_blank"
-		class="inclined"
+		class="Btn--whatsapp"
 	>
 		<span class="whatsapp">
 			<span class="whatsapp-icon">
@@ -25,18 +25,32 @@
 		justify-content: center;
 		align-items: center;
 	}
-	/*
-	.whatsapp > * {
-		flex: 0 1 auto;
-	}
-	*/
+
 	.whatsapp-icon {
-		width: 6ch;
+		display: none;
 	}
 
-	.inclined {
-		transform: rotate(-5deg);
+	.Btn--whatsapp {
 		position: relative;
 		left: -3ch;
+		transform: rotate(-5deg);
+		font-size: var(--size--3);
+	}
+
+	@media (min-width: 25em) {
+		.whatsapp-icon {
+			display: block;
+			width: 3ch;
+		}
+	}
+
+	@media (min-width: 32em) {
+		.whatsapp-icon {
+			width: 6ch;
+		}
+
+		.Btn--whatsapp {
+			font-size: var(--size--2);
+		}
 	}
 </style>

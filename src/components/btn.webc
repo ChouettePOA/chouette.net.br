@@ -29,14 +29,6 @@
 		cursor: pointer;
 		-webkit-user-drag: none;
 		user-select: none;
-	}
-	/* Firefox: Get rid of the inner focus border */
-	.Btn::-moz-focus-inner {
-		padding: 0;
-		border: 0;
-	}
-
-	.Btn {
 		font-family: inherit;
 		color: inherit;
 		border: none rgba(0, 0, 0, 0);
@@ -46,6 +38,12 @@
 		text-transform: uppercase;
 		letter-spacing: .1em;
 		transition: background-color .2s linear;
+	}
+
+	/* Firefox: Get rid of the inner focus border */
+	.Btn::-moz-focus-inner {
+		padding: 0;
+		border: 0;
 	}
 
 	.Btn--hover,
@@ -116,35 +114,11 @@
 		font-size: var(--size-1);
 	}
 
-	/* Button Groups */
-	/*
-	.Btn-group .Btn {
-		margin: 0;
-		border-radius: 0;
-		border-right: 1px solid rgba(0, 0, 0, 0.2);
-
-	}
-
-	.Btn-group .Btn:first-child {
-		border-top-left-radius: 2px;
-		border-bottom-left-radius: 2px;
-	}
-	.Btn-group .Btn:last-child {
-		border-top-right-radius: 2px;
-		border-bottom-right-radius: 2px;
-		border-right: none;
-	}
-	*/
-
 
 	@media (min-width: 80em) {
-		.Btn {
+		.Btn.s,
+		a.Btn.s {
 			font-size: var(--size--2);
-		}
-
-		.Btn.m,
-		a.Btn.m {
-			font-size: var(--size--1);
 		}
 
 		.Btn.l,
