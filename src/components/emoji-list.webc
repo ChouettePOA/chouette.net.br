@@ -22,9 +22,9 @@
 	}
 
 	.EmojiList.EmojiList.EmojiList.narrow {
-		padding-left: 1.5ch;
+		padding-left: 1.75ch;
 	}
 	.EmojiList.narrow > li::before {
-		left: -1.5ch;
+		left: -1.75ch;
 	}
 </style>

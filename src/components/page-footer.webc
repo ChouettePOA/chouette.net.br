@@ -12,14 +12,21 @@
 				</span>
 			</h2>
 			<div class="s-rich-text">
-				<span class="u-thin">Telefone</span> : +55 51 98125 9389
+				<span class="u-thin">Telefone</span>&nbsp;: +55 51 98125 9389
 				<br />
-				<span class="u-thin">Email</span> :
+				<span class="u-thin">Email</span>&nbsp;:
 				<a class="Email" href="mailto:chouette@chouette.net.br">chouette@chouette.net.br</a>
 			</div>
 			<a href="https://www.facebook.com/chouettepoa" target="_blank">facebook.com/chouettepoa</a>
 			<br />
 			<a href="https://www.instagram.com/chouette.frances" target="_blank">instagram.com/chouette.frances</a>
+			<!---
+			<br />
+			<span class="u-thin">Endereço</span>&nbsp;:
+			--->
+			<address>
+				📍&nbsp;Rua Garibaldi 1100, Porto Alegre - RS, 90035-050, Brasil
+			</address>
 		</div>
 	</hug>
 	<div class="Footer-separator">• •</div>
@@ -75,5 +82,9 @@
 	.Footer-smallPrint,
 	.Footer-smallPrint * {
 		font-size: var(--size--2);
+	}
+
+	.Footer address {
+		font-style: normal;
 	}
 </style>
