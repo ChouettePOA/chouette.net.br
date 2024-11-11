@@ -73,17 +73,20 @@ title: "Chouettes pelo mundo"
 			<p>Além disso, a profe Rafa e as colegas do grupo são incríveis!</p>
 			<p>Então, queria agradecer por todo o esforço desde a preparação dos livros, escolha dos professores, e atendimento, mas principalmente pela oportunidade de praticar o francês nas férias e das aulas de conversação.</p>
 			<p>Obrigada 🥰</p>
-			<p class="u-align-r"><br/>&mdash;&nbsp;Juliana Richter</p>
+			<p class="u-align-r">&mdash;&nbsp;Juliana Richter</p>
 		</blockquote>
 	</div>
 </media>
 
-<page-section>
-	<yt-video
-		variant="Video--tall"
-		videoid="vv1UrWoyWLg"
-		playlabel="Depoimento video do Igor"
-	></yt-video>
+<page-section class="wide">
+	<hug>
+		<yt-video
+			webc:nokeep
+			variant="Video--tall"
+			videoid="vv1UrWoyWLg"
+			playlabel="Depoimento video do Igor"
+		></yt-video>
+	</hug>
 </page-section>
 
 <!---

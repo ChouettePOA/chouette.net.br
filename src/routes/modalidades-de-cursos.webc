@@ -16,7 +16,7 @@ title: "Modalidades de cursos"
 		<p>
 			Os grupos possuem no máximo 6 alunos, proporcionando um aprendizado eficaz, dinâmico e personalizado. Oferecemos diferentes modalidades em grupo durante o ano:<br/>
 		</p>
-		<ul class="EmojiList">
+		<emoji-list>
 			<li data-emoji="🦉">
 				Francês <strong>1x por semana</strong> - 32 horas de aula<br/>
 				16 aulas de 2 horas cada - 2h semanais<br/>
@@ -32,7 +32,7 @@ title: "Modalidades de cursos"
 				16 aulas de 2 horas de duração, <strong>de segunda a quinta</strong> ou <strong>de segunda a sexta</strong><br/>
 				Duração do nível: 1 mês
 			</li>
-		</ul>
+		</emoji-list>
 	</div>
 </page-section>
 
@@ -49,14 +49,14 @@ title: "Modalidades de cursos"
 		<p>
 			Na Chouette promovemos diversos ateliers ao longo do ano para que a prática da língua francesa seja mais rica e inspiradora. Alguns exemplos de ateliers que realizamos:
 		</p>
-		<ul class="EmojiList">
+		<emoji-list>
 			<li data-emoji="🍲">atelier cuisine,</li>
 			<li data-emoji="🎼">atelier musique,</li>
 			<li data-emoji="📰">atelier diplomatique,</li>
 			<li data-emoji="👓">atelier psychanalyse,</li>
 			<li data-emoji="📚">atelier écriture créative,</li>
 			<li data-emoji="🎓">atelier grammaire…</li>
-		</ul>
+		</emoji-list>
 	</div>
 </page-section>
 

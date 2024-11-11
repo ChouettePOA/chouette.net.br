@@ -1,0 +1,30 @@
+<ul :class="'EmojiList' + (this.class ? ' ' + this.class : '')" webc:root="override">
+	<slot></slot>
+</ul>
+
+<style>
+	/*
+		Override :
+		.s-rich-text ul, .s-rich-text ol
+	*/
+	.EmojiList.EmojiList.EmojiList {
+		padding-left: 2.66ch;
+		list-style: none;
+	}
+	.EmojiList > li {
+		position: relative;
+	}
+	.EmojiList > li::before {
+		content: attr(data-emoji);
+		position: absolute;
+		top: .05em; /* Because it visually appears a bit off-centered */
+		left: -2.66ch;
+	}
+
+	.EmojiList.EmojiList.EmojiList.narrow {
+		padding-left: 1.5ch;
+	}
+	.EmojiList.narrow > li::before {
+		left: -1.5ch;
+	}
+</style>

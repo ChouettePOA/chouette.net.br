@@ -2,5 +2,5 @@
 layout: "html.webc"
 ---
 <main class="Home" @raw="content"></main>
-<page-footer></page-footer>
+<page-footer webc:nokeep></page-footer>
 <whatsapp-fixed webc:nokeep></whatsapp-fixed>

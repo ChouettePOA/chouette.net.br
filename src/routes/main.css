@@ -411,28 +411,6 @@ drop-cap:last-child,
 
 
 /*
-	Lists.
-
-	Override :
-	.s-rich-text ul, .s-rich-text ol
-*/
-
-.EmojiList.EmojiList.EmojiList {
-	padding-left: 3ch;
-	list-style: none;
-}
-.EmojiList > li {
-	position: relative;
-}
-.EmojiList > li::before {
-	content: attr(data-emoji);
-	position: absolute;
-	top: .05em; /* Because it visually appears a bit off-centered */
-	left: -3ch;
-}
-
-
-/*
 	Quotes.
 */
 

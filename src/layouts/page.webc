@@ -1,7 +1,7 @@
 ---
 layout: "html.webc"
 ---
-<page-header :title="title || metadata.title"></page-header>
+<page-header webc:nokeep :title="title || metadata.title"></page-header>
 <main class="Page" @raw="content"></main>
-<page-footer></page-footer>
+<page-footer webc:nokeep></page-footer>
 <whatsapp-fixed webc:nokeep></whatsapp-fixed>

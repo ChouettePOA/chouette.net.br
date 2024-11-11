@@ -30,7 +30,7 @@
 </page-section>
 
 <page-section @title="Diferenciais da Chouette !" @class="s-invert">
-	<ul class="EmojiList">
+	<emoji-list>
 		<li data-emoji="✅">Ações afirmativas para pessoas negras, trans e indígenas. Nos consulte para mais informações 🙂</li>
 		<li data-emoji="✅">Não cobramos taxa de matrícula e materiais didáticos.</li>
 		<li data-emoji="✅">O material didático é atualizado anualmente e é exclusivo da Chouette Institut de Français.</li>
@@ -39,7 +39,7 @@
 		<li data-emoji="✅">Clube do livro</li>
 		<li data-emoji="✅">Plantão Tira Dúvidas no WhatsApp</li>
 		<li data-emoji="✅">Biblioteca (acervo digital e físico)</li>
-	</ul>
+	</emoji-list>
 </page-section>
 
 <page-section @title="Pourquoi Chouette&nbsp;?">
@@ -47,7 +47,7 @@
 		Chouette, em francês significa “coruja”, animal de olhos atentos que é conhecido popularmente por ser o símbolo do conhecimento, além disso, na língua francesa, “chouette” é uma gíria para dizer “ótimo”, “muito bom”, “legal”!
 	</p>
 	<h3>Saiba mais</h3>
-	<ul class="EmojiList">
+	<emoji-list class="narrow">
 		<li
 			webc:for="link of $data.main_menu.links"
 			:class="$data.page.url == link.href ? 'is-on' : ''"
@@ -55,5 +55,5 @@
 		>
 			<a :href="link.href" @text="link.title"></a>
 		</li>
-	</ul>
+	</emoji-list>
 </page-section>
