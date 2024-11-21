@@ -6,9 +6,6 @@
 		<title @text="title || metadata.title"></title>
 		<meta name="description" :content="description || metadata.description">
 
-		<!--- TODO [wip] Remove when ready to publish. --->
-		<meta name="robots" content="noindex" />
-
 		<link rel="canonical" href="https://chouette.net.br" />
 
 		<meta property="og:title" :content="title || metadata.title" />
