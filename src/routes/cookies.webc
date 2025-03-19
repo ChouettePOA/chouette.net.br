@@ -1,0 +1,16 @@
+---
+title: "Cookies"
+---
+
+<page-section>
+	<div class="s-rich-text">
+		<drop-cap @content="Cookies são pequenos arquivos de texto que são colocados pelo seu navegador em seu dispositivo para armazenar determinadas informações. Usando as informações que são armazenadas e retornadas, um site pode reconhecer que você o acessou e visitou anteriormente usando o navegador em seu dispositivo final."></drop-cap>
+		<p>Usamos essas informações para organizar e exibir o site de forma otimizada, de acordo com suas preferências. Nesse processo, somente o cookie em si é identificado em seu dispositivo. Os dados pessoais são armazenados somente após seu consentimento expresso ou quando isso for absolutamente necessário para permitir o uso do serviço fornecido por nós e acessado por você.</p>
+	</div>
+</page-section>
+
+<page-section class="s-invert" @title="Como usamos cookies">
+	<div class="s-rich-text">
+		<p>Usamos uma seleção de cookies próprios e de terceiros nas páginas deste site: Cookies funcionais, que proporcionam maior facilidade de uso ao utilizar o site; e cookies de marketing, que são usados para conhecer melhor nosso público e aprimorar nossas atividades como empresa. Se você escolher “ACEITAR TODOS”, estará concordando com o uso de todos os cookies. Você pode aceitar e rejeitar tipos individuais de cookies e revogar seu consentimento para o futuro a qualquer momento em “Configurações”.</p>
+	</div>
+</page-section>
