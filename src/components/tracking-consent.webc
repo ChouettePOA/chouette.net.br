@@ -9,32 +9,62 @@
 -->
 
 <script>
-	const localStorageId = 'chouette-consent-1.0';
-
-	// TODO [wip] handle cookie ops to store + update consent prefs.
-	getConsent().init(localStorageId);
+	getConsent(document).render();
 
 	/**
 	 * Minimalist singleton.
 	 */
-	function getConsent() {
-		if ('Consent' in document) {
-			return document.Consent;
+	function getConsent(d, n) {
+		if (!d) {
+			d = document;
 		}
 
-		/**
-		 * Initializes the Consent component.
-		 */
-		const init = function (localStorageId) {
-			const prefs = read(localStorageId);
+		if (!n) {
+			n = 'consent';
+		}
 
-			if (!prefs) {
+		if (n in d) {
+			return d[n];
+		}
+
+		// Version the local storage key to facilitate future data structure changes.
+		const localStorageId = n + '_state_v1';
+
+		/**
+		 * Applies state to DOM.
+		 */
+		const render = function () {
+			const state = read();
+
+			if (!state || !state.optIn) {
 				return;
 			}
 
-			// The UI must not be rendered if the prefs were already saved before.
-			// TODO [wip]
-			console.log('Consent.init()');
+			let stateNeedsWrite = false;
+
+			// "Google Tag Manager" tracking.
+			if (state.optIn.includes('gtm') && !state.alreadyInjected.includes('gtm')) {
+				state.alreadyInjected.push('gtm');
+				stateNeedsWrite = true;
+
+				// <!-- Google Tag Manager -->
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
+				// <!-- End Google Tag Manager -->
+			}
+
+			// "Meta Pixel" tracking.
+			if (state.optIn.includes('mpixel') && !state.alreadyInjected.includes('mpixel')) {
+				state.alreadyInjected.push('mpixel');
+				stateNeedsWrite = true;
+
+				// <!-- Meta Pixel Code -->
+				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
+				// <!-- End Meta Pixel Code -->
+			}
+
+			if (stateNeedsWrite) {
+				write(state);
+			}
 		};
 
 		/**
@@ -45,10 +75,11 @@
 		 * 	- localStorage
 		 * 	- UI state
 		 */
-		const read = function (localStorageId) {
+		const read = function () {
 			let defaultState = {
 				isLocallyStored: false,
-				optInConsents: []
+				optIn: [],
+				alreadyInjected: [],
 			};
 
 			if (typeof localStorage === 'undefined') {
@@ -69,7 +100,7 @@
 		/**
 		 * Writes given state in local storage.
 		 */
-		const write = function (localStorageId, state) {
+		const write = function (state) {
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
 				return;
@@ -109,21 +140,42 @@
 		/**
 		 * Gets all UI input elements.
 		 */
-		const getConsentUiInputs = function () {
-			const Consent = document.querySelector("#Consent");
+		const getConsentUiInputs = () => {
+			// TODO [wip]
+			return [
+				document.querySelector("#Consent")
+			];
+		};
 
-			if (!Consent) {
+		/**
+		 * Saves an option.
+		 *
+		 * onchange="input('foobar', this.value)"
+		 */
+		const update = (key, value) => {
+			const state = read(localStorageId);
+
+			if (!state) {
 				return;
 			}
 
 			// TODO [wip]
-			return [Consent];
+			console.log(`update(${key}, ${value})`);
+			console.log(value);
+
+			// if (state.optIn.includes('mpixel') && !state.alreadyInjected.includes('mpixel'))
+			// if (!value && state.optIn.includes(value))
+
+			// if (!(key in Object.keys(state)) || state[key] != value) {
+			// 	state[key] = value;
+			// 	write(state);
+			// }
 		};
 
 		// Filter exposed methods.
-		const Consent = { init, setState };
+		const Consent = { render, update };
 
-		document.Consent = Consent;
+		d[n] = Consent;
 
 		return Consent;
 	}

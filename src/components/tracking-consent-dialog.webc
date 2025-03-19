@@ -8,16 +8,6 @@
  */
 -->
 
-<script>
-
-	function init() {
-		console.log('dialog init');
-	}
-
-	init();
-
-</script>
-
 <div role="dialog" aria-labelledby="cookiesjsrLabel" aria-modal="true" class="Consent-layer--wrapper">
 	<div class="Consent-layer--overlay" title="Fechar"></div>
 	<div class="Consent-layer">
@@ -62,6 +52,13 @@
 									<div class="Consent-service--always-on">
 										<span>Sempre ativo</span>
 									</div>
+									<pre>TODO [wip] debug</pre>
+									<label class="Consent-switch" title="Test">
+										<input
+											type="checkbox"
+											onchange="document.consent.update('test', this.checked)"
+										/>
+									</label>
 								</div>
 							</li>
 						</ul>
@@ -92,7 +89,7 @@
 						<ul class="Consent-service-group--services">
 							<li class="Consent-service">
 								<div class="Consent-service--description">
-									<h3 id="desc_gtag">Google Tag Manager</h3>
+									<h3 id="desc_gtm">Google Tag Manager</h3>
 									<ul class="Consent-links Consent-service--links links--row">
 										<li>
 											<a
@@ -110,7 +107,11 @@
 								</div>
 								<div class="Consent-service--action">
 									<label class="Consent-switch" title="Denied">
-										<input type="checkbox" aria-describedby="desc_gtag">
+										<input
+											type="checkbox"
+											aria-describedby="desc_gtm"
+											onchange="consent.get().update('gtm', this.value)"
+										/>
 									</label>
 								</div>
 							</li>
@@ -134,7 +135,11 @@
 								</div>
 								<div class="Consent-service--action">
 									<label class="Consent-switch" title="Denied">
-										<input type="checkbox" aria-describedby="desc_mpixel">
+										<input
+											type="checkbox"
+											aria-describedby="desc_mpixel"
+											onchange="consent.get().update('mpixel', this.value)"
+										/>
 									</label>
 								</div>
 							</li>
