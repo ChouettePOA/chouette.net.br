@@ -1,0 +1,194 @@
+<!--
+/**
+ * @file
+ * Tracking (Cookie) consent - dialog component.
+ *
+ * TODO [wip] partially based on cookiesjsr
+ * @link https://github.com/jfeltkamp/cookiesjsr
+ */
+-->
+
+<script>
+
+	function init() {
+		console.log('dialog init');
+	}
+
+	init();
+
+</script>
+
+<div role="dialog" aria-labelledby="cookiesjsrLabel" aria-modal="true" class="Consent-layer--wrapper">
+	<div class="Consent-layer--overlay" title="Fechar"></div>
+	<div class="Consent-layer">
+		<header class="Consent-layer--header">
+			<span id="cookiesjsrLabel" class="Consent-layer--title">Configurações</span>
+			<button type="button" class="Consent-layer--close dialog-first-tab">Fechar</button>
+		</header>
+		<div class="Consent-layer--body">
+			<ul class="Consent-service-groups" role="tablist" aria-label="Cookie settings">
+
+				<li class="Consent-service-group active">
+					<button
+						class="Consent-service-group--tab"
+						role="tab"
+						aria-selected="true"
+						tabindex="0"
+						aria-controls="panel-functional"
+						id="tab-functional"
+					>
+						Funcional
+					</button>
+					<div
+						class="Consent-service-group--content"
+						id="panel-functional"
+						role="tabpanel"
+						aria-labelledby="tab-functional"
+					>
+						<div class="Consent-service-group--intro">
+							Cookies são pequenos arquivos de texto que são colocados pelo seu navegador em seu dispositivo para armazenar determinadas informações. Usando as informações que são armazenadas e retornadas, um site pode reconhecer que você o acessou e visitou anteriormente usando o navegador em seu dispositivo final. Usamos essas informações para organizar e exibir o site de forma otimizada, de acordo com suas preferências.
+						</div>
+						<ul class="Consent-service-group--services">
+							<li class="Consent-service">
+								<div class="Consent-service--description">
+									<h3 id="desc_functional">Required functional</h3>
+									<ul class="Consent-links Consent-service--links links--row">
+										<li>
+											<a href="/cookies" target="_blank">Saber mais sobre Funcional cookies</a>
+										</li>
+									</ul>
+								</div>
+								<div class="Consent-service--action">
+									<div class="Consent-service--always-on">
+										<span>Sempre ativo</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="Consent-service-group">
+					<button
+						class="Consent-service-group--tab"
+						role="tab"
+						aria-selected="false"
+						tabindex="-1"
+						aria-controls="panel-performance"
+						id="tab-performance"
+					>
+						Marketing Cookies
+					</button>
+					<div
+						class="Consent-service-group--content"
+						id="panel-performance"
+						role="tabpanel"
+						aria-labelledby="tab-performance"
+						hidden=""
+					>
+						<div class="Consent-service-group--intro">
+							<!--- Marketing cookies collect aggregated information about how our website is used. The purpose of this is to improve its attractiveness, content and functionality. These cookies help us to determine whether, how often and for how long particular sub-pages of our website are accessed and which content users are particularly interested in. Search terms, country, region and (where applicable) the city from which the website is accessed are also recorded, as is the proportion of mobile devices that are used to access the website. We use this information to compile statistical reports that help us tailor the content of our website to your needs and optimize our offer. --->
+							Os cookies de marketing coletam informações agregadas sobre como nosso site é usado. O objetivo disso é melhorar sua atratividade, conteúdo e funcionalidade. Esses cookies nos ajudam a determinar se, com que frequência e por quanto tempo determinadas subpáginas do nosso site são acessadas e em qual conteúdo os usuários estão particularmente interessados. Os termos de pesquisa, o país, a região e (quando aplicável) a cidade de onde o site é acessado também são registrados, assim como a proporção de dispositivos móveis usados para acessar o site. Usamos essas informações para compilar relatórios estatísticos que nos ajudam a adaptar o conteúdo do nosso site às suas necessidades e a otimizar nossa oferta.
+						</div>
+						<ul class="Consent-service-group--services">
+							<li class="Consent-service">
+								<div class="Consent-service--description">
+									<h3 id="desc_gtag">Google Tag Manager</h3>
+									<ul class="Consent-links Consent-service--links links--row">
+										<li>
+											<a
+												href="https://tagmanager.google.com/"
+												rel="noopener noreferrer"
+												target="_blank"
+											>
+												Site oficial
+											</a>
+										</li>
+										<li>
+											<a href="/cookies" target="_blank">Saber mais sobre Marketing cookies</a>
+										</li>
+									</ul>
+								</div>
+								<div class="Consent-service--action">
+									<label class="Consent-switch" title="Denied">
+										<input type="checkbox" aria-describedby="desc_gtag">
+									</label>
+								</div>
+							</li>
+							<li class="Consent-service">
+								<div class="Consent-service--description">
+									<h3 id="desc_mpixel">Meta (Facebook) Pixel</h3>
+									<ul class="Consent-links Consent-service--links links--row">
+										<li>
+											<a
+												href="https://www.facebook.com/business/tools/meta-pixel"
+												rel="noopener noreferrer"
+												target="_blank"
+											>
+												Site oficial
+											</a>
+										</li>
+										<li>
+											<a href="/cookies" target="_blank">Saber mais sobre Marketing cookies</a>
+										</li>
+									</ul>
+								</div>
+								<div class="Consent-service--action">
+									<label class="Consent-switch" title="Denied">
+										<input type="checkbox" aria-describedby="desc_mpixel">
+									</label>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="Consent-service-group">
+					<button
+						class="Consent-service-group--tab"
+						role="tab"
+						aria-selected="false"
+						tabindex="-1"
+						aria-controls="panel-video"
+						id="tab-video"
+					>
+						Video
+					</button>
+					<div
+						class="Consent-service-group--content"
+						id="panel-video"
+						role="tabpanel"
+						aria-labelledby="tab-video"
+						hidden=""
+					>
+						<div class="Consent-service-group--intro">
+							Os serviços de vídeo ajudam a adicionar mídia avançada no site e a aumentar sua visibilidade.
+						</div>
+						<ul class="Consent-service-group--services">
+							<li class="Consent-service">
+								<div class="Consent-service--description">
+									<h3 id="desc_video">Videos fornecidos por YouTube (Google)</h3>
+									<ul class="Consent-links Consent-service--links links--row">
+										<li>
+											<a href="/cookies" target="_blank">Saber mais sobre Video cookies</a>
+										</li>
+									</ul>
+								</div>
+								<div class="Consent-service--action">
+									<label class="Consent-switch" title="Denied">
+										<input type="checkbox" aria-describedby="desc_video"></label>
+									</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<footer class="Consent-layer--footer">
+			<div class="Consent-layer--label-all">Configurações para todos os serviços</div>
+			<div class="Consent-layer--actions">
+				<button class="Consent-btn invert denyAll">Rejeitar tudo</button>
+				<button class="Consent-btn invert allowAll">Aceitar tudo</button>
+				<button class="Consent-btn invert important save dialog-last-tab">Salvar</button>
+			</div>
+		</footer>
+	</div>
+</div>
