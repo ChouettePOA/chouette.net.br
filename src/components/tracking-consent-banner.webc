@@ -1,0 +1,37 @@
+<!--
+/**
+ * @file
+ * Tracking (Cookie) consent - banner component.
+ *
+ * TODO [evol] keyboard accessibility.
+ *
+ * Partially based on cookiesjsr.
+ * @link https://github.com/jfeltkamp/cookiesjsr
+ */
+-->
+
+<script>
+	const banner = document.querySelector("#ConsentBanner");
+
+	// Close the banner.
+	banner.querySelector(".Consent-btn.denyAll").addEventListener("click", () => {
+		banner.classList.remove('active');
+	});
+</script>
+
+<div id="ConsentBanner" class="Consent-banner active">
+	<div class="Consent-banner--info">
+		<span class="Consent-banner--text">
+			<!--- We use a selection of our own and third-party cookies on the pages of this website: Functional cookies, which provide better easy of use when using the website; and marketing cookies, which are used to know our audience better and improve our activities as a company. If you choose "ACCEPT ALL", you consent to the use of all cookies. You can accept and reject individual cookie types and revoke your consent for the future at any time at "Settings". --->
+			Usamos uma seleção de cookies próprios e de terceiros nas páginas deste site: Cookies funcionais, que proporcionam maior facilidade de uso ao utilizar o site; e cookies de marketing, que são usados para conhecer melhor nosso público e aprimorar nossas atividades como empresa. Se você escolher “ACEITAR TODOS”, estará concordando com o uso de todos os cookies. Você pode aceitar e rejeitar tipos individuais de cookies e revogar seu consentimento para o futuro a qualquer momento em “Configurações”.
+		</span>
+		<ul class="Consent-links Consent-banner--links links--row">
+			<li><a href="/cookies" target="_blank">Saber mais sobre cookies</a></li>
+		</ul>
+	</div>
+	<div class="Consent-banner--action">
+		<button class="Consent-btn Consent-settings">Configurações</button>
+		<button class="Consent-btn important denyAll">Rejeitar tudo</button>
+		<button class="Consent-btn important allowAll">Aceitar tudo</button>
+	</div>
+</div>

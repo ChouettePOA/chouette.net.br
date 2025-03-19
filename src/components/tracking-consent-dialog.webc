@@ -3,20 +3,78 @@
  * @file
  * Tracking (Cookie) consent - dialog component.
  *
- * TODO [wip] partially based on cookiesjsr
+ * TODO [evol] keyboard accessibility.
+ *
+ * Partially based on cookiesjsr.
  * @link https://github.com/jfeltkamp/cookiesjsr
  */
 -->
 
-<div role="dialog" aria-labelledby="cookiesjsrLabel" aria-modal="true" class="Consent-layer--wrapper">
-	<div class="Consent-layer--overlay" title="Fechar"></div>
+<script>
+	const dialog = document.querySelector("#ConsentDialog");
+
+	// Close the dialog.
+	const closeBtns = dialog.querySelectorAll(".Consent-close");
+	closeBtns.forEach((button) => {
+		button.addEventListener("click", () => {
+			dialog.setAttribute("aria-hidden","true");
+		});
+	});
+
+	// Handle tabs "nav".
+	const tabs = dialog.querySelectorAll(".Consent-service-group");
+	tabs.forEach((tab) => {
+		const control = tab.querySelector(".Consent-service-group--tab");
+
+		control.addEventListener("click", () => {
+			switchTab(tabs, tab);
+		});
+	});
+
+	/**
+	 * Sync tabs state.
+	 */
+	const switchTab = function (tabs, activeTab) {
+		if (activeTab.classList.contains('active')) {
+			return;
+		}
+
+		tabs.forEach((tab) => {
+			tab.classList.remove('active');
+			tab.querySelector('.Consent-service-group--tab').setAttribute("aria-selected", "false");
+		});
+
+		activeTab.classList.add('active');
+		activeTab.querySelector('.Consent-service-group--tab').setAttribute("aria-selected", "true");
+	};
+</script>
+
+<div
+	id="ConsentDialog"
+	role="dialog"
+	aria-labelledby="cookiesjsrLabel"
+	aria-modal="true"
+	class="Consent-layer--wrapper"
+>
+	<div class="Consent-layer--overlay Consent-close" title="Fechar"></div>
 	<div class="Consent-layer">
+
 		<header class="Consent-layer--header">
 			<span id="cookiesjsrLabel" class="Consent-layer--title">Configurações</span>
-			<button type="button" class="Consent-layer--close dialog-first-tab">Fechar</button>
+			<button
+				type="button"
+				class="Consent-layer--close dialog-first-tab Consent-close"
+			>
+				Fechar
+			</button>
 		</header>
+
 		<div class="Consent-layer--body">
-			<ul class="Consent-service-groups" role="tablist" aria-label="Cookie settings">
+			<ul
+				class="Consent-service-groups"
+				role="tablist"
+				aria-label="Cookie settings"
+			>
 
 				<li class="Consent-service-group active">
 					<button
@@ -52,13 +110,6 @@
 									<div class="Consent-service--always-on">
 										<span>Sempre ativo</span>
 									</div>
-									<pre>TODO [wip] debug</pre>
-									<label class="Consent-switch" title="Test">
-										<input
-											type="checkbox"
-											onchange="document.consent.update('test', this.checked)"
-										/>
-									</label>
 								</div>
 							</li>
 						</ul>
@@ -110,7 +161,8 @@
 										<input
 											type="checkbox"
 											aria-describedby="desc_gtm"
-											onchange="consent.get().update('gtm', this.value)"
+											value="gtm"
+											onchange="document.consent.update(this.value, this.checked)"
 										/>
 									</label>
 								</div>
@@ -138,7 +190,8 @@
 										<input
 											type="checkbox"
 											aria-describedby="desc_mpixel"
-											onchange="consent.get().update('mpixel', this.value)"
+											value="mpixel"
+											onchange="document.consent.update(this.value, this.checked)"
 										/>
 									</label>
 								</div>
@@ -179,7 +232,12 @@
 								</div>
 								<div class="Consent-service--action">
 									<label class="Consent-switch" title="Denied">
-										<input type="checkbox" aria-describedby="desc_video"></label>
+										<input
+											type="checkbox"
+											aria-describedby="desc_video"
+											value="video"
+											onchange="document.consent.update(this.value, this.checked)"
+										></label>
 									</div>
 							</li>
 						</ul>
@@ -190,9 +248,24 @@
 		<footer class="Consent-layer--footer">
 			<div class="Consent-layer--label-all">Configurações para todos os serviços</div>
 			<div class="Consent-layer--actions">
-				<button class="Consent-btn invert denyAll">Rejeitar tudo</button>
-				<button class="Consent-btn invert allowAll">Aceitar tudo</button>
-				<button class="Consent-btn invert important save dialog-last-tab">Salvar</button>
+				<button
+					class="Consent-btn invert denyAll"
+					onclick="document.consent.denyAll()"
+				>
+					Rejeitar tudo
+				</button>
+				<button
+					class="Consent-btn invert allowAll"
+					onclick="document.consent.allowAll()"
+				>
+					Aceitar tudo
+				</button>
+				<button
+					class="Consent-btn invert important save dialog-last-tab"
+					onclick="document.consent.render()"
+				>
+					Salvar
+				</button>
 			</div>
 		</footer>
 	</div>

@@ -12,7 +12,7 @@
 	getConsent(document).render();
 
 	/**
-	 * Minimalist singleton.
+	 * Minimalist "singleton".
 	 */
 	function getConsent(d, n) {
 		if (!d) {
@@ -84,17 +84,16 @@
 
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
-				return mergeUiState(localStorageId, defaultState);
+				return defaultState;
 			}
 
 			const storedState = localStorage.getItem(localStorageId);
 
 			if (storedState && storedState.length) {
-				defaultState = JSON.parse(storedState);
+				return JSON.parse(storedState);
 			}
 
-			// Local values (prefs) are overridable in the UI.
-			return mergeUiState(localStorageId, defaultState);
+			return defaultState;
 		};
 
 		/**
@@ -115,39 +114,6 @@
 		};
 
 		/**
-		 * Gets up to date state based on UI inputs.
-		 */
-		const mergeUiState = function (localStorageId, defaultState) {
-			const state = { ...defaultState };
-			const ui = getConsentUiInputs();
-
-			if (!ui) {
-				return state;
-			}
-
-			// TODO [wip]
-
-			// Only write if state has changed.
-			if (JSON.stringify(state) === JSON.stringify(defaultState)) {
-				return defaultState;
-			}
-
-			write(localStorageId, state);
-
-			return state;
-		};
-
-		/**
-		 * Gets all UI input elements.
-		 */
-		const getConsentUiInputs = () => {
-			// TODO [wip]
-			return [
-				document.querySelector("#Consent")
-			];
-		};
-
-		/**
 		 * Saves an option.
 		 *
 		 * onchange="input('foobar', this.value)"
@@ -159,21 +125,49 @@
 				return;
 			}
 
-			// TODO [wip]
-			console.log(`update(${key}, ${value})`);
-			console.log(value);
+			let stateNeedsWrite = false;
 
-			// if (state.optIn.includes('mpixel') && !state.alreadyInjected.includes('mpixel'))
-			// if (!value && state.optIn.includes(value))
+			// Handle deletion (removes opt-in).
+			if (!value && state.optIn.includes(key)) {
+				state.optIn = state.optIn.filter(e => e !== key);
+				stateNeedsWrite = true;
+			}
 
-			// if (!(key in Object.keys(state)) || state[key] != value) {
-			// 	state[key] = value;
-			// 	write(state);
-			// }
+			// Handle addition (removes opt-in).
+			if (value && !state.optIn.includes(key)) {
+				state.optIn.push(key);
+				stateNeedsWrite = true;
+			}
+
+			if (stateNeedsWrite) {
+				write(state);
+			}
 		};
 
-		// Filter exposed methods.
-		const Consent = { render, update };
+		/**
+		 * Denies all.
+		 */
+		const denyAll = function () {
+			const state = read();
+			state.optIn = [];
+			write(state);
+			render();
+			// TODO [wip] close banner + dialog.
+		};
+
+		/**
+		 * Accept all.
+		 */
+		const acceptAll = function () {
+			const state = read();
+			state.optIn = ['gtm', 'mpixel', 'video'];
+			write(state);
+			render();
+			// TODO [wip] close banner + dialog.
+		};
+
+		// Exposed ("public") methods.
+		const Consent = { render, update, denyAll, acceptAll };
 
 		d[n] = Consent;
 
@@ -184,26 +178,8 @@
 
 <div id="Consent">
 	<div class="Consent--app">
-
-		<div class="Consent-banner active">
-			<div class="Consent-banner--info">
-				<span class="Consent-banner--text">
-					<!--- We use a selection of our own and third-party cookies on the pages of this website: Functional cookies, which provide better easy of use when using the website; and marketing cookies, which are used to know our audience better and improve our activities as a company. If you choose "ACCEPT ALL", you consent to the use of all cookies. You can accept and reject individual cookie types and revoke your consent for the future at any time at "Settings". --->
-					Usamos uma seleção de cookies próprios e de terceiros nas páginas deste site: Cookies funcionais, que proporcionam maior facilidade de uso ao utilizar o site; e cookies de marketing, que são usados para conhecer melhor nosso público e aprimorar nossas atividades como empresa. Se você escolher “ACEITAR TODOS”, estará concordando com o uso de todos os cookies. Você pode aceitar e rejeitar tipos individuais de cookies e revogar seu consentimento para o futuro a qualquer momento em “Configurações”.
-				</span>
-				<ul class="Consent-links Consent-banner--links links--row">
-					<li><a href="/cookies" target="_blank">Saber mais sobre cookies</a></li>
-				</ul>
-			</div>
-			<div class="Consent-banner--action">
-				<button class="Consent-btn Consent-settings">Configurações</button>
-				<button class="Consent-btn important denyAll">Rejeitar tudo</button>
-				<button class="Consent-btn important allowAll">Aceitar tudo</button>
-			</div>
-		</div>
-
+		<tracking-consent-banner webc:nokeep></tracking-consent-banner>
 		<tracking-consent-dialog webc:nokeep></tracking-consent-dialog>
-
 	</div>
 </div>
 
@@ -771,6 +747,10 @@
 	.Consent--app {
 		font-size: var(--size--2);
 		line-height: 1.25;
+	}
+
+	.Consent--app [role="dialog"][aria-hidden="true"] {
+		display: none;
 	}
 
 	body .Consent--app,
