@@ -3,7 +3,7 @@
  * @file
  * Tracking (Cookie) consent component.
  *
- * TODO [wip] partially based on cookiesjsr
+ * Partially based on cookiesjsr
  * @link https://github.com/jfeltkamp/cookiesjsr
  */
 -->
@@ -32,11 +32,24 @@
 		// Version the local storage key to facilitate future data structure changes.
 		const localStorageId = n + '_state_v1';
 
+		// Part of the state is not meant to be stored : the third-party code
+		// injection "locks".
+		const volatileState = { alreadyInjected: [] };
+
 		/**
-		 * Applies state to DOM.
+		 * Syncs state to DOM.
 		 *
 		 * Also handles "locks" for tracking-related scripts injection into document
 		 * in order to only load them once when they are chosen (opt-in).
+		 *
+		 * Applies (idempotent) the "correct" DOM state for :
+		 *
+		 * 1. Banner (open / closed)
+		 * 2. Dialog checkboxes (checked / unchecked)
+		 * 3. Fallback markup anywhere in current document (e.g. YouTube lite embed
+		 * 	fallback target blank links)
+		 * 4. Initial third-party code injection (no tracking code loaded without
+		 *  previously saved consent).
 		 */
 		const render = (state) => {
 			if (!state) {
@@ -47,8 +60,132 @@
 			// console.log("render()");
 			// console.log(state.optIn);
 
-			// TODO [wip] cleanup
-			state2Dom(state);
+			// 1. Keep Banner closed if options previously saved. Only open when absent.
+			if (!state.isLocallyStored) {
+				bannerOpen();
+			} else {
+				// 4. Initial third-party code injection (if any opt-in).
+				// NOT triggered when checkboxes are checked.
+				// @see update()
+				// @see save()
+				inject3rdParty(state);
+			}
+
+			// 2.1. Checkboxes to uncheck (whitelist by opt-in).
+			const checkboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"]`);
+			checkboxes.forEach((checkbox) => {
+				if (!state.optIn.includes(checkbox.getAttribute('value'))) {
+					checkbox.parentNode.classList.remove('active');
+					checkbox.parentNode.setAttribute("title", "Negar");
+				}
+			});
+
+			// 2.2. Checkboxes to check.
+			state.optIn.forEach((key) => {
+				const activeCheckboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"][value="${key}"]`);
+				activeCheckboxes.forEach((checkbox) => {
+					// Debug.
+					// console.log(checkbox);
+					if (!checkbox.parentNode.classList.contains('active')) {
+						checkbox.parentNode.classList.add('active');
+						checkbox.parentNode.setAttribute("title", "Permitir");
+					}
+				});
+			});
+
+			// 3.1. .Consent-fallback elements to display.
+			const elements2Show = document.querySelectorAll(`.Consent-fallback`);
+			elements2Show.forEach((element) => {
+				// Debug.
+				// console.log(element);
+				if (!state.optIn.includes(element.getAttribute('data-opt-in'))) {
+					element.setAttribute("aria-hidden", "false");
+				}
+			});
+
+			// 3.2. .Consent-fallback elements to hide.
+			state.optIn.forEach((key) => {
+				const elements2Hide = document.querySelectorAll(`.Consent-fallback[data-opt-in="${key}"]`);
+				elements2Hide.forEach((element) => {
+					// Debug.
+					// console.log(element);
+					element.setAttribute("aria-hidden", "true");
+				});
+			});
+		};
+
+		/**
+		 * Handles third-party code injection.
+		 */
+		const inject3rdParty = (state) => {
+			// 4.1. Third-party injection : "Google Tag Manager" tracking.
+			if (state.optIn.includes('gtm') && !volatileState.alreadyInjected.includes('gtm')) {
+				volatileState.alreadyInjected.push('gtm');
+
+				// Debug.
+				console.log("injecting <!-- Google Tag Manager -->");
+
+				// <!-- Google Tag Manager -->
+				// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
+				window['dataLayer'] = window['dataLayer'] || [];
+				window['dataLayer'].push({
+					'gtm.start': new Date().getTime(),
+					event: 'gtm.js'
+				});
+				let j = document.createElement('script');
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NC4L7JLL';
+				let f = document.getElementsByTagName('script')[0];
+				f.parentNode.insertBefore(j, f);
+				// <!-- End Google Tag Manager -->
+			}
+
+			// 4.2. Third-party injection : "Meta Pixel" tracking.
+			if (state.optIn.includes('mpixel') && !volatileState.alreadyInjected.includes('mpixel')) {
+				volatileState.alreadyInjected.push('mpixel');
+
+				// Debug.
+				console.log("injecting <!-- Meta Pixel Code -->");
+
+				// <!-- Meta Pixel Code -->
+				// !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
+				let n = window.fbq = () => {
+					n.callMethod ?
+						n.callMethod.apply(n, arguments) :
+						n.queue.push(arguments);
+				};
+				if (!window._fbq) {
+					window._fbq = n;
+				}
+				n.push = n;
+				n.loaded = !0;
+				n.version = '2.0';
+				n.queue = [];
+				let t = document.createElement('script');
+				t.async = !0;
+				t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+				let s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(t, s);
+				window.fbq('init', '3496132583785503');
+				window.fbq('track', 'PageView');
+				// <!-- End Meta Pixel Code -->
+			}
+
+			// 4.3. Third-party injection : Youtube player (inject lite-yt-embed.js).
+			if (state.optIn.includes('yt') && !volatileState.alreadyInjected.includes('yt')) {
+				volatileState.alreadyInjected.push('yt');
+
+				// Debug.
+				console.log("injecting <!-- Youtube Lite Player -->");
+
+				// <!-- Youtube Lite Player -->
+				let j = document.createElement('script');
+				j.async = true;
+				j.src = '/js/lite-yt-embed.js';
+				let f = document.getElementsByTagName('script')[0];
+				f.parentNode.insertBefore(j, f);
+				// <!-- End Youtube Lite Player -->
+			}
 		};
 
 		/**
@@ -64,17 +201,9 @@
 				optIn: [],
 			};
 
-			// Part of the state is not meant to be stored : the third-party code
-			// injection parts. We'll use the global (document) scope.
-			if (!d[n]) {
-				d[n] = {};
-			}
-			if (!('alreadyInjected' in d[n])) {
-				d[n].alreadyInjected = [];
-			}
-
 			// Debug.
 			// console.log('read state');
+			// console.log(volatileState.alreadyInjected);
 
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
@@ -120,25 +249,15 @@
 
 			if (!whitelist.includes(key)) {
 				console.error("key not whitelisted.");
-				// Debug.
-				// console.log(key);
 				return;
 			}
 
 			if (typeof value != "boolean") {
 				console.error("value not boolean.");
-				// Debug.
-				// console.log(value);
 				return;
 			}
 
 			const state = read();
-
-			// Debug.
-			// console.log(`update(${key}, ${value})`);
-			// console.log('  opt-ins before:');
-			// console.log(state.optIn);
-
 			let stateNeedsWrite = false;
 
 			// Handle deletion (removes opt-in).
@@ -153,10 +272,6 @@
 				stateNeedsWrite = true;
 			}
 
-			// Debug.
-			// console.log('  opt-ins after:');
-			// console.log(state.optIn);
-
 			if (stateNeedsWrite) {
 				// Debug.
 				// console.log(`update(${key}, ${value}) -> write :`);
@@ -164,144 +279,6 @@
 
 				write(state);
 				render(state);
-			}
-		};
-
-		/**
-		 * Syncs state -> DOM.
-		 *
-		 * Applies (idempotent) the "correct" DOM state for :
-		 *
-		 * 1. Banner (open / closed)
-		 * 2. Dialog checkboxes (checked / unchecked)
-		 * 3. Fallback markup anywhere in current document (e.g. YouTube lite embed
-		 * 	fallback target blank links)
-		 * 4. Third-party injections (no tracking code loaded without consent)
-		 */
-		const state2Dom = (state) => {
-			// Debug.
-			// console.log("state2Dom()");
-			// console.log(state);
-			// console.log(state.optIn);
-
-			// 1. Keep Banner closed if options previously saved. Only open when absent.
-			if (!state.isLocallyStored) {
-				bannerOpen();
-			}
-
-			// 2.1. Checkboxes to uncheck (whitelist by opt-in).
-			const checkboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"]`);
-			checkboxes.forEach((checkbox) => {
-				if (!state.optIn.includes(checkbox.getAttribute('value'))) {
-					checkbox.parentNode.classList.remove('active');
-					checkbox.parentNode.setAttribute("title", "Negar");
-				}
-			});
-
-			// 2.2. Checkboxes to check.
-			state.optIn.forEach((key) => {
-				const activeCheckboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"][value="${key}"]`);
-				activeCheckboxes.forEach((checkbox) => {
-					// Debug.
-					// console.log(checkbox);
-					if (!checkbox.parentNode.classList.contains('active')) {
-						checkbox.parentNode.classList.add('active');
-						checkbox.parentNode.setAttribute("title", "Permitir");
-					}
-				});
-			});
-
-			// 3.1. .Consent-fallback elements to display.
-			const elements2Show = document.querySelectorAll(`.Consent-fallback`);
-			elements2Show.forEach((element) => {
-				// Debug.
-				// console.log(element);
-				if (!state.optIn.includes(element.getAttribute('data-opt-in'))) {
-					element.setAttribute("aria-hidden", "false");
-				}
-			});
-
-			// 3.2. .Consent-fallback elements to hide.
-			state.optIn.forEach((key) => {
-				const elements2Hide = document.querySelectorAll(`.Consent-fallback[data-opt-in="${key}"]`);
-				elements2Hide.forEach((element) => {
-					// Debug.
-					// console.log(element);
-					element.setAttribute("aria-hidden", "true");
-				});
-			});
-
-			// Part of the state is not meant to be stored : the third-party code
-			// injection parts. We'll use the global (document) scope.
-			// @see read()
-
-			// 4.1. Third-party injection : "Google Tag Manager" tracking.
-			if (state.optIn.includes('gtm') && !d[n].alreadyInjected.includes('gtm')) {
-				d[n].alreadyInjected.push('gtm');
-
-				// Debug.
-				console.log("injecting <!-- Google Tag Manager -->");
-
-				// <!-- Google Tag Manager -->
-				// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
-				window['dataLayer'] = window['dataLayer'] || [];
-				window['dataLayer'].push({
-					'gtm.start': new Date().getTime(),
-					event: 'gtm.js'
-				});
-				let j = document.createElement('script');
-				j.async = true;
-				j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NC4L7JLL';
-				let f = document.getElementsByTagName('script')[0];
-				f.parentNode.insertBefore(j, f);
-				// <!-- End Google Tag Manager -->
-			}
-
-			// 4.2. Third-party injection : "Meta Pixel" tracking.
-			if (state.optIn.includes('mpixel') && !d[n].alreadyInjected.includes('mpixel')) {
-				d[n].alreadyInjected.push('mpixel');
-
-				// Debug.
-				console.log("injecting <!-- Meta Pixel Code -->");
-
-				// <!-- Meta Pixel Code -->
-				// !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
-				let n = window.fbq = () => {
-					n.callMethod ?
-						n.callMethod.apply(n, arguments) :
-						n.queue.push(arguments);
-				};
-				if (!window._fbq) {
-					window._fbq = n;
-				}
-				n.push = n;
-				n.loaded = !0;
-				n.version = '2.0';
-				n.queue = [];
-				let t = document.createElement('script');
-				t.async = !0;
-				t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-				let s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(t, s);
-				window.fbq('init', '3496132583785503');
-				window.fbq('track', 'PageView');
-				// <!-- End Meta Pixel Code -->
-			}
-
-			// 4.3. Third-party injection : Youtube player (inject lite-yt-embed.js).
-			if (state.optIn.includes('yt') && !d[n].alreadyInjected.includes('yt')) {
-				d[n].alreadyInjected.push('yt');
-
-				// Debug.
-				console.log("injecting <!-- Youtube Lite Player -->");
-
-				// <!-- Youtube Lite Player -->
-				let j = document.createElement('script');
-				j.async = true;
-				j.src = '/js/lite-yt-embed.js';
-				let f = document.getElementsByTagName('script')[0];
-				f.parentNode.insertBefore(j, f);
-				// <!-- End Youtube Lite Player -->
 			}
 		};
 
@@ -353,6 +330,7 @@
 				state.isLocallyStored = true;
 				write(state);
 				render(state);
+				inject3rdParty(state);
 			}
 
 			dialogClose();
@@ -361,6 +339,8 @@
 
 		/**
 		 * Writes + renders current state "as is".
+		 *
+		 * Injects third-party code corresponding to opt-ins.
 		 */
 		const save = () => {
 			const state = read();
@@ -371,6 +351,8 @@
 				write(state);
 				render(state);
 			}
+
+			inject3rdParty(state);
 
 			dialogClose();
 			bannerClose();
@@ -624,7 +606,8 @@
 	.Consent-banner--info {
 		margin-bottom: var(--default-margin, 1.25em);
 		max-height: calc(100vh - 100px - 2.5em);
-		overflow: auto
+		overflow: hidden;
+		overflow-y: auto;
 	}
 
 	.Consent-banner--links {
