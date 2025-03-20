@@ -10,4 +10,5 @@ export default {
 	og_image: "/img/chouette-og-image.png",
 	og_url: "http://chouette.net.br",
 	og_type: "website",
+	consent: 'GDPR & "Cookie Consent" Configurações'
 };

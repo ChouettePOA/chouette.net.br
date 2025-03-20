@@ -33,7 +33,9 @@
 	<div class="Footer-smallPrint">
 		Copyright © 2015–<span @text="new Date().getFullYear()"></span><br />
 		<span @text="$data.metadata.title"></span>
-		<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr>
+		<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr><br />
+		<!--- TODO [wip] link appearance --->
+		<button onclick="document.consent.dialogOpen()" @text="$data.metadata.consent"></button>
 	</div>
 </footer>
 

@@ -17,8 +17,7 @@
 	const closeBtns = dialog.querySelectorAll(".Consent-close");
 	closeBtns.forEach((button) => {
 		button.addEventListener("click", () => {
-			dialog.classList.remove('active');
-			dialog.setAttribute("aria-hidden", "true");
+			document.consent.dialogClose();
 		});
 	});
 
@@ -103,7 +102,7 @@
 									<h3 id="desc_functional">Required functional</h3>
 									<ul class="Consent-links Consent-service--links links--row">
 										<li>
-											<a href="/cookies" target="_blank">Saber mais sobre Funcional cookies</a>
+											<a href="/consent" target="_blank">Saber mais sobre Funcional cookies</a>
 										</li>
 									</ul>
 								</div>
@@ -153,7 +152,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="/cookies" target="_blank">Saber mais sobre Marketing cookies</a>
+											<a href="/consent" target="_blank">Saber mais sobre Marketing cookies</a>
 										</li>
 									</ul>
 								</div>
@@ -182,7 +181,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="/cookies" target="_blank">Saber mais sobre Marketing cookies</a>
+											<a href="/consent" target="_blank">Saber mais sobre Marketing cookies</a>
 										</li>
 									</ul>
 								</div>
@@ -227,7 +226,7 @@
 									<h3 id="desc_video">Videos fornecidos por YouTube (Google)</h3>
 									<ul class="Consent-links Consent-service--links links--row">
 										<li>
-											<a href="/cookies" target="_blank">Saber mais sobre Video cookies</a>
+											<a href="/consent" target="_blank">Saber mais sobre Video cookies</a>
 										</li>
 									</ul>
 								</div>
@@ -250,20 +249,20 @@
 			<div class="Consent-layer--label-all">Configurações para todos os serviços</div>
 			<div class="Consent-layer--actions">
 				<button
-					class="Consent-btn invert denyAll Consent-close"
-					onclick="document.consent.denyAll()"
+					class="Consent-btn invert denyAll"
+					onclick="document.consent.denyAll() ; document.consent.dialogClose()"
 				>
 					Rejeitar tudo
 				</button>
 				<button
-					class="Consent-btn invert allowAll Consent-close"
-					onclick="document.consent.allowAll()"
+					class="Consent-btn invert allowAll"
+					onclick="document.consent.allowAll() ; document.consent.dialogClose()"
 				>
 					Aceitar tudo
 				</button>
 				<button
-					class="Consent-btn invert important save dialog-last-tab Consent-close"
-					onclick="document.consent.render()"
+					class="Consent-btn invert important save dialog-last-tab"
+					onclick="document.consent.render() ; document.consent.dialogClose()"
 				>
 					Salvar
 				</button>

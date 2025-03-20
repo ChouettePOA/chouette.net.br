@@ -38,12 +38,8 @@
 				state = read();
 			}
 
-			if (!state || !state.optIn) {
-				return;
-			}
-
 			// Debug.
-			// console.log("render()");
+			console.log("render()");
 			// console.log(state.optIn);
 
 			// For writing "injections" locks (once).
@@ -262,7 +258,7 @@
 			const state = read();
 
 			// Debug.
-			// console.log("denyAll()");
+			console.log("denyAll()");
 			// console.log(state.optIn);
 			// console.log(state.optIn.length);
 
@@ -280,7 +276,7 @@
 			const state = read();
 
 			// Debug.
-			// console.log("allowAll()");
+			console.log("allowAll()");
 			// console.log(state.optIn);
 			// console.log(state.optIn.length);
 
@@ -291,14 +287,46 @@
 			}
 		};
 
+		const bannerOpen = () => {
+			const banner = document.querySelector("#ConsentBanner");
+			banner.classList.add('active');
+			banner.setAttribute("aria-hidden", "false");
+		};
+
+		const bannerClose = () => {
+			const banner = document.querySelector("#ConsentBanner");
+			banner.classList.remove('active');
+			banner.setAttribute("aria-hidden", "true");
+		};
+
+		const dialogOpen = () => {
+			const dialog = document.querySelector("#ConsentDialog");
+			dialog.classList.add('active');
+			dialog.setAttribute("aria-hidden", "false");
+		};
+
+		const dialogClose = () => {
+			const dialog = document.querySelector("#ConsentDialog");
+			dialog.classList.remove('active');
+			dialog.setAttribute("aria-hidden", "true");
+		};
+
 		// Exposed ("public") methods.
-		const Consent = { render, update, denyAll, allowAll };
+		const Consent = {
+			render,
+			update,
+			denyAll,
+			allowAll,
+			bannerOpen,
+			bannerClose,
+			dialogOpen,
+			dialogClose
+		};
 
 		d[n] = Consent;
 
 		return Consent;
 	}
-
 </script>
 
 <div id="Consent">
