@@ -55,6 +55,7 @@
 	aria-labelledby="cookiesjsrLabel"
 	aria-modal="true"
 	class="Consent-layer--wrapper"
+	aria-hidden="true"
 >
 	<div class="Consent-layer--overlay Consent-close" title="Fechar"></div>
 	<div class="Consent-layer">
@@ -250,19 +251,19 @@
 			<div class="Consent-layer--actions">
 				<button
 					class="Consent-btn invert denyAll"
-					onclick="document.consent.denyAll() ; document.consent.dialogClose()"
+					onclick="document.consent.denyAll()"
 				>
 					Rejeitar tudo
 				</button>
 				<button
 					class="Consent-btn invert allowAll"
-					onclick="document.consent.allowAll() ; document.consent.dialogClose()"
+					onclick="document.consent.allowAll()"
 				>
 					Aceitar tudo
 				</button>
 				<button
 					class="Consent-btn invert important save dialog-last-tab"
-					onclick="document.consent.render() ; document.consent.dialogClose()"
+					onclick="document.consent.save()"
 				>
 					Salvar
 				</button>

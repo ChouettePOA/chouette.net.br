@@ -110,9 +110,9 @@
 			state.isLocallyStored = true;
 
 			// Debug.
-			console.log('write state');
+			// console.log('write state');
 			// console.log('  state.optIn :');
-			console.log(state.optIn);
+			// console.log(state.optIn);
 
 			return localStorage.setItem(
 				localStorageId,
@@ -167,8 +167,8 @@
 
 			if (stateNeedsWrite) {
 				// Debug.
-				console.log(`update(${key}, ${value}) -> write :`);
-				console.log(state.optIn);
+				// console.log(`update(${key}, ${value}) -> write :`);
+				// console.log(state.optIn);
 
 				write(state);
 				render(state);
@@ -189,6 +189,7 @@
 		const state2Dom = (state) => {
 			// Debug.
 			// console.log("state2Dom()");
+			// console.log(state);
 			// console.log(state.optIn);
 
 			// 1. Keep Banner closed if options previously saved. Only open when absent.
@@ -280,7 +281,7 @@
 				let t = document.createElement('script');
 				t.async = !0;
 				t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-				let s = b.getElementsByTagName(e)[0];
+				let s = document.getElementsByTagName('script')[0];
 				s.parentNode.insertBefore(t, s);
 				window.fbq('init', '3496132583785503');
 				window.fbq('track', 'PageView');
@@ -309,7 +310,8 @@
 			const state = read();
 
 			// Debug.
-			console.log("denyAll()");
+			// console.log("denyAll()");
+			// console.log(state);
 			// console.log(state.optIn);
 			// console.log(state.optIn.length);
 
@@ -317,7 +319,15 @@
 				state.optIn = [];
 				write(state);
 				render(state);
+			} else if (!state.isLocallyStored) {
+				// First time call : needs to at least set isLocallyStored true.
+				state.isLocallyStored = true;
+				write(state);
+				render(state);
 			}
+
+			dialogClose();
+			bannerClose();
 		};
 
 		/**
@@ -327,7 +337,8 @@
 			const state = read();
 
 			// Debug.
-			console.log("allowAll()");
+			// console.log("allowAll()");
+			// console.log(state);
 			// console.log(state.optIn);
 			// console.log(state.optIn.length);
 
@@ -335,7 +346,32 @@
 				state.optIn = ['gtm', 'mpixel', 'yt'];
 				write(state);
 				render(state);
+			} else if (!state.isLocallyStored) {
+				// First time call : needs to at least set isLocallyStored true.
+				state.isLocallyStored = true;
+				write(state);
+				render(state);
 			}
+
+			dialogClose();
+			bannerClose();
+		};
+
+		/**
+		 * Writes + renders current state "as is".
+		 */
+		const save = () => {
+			const state = read();
+
+			// First time call : needs to at least set isLocallyStored true.
+			if (!state.isLocallyStored) {
+				state.isLocallyStored = true;
+				write(state);
+				render(state);
+			}
+
+			dialogClose();
+			bannerClose();
 		};
 
 		const bannerOpen = () => {
@@ -366,6 +402,7 @@
 		const Consent = {
 			render,
 			update,
+			save,
 			denyAll,
 			allowAll,
 			bannerOpen,
@@ -550,9 +587,8 @@
 	.Consent-banner {
 		position: fixed;
 		z-index: 100;
-		right: 1em;
-		bottom: 1em;
-		width: 420px;
+		left: 1em;
+		width: 66ch;
 		height: auto;
 		max-width: calc(100vw - 2em);
 		max-height: calc(100vh - 2em);
@@ -570,7 +606,8 @@
 	}
 
 	.Consent-banner.active {
-		transform: translateY(0)
+		transform: translateY(0);
+		bottom: 1em;
 	}
 
 	.Consent-banner a {

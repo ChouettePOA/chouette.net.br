@@ -10,20 +10,6 @@
  */
 -->
 
-<script>
-	const banner = document.querySelector("#ConsentBanner");
-
-	// Close the banner.
-	banner.querySelector(".Consent-btn.denyAll").addEventListener("click", () => {
-		document.consent.bannerClose();
-	});
-
-	// Open dialog.
-	banner.querySelector(".Consent-btn.settings").addEventListener("click", () => {
-		document.consent.dialogOpen();
-	});
-</script>
-
 <div id="ConsentBanner" class="Consent-banner">
 	<div class="Consent-banner--info">
 		<span class="Consent-banner--text">
@@ -35,16 +21,21 @@
 		</ul>
 	</div>
 	<div class="Consent-banner--action">
-		<button class="Consent-btn settings">Configurações</button>
+		<button
+			class="Consent-btn settings"
+			onclick="document.consent.dialogOpen()"
+		>
+			Configurações
+		</button>
 		<button
 			class="Consent-btn important denyAll"
-			onclick="document.consent.denyAll() ; document.consent.dialogClose()"
+			onclick="document.consent.denyAll()"
 		>
 			Rejeitar tudo
 		</button>
 		<button
 			class="Consent-btn important allowAll"
-			onclick="document.consent.allowAll() ; document.consent.dialogClose()"
+			onclick="document.consent.allowAll()"
 		>
 			Aceitar tudo
 		</button>
