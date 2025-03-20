@@ -42,6 +42,10 @@
 				return;
 			}
 
+			// Debug.
+			// console.log("render()");
+			// console.log(state.optIn);
+
 			// For writing "injections" locks (once).
 			let stateNeedsWrite = false;
 
@@ -69,9 +73,11 @@
 				// <!-- End Meta Pixel Code -->
 			}
 
-			// Youtube player -> inject /js/lite-yt-embed.js
-			// TODO [wip] links by default in noscript markup.
-			if (state.optIn.includes('yt')) {
+			// Youtube player -> inject lite-yt-embed.js
+			if (state.optIn.includes('yt') && !state.alreadyInjected.includes('yt')) {
+				state.alreadyInjected.push('yt');
+				stateNeedsWrite = true;
+
 				// Debug.
 				console.log("injecting <!-- Youtube Lite Player -->");
 				// <!-- Youtube Lite Player -->
@@ -87,7 +93,6 @@
 				write(state);
 			}
 
-			// Sync initial state to DOM.
 			state2Dom(state);
 		};
 
@@ -106,7 +111,7 @@
 			};
 
 			// Debug.
-			console.log('read state');
+			// console.log('read state');
 
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
@@ -135,6 +140,8 @@
 
 			// Debug.
 			console.log('write state');
+			// console.log('  state.optIn :');
+			console.log(state.optIn);
 
 			return localStorage.setItem(
 				localStorageId,
@@ -189,7 +196,7 @@
 
 			if (stateNeedsWrite) {
 				write(state);
-				state2Dom(state);
+				render(state);
 			}
 		};
 
@@ -197,45 +204,95 @@
 		 * Syncs state -> DOM.
 		 */
 		const state2Dom = (state) => {
+			// Debug.
+			// console.log("state2Dom()");
+			// console.log(state.optIn);
+
 			// Keep Banner closed if options previously saved. Only open when absent.
 			if (!state.isLocallyStored) {
 				const banner = document.querySelector('#ConsentBanner');
 				banner.classList.add('active');
 			}
 
-			// Checkboxes in sync.
-			const checkboxes = document.querySelector('#ConsentDialog input[type="checkbox"]');
-			// TODO
+			// Checkboxes to uncheck (whitelist by opt-in).
+			const checkboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"]`);
+			checkboxes.forEach((checkbox) => {
+				if (!state.optIn.includes(checkbox.getAttribute('value'))) {
+					checkbox.parentNode.classList.remove('active');
+					checkbox.parentNode.setAttribute("title", "Negar");
+				}
+			});
+
+			// .Consent-fallback elements to display.
+			const elements2Show = document.querySelectorAll(`.Consent-fallback`);
+			elements2Show.forEach((element) => {
+				// Debug.
+				// console.log(element);
+				if (!state.optIn.includes(element.getAttribute('data-opt-in'))) {
+					element.setAttribute("aria-hidden", "false");
+				}
+			});
+
+			state.optIn.forEach((key) => {
+				// Checkboxes to check.
+				const activeCheckboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"][value="${key}"]`);
+				activeCheckboxes.forEach((checkbox) => {
+					// Debug.
+					// console.log(checkbox);
+					if (!checkbox.parentNode.classList.contains('active')) {
+						checkbox.parentNode.classList.add('active');
+						checkbox.parentNode.setAttribute("title", "Permitir");
+					}
+				});
+
+				// .Consent-fallback elements to hide.
+				const elements2Hide = document.querySelectorAll(`.Consent-fallback[data-opt-in="${key}"]`);
+				elements2Hide.forEach((element) => {
+					// Debug.
+					// console.log(element);
+					element.setAttribute("aria-hidden", "true");
+				});
+			});
 		};
 
 		/**
-		 * Denies all.
+		 * Denies everything trackable at once.
 		 */
 		const denyAll = () => {
 			const state = read();
 
-			if (state.optIn.count > 0) {
+			// Debug.
+			// console.log("denyAll()");
+			// console.log(state.optIn);
+			// console.log(state.optIn.length);
+
+			if (state.optIn.length > 0) {
 				state.optIn = [];
 				write(state);
-				state2Dom(state);
+				render(state);
 			}
 		};
 
 		/**
-		 * Accept all.
+		 * Allows everything trackable at once.
 		 */
-		const acceptAll = () => {
+		const allowAll = () => {
 			const state = read();
 
-			if (state.optIn.count < 3) {
+			// Debug.
+			// console.log("allowAll()");
+			// console.log(state.optIn);
+			// console.log(state.optIn.length);
+
+			if (state.optIn.length < 3) {
 				state.optIn = ['gtm', 'mpixel', 'yt'];
 				write(state);
-				render();
+				render(state);
 			}
 		};
 
 		// Exposed ("public") methods.
-		const Consent = { render, update, denyAll, acceptAll };
+		const Consent = { render, update, denyAll, allowAll };
 
 		d[n] = Consent;
 
@@ -252,6 +309,10 @@
 </div>
 
 <style>
+	.Consent-fallback[aria-hidden="true"] {
+		display: none;
+	}
+
 	.Consent-btn {
 		cursor: pointer;
 		font: inherit;

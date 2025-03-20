@@ -4,6 +4,9 @@
  * Workaround for failed attempts documented in :
  *
  * @see src/components/youtube-lite-player.webc
+ *
+ * Fallback content for consents is handled there :
+ * @see src/components/tracking-consent.webc
  */
 -->
 
@@ -13,6 +16,13 @@
 			:videoid="videoid"
 			:playlabel="playlabel"
 		></lite-youtube>
+		<div class="Consent-fallback" data-opt-in="yt">
+			<a
+				class="Video-fallback-link"
+				:href="`https://www.youtube.com/shorts/${videoid}`"
+				@text="playlabel"
+			></a>
+		</div>
 	</div>
 </div>
 
@@ -47,6 +57,8 @@
 		width: 100%;
 		border: 0 none;
 	}
+
+	/* TODO [wip] .Video-fallback-link */
 
 	lite-youtube {
 		background-color: #000;

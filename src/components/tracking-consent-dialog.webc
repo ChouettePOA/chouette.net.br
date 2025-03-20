@@ -158,7 +158,7 @@
 									</ul>
 								</div>
 								<div class="Consent-service--action">
-									<label class="Consent-switch" title="Denied">
+									<label class="Consent-switch" title="Negar">
 										<input
 											type="checkbox"
 											aria-describedby="desc_gtm"
@@ -187,7 +187,7 @@
 									</ul>
 								</div>
 								<div class="Consent-service--action">
-									<label class="Consent-switch" title="Denied">
+									<label class="Consent-switch" title="Negar">
 										<input
 											type="checkbox"
 											aria-describedby="desc_mpixel"
@@ -232,7 +232,7 @@
 									</ul>
 								</div>
 								<div class="Consent-service--action">
-									<label class="Consent-switch" title="Denied">
+									<label class="Consent-switch" title="Negar">
 										<input
 											type="checkbox"
 											aria-describedby="desc_video"
@@ -250,19 +250,19 @@
 			<div class="Consent-layer--label-all">Configurações para todos os serviços</div>
 			<div class="Consent-layer--actions">
 				<button
-					class="Consent-btn invert denyAll"
+					class="Consent-btn invert denyAll Consent-close"
 					onclick="document.consent.denyAll()"
 				>
 					Rejeitar tudo
 				</button>
 				<button
-					class="Consent-btn invert allowAll"
+					class="Consent-btn invert allowAll Consent-close"
 					onclick="document.consent.allowAll()"
 				>
 					Aceitar tudo
 				</button>
 				<button
-					class="Consent-btn invert important save dialog-last-tab"
+					class="Consent-btn invert important save dialog-last-tab Consent-close"
 					onclick="document.consent.render()"
 				>
 					Salvar
