@@ -116,11 +116,16 @@ export default function(eleventyConfig) {
 	// "Static" assets (e.g. logo img, favicon, robots.txt, etc).
 	eleventyConfig.addPassthroughCopy({ "src/static": '.' });
 
+	// Update 2025/03/20 : lite-yt-embed.js is injected by Consent.
+	// @see src/components/tracking-consent.webc
+	// Also, don't copy the SVG lib we don't currently use.
+	// @see src/components/deco-vine.webc
+	// @see src/routes/styleguide.webc
 	// Make some Node modules available in components.
-	eleventyConfig.addPassthroughCopy({
-		"node_modules/@svgdotjs/svg.js/dist/svg.min.js": "js/svg.min.js",
-		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "js/lite-yt-embed.js"
-	});
+	// eleventyConfig.addPassthroughCopy({
+	// 	"node_modules/@svgdotjs/svg.js/dist/svg.min.js": "js/svg.min.js",
+	// 	"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "js/lite-yt-embed.js"
+	// });
 
 	return core11tyOptions;
 };
