@@ -17,7 +17,8 @@
 	const closeBtns = dialog.querySelectorAll(".Consent-close");
 	closeBtns.forEach((button) => {
 		button.addEventListener("click", () => {
-			dialog.setAttribute("aria-hidden","true");
+			dialog.classList.remove('active');
+			dialog.setAttribute("aria-hidden", "true");
 		});
 	});
 
@@ -34,7 +35,7 @@
 	/**
 	 * Sync tabs state.
 	 */
-	const switchTab = function (tabs, activeTab) {
+	const switchTab = (tabs, activeTab) => {
 		if (activeTab.classList.contains('active')) {
 			return;
 		}

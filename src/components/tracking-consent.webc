@@ -65,6 +65,9 @@
 			if (stateNeedsWrite) {
 				write(state);
 			}
+
+			// Sync initial state to DOM.
+			state2Dom(state);
 		};
 
 		/**
@@ -73,7 +76,6 @@
 		 * Last values are overriding lower layers, in this order :
 		 * 	- defaults
 		 * 	- localStorage
-		 * 	- UI state
 		 */
 		const read = function () {
 			let defaultState = {
@@ -114,9 +116,7 @@
 		};
 
 		/**
-		 * Saves an option.
-		 *
-		 * onchange="input('foobar', this.value)"
+		 * Saves an option (opt-in deletion or addition).
 		 */
 		const update = (key, value) => {
 			const state = read(localStorageId);
@@ -133,7 +133,7 @@
 				stateNeedsWrite = true;
 			}
 
-			// Handle addition (removes opt-in).
+			// Handle addition (adds opt-in).
 			if (value && !state.optIn.includes(key)) {
 				state.optIn.push(key);
 				stateNeedsWrite = true;
@@ -145,6 +145,21 @@
 		};
 
 		/**
+		 * Syncs state -> DOM.
+		 */
+		const state2Dom = (state) => {
+			// Keep closed if options previously saved. Only open when absent.
+			if (!state.isLocallyStored) {
+				// Banner
+				const banner = document.querySelector("#ConsentBanner");
+				banner.classList.add('active');
+
+				// TODO [wip] youtube links for video consent.
+				// if (state.optIn.includes('video')) {}
+			}
+		};
+
+		/**
 		 * Denies all.
 		 */
 		const denyAll = function () {
@@ -152,7 +167,6 @@
 			state.optIn = [];
 			write(state);
 			render();
-			// TODO [wip] close banner + dialog.
 		};
 
 		/**
@@ -163,7 +177,6 @@
 			state.optIn = ['gtm', 'mpixel', 'video'];
 			write(state);
 			render();
-			// TODO [wip] close banner + dialog.
 		};
 
 		// Exposed ("public") methods.
@@ -393,7 +406,7 @@
 		padding: 0
 	}
 
-	.Consent-banner button.Consent-settings,
+	.Consent-banner button.settings,
 	.Consent-banner button.denyAll,
 	.Consent-banner button.allowAll {
 		display: inline-block;
