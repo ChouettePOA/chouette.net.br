@@ -33,13 +33,16 @@
 		/**
 		 * Applies state to DOM.
 		 */
-		const render = function () {
-			const state = read();
+		const render = (state) => {
+			if (!state) {
+				state = read();
+			}
 
 			if (!state || !state.optIn) {
 				return;
 			}
 
+			// For writing "injections" locks (once).
 			let stateNeedsWrite = false;
 
 			// "Google Tag Manager" tracking.
@@ -47,8 +50,10 @@
 				state.alreadyInjected.push('gtm');
 				stateNeedsWrite = true;
 
+				// Debug.
+				console.log("injecting <!-- Google Tag Manager -->");
 				// <!-- Google Tag Manager -->
-				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
+				// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
 				// <!-- End Google Tag Manager -->
 			}
 
@@ -57,9 +62,25 @@
 				state.alreadyInjected.push('mpixel');
 				stateNeedsWrite = true;
 
+				// Debug.
+				console.log("injecting <!-- Meta Pixel Code -->");
 				// <!-- Meta Pixel Code -->
-				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
+				// !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
 				// <!-- End Meta Pixel Code -->
+			}
+
+			// Youtube player -> inject /js/lite-yt-embed.js
+			// TODO [wip] links by default in noscript markup.
+			if (state.optIn.includes('yt')) {
+				// Debug.
+				console.log("injecting <!-- Youtube Lite Player -->");
+				// <!-- Youtube Lite Player -->
+				const j = document.createElement('script');
+				j.async = true;
+				j.src='/js/lite-yt-embed.js';
+				const f = document.getElementsByTagName('script')[0];
+				f.parentNode.insertBefore(j, f);
+				// <!-- End Youtube Lite Player -->
 			}
 
 			if (stateNeedsWrite) {
@@ -77,12 +98,15 @@
 		 * 	- defaults
 		 * 	- localStorage
 		 */
-		const read = function () {
+		const read = () => {
 			let defaultState = {
 				isLocallyStored: false,
 				optIn: [],
 				alreadyInjected: [],
 			};
+
+			// Debug.
+			console.log('read state');
 
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
@@ -109,6 +133,9 @@
 
 			state.isLocallyStored = true;
 
+			// Debug.
+			console.log('write state');
+
 			return localStorage.setItem(
 				localStorageId,
 				JSON.stringify(state)
@@ -116,14 +143,31 @@
 		};
 
 		/**
-		 * Saves an option (opt-in deletion or addition).
+		 * Saves an option (opt-ins deletion or addition).
 		 */
 		const update = (key, value) => {
-			const state = read(localStorageId);
+			const whitelist = ['gtm', 'mpixel', 'yt'];
 
-			if (!state) {
+			if (!whitelist.includes(key)) {
+				console.error("key not whitelisted.");
+				// Debug.
+				// console.log(key);
 				return;
 			}
+
+			if (typeof value != "boolean") {
+				console.error("value not boolean.");
+				// Debug.
+				// console.log(value);
+				return;
+			}
+
+			const state = read();
+
+			// Debug.
+			// console.log(`update(${key}, ${value})`);
+			// console.log('  opt-ins before:');
+			// console.log(state.optIn);
 
 			let stateNeedsWrite = false;
 
@@ -139,8 +183,13 @@
 				stateNeedsWrite = true;
 			}
 
+			// Debug.
+			// console.log('  opt-ins after:');
+			// console.log(state.optIn);
+
 			if (stateNeedsWrite) {
 				write(state);
+				state2Dom(state);
 			}
 		};
 
@@ -148,35 +197,41 @@
 		 * Syncs state -> DOM.
 		 */
 		const state2Dom = (state) => {
-			// Keep closed if options previously saved. Only open when absent.
+			// Keep Banner closed if options previously saved. Only open when absent.
 			if (!state.isLocallyStored) {
-				// Banner
-				const banner = document.querySelector("#ConsentBanner");
+				const banner = document.querySelector('#ConsentBanner');
 				banner.classList.add('active');
-
-				// TODO [wip] youtube links for video consent.
-				// if (state.optIn.includes('video')) {}
 			}
+
+			// Checkboxes in sync.
+			const checkboxes = document.querySelector('#ConsentDialog input[type="checkbox"]');
+			// TODO
 		};
 
 		/**
 		 * Denies all.
 		 */
-		const denyAll = function () {
+		const denyAll = () => {
 			const state = read();
-			state.optIn = [];
-			write(state);
-			render();
+
+			if (state.optIn.count > 0) {
+				state.optIn = [];
+				write(state);
+				state2Dom(state);
+			}
 		};
 
 		/**
 		 * Accept all.
 		 */
-		const acceptAll = function () {
+		const acceptAll = () => {
 			const state = read();
-			state.optIn = ['gtm', 'mpixel', 'video'];
-			write(state);
-			render();
+
+			if (state.optIn.count < 3) {
+				state.optIn = ['gtm', 'mpixel', 'yt'];
+				write(state);
+				render();
+			}
 		};
 
 		// Exposed ("public") methods.

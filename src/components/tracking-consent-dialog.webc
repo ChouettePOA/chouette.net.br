@@ -236,7 +236,7 @@
 										<input
 											type="checkbox"
 											aria-describedby="desc_video"
-											value="video"
+											value="yt"
 											onchange="document.consent.update(this.value, this.checked)"
 										></label>
 									</div>

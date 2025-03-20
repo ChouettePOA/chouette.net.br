@@ -90,6 +90,8 @@ title: "Chouettes pelo mundo"
 </page-section>
 
 <!---
+	TODO [wip]
+	@see src/components/tracking-consent.webc
 <script src="/js/lite-yt-embed.js"></script>
---->
 <script src="../../node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
+--->
