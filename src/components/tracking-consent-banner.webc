@@ -15,14 +15,12 @@
 
 	// Close the banner.
 	banner.querySelector(".Consent-btn.denyAll").addEventListener("click", () => {
-		banner.classList.remove('active');
+		document.consent.bannerClose();
 	});
 
 	// Open dialog.
 	banner.querySelector(".Consent-btn.settings").addEventListener("click", () => {
-		const dialog = document.querySelector("#ConsentDialog");
-		dialog.classList.add('active');
-		dialog.setAttribute("aria-hidden", "false");
+		document.consent.dialogOpen();
 	});
 </script>
 
@@ -38,7 +36,17 @@
 	</div>
 	<div class="Consent-banner--action">
 		<button class="Consent-btn settings">Configurações</button>
-		<button class="Consent-btn important denyAll">Rejeitar tudo</button>
-		<button class="Consent-btn important allowAll">Aceitar tudo</button>
+		<button
+			class="Consent-btn important denyAll"
+			onclick="document.consent.denyAll() ; document.consent.dialogClose()"
+		>
+			Rejeitar tudo
+		</button>
+		<button
+			class="Consent-btn important allowAll"
+			onclick="document.consent.allowAll() ; document.consent.dialogClose()"
+		>
+			Aceitar tudo
+		</button>
 	</div>
 </div>

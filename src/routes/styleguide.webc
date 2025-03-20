@@ -42,11 +42,16 @@ title: "Styleguide Chouette 2024"
 </page-section>
 
 <page-section class="u-vspacer">
+	<!---
+	Update 2025/03/20 : don't copy the SVG lib we don't currently use.
+	@see src/components/deco-vine.webc
 	<deco-vine>
 		<h2>Deco vine wrap test</h2>
 	</deco-vine>
+	--->
+	<h2>(Deco-vine placeholder)</h2>
 	<div class="s-rich-text">
-		<p>Body text</p>
+		<p>Uncomment passthrough SVG lib in 11ty settings to preview the deco-vine component</p>
 	</div>
 </page-section>
 
