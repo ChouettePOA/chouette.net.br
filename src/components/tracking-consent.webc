@@ -245,6 +245,16 @@
 
 				// <!-- Google Tag Manager -->
 				// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NC4L7JLL');
+				window['dataLayer'] = window['dataLayer'] || [];
+				window['dataLayer'].push({
+					'gtm.start': new Date().getTime(),
+					event: 'gtm.js'
+				});
+				let j = document.createElement('script');
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NC4L7JLL';
+				let f = document.getElementsByTagName('script')[0];
+				f.parentNode.insertBefore(j, f);
 				// <!-- End Google Tag Manager -->
 			}
 
@@ -255,6 +265,25 @@
 
 				// <!-- Meta Pixel Code -->
 				// !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '3496132583785503');fbq('track', 'PageView');
+				let n = window.fbq = () => {
+					n.callMethod ?
+						n.callMethod.apply(n, arguments) :
+						n.queue.push(arguments);
+				};
+				if (!window._fbq) {
+					window._fbq = n;
+				}
+				n.push = n;
+				n.loaded = !0;
+				n.version = '2.0';
+				n.queue = [];
+				let t = document.createElement('script');
+				t.async = !0;
+				t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+				let s = b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t, s);
+				window.fbq('init', '3496132583785503');
+				window.fbq('track', 'PageView');
 				// <!-- End Meta Pixel Code -->
 			}
 
@@ -264,10 +293,10 @@
 				console.log("injecting <!-- Youtube Lite Player -->");
 
 				// <!-- Youtube Lite Player -->
-				const j = document.createElement('script');
+				let j = document.createElement('script');
 				j.async = true;
-				j.src='/js/lite-yt-embed.js';
-				const f = document.getElementsByTagName('script')[0];
+				j.src = '/js/lite-yt-embed.js';
+				let f = document.getElementsByTagName('script')[0];
 				f.parentNode.insertBefore(j, f);
 				// <!-- End Youtube Lite Player -->
 			}
