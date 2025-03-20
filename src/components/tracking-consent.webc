@@ -13,6 +13,8 @@
 
 	/**
 	 * Minimalist "singleton".
+	 *
+	 * Defaults to : document.consent
 	 */
 	function getConsent(d, n) {
 		if (!d) {
@@ -45,26 +47,8 @@
 			// console.log("render()");
 			// console.log(state.optIn);
 
+			// TODO [wip] cleanup
 			state2Dom(state);
-
-			// Handling third-party code injection locks (for opt-in choices to be
-			// loaded once).
-			let stateNeedsWrite = false;
-			if (state.optIn.includes('gtm') && !state.alreadyInjected.includes('gtm')) {
-				state.alreadyInjected.push('gtm');
-				stateNeedsWrite = true;
-			}
-			if (state.optIn.includes('mpixel') && !state.alreadyInjected.includes('mpixel')) {
-				state.alreadyInjected.push('mpixel');
-				stateNeedsWrite = true;
-			}
-			if (state.optIn.includes('yt') && !state.alreadyInjected.includes('yt')) {
-				state.alreadyInjected.push('yt');
-				stateNeedsWrite = true;
-			}
-			if (stateNeedsWrite) {
-				write(state);
-			}
 		};
 
 		/**
@@ -78,8 +62,16 @@
 			let defaultState = {
 				isLocallyStored: false,
 				optIn: [],
-				alreadyInjected: [],
 			};
+
+			// Part of the state is not meant to be stored : the third-party code
+			// injection parts. We'll use the global (document) scope.
+			if (!d[n]) {
+				d[n] = {};
+			}
+			if (!('alreadyInjected' in d[n])) {
+				d[n].alreadyInjected = [];
+			}
 
 			// Debug.
 			// console.log('read state');
@@ -239,8 +231,14 @@
 				});
 			});
 
+			// Part of the state is not meant to be stored : the third-party code
+			// injection parts. We'll use the global (document) scope.
+			// @see read()
+
 			// 4.1. Third-party injection : "Google Tag Manager" tracking.
-			if (state.optIn.includes('gtm') && !state.alreadyInjected.includes('gtm')) {
+			if (state.optIn.includes('gtm') && !d[n].alreadyInjected.includes('gtm')) {
+				d[n].alreadyInjected.push('gtm');
+
 				// Debug.
 				console.log("injecting <!-- Google Tag Manager -->");
 
@@ -260,7 +258,9 @@
 			}
 
 			// 4.2. Third-party injection : "Meta Pixel" tracking.
-			if (state.optIn.includes('mpixel') && !state.alreadyInjected.includes('mpixel')) {
+			if (state.optIn.includes('mpixel') && !d[n].alreadyInjected.includes('mpixel')) {
+				d[n].alreadyInjected.push('mpixel');
+
 				// Debug.
 				console.log("injecting <!-- Meta Pixel Code -->");
 
@@ -289,7 +289,9 @@
 			}
 
 			// 4.3. Third-party injection : Youtube player (inject lite-yt-embed.js).
-			if (state.optIn.includes('yt') && !state.alreadyInjected.includes('yt')) {
+			if (state.optIn.includes('yt') && !d[n].alreadyInjected.includes('yt')) {
+				d[n].alreadyInjected.push('yt');
+
 				// Debug.
 				console.log("injecting <!-- Youtube Lite Player -->");
 
