@@ -278,8 +278,9 @@
 				// console.log(state.optIn);
 
 				write(state);
-				render(state);
 			}
+
+			render(state);
 		};
 
 		/**
