@@ -10,20 +10,27 @@
  */
 -->
 
-<div :class="'Video' + (variant ? ' ' + variant : '')">
+<div
+	:class="'Consent-fallback Video' + (variant ? ' ' + variant : '')"
+	data-show-when-accepted="yt"
+	aria-hidden="true"
+>
 	<div class="Video-ratio-wrap">
 		<lite-youtube
 			:videoid="videoid"
 			:playlabel="playlabel"
 		></lite-youtube>
-		<div class="Consent-fallback" data-opt-in="yt">
-			<a
-				class="Video-fallback-link"
-				:href="`https://www.youtube.com/shorts/${videoid}`"
-				@text="playlabel"
-			></a>
-		</div>
 	</div>
+</div>
+
+<div class="Consent-fallback" data-show-when-rejected="yt">
+	Assistir o video no YouTube :<br/>
+	<a
+		class="Video-fallback-link"
+		:href="`https://www.youtube.com/shorts/${videoid}`"
+		target="_blank"
+		@text="playlabel"
+	></a>
 </div>
 
 <style>

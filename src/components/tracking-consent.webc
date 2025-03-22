@@ -65,7 +65,7 @@
 				bannerOpen();
 			} else if (!state.volatile.skip3rdPartyInjection) {
 				// Debug.
-				console.log("Third-party code injection from render().");
+				// console.log("Third-party code injection from render().");
 
 				// 4. Initial third-party code injection (if any opt-in).
 				// NOT triggered when checkboxes are checked.
@@ -75,7 +75,7 @@
 			}
 
 			// 2.1. Checkboxes to uncheck (whitelist by opt-in).
-			const checkboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"]`);
+			const checkboxes = document.querySelectorAll('#ConsentDialog input[type="checkbox"]');
 			checkboxes.forEach((checkbox) => {
 				if (!state.stored.optIn.includes(checkbox.getAttribute('value'))) {
 					checkbox.checked = false;
@@ -94,23 +94,35 @@
 				});
 			});
 
-			// 3.1. .Consent-fallback elements to display.
-			const elements2Show = document.querySelectorAll(`.Consent-fallback`);
-			elements2Show.forEach((element) => {
-				// Debug.
-				// console.log(element);
-				if (!state.stored.optIn.includes(element.getAttribute('data-opt-in'))) {
-					element.setAttribute("aria-hidden", "false");
-				}
+			// 3.1. First deal with all .Consent-fallback elements without distinction.
+			const hideAllFirst = document.querySelectorAll(
+				'.Consent-fallback[data-show-when-accepted]'
+			);
+			hideAllFirst.forEach((element) => {
+				element.setAttribute("aria-hidden", true);
 			});
 
-			// 3.2. .Consent-fallback elements to hide.
+			const showAllFirst = document.querySelectorAll(
+				'.Consent-fallback[data-show-when-rejected]'
+			);
+			showAllFirst.forEach((element) => {
+				element.removeAttribute("aria-hidden");
+			});
+
+			// 3.2. Then deal with matching ones.
 			state.stored.optIn.forEach((key) => {
-				const elements2Hide = document.querySelectorAll(`.Consent-fallback[data-opt-in="${key}"]`);
-				elements2Hide.forEach((element) => {
-					// Debug.
-					// console.log(element);
-					element.setAttribute("aria-hidden", "true");
+				const matchingElementsToHide = document.querySelectorAll(
+					`.Consent-fallback[data-show-when-rejected="${key}"]`
+				);
+				matchingElementsToHide.forEach((element) => {
+					element.setAttribute("aria-hidden", true);
+				});
+
+				const matchingElementsToShow = document.querySelectorAll(
+					`.Consent-fallback[data-show-when-accepted="${key}"]`
+				);
+				matchingElementsToShow.forEach((element) => {
+					element.removeAttribute("aria-hidden");
 				});
 			});
 		};
@@ -144,13 +156,7 @@
 			};
 
 			if (d && k in d) {
-				// Debug.
-				console.log('The volatile state exists on the global document object.');
-
 				state.volatile = { ...d[k] };
-			} else {
-				// Debug.
-				console.log('Volatile state is the default, hardcoded one.');
 			}
 
 			if (typeof localStorage === 'undefined') {
@@ -231,12 +237,13 @@
 
 			if (stateNeedsWrite) {
 				// Debug.
-				console.log(`write() from update(${key}, ${value})`);
+				// console.log(`write() from update(${key}, ${value})`);
 				// console.log(state.stored.optIn);
 
 				// Only trigger the third-party code injection when clicking on save(),
 				// and NOT immediately when checking the checkboxes.
 				// @see render()
+				// @see save()
 				state.volatile.skip3rdPartyInjection = true;
 
 				write(state);
@@ -323,10 +330,6 @@
 			}
 
 			if (stateNeedsWrite) {
-				// Debug.
-				console.log("write(state) from inject3rdParty()");
-				console.log(state);
-
 				write(state);
 				render(state);
 			}
@@ -404,6 +407,7 @@
 			// Only trigger the third-party code injection when clicking on save(),
 			// and NOT immediately when checking the checkboxes.
 			// @see render()
+			// @see update()
 			state.volatile.skip3rdPartyInjection = false;
 
 			inject3rdParty(state);
