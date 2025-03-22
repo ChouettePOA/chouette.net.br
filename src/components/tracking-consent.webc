@@ -56,13 +56,14 @@
 			}
 
 			// Debug.
-			// console.log("render()");
+			// console.log("render() state :");
+			// console.log(state);
 			// console.log(state.stored.optIn);
 
 			// 1. Keep Banner closed if options previously saved. Only open when absent.
 			if (!state.stored.exists) {
 				bannerOpen();
-			} else {
+			} else if (!state.volatile.skip3rdPartyInjection) {
 				// Debug.
 				console.log("Third-party code injection from render().");
 
@@ -87,11 +88,9 @@
 			state.stored.optIn.forEach((key) => {
 				const activeCheckboxes = document.querySelectorAll(`#ConsentDialog input[type="checkbox"][value="${key}"]`);
 				activeCheckboxes.forEach((checkbox) => {
-					if (!checkbox.checked) {
-						checkbox.checked = true;
-						checkbox.parentNode.classList.add('active');
-						checkbox.parentNode.setAttribute("title", "Permitir");
-					}
+					checkbox.checked = true;
+					checkbox.parentNode.classList.add('active');
+					checkbox.parentNode.setAttribute("title", "Permitir");
 				});
 			});
 
@@ -129,6 +128,9 @@
 		 * Same for the "volatile" state - "stored" on the global document object.
 		 */
 		const read = () => {
+			// Debug.
+			// console.log('read()');
+
 			// Default, hardcoded state.
 			const state = {
 				stored: {
@@ -136,18 +138,20 @@
 					optIn: [],
 				},
 				volatile: {
-					alreadyInjected: []
+					alreadyInjected: [],
+					skip3rdPartyInjection: false
 				}
 			};
 
 			if (d && k in d) {
-				state.volatile = d[k];
-			}
+				// Debug.
+				console.log('The volatile state exists on the global document object.');
 
-			// Debug.
-			console.log('read state');
-			console.log(state);
-			// console.log(state.volatile.alreadyInjected);
+				state.volatile = { ...d[k] };
+			} else {
+				// Debug.
+				console.log('Volatile state is the default, hardcoded one.');
+			}
 
 			if (typeof localStorage === 'undefined') {
 				console.error("localStorage not found.");
@@ -159,6 +163,11 @@
 			if (storedState && storedState.length) {
 				state.stored = JSON.parse(storedState);
 			}
+
+			// Debug.
+			// console.log('read() resulting state :');
+			// console.log(state);
+			// console.log(state.volatile.alreadyInjected);
 
 			return state;
 		};
@@ -173,7 +182,7 @@
 			}
 
 			// Update the "volatile" state.
-			d[k] = state.volatile;
+			d[k] = { ...state.volatile };
 
 			// Update the stored state.
 			state.stored.exists = true;
@@ -222,13 +231,17 @@
 
 			if (stateNeedsWrite) {
 				// Debug.
-				// console.log(`update(${key}, ${value}) -> write :`);
+				console.log(`write() from update(${key}, ${value})`);
 				// console.log(state.stored.optIn);
 
-				write(state);
-			}
+				// Only trigger the third-party code injection when clicking on save(),
+				// and NOT immediately when checking the checkboxes.
+				// @see render()
+				state.volatile.skip3rdPartyInjection = true;
 
-			render(state);
+				write(state);
+				render(state);
+			}
 		};
 
 		/**
@@ -315,6 +328,7 @@
 				console.log(state);
 
 				write(state);
+				render(state);
 			}
 		};
 
@@ -335,7 +349,7 @@
 				write(state);
 				render(state);
 			} else if (!state.stored.exists) {
-				// First time call : needs to at least set isLocallyStored true.
+				// First time call : needs to at least set state.stored.exists true.
 				state.stored.exists = true;
 				write(state);
 				render(state);
@@ -362,7 +376,7 @@
 				write(state);
 				render(state);
 			} else if (!state.stored.exists) {
-				// First time call : needs to at least set isLocallyStored true.
+				// First time call : needs to at least set state.stored.exists true.
 				state.stored.exists = true;
 				write(state);
 				render(state);
@@ -381,15 +395,19 @@
 		const save = () => {
 			const state = read();
 
-			// First time call : needs to at least set isLocallyStored true.
+			// First time call : needs to at least set state.stored.exists true.
 			if (!state.stored.exists) {
 				state.stored.exists = true;
 				write(state);
-				render(state);
 			}
 
-			inject3rdParty(state);
+			// Only trigger the third-party code injection when clicking on save(),
+			// and NOT immediately when checking the checkboxes.
+			// @see render()
+			state.volatile.skip3rdPartyInjection = false;
 
+			inject3rdParty(state);
+			render(state);
 			dialogClose();
 			bannerClose();
 		};
