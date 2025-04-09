@@ -49,8 +49,27 @@ title: "Sobre a escola"
 		<p>
 			Além das profes Bia e Marina, a Chouette possui outros excelentes profissionais com vasta experiência no ensino da língua francesa.
 		</p>
+		<img
+			src="src/media/Les-profs-les-plus-chouettes.webp"
+			alt="Profes da Chouette : profes parceiros"
+			style="display:block;margin:auto;max-width:min(100%, 45ch)"
+			webc:is="eleventy-image"
+		/>
 	</div>
 </page-section>
+<!---
+<media
+	class="ew oi mi"
+	@title="Profes parceiros"
+	@src="src/media/Les-profs-les-plus-chouettes.webp"
+>
+	<div class="s-rich-text">
+		<p>
+			Além das profes Bia e Marina, a Chouette possui outros excelentes profissionais com vasta experiência no ensino da língua francesa.
+		</p>
+	</div>
+</media>
+--->
 
 <media
 	class="s-invert"
