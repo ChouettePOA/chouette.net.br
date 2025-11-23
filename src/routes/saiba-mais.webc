@@ -16,6 +16,10 @@ title: "Viva o francês, viva a Chouette!"
 		<span class="VivaButton-icon">✦</span>
 		<span>Quero viver o francês!</span>
 	</button>
+	<img
+		src="/img/landing/Tour-Eiffel.webp"
+		alt="Foto ilustrativa da torre Eiffel"
+	/>
 </header>
 
 <page-section @title="O francês certo para <span>você e para sua rotina.</span>">
