@@ -96,7 +96,8 @@
 		margin-top: -1px;
 		margin-bottom: -1px;
 		color: var(--base-text-color);
-		background-color: var(--base-bg-color);
+		/* background-color: var(--base-bg-color); */
+		background-color: #e6ffd8;
 	}
 
 	.Btn.s,

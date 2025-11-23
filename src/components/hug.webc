@@ -37,18 +37,27 @@
 		width: 0;
 	}
 
+	hug.equal-w.from-42rem > *,
 	hug.equal-w.from-60rem > *,
 	hug.equal-w.from-75rem > * {
 		flex: 1 0 0;
 		width: auto;
 	}
 
-	hug.from-60rem {
+	hug.from-42rem,
+	hug.from-60rem,
+	hug.from-75rem {
 		flex-direction: column;
 	}
 
-	hug.from-75rem {
-		flex-direction: column;
+	@media (min-width: 42rem) {
+		hug.from-42rem {
+			flex-direction: row;
+		}
+		hug.from-42rem.equal-w > * {
+			flex: 1 1 0;
+			width: 0;
+		}
 	}
 
 	@media (min-width: 60rem) {
