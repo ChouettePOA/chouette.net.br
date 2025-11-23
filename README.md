@@ -19,7 +19,7 @@ Chouette main web homepage based on [Eleventy-official "webc" starter project](h
 
 ## Getting started
 
-Requires Node JS installed (currently tested in version 20.11.1, see `.nvmrc`). Git clone the repo then :
+Requires Node JS installed (currently tested in version v24.11.1 (npm v11.6.2), see `.nvmrc`). Git clone the repo then :
 
 ```sh
 # Install dependencies.
@@ -188,4 +188,4 @@ Until now, no scripting was required.
 ## Tested on
 
 - Debian Linux 11
-- NodeJS 20.11.1 (see `.nvmrc`)
+- NodeJS v24.11.1 (npm v11.6.2) (see `.nvmrc`)
