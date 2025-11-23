@@ -2,3 +2,4 @@
 layout: "html.webc"
 ---
 <main id="page" @raw="content"></main>
+<whatsapp-fixed webc:nokeep></whatsapp-fixed>

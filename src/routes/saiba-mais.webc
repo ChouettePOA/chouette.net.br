@@ -2,25 +2,7 @@
 title: "Viva o francês, viva a Chouette!"
 ---
 
-<header class="LandingHero">
-	<h1>Viva o francês, viva a chouette!</h1>
-	<img
-		src="/img/chouette-logo.svg"
-		alt="Logo image of Chouette - Institut de Français"
-	/>
-	<p>
-		Não aprenda a falar francês.<br/>
-		<strong>Aprenda a viver o francês.</strong>
-	</p>
-	<button class="VivaButton">
-		<span class="VivaButton-icon">✦</span>
-		<span>Quero viver o francês!</span>
-	</button>
-	<img
-		src="/img/landing/Tour-Eiffel.webp"
-		alt="Foto ilustrativa da torre Eiffel"
-	/>
-</header>
+<landing-hero></landing-hero>
 
 <page-section @title="O francês certo para <span>você e para sua rotina.</span>">
 	<div class="s-rich-text">
