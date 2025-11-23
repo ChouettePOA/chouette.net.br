@@ -33,12 +33,79 @@ title: "Viva o francês, viva a Chouette!"
 	</hug>
 </page-section>
 
+<page-section class="s-invert wide" @title="Diferenciais da Chouette!">
+	<p style="text-align:center;">
+		Por que a experiência é maior que materiais <strong>didáticos quadrados</strong>.
+	</p>
+	<hug class="centered wrap Usp-wrap">
+		<p class="Usp Usp--bordered">
+			<strong>Não</strong> cobramos taxa de matrícula e materiais didáticos.
+		</p>
+		<p class="Usp Usp--bordered">
+			Grupos <strong>pequenos</strong> de 2 a 6 alunos.
+		</p>
+		<p class="Usp Usp--bordered">
+			<strong>Clube do livro &amp; Biblioteca</strong><br/>
+			(acervo digital e físico)
+		</p>
+		<p class="Usp Usp--bordered">
+			<strong>Ações afirmativas</strong> para pessoas negras, trans e indígenas.<br/>
+			Nos consulte para mais informações.
+		</p>
+	</hug>
+	<div style="margin-top:var(--space-m); text-align:center;">
+		<btn
+			webc:nokeep
+			href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
+			class="VivaButton Btn--primary"
+		>
+			<span class="VivaButton-icon">✦</span>
+			<span>Faça seu teste de nivelamento grátis</span>
+		</btn>
+	</div>
+</page-section>
+
+<page-section class="wide" @title="Vida na Chouette">
+	<hug class="centered wrap">
+		<div class="Usp Usp--quote s-rich-text">
+			<blockquote>
+				A escola Chouette eu vi nascer e tenho o maior orgulho de ter escolhido a escola de francês mais personalizada que poderia ter em Porto Alegre! Não tenho dúvida que quando aprendemos uma nova língua precisamos de entusiasmo e inspiração que na Chouette tem de sobra com ambiente acolhedor, professoras competentes e conteúdo original.
+				<p class="u-align-r"><br/>&mdash;&nbsp;Cibele Silva Molski de Ávila</p>
+			</blockquote>
+		</div>
+		<div class="Usp Usp--quote s-rich-text">
+			<blockquote>
+				A Chouette é muito mais do que uma escola de francês: é um espaço de revolução pessoal. Com certeza todo mundo que entra na Chouette sai de lá muito diferente, sai mais encantado com a cultura francófona, sai mais interessado por assuntos necessários e com certeza sai mais interessante pra quem cruzar seu caminho.
+				<p class="u-align-r"><br/>&mdash;&nbsp;Mellina</p>
+			</blockquote>
+		</div>
+		<div class="Usp Usp--quote s-rich-text">
+			<blockquote>
+				<p>Percebo como o desenvolvimento da minha fala melhorou demais com as aulas de conversação! E também como foi importante ter continuado as aulas nas férias pra manter o contato com o idioma e reforçar alguns aspectos.</p>
+				<p>Por mais que exista ansiedade no aprender e a dificuldade gramatical, perceber esse crescimento me motiva ainda mais a continuar essa jornada.</p>
+				<p class="u-align-r">&mdash;&nbsp;Juliana Richter</p>
+			</blockquote>
+		</div>
+	</hug>
+</page-section>
+
 <style>
+	.Usp-wrap {
+		max-width: var(--scale-max-width);
+	}
 	.Usp {
 		width: 16ch;
 	}
+	.Usp.Usp--bordered {
+		border: 1px solid var(--blue);
+		border-radius: .66rem;
+		padding: var(--space-xs);
+	}
+	.Usp.Usp--quote {
+		width: 30ch;
+	}
 	.Usp h3 {
-		margin-top: var(--space-xs);
+		margin: var(--space-xs) 0 0 0;
 		text-transform: none;
 		text-align: center;
 		font-weight: 700;
