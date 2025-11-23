@@ -1,4 +1,4 @@
-<div class="s-invert" webc:root="override">
+<div class="s-invert u-vspacer u-vspacer--bottom-collapsed" webc:root="override">
 	<div class="LandingHero">
 		<header class="LandingHero-content">
 			<h1>Viva o francês, viva a chouette!</h1>
@@ -11,10 +11,14 @@
 				Não aprenda a falar francês.<br/>
 				<strong>Aprenda a viver o francês.</strong>
 			</p>
-			<button class="VivaButton">
+			<btn
+				webc:nokeep
+				href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
+				class="VivaButton Btn--primary"
+			>
 				<span class="VivaButton-icon">✦</span>
 				<span>Quero viver o francês!</span>
-			</button>
+			</btn>
 		</header>
 		<img
 			class="LandingHero-illustration"
@@ -34,9 +38,8 @@
 	.LandingHero-content {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-l);
 		justify-content: space-between;
-		padding: var(--space-s) 0;
+		padding: var(--space-s);
 	}
 	.LandingHero-logo {
 		max-width: 12ch;

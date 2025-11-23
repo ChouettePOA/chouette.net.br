@@ -24,6 +24,10 @@
 		margin: 0;
 	}
 
+	hug.centered > * {
+		margin: 0 auto;
+	}
+
 	hug.m > * {
 		width: var(--line-length);
 	}
@@ -33,6 +37,7 @@
 		width: 0;
 	}
 
+	hug.equal-w.from-60rem > *,
 	hug.equal-w.from-75rem > * {
 		flex: 1 0 0;
 		width: auto;
@@ -49,6 +54,10 @@
 	@media (min-width: 60rem) {
 		hug.from-60rem {
 			flex-direction: row;
+		}
+		hug.from-60rem.equal-w > * {
+			flex: 1 1 0;
+			width: 0;
 		}
 	}
 

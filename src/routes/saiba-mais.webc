@@ -5,7 +5,43 @@ title: "Viva o francês, viva a Chouette!"
 <landing-hero></landing-hero>
 
 <page-section @title="O francês certo para <span>você e para sua rotina.</span>">
-	<div class="s-rich-text">
-		<p>Section rich text</p>
-	</div>
+	<hug class="centered wrap">
+		<div class="Usp">
+			<img
+				class="Usp-illustration"
+				src="/img/landing/Aulas-Presenciais.webp"
+				alt="Foto ilustrativa para aulas presenciais"
+			/>
+			<h3>Aulas presenciais</h3>
+		</div>
+		<div class="Usp">
+			<img
+				class="Usp-illustration"
+				src="/img/landing/Aulas-Online.webp"
+				alt="Foto ilustrativa para aulas online"
+			/>
+			<h3>Aulas online</h3>
+		</div>
+		<div class="Usp">
+			<img
+				class="Usp-illustration"
+				src="/img/landing/Aulas-60-Mais.webp"
+				alt="Foto ilustrativa para aulas 60+"
+			/>
+			<h3>Aulas 60+</h3>
+		</div>
+	</hug>
 </page-section>
+
+<style>
+	.Usp {
+		width: 16ch;
+	}
+	.Usp h3 {
+		margin-top: var(--space-xs);
+		text-transform: none;
+		text-align: center;
+		font-weight: 700;
+		letter-spacing: 0;
+	}
+</style>

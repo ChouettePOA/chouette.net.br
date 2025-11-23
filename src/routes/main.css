@@ -74,7 +74,7 @@
 	--color-1: #004281;
 	--color-2: #f25921;
 	--color-3: #d71920;
-	--color-4: #0084FF;
+	--color-4: #b6dcff;
 	--color-5: #FFB969;
 	--color-6: #1CB841;
 	--color-7: #CA3C3C;
@@ -316,6 +316,9 @@ drop-cap:last-child,
 
 .u-vspacer {
 	padding-bottom: var(--space-m);
+}
+.u-vspacer.u-vspacer--bottom-collapsed {
+	padding-bottom: 0;
 }
 .u-vspacer + .u-vspacer {
 	padding-top: var(--space-m);
