@@ -1,12 +1,19 @@
 <div class="s-invert u-vspacer u-vspacer--bottom-collapsed" webc:root="override">
 	<div class="LandingHero">
 		<header class="LandingHero-content">
-			<h1>Viva o francês, viva a chouette!</h1>
-			<img
+			<h1>
+				<span class="visually-hidden">Viva o francês, viva a chouette!</span>
+			</h1>
+			<a
+				href="/"
 				class="LandingHero-logo"
-				src="/img/chouette-logo.svg"
-				alt="Logo image of Chouette - Institut de Français"
-			/>
+				title="Pagina inicial do site da Chouette"
+			>
+				<img
+					src="/img/chouette-logo.svg"
+					alt="Logo image of Chouette - Institut de Français"
+				/>
+			</a>
 			<p>
 				Não aprenda a falar francês.<br/>
 				<strong>Aprenda a viver o francês.</strong>
@@ -41,9 +48,24 @@
 		justify-content: space-between;
 		padding: var(--space-s);
 	}
+	.LandingHero-content h1 {
+		margin: 0;
+		background-image: url("/img/landing/Heading-Viva-Frances.svg");
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-size: contain;
+		/* width: 645px; */
+		/* height: 320px; */
+		width: 8.733719061em;
+		height: 4.333007906em;
+		max-width: 100%;
+	}
 	.LandingHero-logo {
+		display: block;
 		max-width: 12ch;
 		order: -1;
+		text-decoration: none;
+		border: 0 none;
 	}
 	.LandingHero-illustration {
 		display: none;

@@ -89,39 +89,43 @@ title: "Viva o francês, viva a Chouette!"
 	</hug>
 </page-section>
 
-<page-section class="s-invert wide" @title="Quem somos">
-	<hug class="from-42rem Usp-wrap">
-		<div class="s-rich-text">
-			<p>Marina Pelle formou-se em Artes Cênicas na Universidade Federal de Santa Maria em 2003. Alguns meses depois, decidiu ir à Paris para aprender a língua francesa. Entre 2005 e 2009, teve a oportunidade de fazer uma especialização e um Mestrado no Département des Arts du Spectacle na Université Paris 8 - Saint Denis. Continuou trabalhando e morando na região parisiense e em 2013 começou uma formação universitária em FLE - formação para professores de francês para estrangeiros - até 2014, quando decidiu voltar para Porto Alegre. Durante dois anos, Marina deu aulas em escolas, testando diferentes métodos. Nas suas aulas particulares, ela começou a colocar em prática a abordagem acional que aprendeu na sua formação e, em parceria com a professora Bia Isabel Noy, começou a desenvolver o método que você pode conhecer hoje no Chouette - Institut de Français.</p>
-			<p>Bia Isabel Noy é formada em Artes Cênicas pela Universidade Federal de Santa Maria - RS. Mudou-se para Paris no início de 2004 com o objetivo de estudar a língua francesa e continuar sua formação na área das Artes. Bia fez especialização e mestrado em Arts de la Scène na Université Paris 8 - Saint Denis. Ainda, cursou o Conservatório de Teatro do VI Arrondissement de Paris. Após 6 anos de estudos, voltou para Porto Alegre e desde então dá aulas de francês. Com o intuito de continuar seus estudos, Bia ingressou no doutorado em Literatura Comparada, pela Universidade Federal do Rio Grande do Sul. Sua pesquisa direcionou-se para a literatura francesa, fazendo-a voltar para a França a fim de realizar uma parte de sua pesquisa na Université Sorbonne Nouvelle. Após a defesa de sua tese de doutorado, em 2015, Bia dedicou-se, juntamente com a professora Marina Pelle, à criação do método de ensino utilizado no Chouette - Institut de Français.</p>
-		</div>
-		<div>
-			<img
-				class="Usp-illustration"
-				src="/img/landing/Quem-Somos.webp"
-				alt="Marina Pelle e Bia Noy, as fundadoras da Chouette - instituto de francês"
-			/>
-			<div style="text-align:center; margin-top:var(--space-s)">
-				<btn
-					webc:nokeep
-					href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
-					target="_blank"
-					class="Btn--inverted"
-				>
-					<span class="whatsapp">
-						<span class="whatsapp-icon">
-							<svg viewBox="0 0 32 32" width="60" height="60">
-								<circle id="whatsapp_icon_path" cx="15.8" cy="15.8" r="15.2" fill="#4DC247"></circle>
-								<path d="M18.9,17c-0.3,0-1,1.3-1.4,1.3c-0.1,0-0.2,0-0.3-0.1c-0.8-0.4-1.4-0.8-2-1.4 c-0.5-0.5-1.1-1.2-1.4-1.8c0-0.1-0.1-0.1-0.1-0.2c0-0.3,0.9-0.9,0.9-1.4c0-0.1-0.7-2-0.8-2.2c-0.1-0.3-0.2-0.5-0.6-0.5 c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5,0.1-0.7,0.3c-0.6,0.6-1,1.2-1,2.1v0.1c0,0.9,0.4,1.9,1,2.6c1.2,1.7,2.4,3.2,4.3,4.1 c0.6,0.3,1.9,0.8,2.6,0.8c0.8,0,2-0.5,2.3-1.2c0.1-0.3,0.2-0.7,0.2-1c0-0.1,0-0.1,0-0.2C21.3,18.2,19.1,17,18.9,17z M16.2,24.2 c-1.6,0-3.3-0.5-4.6-1.4l-3.3,1l1.1-3.1c-1-1.4-1.6-3.2-1.6-5c0-4.7,3.8-8.4,8.4-8.4s8.4,3.8,8.4,8.4 C24.6,20.4,20.8,24.2,16.2,24.2z M16.2,5.6C10.6,5.6,6,10.1,6,15.7c0,1.8,0.5,3.7,1.5,5.2l-1.8,5.4l5.6-1.8 c4.9,2.7,11.1,0.9,13.8-4c0.8-1.5,1.3-3.2,1.3-4.9C26.3,10.1,21.8,5.6,16.2,5.6L16.2,5.6z" id="whatsapp_icon_path" fill="#fff"></path>
-							</svg>
-						</span>
-						<span>Manda um <em lang="fr">bonjour</em>&nbsp;👋</span>
-					</span>
-				</btn>
+<!--- <page-section class="s-invert wide QuemSomos" @title="Quem somos"> --->
+<div class="s-invert wide QuemSomos u-container u-vspacer">
+	<section class="u-container-inner">
+		<h2><span class="visually-hidden">Quem somos</span></h2>
+		<hug class="from-42rem Usp-wrap">
+			<div class="s-rich-text">
+				<p>Marina Pelle formou-se em Artes Cênicas na Universidade Federal de Santa Maria em 2003. Alguns meses depois, decidiu ir à Paris para aprender a língua francesa. Entre 2005 e 2009, teve a oportunidade de fazer uma especialização e um Mestrado no Département des Arts du Spectacle na Université Paris 8 - Saint Denis. Continuou trabalhando e morando na região parisiense e em 2013 começou uma formação universitária em FLE - formação para professores de francês para estrangeiros - até 2014, quando decidiu voltar para Porto Alegre. Durante dois anos, Marina deu aulas em escolas, testando diferentes métodos. Nas suas aulas particulares, ela começou a colocar em prática a abordagem acional que aprendeu na sua formação e, em parceria com a professora Bia Isabel Noy, começou a desenvolver o método que você pode conhecer hoje no Chouette - Institut de Français.</p>
+				<p>Bia Isabel Noy é formada em Artes Cênicas pela Universidade Federal de Santa Maria - RS. Mudou-se para Paris no início de 2004 com o objetivo de estudar a língua francesa e continuar sua formação na área das Artes. Bia fez especialização e mestrado em Arts de la Scène na Université Paris 8 - Saint Denis. Ainda, cursou o Conservatório de Teatro do VI Arrondissement de Paris. Após 6 anos de estudos, voltou para Porto Alegre e desde então dá aulas de francês. Com o intuito de continuar seus estudos, Bia ingressou no doutorado em Literatura Comparada, pela Universidade Federal do Rio Grande do Sul. Sua pesquisa direcionou-se para a literatura francesa, fazendo-a voltar para a França a fim de realizar uma parte de sua pesquisa na Université Sorbonne Nouvelle. Após a defesa de sua tese de doutorado, em 2015, Bia dedicou-se, juntamente com a professora Marina Pelle, à criação do método de ensino utilizado no Chouette - Institut de Français.</p>
 			</div>
-		</div>
-	</hug>
-</page-section>
+			<div>
+				<img
+					class="Usp-illustration"
+					src="/img/landing/Quem-Somos.webp"
+					alt="Marina Pelle e Bia Noy, as fundadoras da Chouette - instituto de francês"
+				/>
+				<div style="text-align:center; margin-top:var(--space-s)">
+					<btn
+						webc:nokeep
+						href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
+						target="_blank"
+						class="Btn--inverted"
+					>
+						<span class="whatsapp">
+							<span class="whatsapp-icon">
+								<svg viewBox="0 0 32 32" width="60" height="60">
+									<circle id="whatsapp_icon_path" cx="15.8" cy="15.8" r="15.2" fill="#4DC247"></circle>
+									<path d="M18.9,17c-0.3,0-1,1.3-1.4,1.3c-0.1,0-0.2,0-0.3-0.1c-0.8-0.4-1.4-0.8-2-1.4 c-0.5-0.5-1.1-1.2-1.4-1.8c0-0.1-0.1-0.1-0.1-0.2c0-0.3,0.9-0.9,0.9-1.4c0-0.1-0.7-2-0.8-2.2c-0.1-0.3-0.2-0.5-0.6-0.5 c-0.2,0-0.3,0-0.5,0c-0.3,0-0.5,0.1-0.7,0.3c-0.6,0.6-1,1.2-1,2.1v0.1c0,0.9,0.4,1.9,1,2.6c1.2,1.7,2.4,3.2,4.3,4.1 c0.6,0.3,1.9,0.8,2.6,0.8c0.8,0,2-0.5,2.3-1.2c0.1-0.3,0.2-0.7,0.2-1c0-0.1,0-0.1,0-0.2C21.3,18.2,19.1,17,18.9,17z M16.2,24.2 c-1.6,0-3.3-0.5-4.6-1.4l-3.3,1l1.1-3.1c-1-1.4-1.6-3.2-1.6-5c0-4.7,3.8-8.4,8.4-8.4s8.4,3.8,8.4,8.4 C24.6,20.4,20.8,24.2,16.2,24.2z M16.2,5.6C10.6,5.6,6,10.1,6,15.7c0,1.8,0.5,3.7,1.5,5.2l-1.8,5.4l5.6-1.8 c4.9,2.7,11.1,0.9,13.8-4c0.8-1.5,1.3-3.2,1.3-4.9C26.3,10.1,21.8,5.6,16.2,5.6L16.2,5.6z" id="whatsapp_icon_path" fill="#fff"></path>
+								</svg>
+							</span>
+							<span>Manda um <em lang="fr">bonjour</em>&nbsp;👋</span>
+						</span>
+					</btn>
+				</div>
+			</div>
+		</hug>
+	</section>
+</div>
 
 <style>
 	.Usp-wrap {
@@ -144,5 +148,18 @@ title: "Viva o francês, viva a Chouette!"
 		text-align: center;
 		font-weight: 700;
 		letter-spacing: 0;
+	}
+	.QuemSomos h2 {
+		margin-left: 0;
+		margin-right: 0;
+		background-image: url("/img/landing/Heading-Quem-Somos.svg");
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-size: contain;
+		/* width: 633px; */
+		/* height: 126px; */
+		width: 19.181818182em;
+		height: 3.818181818em;
+		max-width: 100%;
 	}
 </style>
