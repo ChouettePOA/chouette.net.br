@@ -9,9 +9,6 @@
 	page-section {
 		display: block;
 	}
-	page-section.wide > .u-container-inner {
-		max-width: 100%;
-	}
 	page-section.wide > .u-container-inner > h2 {
 		margin-left: auto;
 		margin-right: auto;

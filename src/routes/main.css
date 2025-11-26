@@ -25,7 +25,8 @@
 		Common spacing and typographic constants.
 	*/
 	--line-height: utopia.clamp(21, 23);
-	--sans-serif: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	/* --sans-serif: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; */
+	--sans-serif: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Liberation Sans", "Nimbus Sans", Roboto, sans-serif;
 
 	@utopia typeScale({
 		minWidth: 320,
@@ -302,6 +303,14 @@ drop-cap:last-child,
 .u-container-inner {
 	margin: 0 auto;
 	max-width: var(--line-length);
+}
+.u-container-inner.medium,
+.medium > .u-container-inner {
+	max-width: var(--scale-max-width);
+}
+.u-container-inner.wide,
+.wide > .u-container-inner {
+	max-width: 100%;
 }
 .u-container-inner > .s-rich-text:first-child {
 	padding-top: var(--space-m);

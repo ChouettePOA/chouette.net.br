@@ -40,6 +40,14 @@
 		transition: background-color .2s linear;
 	}
 
+	/*
+		Because some buttons may have inner wrapper tags that would inherit the
+		scoped styles like .s-invert.
+	*/
+	.Btn * {
+		color: inherit;
+	}
+
 	/* Firefox: Get rid of the inner focus border */
 	.Btn::-moz-focus-inner {
 		padding: 0;
@@ -95,7 +103,7 @@
 		border: 1px solid var(--inverted-bg-color);
 		margin-top: -1px;
 		margin-bottom: -1px;
-		color: var(--base-text-color);
+		/* color: var(--base-text-color); */
 		/* background-color: var(--base-bg-color); */
 		background-color: #e6ffd8;
 	}
@@ -126,5 +134,32 @@
 		a.Btn.l {
 			font-size: var(--size-2);
 		}
+	}
+
+	.Btn.VivaButton {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+		border-radius: .33em;
+		border: 2px solid var(--blue);
+		font-size: var(--size-1);
+		text-transform: none;
+		letter-spacing: 0;
+		background-color: var(--red);
+		color: #FFF;
+		white-space: normal;
+	}
+
+	.Btn.VivaButton .VivaButton-icon {
+		color: var(--blue);
+		font-size: var(--size-3);
+		line-height: 0;
+	}
+
+	.Btn.VivaButton:hover,
+	.Btn.VivaButton:focus {
+		background-color: white;
+		color: var(--inverted-text-color);
 	}
 </style>

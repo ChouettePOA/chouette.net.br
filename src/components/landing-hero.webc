@@ -21,10 +21,10 @@
 			<btn
 				webc:nokeep
 				href="https://wa.me/5551981259389?text=Bonjour ! Gostaria de mais informações sobre as aulas de francês."
-				class="VivaButton Btn--primary"
+				class="VivaButton"
 			>
 				<span class="VivaButton-icon">✦</span>
-				<span>Quero viver o francês!</span>
+				<span>Quero viver o <strong>francês!</strong></span>
 			</btn>
 		</header>
 		<img
@@ -37,10 +37,11 @@
 
 <style>
 	.LandingHero {
-		margin: 0 auto;
+		margin: 0 auto 1rem auto;
 		width: var(--scale-max-width);
 		max-width: 100%;
 		background-color: white;
+		font-size: var(--size-0);
 	}
 	.LandingHero-content {
 		display: flex;
@@ -60,9 +61,14 @@
 		height: 4.333007906em;
 		max-width: 100%;
 	}
+	.LandingHero-content .VivaButton {
+		margin-right: auto;
+		margin-bottom: -3rem;
+		margin-left: auto;
+	}
 	.LandingHero-logo {
 		display: block;
-		max-width: 12ch;
+		max-width: 7rem;
 		order: -1;
 		text-decoration: none;
 		border: 0 none;
