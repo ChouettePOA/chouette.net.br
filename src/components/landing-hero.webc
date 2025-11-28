@@ -47,7 +47,9 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		gap: var(--space-xs);
 		padding: var(--space-s);
+		line-height: calc(var(--line-height) * 1.33);
 	}
 	.LandingHero-content h1 {
 		margin: 0;

@@ -130,7 +130,7 @@ html {
 	font-family: 'Quattrocento Sans', var(--sans-serif, sans-serif);
 	font-weight: 400;
 	font-size: var(--size-0);
-	line-height: utopia.clamp(21, 23);
+	line-height: var(--line-height);
 }
 
 html,
