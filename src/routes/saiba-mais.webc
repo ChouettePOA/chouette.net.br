@@ -5,7 +5,7 @@ title: "Viva o francês, viva a Chouette!"
 <div class="LandingPage">
 	<landing-hero></landing-hero>
 
-	<page-section class="medium VivaSection" @title="O francês certo para<br/><span>você e para sua rotina.</span>">
+	<page-section class="medium VivaSection" @title="O francês certo para<span>você e para sua rotina.</span>">
 		<hug class="tight centered wrap">
 			<div class="Usp">
 				<img
@@ -144,22 +144,30 @@ title: "Viva o francês, viva a Chouette!"
 		letter-spacing: normal;
 	}
 	.VivaSection h2 {
+		margin-bottom: var(--space-m);
 		font-size: var(--size-1);
 		font-weight: 700;
 		text-transform: uppercase;
-		line-height: 133%;
+		line-height: calc(var(--line-height) * 1.66);
 		letter-spacing: .05em;
+		max-width: 33ch;
 	}
 	.VivaSection h2 span {
-		display: inline-block;
-		position: relative;
-		left: -.33em;
+		display: inline;
 		padding: .33em;
 		background-color: var(--red);
 		color: #FFF;
+		box-decoration-break: clone;
+	}
+	@media (min-width: 45em) {
+		.VivaSection h2 span {
+			display: inline-block;
+			position: relative;
+			left: -.33em;
+		}
 	}
 	.UspSection h2 {
-		margin-bottom: 0;
+		margin-bottom: var(--space-2xs);
 		font-size: var(--size-2);
 		font-weight: 700;
 		text-transform: uppercase;
@@ -201,8 +209,13 @@ title: "Viva o francês, viva a Chouette!"
 	.Usp-illustration {
 		border-radius: .66rem;
 	}
+	.Usp blockquote {
+		border: 0 none;
+		padding: 0;
+	}
 	.VidaSection h2 {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 1rem;
 		align-items: center;
 	}
@@ -233,13 +246,15 @@ title: "Viva o francês, viva a Chouette!"
 	.QuemSomos h2 {
 		margin-left: 0;
 		margin-right: 0;
+		padding-bottom: 19.747235387%;
 		background-image: url("/img/landing/Heading-Quem-Somos.svg");
 		background-repeat: no-repeat;
 		background-size: contain;
 		/* width: 633px; */
 		/* height: 126px; */
 		/* width: 19.181818182em; */
-		height: 3.818181818em;
-		max-width: 100%;
+		/* height: 3.818181818em; */
+		width: 100%;
+		max-width: 633px;
 	}
 </style>

@@ -140,7 +140,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--space-xs);
+		gap: .25em;
 		border-radius: .33em;
 		border: 2px solid var(--blue);
 		font-size: var(--size-1);
