@@ -23,6 +23,7 @@
 	<body id="page-top">
 		<main id="page" @raw="content"></main>
 		<whatsapp-fixed webc:nokeep></whatsapp-fixed>
+		<tracking-consent webc:nokeep></tracking-consent>
 		<script type="module" webc:keep @raw="getBundle('js')"></script>
 	</body>
 </html>
