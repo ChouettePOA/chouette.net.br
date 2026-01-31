@@ -443,3 +443,21 @@ blockquote {
 #page {
 	position: relative;
 }
+
+/*
+	10 anos overlay.
+*/
+
+.Chouette-10-anos {
+	position: relative;
+}
+.Chouette-10-anos::after {
+	content: '';
+	position: absolute;
+	top: 21%;
+	right: 0;
+	bottom: 0;
+	left: 64%;
+	background: transparent url('/img/10-ans.svg') no-repeat top left;
+	background-size: contain;
+}
