@@ -6,13 +6,16 @@
 			</h1>
 			<a
 				href="/"
-				class="LandingHero-logo"
+				class="LandingHero-logo Chouette-10-anos"
 				title="Pagina inicial do site da Chouette"
 			>
 				<img
 					src="/img/chouette-logo.svg"
 					alt="Logo image of Chouette - Institut de Français"
 				/>
+				<span class="visually-hidden">
+					Chouette Institut de Français - Cursos de Francês
+				</span>
 			</a>
 			<p>
 				Não aprenda a falar francês.<br/>
