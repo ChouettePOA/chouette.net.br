@@ -39,10 +39,13 @@ export default function(eleventyConfig) {
 	// Image plugin.
 	// @link https://www.11ty.dev/docs/plugins/image/#webc
 	// TODO [evol] compare with https://github.com/ascorbic/unpic-img
+	// transformOnRequest: false so builds (e.g. GitHub Pages) generate real image files
+	// instead of /.11ty/image/ URLs that only work with the dev server.
 	eleventyConfig.addPlugin(eleventyImagePlugin, {
 		formats: ["webp", "jpeg"],
 		widths: [150, 300, 500, 900],
 		urlPath: "/img/",
+		transformOnRequest: false,
 		defaultAttributes: {
 			loading: "lazy",
 			decoding: "async",
@@ -103,6 +106,7 @@ export default function(eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyImagePlugin, {
 		formats: ["webp", "jpeg"],
 		urlPath: "/img/optimized/",
+		transformOnRequest: false,
 		defaultAttributes: {
 			loading: "lazy",
 			decoding: "async",
