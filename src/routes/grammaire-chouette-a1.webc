@@ -7,61 +7,113 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<product-hero
 		@title="Gramática completa para iniciante A1"
 		@lede="Aprenda francês com explicações detalhadas, exemplos e exercícios específicos para cada ponto gramatical."
-		cover="/img/landing/grammaire-a1-cover.webp"
+		@intro="Desenvolvida pelas professoras da Chouette Institut de français, esta gramática completa do nível A1 é a melhor maneira de aprender e praticar a gramática e o vocabulário essencial pra níveis iniciantes."
+		cover="/img/landing/grammaire-a1-hero.webp"
 		coverAlt="Capa da Grammaire Chouette A1"
 		buyHref="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51"
 	></product-hero>
 
-	<page-section class="medium ProductSection" @title="Sobre a gramática">
-		<div class="s-rich-text">
-			<p>A Grammaire Chouette A1 aborda toda a gramática do nível A1. Como critério para o conteúdo, seguimos o CECRL, Quadro Europeu comum de referência para línguas. O CECRL é uma norma internacional que permite descrever as competências linguísticas dos alunos, na escala de A1 até C2.</p>
-			<p>A Grammaire Chouette A1 te ensinará os conteúdos de base para os níveis iniciante e intermediário, como a conjugação de verbos regulares e irregulares no presente, passado composto, imperfeito, adjetivos e pronomes demonstrativos, complementos de objeto direto e indireto e muito mais.</p>
+	<section class="ProductBand ProductBand--blue">
+		<div class="ProductBand-inner ProductSplit">
+			<div class="ProductSplit-media">
+				<img src="/img/landing/grammaire-a1-open.webp" alt="Páginas internas da Grammaire Chouette A1" loading="lazy" decoding="async" />
+			</div>
+			<div class="ProductSplit-body s-rich-text">
+				<h2>Sobre a gramática</h2>
+				<p>A Grammaire Chouette A1 aborda toda a gramática do nível A1. Como critério para o conteúdo, seguimos o CECRL, Quadro Europeu comum de referência para línguas. O CECRL é uma norma internacional que permite descrever as competências linguísticas dos alunos, na escala de A1 até C2.</p>
+				<p>Com a Grammaire Chouette A1, você tem acesso a explicações detalhadas, exemplos e exercícios para aprender e praticar concretamente as regras da língua francesa.</p>
+				<p>A Grammaire Chouette A1 te ensinará os conteúdos de base para os níveis iniciante e intermediário, como a conjugação de verbos regulares e irregulares no presente, passado composto, imperfeito, adjetivos e pronomes demonstrativos, complementos de objeto direto e indireto e muito mais.</p>
+				<p>Cada ponto gramatical possui vocabulário temático para que você aumente seu repertório en français. Ou seja, além de exercitar a gramática, você expandirá seu vocabulário sobre o cotidiano, vestuário, alimentação, transporte e muito mais.</p>
+				<p>Ainda, além de treinar a escrita da língua francesa, você recebe o cahier de réponses, livro de respostas de todos os exercícios propostos.</p>
+				<p>Aprenda de forma eficaz, prática e construa uma base sólida para falar francês com segurança!</p>
+			</div>
 		</div>
-	</page-section>
+	</section>
 
-	<page-section class="s-invert medium ProductSection" @title="Grammaire Complète pour débutant A1 + Livro de respostas">
-		<hug class="centered wrap Usp-wrap">
-			<p class="Usp Usp--bordered"><span>Explicações <strong>claras e completas</strong> para cada ponto gramatical.</span></p>
-			<p class="Usp Usp--bordered"><span><strong>Caderno de respostas</strong> enviado após 7 dias.</span></p>
-			<p class="Usp Usp--bordered"><span><strong>Suporte WhatsApp</strong> para aprender com confiança.</span></p>
-		</hug>
-		<div class="s-rich-text" style="margin-top:var(--space-m);">
-			<p>Além de explicações claras e completas, você recebe, após 7 dias, o caderno de correção com as respostas de todos os exercícios, para conferir seu progresso e revisar com segurança.</p>
+	<section class="ProductBand ProductBand--blue">
+		<div class="ProductBand-inner ProductCtaRow">
+			<a href="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
+			<p class="ProductCtaRow-text">Grammaire Complète pour débutant A1 + Livro de respostas</p>
 		</div>
-	</page-section>
+	</section>
 
-	<page-section class="medium ProductSection" @title="Suporte e acesso">
-		<div class="s-rich-text">
-			<p>Você conta com suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
-			<p>Acesse sua <strong>Grammaire Complète pour débutant A1</strong> onde você estiver, em qualquer dispositivo!</p>
+	<section class="ProductBand ProductBand--lavender">
+		<div class="ProductBand-inner ProductSplit">
+			<div class="ProductSplit-media">
+				<img src="/img/landing/grammaire-a1-covers.webp" alt="Capas da Grammaire Chouette A1 e caderno de respostas" loading="lazy" decoding="async" />
+			</div>
+			<div class="ProductSplit-body s-rich-text">
+				<h2>Caderno de respostas e suporte WhatsApp</h2>
+				<p>Além de explicações claras e completas, você recebe, após 7 dias, o caderno de correção com as respostas de todos os exercícios, para conferir seu progresso e revisar com segurança.</p>
+				<p>E se surgir alguma dúvida no caminho? Seja sobre um ponto gramatical ou um exercício específico, você conta com o suporte personalizado da Chouette pelo WhatsApp, para aprender com mais confiança e não ficar travado em nenhuma etapa do processo.</p>
+				<p>Porque aprender francês fica muito mais fácil quando você tem acompanhamento de verdade.</p>
+			</div>
 		</div>
-	</page-section>
+	</section>
 
-	<product-about></product-about>
+	<section class="ProductBand ProductBand--white">
+		<div class="ProductBand-inner ProductSplit ProductSplit--reverse">
+			<div class="ProductSplit-media">
+				<img src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
+			</div>
+			<div class="ProductSplit-body s-rich-text">
+				<h2>Chouette Institut de français</h2>
+				<p>Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.</p>
+				<p>Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.</p>
+				<p>Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante.</p>
+				<a href="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="ProductBand ProductBand--blue">
+		<div class="ProductBand-inner ProductCtaRow">
+			<a href="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
+			<div class="ProductCtaRow-text s-rich-text">
+				<p>Suporte e tira-dúvidas diretamente com a</p>
+				<p><strong>Chouette Institut de français</strong></p>
+			</div>
+		</div>
+		<div class="ProductBand-inner s-rich-text" style="margin-top:var(--space-m); text-align:center;">
+			<p>Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
+		</div>
+	</section>
+
+	<section class="ProductBand ProductBand--white">
+		<div class="ProductBand-inner ProductSplit">
+			<div class="ProductSplit-media">
+				<img src="/img/landing/grammaire-a1-device.webp" alt="Grammaire Chouette A1 acessível em qualquer dispositivo" loading="lazy" decoding="async" />
+			</div>
+			<div class="ProductSplit-body s-rich-text">
+				<p>Acesse sua <strong>Grammaire Complète pour débutant A1</strong> onde você estiver, em qualquer dispositivo!</p>
+			</div>
+		</div>
+	</section>
 
 	<product-pricing
 		price="80"
 		buyHref="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51"
 	></product-pricing>
 
-	<page-section class="medium ProductSection ProductFaq" @title="Perguntas frequentes">
-		<div class="s-rich-text">
+	<section class="ProductBand ProductBand--white ProductFaq">
+		<div class="ProductBand-inner s-rich-text">
+			<h2>Perguntas frequentes</h2>
 			<details>
 				<summary>Para quem é esse produto?</summary>
-				<p>Gramática desenvolvida para estudantes de francês que buscam se aprofundar no idioma. A gramática aborda todo o conteúdo A1, tendo como critério o CECRL, Quadro Europeu comum de referência para línguas.</p>
+				<p>Gramática desenvolvida para estudantes de francês que buscam se aprofundar no idioma. A gramática aborda todo o conteúdo A1, tendo como critério o CECRL, Quadro Europeu comum de referência para línguas. Para cada ponto gramatical está associado a uma temática para que você expanda seu vocabulário.</p>
 			</details>
 			<details>
 				<summary>Como funciona o Prazo de Garantia?</summary>
-				<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Ao adquirir a Grammaire Complète pour débutant A1, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
+				<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Lembramos que ao adquirir a Grammaire Complète pour débutant A1, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
 			</details>
 			<details>
-				<summary>Como acessar o material?</summary>
-				<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>.</p>
+				<summary>Como acessar a Grammaire Complète pour débutant A1?</summary>
+				<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>. A senha para abrir o PDF é o e-mail do seu cadastro na Hotmart. <strong>IMPORTANTE:</strong> O livro de respostas será enviado 7 dias após a sua compra.</p>
 			</details>
 			<details>
 				<summary>Como faço para comprar?</summary>
-				<p>Para comprar, clique no botão <strong>Comprar agora</strong>.</p>
+				<p>Para comprar este curso, clique no botão “Comprar agora”.</p>
 			</details>
 		</div>
-	</page-section>
+	</section>
 </product-landing>

@@ -2,22 +2,17 @@
 	const price = this.price;
 	const was = this.was;
 	const buyHref = this.buyHref || this.buyhref;
+	const wasHtml = was
+		? `<p class="ProductPriceBlock-was">De R$ ${was}</p><p class="ProductPriceBlock-label">por apenas</p>`
+		: `<p class="ProductPriceBlock-label">Por apenas</p>`;
 
-	`
-	<page-section class="s-invert medium ProductSection ProductPrice">
-		${was ? `<p class="ProductPrice-was">De R$ <span>${was}</span></p><p class="ProductPrice-label">por apenas</p>` : ""}
-		<p class="ProductPrice-now">R$ <span>${price}</span></p>
-		<p class="ProductPrice-note">Pagamento 100% seguro com acesso imediato</p>
-		<div style="margin-top:var(--space-m); text-align:center;">
-			<a href="${buyHref}" class="Btn VivaButton">
-				<span class="VivaButton-icon">✦</span>
-				<span>Comprar agora</span>
-			</a>
+	`<section class="ProductBand ProductBand--blue">
+		<div class="ProductBand-inner ProductPriceBlock">
+			<hr class="ProductPriceBlock-rule" />
+			${wasHtml}
+			<p class="ProductPriceBlock-now">R$ ${price},00</p>
+			<a href="${buyHref}" class="ProductBuy">Comprar agora</a>
+			<p class="ProductPriceBlock-note">Pagamento 100% seguro com acesso imediato</p>
 		</div>
-		<p class="ProductLede" style="margin-top:var(--space-m); text-align:center;">
-			Ficou alguma dúvida?
-			<a href="https://wa.me/5551981259389" class="Btn s" target="_blank">Fale conosco no WhatsApp</a>
-		</p>
-	</page-section>
-	`;
+	</section>`;
 </script>

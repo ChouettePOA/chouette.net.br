@@ -1,28 +1,24 @@
 <script webc:type="js">
 	const title = this.title;
 	const lede = this.lede;
+	const intro = this.intro;
 	const cover = this.cover;
-	const coverAlt = this.coverAlt || this.coveralt;
+	const coverAlt = this.coverAlt || this.coveralt || "";
 	const buyHref = this.buyHref || this.buyhref;
-	const buyLabel = this.buyLabel || this.buylabel || "Comprar agora";
+	const ledeHtml = lede ? `<p class="ProductHero-lede">${lede}</p>` : "";
+	const introHtml = intro ? `<p class="ProductHero-intro">${intro}</p>` : "";
+	const coverHtml = cover ? `<img class="ProductHero-cover" src="${cover}" alt="${coverAlt}" loading="eager" decoding="async" />` : "";
 
-	`
-	<div class="s-invert u-vspacer u-vspacer--bottom-collapsed ProductHero">
-		<div class="ProductHero-inner">
-			<header class="ProductHero-content">
-				<a href="/" class="ProductHero-logo Chouette-10-anos" title="Página inicial da Chouette">
-					<img src="/img/chouette-logo.svg" alt="Chouette - Institut de Français" />
-					<span class="visually-hidden">Chouette Institut de Français</span>
-				</a>
+	`<section class="ProductBand ProductBand--white ProductHero">
+		<div class="ProductHero-grid">
+			<div class="ProductHero-copy">
 				<h1>${title}</h1>
-				${lede ? `<p class="ProductHero-lede">${lede}</p>` : ""}
-				<a href="${buyHref}" class="Btn VivaButton ProductHero-buy">
-					<span class="VivaButton-icon">✦</span>
-					<span>${buyLabel}</span>
-				</a>
-			</header>
-			${cover ? `<img class="ProductHero-cover" src="${cover}" alt="${coverAlt || ""}" loading="lazy" decoding="async" />` : ""}
+				${ledeHtml}
+				${introHtml}
+				<a href="${buyHref}" class="ProductBuy">Comprar agora</a>
+				<p class="ProductHero-chevron" aria-hidden="true"><span>⌄</span><span>⌄</span></p>
+			</div>
+			${coverHtml}
 		</div>
-	</div>
-	`;
+	</section>`;
 </script>

@@ -2,125 +2,262 @@
 	<slot></slot>
 </div>
 
+<style webc:keep>
+	html:has(.ProductPage),
+	html:has(.ProductPage) body {
+		background: #fff;
+		color: #191c1f;
+	}
+</style>
+
 <style>
-	.ProductPage h2 {
+	.ProductPage {
+		display: block;
+		background: #fff;
+		color: #191c1f;
+	}
+	.ProductPage a.ProductBuy {
+		border-bottom: 0 none;
+	}
+	.ProductPage h1,
+	.ProductPage h2,
+	.ProductPage h3 {
 		font-variant: normal;
 		letter-spacing: normal;
 	}
-	.ProductSection h2 {
-		margin-bottom: var(--space-m);
-		font-size: var(--size-1);
+	.ProductPage h1 {
+		margin: 0 0 var(--space-xs);
+		font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+		font-weight: 700;
+		line-height: 1.15;
+		color: #191c1f;
+		text-transform: none;
+	}
+	.ProductPage h2 {
+		margin: 0 0 var(--space-s);
+		font-size: clamp(1.35rem, 2.5vw, 2rem);
 		font-weight: 700;
 		text-transform: uppercase;
-		line-height: calc(var(--line-height) * 1.33);
-		letter-spacing: .05em;
+		line-height: 1.2;
 	}
-	.ProductLede {
-		margin-bottom: var(--space-m);
+	.ProductPage h3 {
+		margin: 0 0 var(--space-2xs);
 		font-size: var(--size-0);
-		max-width: var(--line-length);
+		font-weight: 700;
+		text-transform: none;
+		letter-spacing: normal;
 	}
-	.Usp-wrap {
+	.ProductPage p {
+		margin: 0 0 var(--space-xs);
+	}
+	.ProductPage p:last-child {
+		margin-bottom: 0;
+	}
+
+	.ProductBand {
+		padding: clamp(2.5rem, 6vw, 5rem) var(--space-m);
+	}
+	.ProductBand-inner {
+		margin: 0 auto;
 		max-width: var(--scale-max-width);
 	}
-	.Usp {
-		width: 21ch;
+	.ProductBand--white {
+		background: #fff;
+		color: #191c1f;
 	}
-	.Usp.Usp--bordered {
-		display: flex;
+	.ProductBand--blue {
+		background: #024282;
+		color: #fff;
+	}
+	.ProductBand--blue h2,
+	.ProductBand--blue h3 {
+		color: #fff;
+	}
+	.ProductBand--blue a:not(.ProductBuy) {
+		color: #fff;
+		border-color: #fff;
+	}
+	.ProductBand--lavender {
+		background: #d1bedd;
+		color: #191c1f;
+	}
+	.ProductBand--lavender h2,
+	.ProductBand--lavender h3 {
+		color: #191c1f;
+	}
+
+	.ProductSplit {
+		display: grid;
+		gap: var(--space-m);
 		align-items: center;
-		border: 1px solid var(--blue);
-		border-radius: .66rem;
-		padding: var(--space-xs);
-		text-align: center;
-		font-size: var(--size--2);
-		line-height: calc(var(--line-height) * .8);
 	}
-	.Usp-illustration {
-		border-radius: .66rem;
+	.ProductSplit-media img {
+		display: block;
+		margin: 0 auto;
+		max-height: 34rem;
+		object-fit: contain;
 	}
-	.ProductPrice {
-		text-align: center;
+	.ProductSplit-body .s-rich-text > p {
+		max-width: none;
 	}
-	.ProductPrice-was {
-		font-size: var(--size--1);
-		text-decoration: line-through;
-		opacity: .75;
+	@media (min-width: 48em) {
+		.ProductSplit {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-l);
+		}
+		.ProductSplit--reverse .ProductSplit-media {
+			order: 2;
+		}
+		.ProductSplit--reverse .ProductSplit-body {
+			order: 1;
+		}
 	}
-	.ProductPrice-now {
-		margin: var(--space-2xs) 0;
-		font-size: var(--size-3);
+
+	.ProductHero {
+		padding-top: clamp(2rem, 5vw, 4rem);
+		padding-bottom: clamp(2rem, 5vw, 3rem);
+	}
+	.ProductHero-grid {
+		display: grid;
+		gap: var(--space-m);
+		align-items: center;
+		margin: 0 auto;
+		max-width: var(--scale-max-width);
+		padding: 0 var(--space-m);
+	}
+	.ProductHero-lede {
+		font-size: clamp(1.05rem, 2vw, 1.35rem);
 		font-weight: 700;
-		color: var(--red);
+		line-height: 1.35;
 	}
-	.ProductPrice-note {
+	.ProductHero-intro {
+		font-size: var(--size--1);
+		line-height: 1.5;
+		max-width: 40ch;
+	}
+	.ProductHero-chevron {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		margin: var(--space-s) 0 0;
+		color: var(--red);
+		font-size: var(--size-2);
+		line-height: 1;
+	}
+	.ProductHero-chevron span {
+		display: block;
+		line-height: .55;
+	}
+	.ProductHero-cover {
+		display: block;
+		margin: 0 auto;
+		max-height: 30rem;
+	}
+	@media (min-width: 48em) {
+		.ProductHero-grid {
+			grid-template-columns: 1.05fr .95fr;
+			gap: var(--space-l);
+		}
+		.ProductHero-cover {
+			max-height: 34rem;
+		}
+	}
+
+	.ProductBuy {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: var(--space-s);
+		padding: .85em 2.1em;
+		border-radius: 2rem;
+		background: #4caf50;
+		color: #fff;
+		font-family: inherit;
+		font-size: clamp(.95rem, 1.5vw, 1.15rem);
+		font-weight: 700;
+		line-height: 1.2;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: .04em;
+		white-space: normal;
+		text-align: center;
+		transition: background-color .2s linear;
+	}
+	.ProductBuy:hover,
+	.ProductBuy:focus {
+		background: #2f6e32;
+		color: #fff;
+	}
+
+	.ProductCtaRow {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-s);
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	.ProductCtaRow-text {
+		font-size: clamp(1.1rem, 2vw, 1.6rem);
+		font-weight: 700;
+		line-height: 1.25;
+		max-width: 28ch;
+	}
+
+	.ProductPriceBlock {
+		text-align: center;
+	}
+	.ProductPriceBlock-rule {
+		margin: 0 auto var(--space-s);
+		max-width: 28rem;
+		border: 0;
+		height: 1px;
+		background: rgba(255, 255, 255, .35);
+	}
+	.ProductPriceBlock-label {
+		font-size: var(--size-0);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: .06em;
+	}
+	.ProductPriceBlock-was {
+		font-size: var(--size-0);
+		text-decoration: line-through;
+		opacity: .85;
+	}
+	.ProductPriceBlock-now {
+		margin: var(--space-2xs) 0;
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 700;
+		line-height: 1;
+	}
+	.ProductPriceBlock-note {
+		margin-top: var(--space-s);
 		font-size: var(--size--2);
+		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: .05em;
 	}
+
+	.ProductFaq .s-rich-text > p {
+		max-width: none;
+	}
 	.ProductFaq details {
-		margin-bottom: var(--space-xs);
-		border: 1px solid var(--blue);
-		border-radius: .66rem;
-		padding: var(--space-2xs) var(--space-xs);
+		margin-bottom: var(--space-2xs);
+		border-bottom: 1px solid rgba(0, 0, 0, .12);
+		padding: var(--space-2xs) 0;
 	}
 	.ProductFaq summary {
 		cursor: pointer;
 		font-weight: 700;
+		font-size: var(--size--1);
+		list-style: none;
+	}
+	.ProductFaq summary::-webkit-details-marker {
+		display: none;
 	}
 	.ProductFaq details[open] summary {
 		margin-bottom: var(--space-2xs);
-	}
-	.ProductHero-inner {
-		margin: 0 auto;
-		width: var(--scale-max-width);
-		max-width: 100%;
-		background-color: white;
-		font-size: var(--size-0);
-	}
-	.ProductHero-content {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xs);
-		padding: var(--space-s);
-		line-height: calc(var(--line-height) * 1.33);
-	}
-	.ProductHero-content h1 {
-		margin: 0;
-		font-size: var(--size-2);
-		font-weight: 700;
-		text-transform: uppercase;
-		line-height: 1.2;
-		letter-spacing: .025em;
-		max-width: 22ch;
-	}
-	.ProductHero-lede {
-		margin: 0;
-		max-width: 36ch;
-	}
-	.ProductHero-logo {
-		display: block;
-		max-width: 7rem;
-		order: -1;
-		text-decoration: none;
-		border: 0 none;
-	}
-	.ProductHero-buy {
-		margin-right: auto;
-	}
-	.ProductHero-cover {
-		display: none;
-	}
-	@media (min-width: 45em) {
-		.ProductHero-inner {
-			display: flex;
-			gap: var(--space-m);
-			justify-content: space-between;
-			align-items: center;
-		}
-		.ProductHero-cover {
-			display: block;
-			max-width: min(100%, 18rem);
-		}
 	}
 </style>
