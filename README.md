@@ -99,7 +99,7 @@ Also configured in `eleventy.config.js` - here are the relevant parts :
 ### Markup (HTML) optimization
 
 ```js
-import htmlmin from "html-minifier";
+import htmlmin from "html-minifier-next";
 // (snip)
 export default function(eleventyConfig) {
   // (snip)

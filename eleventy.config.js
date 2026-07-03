@@ -7,7 +7,7 @@ import liteYoutube from "eleventy-plugin-lite-youtube";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
-import htmlmin from "html-minifier";
+import htmlmin from "html-minifier-next";
 import utopia from "postcss-utopia";
 
 const core11tyOptions = {
