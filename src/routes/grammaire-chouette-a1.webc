@@ -1,0 +1,67 @@
+---
+title: "Grammaire Chouette A1 — Gramática completa para iniciante"
+description: "Aprenda francês com a Grammaire Chouette A1, com explicações, exercícios e acesso a respostas. Material completo para o nível A1."
+---
+
+<product-landing>
+	<product-hero
+		@title="Gramática completa para iniciante A1"
+		@lede="Aprenda francês com explicações detalhadas, exemplos e exercícios específicos para cada ponto gramatical."
+		cover="/img/landing/grammaire-a1-cover.webp"
+		coverAlt="Capa da Grammaire Chouette A1"
+		buyHref="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51"
+	></product-hero>
+
+	<page-section class="medium ProductSection" @title="Sobre a gramática">
+		<div class="s-rich-text">
+			<p>A Grammaire Chouette A1 aborda toda a gramática do nível A1. Como critério para o conteúdo, seguimos o CECRL, Quadro Europeu comum de referência para línguas. O CECRL é uma norma internacional que permite descrever as competências linguísticas dos alunos, na escala de A1 até C2.</p>
+			<p>A Grammaire Chouette A1 te ensinará os conteúdos de base para os níveis iniciante e intermediário, como a conjugação de verbos regulares e irregulares no presente, passado composto, imperfeito, adjetivos e pronomes demonstrativos, complementos de objeto direto e indireto e muito mais.</p>
+		</div>
+	</page-section>
+
+	<page-section class="s-invert medium ProductSection" @title="Grammaire Complète pour débutant A1 + Livro de respostas">
+		<hug class="centered wrap Usp-wrap">
+			<p class="Usp Usp--bordered"><span>Explicações <strong>claras e completas</strong> para cada ponto gramatical.</span></p>
+			<p class="Usp Usp--bordered"><span><strong>Caderno de respostas</strong> enviado após 7 dias.</span></p>
+			<p class="Usp Usp--bordered"><span><strong>Suporte WhatsApp</strong> para aprender com confiança.</span></p>
+		</hug>
+		<div class="s-rich-text" style="margin-top:var(--space-m);">
+			<p>Além de explicações claras e completas, você recebe, após 7 dias, o caderno de correção com as respostas de todos os exercícios, para conferir seu progresso e revisar com segurança.</p>
+		</div>
+	</page-section>
+
+	<page-section class="medium ProductSection" @title="Suporte e acesso">
+		<div class="s-rich-text">
+			<p>Você conta com suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
+			<p>Acesse sua <strong>Grammaire Complète pour débutant A1</strong> onde você estiver, em qualquer dispositivo!</p>
+		</div>
+	</page-section>
+
+	<product-about></product-about>
+
+	<product-pricing
+		price="80"
+		buyHref="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51"
+	></product-pricing>
+
+	<page-section class="medium ProductSection ProductFaq" @title="Perguntas frequentes">
+		<div class="s-rich-text">
+			<details>
+				<summary>Para quem é esse produto?</summary>
+				<p>Gramática desenvolvida para estudantes de francês que buscam se aprofundar no idioma. A gramática aborda todo o conteúdo A1, tendo como critério o CECRL, Quadro Europeu comum de referência para línguas.</p>
+			</details>
+			<details>
+				<summary>Como funciona o Prazo de Garantia?</summary>
+				<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Ao adquirir a Grammaire Complète pour débutant A1, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
+			</details>
+			<details>
+				<summary>Como acessar o material?</summary>
+				<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>.</p>
+			</details>
+			<details>
+				<summary>Como faço para comprar?</summary>
+				<p>Para comprar, clique no botão <strong>Comprar agora</strong>.</p>
+			</details>
+		</div>
+	</page-section>
+</product-landing>

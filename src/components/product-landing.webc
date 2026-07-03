@@ -1,0 +1,126 @@
+<div class="LandingPage ProductPage" webc:root="override">
+	<slot></slot>
+</div>
+
+<style>
+	.ProductPage h2 {
+		font-variant: normal;
+		letter-spacing: normal;
+	}
+	.ProductSection h2 {
+		margin-bottom: var(--space-m);
+		font-size: var(--size-1);
+		font-weight: 700;
+		text-transform: uppercase;
+		line-height: calc(var(--line-height) * 1.33);
+		letter-spacing: .05em;
+	}
+	.ProductLede {
+		margin-bottom: var(--space-m);
+		font-size: var(--size-0);
+		max-width: var(--line-length);
+	}
+	.Usp-wrap {
+		max-width: var(--scale-max-width);
+	}
+	.Usp {
+		width: 21ch;
+	}
+	.Usp.Usp--bordered {
+		display: flex;
+		align-items: center;
+		border: 1px solid var(--blue);
+		border-radius: .66rem;
+		padding: var(--space-xs);
+		text-align: center;
+		font-size: var(--size--2);
+		line-height: calc(var(--line-height) * .8);
+	}
+	.Usp-illustration {
+		border-radius: .66rem;
+	}
+	.ProductPrice {
+		text-align: center;
+	}
+	.ProductPrice-was {
+		font-size: var(--size--1);
+		text-decoration: line-through;
+		opacity: .75;
+	}
+	.ProductPrice-now {
+		margin: var(--space-2xs) 0;
+		font-size: var(--size-3);
+		font-weight: 700;
+		color: var(--red);
+	}
+	.ProductPrice-note {
+		font-size: var(--size--2);
+		text-transform: uppercase;
+		letter-spacing: .05em;
+	}
+	.ProductFaq details {
+		margin-bottom: var(--space-xs);
+		border: 1px solid var(--blue);
+		border-radius: .66rem;
+		padding: var(--space-2xs) var(--space-xs);
+	}
+	.ProductFaq summary {
+		cursor: pointer;
+		font-weight: 700;
+	}
+	.ProductFaq details[open] summary {
+		margin-bottom: var(--space-2xs);
+	}
+	.ProductHero-inner {
+		margin: 0 auto;
+		width: var(--scale-max-width);
+		max-width: 100%;
+		background-color: white;
+		font-size: var(--size-0);
+	}
+	.ProductHero-content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		padding: var(--space-s);
+		line-height: calc(var(--line-height) * 1.33);
+	}
+	.ProductHero-content h1 {
+		margin: 0;
+		font-size: var(--size-2);
+		font-weight: 700;
+		text-transform: uppercase;
+		line-height: 1.2;
+		letter-spacing: .025em;
+		max-width: 22ch;
+	}
+	.ProductHero-lede {
+		margin: 0;
+		max-width: 36ch;
+	}
+	.ProductHero-logo {
+		display: block;
+		max-width: 7rem;
+		order: -1;
+		text-decoration: none;
+		border: 0 none;
+	}
+	.ProductHero-buy {
+		margin-right: auto;
+	}
+	.ProductHero-cover {
+		display: none;
+	}
+	@media (min-width: 45em) {
+		.ProductHero-inner {
+			display: flex;
+			gap: var(--space-m);
+			justify-content: space-between;
+			align-items: center;
+		}
+		.ProductHero-cover {
+			display: block;
+			max-width: min(100%, 18rem);
+		}
+	}
+</style>

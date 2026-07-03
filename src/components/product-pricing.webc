@@ -1,0 +1,23 @@
+<script webc:type="js">
+	const price = this.price;
+	const was = this.was;
+	const buyHref = this.buyHref || this.buyhref;
+
+	`
+	<page-section class="s-invert medium ProductSection ProductPrice">
+		${was ? `<p class="ProductPrice-was">De R$ <span>${was}</span></p><p class="ProductPrice-label">por apenas</p>` : ""}
+		<p class="ProductPrice-now">R$ <span>${price}</span></p>
+		<p class="ProductPrice-note">Pagamento 100% seguro com acesso imediato</p>
+		<div style="margin-top:var(--space-m); text-align:center;">
+			<a href="${buyHref}" class="Btn VivaButton">
+				<span class="VivaButton-icon">✦</span>
+				<span>Comprar agora</span>
+			</a>
+		</div>
+		<p class="ProductLede" style="margin-top:var(--space-m); text-align:center;">
+			Ficou alguma dúvida?
+			<a href="https://wa.me/5551981259389" class="Btn s" target="_blank">Fale conosco no WhatsApp</a>
+		</p>
+	</page-section>
+	`;
+</script>
