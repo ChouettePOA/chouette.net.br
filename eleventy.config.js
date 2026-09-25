@@ -1,6 +1,6 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
-import { eleventyImagePlugin } from "@11ty/eleventy-img";
+import { imageTransformPlugin } from "@11ty/eleventy-img";
 import bundlerPlugin from "@11ty/eleventy-plugin-bundle";
 import liteYoutube from "eleventy-plugin-lite-youtube";
 
@@ -31,20 +31,18 @@ export default function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginWebc, {
 		components: [
 			"./src/components/**/*.webc",
-			"npm:@11ty/is-land/*.webc",
-			"npm:@11ty/eleventy-img/*.webc"
+			"npm:@11ty/is-land/*.webc"
 		]
 	});
 
-	// Image plugin.
-	// @link https://www.11ty.dev/docs/plugins/image/#webc
-	// TODO [evol] compare with https://github.com/ascorbic/unpic-img
+	// Image transform. v7 dropped the <eleventy-image> WebC component.
+	// @link https://www.11ty.dev/docs/plugins/image/
 	// transformOnRequest: false so builds (e.g. GitHub Pages) generate real image files
 	// instead of /.11ty/image/ URLs that only work with the dev server.
-	eleventyConfig.addPlugin(eleventyImagePlugin, {
+	// Static /img assets use eleventy:ignore so only src/media sources are resized.
+	eleventyConfig.addPlugin(imageTransformPlugin, {
 		formats: ["webp", "jpeg"],
-		widths: [150, 300, 500, 900],
-		urlPath: "/img/",
+		urlPath: "/img/optimized/",
 		transformOnRequest: false,
 		defaultAttributes: {
 			loading: "lazy",
@@ -57,14 +55,13 @@ export default function(eleventyConfig) {
 	eleventyConfig.addPlugin(liteYoutube);
 
 	// HTML minification.
-	eleventyConfig.addTransform("htmlmin", function (content) {
+	eleventyConfig.addTransform("htmlmin", async function (content) {
 		if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
-			let minified = htmlmin.minify(content, {
+			return htmlmin.minify(content, {
 				useShortDoctype: true,
 				removeComments: true,
 				collapseWhitespace: true,
 			});
-			return minified;
 		}
 		return content;
 	});
@@ -100,17 +97,6 @@ export default function(eleventyConfig) {
 				return content;
 			}
 		]
-	});
-
-	// Images optimization.
-	eleventyConfig.addPlugin(eleventyImagePlugin, {
-		formats: ["webp", "jpeg"],
-		urlPath: "/img/optimized/",
-		transformOnRequest: false,
-		defaultAttributes: {
-			loading: "lazy",
-			decoding: "async",
-		},
 	});
 
 	eleventyConfig.setServerOptions({

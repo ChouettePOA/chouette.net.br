@@ -6,7 +6,6 @@
 				<img
 					:src="src"
 					:alt="title"
-					webc:is="eleventy-image"
 					eleventy:widths="400,600"
 				/>
 			</div>

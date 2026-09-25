@@ -16,7 +16,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<section class="ProductBand ProductBand--blue">
 		<div class="ProductBand-inner ProductSplit">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/grammaire-a1-open.webp" alt="Páginas internas da Grammaire Chouette A1" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/grammaire-a1-open.webp" alt="Páginas internas da Grammaire Chouette A1" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<h2>Sobre a gramática</h2>
@@ -40,7 +40,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<section class="ProductBand ProductBand--lavender">
 		<div class="ProductBand-inner ProductSplit">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/grammaire-a1-covers.webp" alt="Capas da Grammaire Chouette A1 e caderno de respostas" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/grammaire-a1-covers.webp" alt="Capas da Grammaire Chouette A1 e caderno de respostas" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<h2>Caderno de respostas e suporte WhatsApp</h2>
@@ -54,7 +54,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<section class="ProductBand ProductBand--white">
 		<div class="ProductBand-inner ProductSplit ProductSplit--reverse">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<h2>Chouette Institut de français</h2>
@@ -82,7 +82,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<section class="ProductBand ProductBand--white">
 		<div class="ProductBand-inner ProductSplit">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/grammaire-a1-device.webp" alt="Grammaire Chouette A1 acessível em qualquer dispositivo" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/grammaire-a1-device.webp" alt="Grammaire Chouette A1 acessível em qualquer dispositivo" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<p>Acesse sua <strong>Grammaire Complète pour débutant A1</strong> onde você estiver, em qualquer dispositivo!</p>

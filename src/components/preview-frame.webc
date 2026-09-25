@@ -4,6 +4,7 @@
 			class="PreviewFrame-img"
 			src="/img/iphone-frame.png"
 			alt="Preview smartphone view"
+			eleventy:ignore
 			width="411"
 			height="751"
 		/>

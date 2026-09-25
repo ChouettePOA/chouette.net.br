@@ -12,6 +12,7 @@
 				<img
 					src="/img/chouette-logo.svg"
 					alt="Logo image of Chouette - Institut de Français"
+					eleventy:ignore
 				/>
 				<span class="visually-hidden">
 					Chouette Institut de Français - Cursos de Francês
@@ -34,6 +35,7 @@
 			class="LandingHero-illustration"
 			src="/img/landing/Tour-Eiffel.webp"
 			alt="Foto ilustrativa da torre Eiffel"
+			eleventy:ignore
 		/>
 	</div>
 </div>

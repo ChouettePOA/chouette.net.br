@@ -14,7 +14,7 @@
 
 		<deco-oval-penwriting>
 			<!---
-			<img src="/img/inscricoes-abertas.png" alt="Insriçoes abertas !" />
+			<img src="/img/inscricoes-abertas.png" alt="Insriçoes abertas !" eleventy:ignore />
 			<block class="m">
 				<btn class="Btn Btn--inverted b m" href="https://virtual.chouette.net.br/" webc:nokeep>Criar uma conta</btn>
 			</block>

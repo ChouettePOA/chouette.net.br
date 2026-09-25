@@ -7,7 +7,7 @@
 	const buyHref = this.buyHref || this.buyhref;
 	const ledeHtml = lede ? `<p class="ProductHero-lede">${lede}</p>` : "";
 	const introHtml = intro ? `<p class="ProductHero-intro">${intro}</p>` : "";
-	const coverHtml = cover ? `<img class="ProductHero-cover" src="${cover}" alt="${coverAlt}" loading="eager" decoding="async" />` : "";
+	const coverHtml = cover ? `<img class="ProductHero-cover" src="${cover}" alt="${coverAlt}" loading="eager" decoding="async" eleventy:ignore />` : "";
 
 	`<section class="ProductBand ProductBand--white ProductHero">
 		<div class="ProductHero-grid">

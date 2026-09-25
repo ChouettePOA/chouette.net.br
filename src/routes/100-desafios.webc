@@ -16,7 +16,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<section class="ProductBand ProductBand--blue">
 		<div class="ProductBand-inner ProductSplit">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/100-desafios-pages.webp" alt="Páginas do ebook 100 desafios práticos" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/100-desafios-pages.webp" alt="Páginas do ebook 100 desafios práticos" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<h2>Sobre o desafio</h2>
@@ -48,7 +48,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<section class="ProductBand ProductBand--white">
 		<div class="ProductBand-inner ProductSplit ProductSplit--reverse">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<h2>Chouette Institut de français</h2>
@@ -76,7 +76,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<section class="ProductBand ProductBand--white">
 		<div class="ProductBand-inner ProductSplit">
 			<div class="ProductSplit-media">
-				<img src="/img/landing/100-desafios-device.webp" alt="100 desafios acessíveis em qualquer dispositivo" loading="lazy" decoding="async" />
+				<img eleventy:ignore src="/img/landing/100-desafios-device.webp" alt="100 desafios acessíveis em qualquer dispositivo" loading="lazy" decoding="async" />
 			</div>
 			<div class="ProductSplit-body s-rich-text">
 				<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>

@@ -12,6 +12,7 @@ title: "Viva o francês, viva a Chouette!"
 					class="Usp-illustration"
 					src="/img/landing/Aulas-Presenciais.webp"
 					alt="Foto ilustrativa para aulas presenciais"
+					eleventy:ignore
 				/>
 				<h3>Aulas presenciais</h3>
 			</div>
@@ -20,6 +21,7 @@ title: "Viva o francês, viva a Chouette!"
 					class="Usp-illustration"
 					src="/img/landing/Aulas-Online.webp"
 					alt="Foto ilustrativa para aulas online"
+					eleventy:ignore
 				/>
 				<h3>Aulas online</h3>
 			</div>
@@ -28,6 +30,7 @@ title: "Viva o francês, viva a Chouette!"
 					class="Usp-illustration"
 					src="/img/landing/Aulas-60-Mais.webp"
 					alt="Foto ilustrativa para aulas 60+"
+					eleventy:ignore
 				/>
 				<h3>Aulas 60+</h3>
 			</div>
@@ -113,6 +116,7 @@ title: "Viva o francês, viva a Chouette!"
 						class="Usp-illustration"
 						src="/img/landing/Quem-Somos.webp"
 						alt="Marina Pelle e Bia Noy, as fundadoras da Chouette - instituto de francês"
+						eleventy:ignore
 					/>
 					<div style="text-align:center; margin-top:var(--space-s)">
 						<btn

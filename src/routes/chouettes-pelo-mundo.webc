@@ -11,7 +11,7 @@ title: "Chouettes pelo mundo"
 <media
 	class="s-invert ew mi"
 	@title="Cibele"
-	@src="src/media/Cibele-opti.jpg"
+	@src="../media/Cibele-opti.jpg"
 >
 	<div class="s-rich-text">
 		<blockquote>
@@ -33,10 +33,9 @@ title: "Chouettes pelo mundo"
 			Depois de um ano, fazendo super intensivos e intensivos, a gente teve que se despedir e como foi duro dizer adeus pra essa escola que nos deu tanto.<br/>
 		</blockquote>
 		<img
-			src="src/media/Lina-e-Bruno-opti.jpg"
+			src="../media/Lina-e-Bruno-opti.jpg"
 			alt="Lina e Bruno"
 			style="display:block;margin:auto;max-width:min(100%, 38ch)"
-			webc:is="eleventy-image"
 		/>
 		<blockquote>
 			Viemos para o Canadá, falamos francês todos os dias. Todo mundo que nos encontra por aqui diz que falamos muito bem e ficam chocados quando dizemos que estudamos apenas um ano antes de vir.<br/>
@@ -62,7 +61,7 @@ title: "Chouettes pelo mundo"
 <media
 	class="ew oi mi"
 	@title="Juliana Richter"
-	@src="src/media/Juliana-Richter.jpg"
+	@src="../media/Juliana-Richter.jpg"
 >
 	<div class="s-rich-text">
 		<blockquote>

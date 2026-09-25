@@ -8,6 +8,7 @@
 				<img
 					src="/img/chouette-logo.svg"
 					alt="Logo image of Chouette - Institut de Français"
+					eleventy:ignore
 				/>
 				<span class="visually-hidden">
 					Chouette Institut de Français - Cursos de Francês

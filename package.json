@@ -36,12 +36,12 @@
 	"homepage": "https://github.com/11ty/eleventy-base-webc#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^3",
-		"@11ty/eleventy-img": "^5",
+		"@11ty/eleventy-img": "^7",
 		"@11ty/eleventy-plugin-webc": "^0",
-		"@11ty/is-land": "^4",
+		"@11ty/is-land": "^5",
 		"autoprefixer": "^10",
-		"cssnano": "^6",
-		"html-minifier-next": "^7.0.0",
+		"cssnano": "^9",
+		"html-minifier-next": "^8",
 		"postcss": "^8",
 		"postcss-utopia": "^1"
 	},
