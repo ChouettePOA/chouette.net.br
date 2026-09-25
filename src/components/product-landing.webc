@@ -27,18 +27,18 @@
 	}
 	.ProductPage h1 {
 		margin: 0 0 var(--space-xs);
-		font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+		font-size: var(--size-2);
 		font-weight: 700;
-		line-height: 1.15;
-		color: #191c1f;
+		line-height: utopia.clamp(35, 42);
+		color: #024282;
 		text-transform: none;
 	}
 	.ProductPage h2 {
 		margin: 0 0 var(--space-s);
-		font-size: clamp(1.35rem, 2.5vw, 2rem);
+		/* font-size: clamp(1.35rem, 2.5vw, 2rem);
 		font-weight: 700;
 		text-transform: uppercase;
-		line-height: 1.2;
+		line-height: 1.2; */
 	}
 	.ProductPage h3 {
 		margin: 0 0 var(--space-2xs);
