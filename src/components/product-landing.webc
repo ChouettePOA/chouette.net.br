@@ -115,20 +115,19 @@
 
 	.ProductHero {
 		padding-top: clamp(2rem, 5vw, 4rem);
-		padding-bottom: clamp(2rem, 5vw, 3rem);
+		padding-bottom: var(--space-m);
 	}
 	.ProductHero-grid {
 		display: grid;
 		gap: var(--space-m);
 		align-items: center;
 		margin: 0 auto;
-		max-width: var(--scale-max-width);
+		max-width: 55rem;
 		padding: 0 var(--space-m);
 	}
 	.ProductHero-lede {
-		font-size: clamp(1.05rem, 2vw, 1.35rem);
-		font-weight: 700;
-		line-height: 1.35;
+		font-size: var(--size-0);
+		line-height: calc(var(--line-height) * 1.2);
 	}
 	.ProductHero-intro {
 		font-size: var(--size--1);
@@ -138,29 +137,29 @@
 	.ProductHero-chevron {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: center;
 		gap: 0;
-		margin: var(--space-s) 0 0;
 		color: var(--red);
-		font-size: var(--size-2);
-		line-height: 1;
+		width: 13.2ch;
+  	font-size: var(--size-1);
+  	font-weight: 700;
+	}
+	.ProductHero-chevron.ProductHero-chevron {
+		margin: var(--space-s) 0 0;
 	}
 	.ProductHero-chevron span {
 		display: block;
-		line-height: .55;
+		line-height: .3;
 	}
 	.ProductHero-cover {
 		display: block;
 		margin: 0 auto;
-		max-height: 30rem;
+		max-height: 24rem;
 	}
 	@media (min-width: 48em) {
 		.ProductHero-grid {
 			grid-template-columns: 1.05fr .95fr;
 			gap: var(--space-l);
-		}
-		.ProductHero-cover {
-			max-height: 34rem;
 		}
 	}
 
@@ -203,6 +202,10 @@
 		font-weight: 700;
 		line-height: 1.25;
 		max-width: 28ch;
+		text-align: left;
+	}
+	.ProductCtaRow .ProductBuy {
+		margin: 0;
 	}
 
 	.ProductPriceBlock {

@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title @text="title || metadata.title"></title>
+		<meta name="description" :content="description || metadata.description">
+		<link rel="canonical" href="https://chouette.net.br" />
+		<meta property="og:title" :content="title || metadata.title" />
+		<meta property="og:type" :content="og_type || metadata.og_type" />
+		<meta property="og:url" :content="og_url || metadata.og_url" />
+		<meta property="og:image" :content="og_image || metadata.og_image" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#004281" />
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<!---
+			Custom font from Google web fonts :
+				- Quattrocento Sans: 400,400i,700
+				- Raleway: 200,400,500,500i,700
+		--->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			webc:keep
+			rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+				rel="stylesheet"
+				type="text/css"
+			/>
+		</noscript>
+
+		<link webc:keep rel="stylesheet" href="/main.css" />
+		<link webc:keep rel="stylesheet" :href="getBundleFileUrl('css')" />
+	</head>
+	<body id="page-top">
+		<main id="page" @raw="content"></main>
+		<whatsapp-fixed webc:nokeep></whatsapp-fixed>
+		<tracking-consent webc:nokeep></tracking-consent>
+		<script type="module" webc:keep @raw="getBundle('js')"></script>
+	</body>
+</html>

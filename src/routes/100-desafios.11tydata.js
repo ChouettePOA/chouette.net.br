@@ -1,3 +1,3 @@
 export default {
-	layout: "landing.webc"
+	layout: "landing-with-fonts.webc"
 };
