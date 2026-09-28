@@ -143,6 +143,8 @@
 		width: 13.2ch;
   	font-size: var(--size-1);
   	font-weight: 700;
+		-webkit-user-select: none;
+  	user-select: none;
 	}
 	.ProductHero-chevron.ProductHero-chevron {
 		margin: var(--space-s) 0 0;
