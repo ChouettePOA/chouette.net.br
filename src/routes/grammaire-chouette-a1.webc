@@ -18,7 +18,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/grammaire-a1-open.webp" alt="Páginas internas da Grammaire Chouette A1" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<h2>Sobre a gramática</h2>
 				<p>A Grammaire Chouette A1 aborda toda a gramática do nível A1. Como critério para o conteúdo, seguimos o CECRL, Quadro Europeu comum de referência para línguas. O CECRL é uma norma internacional que permite descrever as competências linguísticas dos alunos, na escala de A1 até C2.</p>
 				<p>Com a Grammaire Chouette A1, você tem acesso a explicações detalhadas, exemplos e exercícios para aprender e praticar concretamente as regras da língua francesa.</p>
@@ -42,7 +42,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/grammaire-a1-covers.webp" alt="Capas da Grammaire Chouette A1 e caderno de respostas" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<h2>Caderno de respostas e suporte WhatsApp</h2>
 				<p>Além de explicações claras e completas, você recebe, após 7 dias, o caderno de correção com as respostas de todos os exercícios, para conferir seu progresso e revisar com segurança.</p>
 				<p>E se surgir alguma dúvida no caminho? Seja sobre um ponto gramatical ou um exercício específico, você conta com o suporte personalizado da Chouette pelo WhatsApp, para aprender com mais confiança e não ficar travado em nenhuma etapa do processo.</p>
@@ -56,7 +56,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<h2>Chouette Institut de français</h2>
 				<p>Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.</p>
 				<p>Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.</p>
@@ -69,7 +69,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 	<section class="ProductBand ProductBand--blue">
 		<div class="ProductBand-inner ProductCtaRow">
 			<a href="https://pay.hotmart.com/G105401127H?off=nkksa3ym&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-			<div class="ProductCtaRow-text s-rich-text">
+			<div class="ProductCtaRow-text s-rich-text stack" style="--space: var(--space-2xs)">
 				<p>Suporte e tira-dúvidas diretamente com a</p>
 				<p><strong>Chouette Institut de français</strong></p>
 			</div>
@@ -84,7 +84,7 @@ description: "Aprenda francês com a Grammaire Chouette A1, com explicações, e
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/grammaire-a1-device.webp" alt="Grammaire Chouette A1 acessível em qualquer dispositivo" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<p>Acesse sua <strong>Grammaire Complète pour débutant A1</strong> onde você estiver, em qualquer dispositivo!</p>
 			</div>
 		</div>

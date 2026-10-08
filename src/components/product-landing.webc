@@ -88,7 +88,7 @@
 
 	.ProductSplit {
 		display: grid;
-		gap: var(--space-m);
+		gap: var(--gutter, var(--space-m));
 		align-items: center;
 	}
 	.ProductSplit-media img {
@@ -103,7 +103,6 @@
 	@media (min-width: 48em) {
 		.ProductSplit {
 			grid-template-columns: 1fr 1fr;
-			gap: var(--space-l);
 		}
 		.ProductSplit--reverse .ProductSplit-media {
 			order: 2;
@@ -206,8 +205,16 @@
 		max-width: 28ch;
 		text-align: left;
 	}
+	.ProductCtaRow.ProductCtaRow > * {
+		margin-block: 0;
+	}
 	.ProductCtaRow .ProductBuy {
 		margin: 0;
+	}
+	.ProductPage .stack > .ProductBuy {
+		align-self: flex-start;
+		margin: 0;
+		margin-block-start: var(--space, var(--space-s));
 	}
 
 	.ProductPriceBlock {

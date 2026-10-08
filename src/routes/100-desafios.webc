@@ -18,7 +18,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/100-desafios-pages.webp" alt="Páginas do ebook 100 desafios práticos" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<h2>Sobre o desafio</h2>
 				<p>São dez anos ensinando francês e tentando a cada dia aproximar essa língua tão linda do cotidiano de cada um.</p>
 				<p>Durante este tempo, nosso material, nossa metodologia e nossa maneira de pensar o ensino do francês para brasileiros, mudou muito. Mas há algo que sempre permeou nosso caminho e que ainda vai seguir por muito tempo: ensinar francês como a gente gostaria de ter aprendido!</p>
@@ -36,12 +36,15 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 		</div>
 	</section>
 
-	<section class="ProductBand ProductBand--white">
-		<div class="ProductBand-inner s-rich-text">
-			<h2>Atividades para todos os níveis por menos de 30 centavos por desafio!</h2>
-			<p><strong>Ideal para todos os níveis!</strong></p>
-			<p>O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
-			<p>E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
+	<section class="ProductBand ProductBand--lavender">
+		<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 366px">
+			<img class="u-limit-target" eleventy:ignore src="/img/landing/100-desafios-cover.webp" alt="Capa do ebook 100 desafios práticos para falar francês com confiança" width="512" height="800" />
+			<div class="stack" style="color: #024282; font-weight: 700; line-height: 1.5">
+				<h2 class="u-color-red u-weight-900 u-size-2 u-leading-15 u-features-normal">Atividades para todos os níveis por menos de 30 centavos por desafio!</h2>
+				<p class="u-measure">Ideal para todos os níveis!</p>
+				<p class="u-measure">O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
+				<p class="u-measure">E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
+			</div>
 		</div>
 	</section>
 
@@ -50,7 +53,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<h2>Chouette Institut de français</h2>
 				<p>Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.</p>
 				<p>Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.</p>
@@ -63,7 +66,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<section class="ProductBand ProductBand--blue">
 		<div class="ProductBand-inner ProductCtaRow">
 			<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-			<div class="ProductCtaRow-text s-rich-text">
+			<div class="ProductCtaRow-text s-rich-text stack" style="--space: var(--space-2xs)">
 				<p>Suporte e tira-dúvidas diretamente com a</p>
 				<p><strong>Chouette Institut de français</strong></p>
 			</div>
@@ -78,7 +81,7 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 			<div class="ProductSplit-media">
 				<img eleventy:ignore src="/img/landing/100-desafios-device.webp" alt="100 desafios acessíveis em qualquer dispositivo" loading="lazy" decoding="async" />
 			</div>
-			<div class="ProductSplit-body s-rich-text">
+			<div class="ProductSplit-body s-rich-text stack">
 				<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>
 			</div>
 		</div>

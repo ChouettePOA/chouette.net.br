@@ -338,6 +338,73 @@ drop-cap:last-child,
 .u-vspacer + .u-vspacer .u-container-inner > .s-rich-text:first-child {
 	padding-top: 0;
 }
+
+
+/*
+	Layout primitives. Algorithms from Every Layout:
+	the Stack spaces siblings on the block axis, the Sidebar
+	gives the first child a target width and lets the second fill.
+*/
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.stack.stack > * {
+	margin-block: 0;
+}
+.stack.stack > * + * {
+	margin-block-start: var(--space, var(--space-s));
+}
+
+.with-sidebar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--gutter, var(--space-m));
+	--sidebar-target: 20rem;
+}
+.with-sidebar > :first-child {
+	flex-basis: var(--sidebar-target);
+	flex-grow: 1;
+	min-inline-size: 0;
+}
+.with-sidebar > :last-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-inline-size: 50%;
+}
+
+
+/*
+	Utility : final adjustments. .u-color-red is important because
+	.ProductBand--lavender h2 is (0, 1, 1) and a plain class loses.
+*/
+
+.u-color-red {
+	color: var(--red) !important;
+}
+.u-weight-900 {
+	font-weight: 900;
+}
+.u-size-2 {
+	font-size: var(--size-2);
+}
+.u-leading-15 {
+	line-height: 1.5;
+}
+.u-features-normal {
+	font-feature-settings: normal;
+}
+.u-limit-target {
+	max-inline-size: min(100%, var(--sidebar-target));
+	block-size: auto;
+	border-radius: 1rem;
+}
+.u-measure {
+	max-inline-size: var(--line-length);
+}
 /*
 @media only screen and (min-width: 35em) {
 	.u-vspacer {

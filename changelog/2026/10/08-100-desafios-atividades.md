@@ -1,14 +1,14 @@
 # 100 desafios — atividades por menos de 30 centavos
 
 - **Date:** 2026-10-08
-- **Status:** planned
-- **Scope:** the band whose heading is “Atividades para todos os níveis por menos de 30 centavos por desafio!” on `/100-desafios/`
+- **Status:** lavender band implemented; spacing uniformization planned
+- **Scope:** the band whose heading is “Atividades para todos os níveis por menos de 30 centavos por desafio!” on `/100-desafios/`; a follow-up aligns spacing in comparable product-page bands on `/100-desafios/` and `/grammaire-chouette-a1/`
 - **Page:** http://chouette.localhost:8080/100-desafios/
 - **Source:** https://chouettefrances.hotmart.host/100-desafios (section `#ls-7Hd31uThjLt1fbLwfoDFgg`)
 
 ## Context
 
-The copy is already on the page. The band is not. In `src/routes/100-desafios.webc` it is a white `ProductBand` with an `h2` and three paragraphs, and no cover.
+Before this change, the copy was already on the page. In `src/routes/100-desafios.webc` it was a white `ProductBand` with an `h2` and three paragraphs, and no cover. The lavender band described below is now implemented. The spacing follow-up at the end is planned and has not been applied or checked in the browser.
 
 On Hotmart the same copy sits in a lavender band (`rgb(209, 190, 221)`, already `#d1bedd` / `.ProductBand--lavender`):
 
@@ -74,7 +74,7 @@ Product CSS is bundled and can come after `main.css`, so a tie on specificity is
 
 The reset is `.stack.stack > *` at (0, 2, 0). It beats `.ProductPage h2` and `.ProductPage p`, both (0, 1, 1), whatever the source order. It does not beat `.ProductPage p:last-child` at (0, 2, 1): the class columns match, and the element column decides. That loss is harmless. The rule that wins also sets the bottom margin to zero, which is the edge the reset was clearing. Spacing between items still comes from `.stack.stack > * + *`, because `:last-child` does not set the top margin.
 
-Doubling the class keeps the primitive global. It does not mention `.ProductPage`, so bands that are not a Stack keep the product margins. The grammar page has no `.stack`.
+Doubling the class keeps the primitive global. It does not mention `.ProductPage`, so bands that are not a Stack keep the product margins. The initial implementation adds no `.stack` to the grammar page. The spacing follow-up will opt comparable copy columns into it.
 
 ```css
 .stack {
@@ -110,9 +110,9 @@ Markup in `src/routes/100-desafios.webc`:
 		<img class="u-limit-target" eleventy:ignore src="/img/landing/100-desafios-cover.webp" alt="Capa do ebook 100 desafios práticos para falar francês com confiança" width="512" height="800" />
 		<div class="stack" style="color: #024282; font-weight: 700; line-height: 1.5">
 			<h2 class="u-color-red u-weight-900 u-size-2 u-leading-15 u-features-normal">Atividades para todos os níveis por menos de 30 centavos por desafio!</h2>
-			<p>Ideal para todos os níveis!</p>
-			<p>O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
-			<p>E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
+				<p class="u-measure">Ideal para todos os níveis!</p>
+				<p class="u-measure">O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
+				<p class="u-measure">E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
 		</div>
 	</div>
 </section>
@@ -161,17 +161,23 @@ The primitive’s `min-inline-size: 0` lets the flex item shrink. The image carr
 
 `1rem` of radius is 19–22px. The reference is 16px. The root step is the value we use. It is not a claim that the two radii match.
 
-**Measure.** The paragraphs stay inside the column. Cap them with the existing `--line-length` (or `60ch` if that column still feels long). A percentage such as Hotmart’s 80% does not survive a font-size change.
+**Measure.** The paragraphs stay inside the column. `.u-measure` caps each one at the existing `--line-length`. A percentage such as Hotmart’s 80% does not survive a font-size change.
 
-Neighboring bands stay as they are: “Sobre o desafio”, the buy row above, “Chouette Institut de français”, the price block, and the FAQ.
+```css
+.u-measure {
+	max-inline-size: var(--line-length);
+}
+```
 
-## Check
+The initial implementation leaves neighboring bands as they are: “Sobre o desafio”, the buy row above, “Chouette Institut de français”, the price block, and the FAQ. The spacing follow-up below deliberately extends that scope to comparable relationships.
 
-These checks have not been run. The page source is unchanged. Run them in the browser after the band is implemented, on http://chouette.localhost:8080/100-desafios/, wide and narrow, by resizing. Also at a 320px viewport and with text enlarged (browser zoom or a root size of about 200%).
+## Lavender band — completed checks
+
+Checked in the browser on 2026-10-08 at http://chouette.localhost:8080/100-desafios/.
 
 - Lavender band. Cover on the left, red title, blue bold copy on the right.
 - Wrap: `flex-direction` stays `row`. Narrowing until the copy cannot keep `min-inline-size: 50%` puts the copy’s top below the cover’s top. No width query does that.
-- Overflow: at 320px, and again with enlarged text, `document.documentElement.scrollWidth` equals `document.documentElement.clientWidth`. The cover’s used width is at most the inner width of the band. It is not stuck at 366px or at the file’s 512px.
+- Overflow: at 320px, `scrollWidth` equals `clientWidth` (both 320). The cover’s used width is the band’s inner width (256px), not 366px or 512px. With the root font at 200% the band still fits (right edge 266 inside a 320px viewport). The page’s `scrollWidth` grows to 490 because the hero copy does, which this band does not change.
 - Computed heading: color `rgb(215, 25, 32)` (`--red`), `font-weight` 900, `font-size` the used `--size-2` (about 32.5px at 320, about 43.7px at 1240), `font-feature-settings` normal. The lavender rule’s `#191c1f` does not win. Computed `line-height` comes back in pixels; `parseFloat(lineHeight) / parseFloat(fontSize)` is 1.5.
 - Computed paragraphs: color `rgb(2, 66, 130)`, `font-weight` 700, `font-size` the root 19–22px. The same pixel ratio of `line-height` to `font-size` is 1.5.
 - Computed margins: the heading and the paragraphs that are not `:last-child` do not keep `.ProductPage`’s `--space-s` or `--space-xs`. Successive children have `margin-block-start` equal to the Stack’s `--space`. The last paragraph’s `margin-bottom` is 0 because `.ProductPage p:last-child` wins that edge, and that value is already 0.
@@ -179,3 +185,70 @@ These checks have not been run. The page source is unchanged. Run them in the br
 - The cover request is the existing `/img/landing/100-desafios-cover.webp`. Its attributes are 512 and 800.
 - The grammar page lavender band still uses `.ProductSplit`. Its headings stay `#191c1f`, and its heading and paragraph margins stay the product margins.
 - `main.css` holds `.stack`, `.with-sidebar`, and the utilities. `.with-sidebar` reads `--sidebar-target` and defaults it to `20rem`. `product-landing.webc` does not grow a layout class for this heading.
+
+## Follow-up — uniform spacing by visual constraint
+
+**Status: implemented.** Checked in the browser on 2026-10-08. The completed checks above describe the lavender band before this follow-up.
+
+### Goal and scope
+
+Elements with the same visual job and similar available width, text size, and line-height should use the same spacing rule. A paragraph in a blue band and one in a lavender band do not need different margins because their colors differ. Content length may change a column's height; it does not justify a different gap between its paragraphs.
+
+Start with the two product pages, which already share `product-landing.webc`. Compare the lavender activities band, “Sobre o desafio” / “Sobre a gramática”, both “Chouette Institut de français” bands, and the grammar page's lavender support band. Include their media/text gutters and repeated buy/support rows. Keep the homepage and other landing-page families outside this pass until their constraints have been compared.
+
+This pass changes spacing and the markup needed to give it one owner. Keep the existing typography, colors, copy, image proportions, column algorithms, and `--line-length`. The grammar page retains `.ProductSplit` and its dark lavender headings; its eligible copy columns will intentionally gain the shared Stack rhythm.
+
+### Current mismatches
+
+| Relationship | Current sources | Why it needs one rule |
+| --- | --- | --- |
+| Heading followed by prose | `.ProductPage h2` ends with `--space-s`; the lavender Stack adds `--space-s` before the paragraph | Same intended separation, different owners |
+| Consecutive prose paragraphs | `.ProductPage p` ends with `--space-xs`; the lavender Stack adds `--space-s` before the next paragraph | Comparable body copy has different rhythm |
+| Media beside or above copy | Sidebar uses `--space-m`; `.ProductSplit` uses `--space-m` then `--space-l` at `48em` | The layout algorithm changes the gap even when the relationship is the same |
+| Prose followed by a buy button | Paragraph bottom margin and `.ProductBuy` top margin can both contribute | Two elements contribute to the same separation |
+| A buy/support row | Row `gap`, direct paragraph margins, and nested text margins | The row needs to own separation between its items; its text needs a separate internal rhythm |
+
+### Shared spacing contract
+
+Use the existing Utopia space scale, with one value for each comparable relationship. Configure the existing `--space` and `--gutter` properties rather than introducing pixel nudges or a separate scale per band.
+
+| Visual constraint | Shared value and owner | Application |
+| --- | --- | --- |
+| Ordinary prose flow: heading → paragraph, paragraph → paragraph, prose → action | `--space-s`, owned by `.stack` through `--space` | Eligible text columns on both product pages, including the implemented lavender band |
+| Media → copy, side by side or wrapped | `--space-m`, owned by the row through `--gutter` | `.with-sidebar` and ordinary `.ProductSplit` rows; the desktop grid changes columns, not this gap |
+| Button → supporting text in a buy row | `--space-s`, owned by `.ProductCtaRow`'s `gap` | The repeated buy/support rows on both pages, including when they wrap |
+| Short lines that form one supporting message | `--space-2xs`, owned by a nested Stack | “Suporte e tira-dúvidas diretamente com a” followed by the school name; this is a compact message, not two prose paragraphs |
+| Buy row → separate support explanation | `--space-m`, owned by the enclosing block flow | The explanation beneath the support row on both pages; avoid combining its existing inline margin with a new parent gap |
+| Ordinary band → its content | Existing `.ProductBand` block padding and `--space-m` inline padding | All ordinary product bands already share these values; retain them and remove any redundant padding added by a child for the same inset |
+
+Uniformity applies at a given viewport and text setting. These are fluid tokens, not fixed pixel distances. Do not equate `--size-0`, `1em`, and `--space-s` merely because they happen to be close at one width.
+
+**Intentional exceptions.** The hero has its own narrower measure and introductory hierarchy; pricing has tightly related label/amount/action groups; FAQ spacing must work with the summary border and opened answer. Keep those constraints documented rather than forcing them into ordinary prose spacing. Both pages' heroes, price blocks, and FAQs should still match their corresponding counterpart because they share components. Button padding, text line-height, and the chevron's internal geometry are not sibling spacing. The known hero overflow with enlarged text remains a separate follow-up.
+
+### Implementation sequence
+
+1. Record the current spacing at matching widths on both pages: heading → first paragraph, paragraph → paragraph, final paragraph → action, media → copy, and content → band edge. Measure element border-box boundaries rather than the visible shape of letters. Note each active margin, gap, and padding that contributes.
+2. In `src/routes/100-desafios.webc` and `src/routes/grammaire-chouette-a1.webc`, add `.stack` to the eligible copy containers. Reuse the established reset and `--space-s` default in `src/routes/main.css`. Retain needed rich-text and measure classes, and preserve text alignment. Remove spacing-only inline declarations only when another owner replaces them.
+3. For an action inside a copy Stack, let that Stack own the prose → action gap. Clear the action's extra block margin in that context. Audit specificity against `.ProductBuy` and `.ProductPage` rules before choosing the selector; leave the button's internal padding intact. Preserve its intended width and horizontal alignment: a flex Stack must not stretch a previously intrinsic-width button across the column. First and last children must not add unused outer block margins.
+4. In `src/components/product-landing.webc`, make ordinary `.ProductSplit` use `gap: var(--gutter, var(--space-m))`. Remove its desktop `--space-l` gap override while keeping its column and reverse-order rules. The Sidebar already uses the same gutter contract. Do not convert the grammar grid into a Sidebar merely to share spacing.
+5. Make `.ProductCtaRow` own spacing between its direct children, clearing their residual block margins with sufficient specificity. Give its two-line support message a nested Stack with `--space: var(--space-2xs)`. Keep the explanation below the row at one `--space-m` separation, with only one owner for that boundary.
+6. Review the shared band insets and the documented exceptions on both pages. Change a shared component when its counterparts have identical constraints; use an explicit token-based exception when they differ. Do not change global `h2`/`p` margins or apply a blanket reset to all rich text on the site.
+7. Remove superseded spacing declarations in the migrated contexts, then run the checks below. Update this follow-up's status and record actual results only after those checks have run.
+
+The generic Stack and Sidebar remain in `main.css`. Product-specific spacing configuration remains in `product-landing.webc` or on the instance that needs it. Color modifiers do not select a spacing policy. Keep the existing cascade protections, font-size calculations, and image shrink constraints from the implemented band.
+
+### Acceptance checks — 2026-10-08
+
+- Compare both pages at 320px, 1240px, and immediately before and after their row transitions. Repeat with enlarged text. Compare like relationships at the same viewport and root size; allow normal subpixel rounding.
+- Every migrated prose flow uses one `--space-s` gap per boundary. Heading → paragraph, paragraph → paragraph, and prose → action do not retain an extra bottom or top margin. The first child's block-start margin and last child's block-end margin are zero. Buttons keep their intended width and horizontal alignment after their container becomes a flex Stack.
+- Ordinary Sidebar and ProductSplit media/text gaps resolve to the same `--space-m` on both sides of wrapping. The grammar page still uses its existing grid and reverse ordering.
+- Buy/support rows use one `--space-s` gap between direct children. Their compact nested messages use `--space-2xs`; the explanation below a row uses one `--space-m` separation.
+- Ordinary band insets match their counterparts. No additional wrapper padding doubles the same inset. Any retained hero, pricing, or FAQ exception has a stated constraint and matches its counterpart on the other page.
+- Check effective boundary distances as well as computed CSS. Two matching tokens are insufficient if a child margin or wrapper padding adds another distance. Repeat with short and multiline text and with FAQ answers open and closed.
+- Recheck the implemented lavender band's red heading, weight 900, line-height ratio 1.5, 366px cover cap, paragraph measure, and single page `h1`. Grammar headings retain their existing colors and typography; the intended change there is spacing.
+- Compare `scrollWidth` with `clientWidth` at normal text size. With enlarged text, verify each migrated band fits and does not introduce further overflow; record the existing hero overflow separately rather than hiding it or counting the entire page as passing.
+- The dev server rebuilt both pages. The observations below are the border-box distances from that check.
+
+Before, at 1240px on `/100-desafios/`: heading → paragraph 28.22px (`--space-s`), paragraph → paragraph 21.84px (`--space-xs`), paragraph → buy button 50.06px (both of those margins), `.ProductSplit` gap 56.45px (`--space-l`), Sidebar gap 42.33px (`--space-m`), support lines 21.84px.
+
+After, at the same width, both pages: heading → paragraph, paragraph → paragraph, and paragraph → button are 28.22px. Split and Sidebar gaps are 42.33px. The support lines are 14.11px (`--space-2xs`). The explanation under the support row is 42.33px (`--space-m`). The buy button stays 267px wide and `align-self: flex-start`. At 320px the same relationships are 21.38px, 32.06px, and 10.69px, which are the fluid tokens at that root size, and `scrollWidth` equals `clientWidth`. At 760px the split is one column with a 36.77px gap; at 800px it is two columns with a 37.23px gap. The grammar lavender heading stays `rgb(25, 28, 31)`, the grid and reverse order stay, and there is no Sidebar. The lavender activities heading stays red, weight 900, line-height ratio 1.5, cover 366px, one `h1`. FAQ summary spacing stays `--space-2xs` when open. With the root font at 200% on a 320px window, the hero still reaches a `scrollWidth` of 490; the migrated bands do not add to that.
