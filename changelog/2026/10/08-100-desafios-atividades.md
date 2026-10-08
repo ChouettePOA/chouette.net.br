@@ -1,14 +1,53 @@
 # 100 desafios — atividades por menos de 30 centavos
 
 - **Date:** 2026-10-08
-- **Status:** lavender band implemented; spacing uniformization planned
+- **Status:** lavender band and shared spacing implemented; `/main.css` is a standalone stylesheet again; browser checks repeated 2026-10-08 after a Node 26 rebuild
 - **Scope:** the band whose heading is “Atividades para todos os níveis por menos de 30 centavos por desafio!” on `/100-desafios/`; a follow-up aligns spacing in comparable product-page bands on `/100-desafios/` and `/grammaire-chouette-a1/`
 - **Page:** http://chouette.localhost:8080/100-desafios/
 - **Source:** https://chouettefrances.hotmart.host/100-desafios (section `#ls-7Hd31uThjLt1fbLwfoDFgg`)
 
 ## Context
 
-Before this change, the copy was already on the page. In `src/routes/100-desafios.webc` it was a white `ProductBand` with an `h2` and three paragraphs, and no cover. The lavender band described below is now implemented. The spacing follow-up at the end is planned and has not been applied or checked in the browser.
+Before this change, the copy was already on the page. In `src/routes/100-desafios.webc` it was a white `ProductBand` with an `h2` and three paragraphs, and no cover. The lavender band and spacing follow-up are implemented in source. An HTML wrapper in the built `/main.css` was fixed with `useLayouts: false` before the browser checks below were repeated. The earlier observations stay in this file as the comparison set; the 2026-10-08 revalidation is the current baseline.
+
+## Prerequisite — restore the standalone stylesheet
+
+**Status: fixed and rechecked on 2026-10-08.** The installed packages are Eleventy 3.1.6, WebC 0.11.2, and Image 7.0.0. The site stays on the current Eleventy 3 release line. This was a configuration repair, not a framework upgrade. The CSS extension now sets `useLayouts: false`. Bundle, image, README, package identity, and input-path cleanup remain separate and were not part of this fix.
+
+`src/routes/routes.11tydata.js` supplies `layout: "page.webc"` to every template in that directory, including `main.css`. The CSS extension now sets `useLayouts: false` beside `outputFileExtension: "css"`. Eleventy 3 defaults that option to `true`. [Custom template language documentation](https://www.11ty.dev/docs/languages/custom/#uselayouts) Removing the flag wraps the compiled CSS in the page layout again: `docs/main.css` becomes an HTML document that still contains `--size-*`, `--space-*`, and `.stack` text, and browsers do not apply it. Those strings inside the file are not evidence.
+
+Standing constraints for later work on this site are in `.agents/skills/chouette-site/SKILL.md`. A missing global stylesheet changes typography, spacing, resets, image constraints, and layout across every page that links `/main.css`. Do not compensate with component margins, copied token definitions, or fresh pixel values.
+
+### Delivery checks — passed 2026-10-08
+
+Node v26.11.1, Eleventy 3.1.6. Full `npm run build` (`rm -rf docs` then Eleventy), then a restarted `npm run dev` (`--serve --incremental`). Measurements below use a 1240×900 emulated viewport unless noted; `clientWidth` was 1225 when a scrollbar was present, and 320 at the narrow viewport. The same `/main.css` bytes were also served as `text/css` by a static server of `docs/`, and the generated `/100-desafios/` page applied them (53 rules, lavender heading gap 28.22px).
+
+1. `docs/main.css` is 6502 bytes of CSS. It starts with `*{box-sizing:border-box}`. No doctype, page wrapper, or script. Utopia directives are expanded (`--size-0`, `--space-s`, `--space-m` are `calc(clamp(...))`; `--line-length` is `36rem`).
+2. Dev `GET /main.css` is `200` `text/css` and byte-identical to `docs/main.css`. Both product pages, the homepage, and `/sobre-a-escola/` link it. The browser stylesheet object for `/main.css` has 53 rules, including `.stack` and `.with-sidebar`.
+3. At the wide viewport the root font is 22px. `--space-s` and `--space-m` resolve in used gaps (28.22px and 42.33px). At 320px the root font is 19px. `box-sizing` is `border-box`. Homepage type uses Quattrocento Sans and Raleway; `img` max-width is 100%.
+4. Lavender-band and shared-spacing checks were repeated. Fresh results are in the sections below. With the root font forced to 200% (32px) on a 320px window, page `scrollWidth` is 490 because the hero text reaches 490px. Migrated bands stay within 320px.
+5. Homepage and `/sobre-a-escola/` load the same 53-rule stylesheet. The content page keeps the blue page background, 22px body size, and a real bottom margin on prose. Neither page grows `scrollWidth` past `clientWidth` at the wide viewport.
+
+1. Rebuild using the project's configured Node 26 runtime. Confirm `docs/main.css` contains CSS without a doctype, page wrapper, or scripts, and that PostCSS has expanded the Utopia directives.
+2. Restart the dev server after the configuration change and load fresh copies of both product pages. Confirm `/main.css` responds successfully as `text/css`, and that the response body matches the rebuilt stylesheet. Check the generated static pages as well as the dev server; incremental or previously cached output is not sufficient evidence.
+3. Inspect the applied stylesheet and computed styles. Confirm the root `--size-0`, `--space-s`, `--space-m`, and `--line-length` values exist and resolve; confirm `.stack`, `.with-sidebar`, and the utilities take effect. Check actual heading, paragraph, and image values, not only the presence of custom properties.
+4. Repeat the lavender band and shared-spacing acceptance checks below. Replace the historical measurements with fresh results and record the build/server mode and viewport. Re-evaluate the enlarged-text overflow: the recorded 490px hero result is not a baseline until global CSS loading has been confirmed.
+5. Inspect the homepage and one ordinary content page for effects of restoring the shared reset and typography. They also link `/main.css`, even though their spacing policies are outside the product-page migration.
+
+### Related configuration maintenance — separate from the delivery fix
+
+The following cleanup can follow the minimal fix in separate changes, with a build and relevant browser checks after each. It must not delay stylesheet delivery or be presented as necessary for the spacing contract.
+
+| Area | Planned maintenance | Validation |
+| --- | --- | --- |
+| Bundles | Replace the direct transitive bundle-plugin import and `addPlugin` call with explicit `addBundle("css", { transforms: [...] })` and `addBundle("js")`; keep the existing PostCSS transform | Component CSS remains processed and minified, and CSS/JS bundle references resolve. Check registration order against the installed WebC plugin. [Bundle documentation](https://www.11ty.dev/docs/plugins/bundle/) |
+| Image API names | Use `eleventyImageTransformPlugin` and move default loading/decoding attributes into `htmlOptions.imgAttributes` | Transformed images retain their expected formats, sizes, loading, and decoding. Ignored landing WebPs remain unchanged. [Image documentation](https://www.11ty.dev/docs/plugins/image/) |
+| Image development mode | Correct the comment that `transformOnRequest: false` is required for static builds. If the override is removed, explicitly verify the change to dev behavior | Normal builds write deployable image files; dev requests are served by image middleware. Do not validate dev image URLs as if they were production files. [Transform-on-request documentation](https://www.11ty.dev/docs/plugins/image/#transform-on-request) |
+| README | Replace Eleventy canary / Node 24 references and removed `eleventy-image` component examples with the installed release line, configured Node 26 runtime, and current HTML transform markup | Commands and examples match `eleventy.config.js`, `.nvmrc`, and installed Image 7 |
+| Package identity and engines | Replace starter metadata only with confirmed project identity; align the Node engine requirement with direct dependency requirements | Image 7 requires Node 22 or newer; check other direct packages before selecting the minimum. Preserve original license and attribution where required |
+| Input-path transform | Remove the idle plugin and its “required by WebC” comment after confirming there are no filesystem-path links that depend on it | Build and inspect generated asset/link URLs; do not substitute a guessed dependency requirement |
+
+## Reference band
 
 On Hotmart the same copy sits in a lavender band (`rgb(209, 190, 221)`, already `#d1bedd` / `.ProductBand--lavender`):
 
@@ -171,9 +210,9 @@ The primitive’s `min-inline-size: 0` lets the flex item shrink. The image carr
 
 The initial implementation leaves neighboring bands as they are: “Sobre o desafio”, the buy row above, “Chouette Institut de français”, the price block, and the FAQ. The spacing follow-up below deliberately extends that scope to comparable relationships.
 
-## Lavender band — completed checks
+## Lavender band — revalidated 2026-10-08
 
-Checked in the browser on 2026-10-08 at http://chouette.localhost:8080/100-desafios/.
+Repeated on http://chouette.localhost:8080/100-desafios/ after the stylesheet fix, Node 26 full build, and a restarted dev server. These match the earlier report, now with `/main.css` confirmed applied.
 
 - Lavender band. Cover on the left, red title, blue bold copy on the right.
 - Wrap: `flex-direction` stays `row`. Narrowing until the copy cannot keep `min-inline-size: 50%` puts the copy’s top below the cover’s top. No width query does that.
@@ -188,7 +227,7 @@ Checked in the browser on 2026-10-08 at http://chouette.localhost:8080/100-desaf
 
 ## Follow-up — uniform spacing by visual constraint
 
-**Status: implemented.** Checked in the browser on 2026-10-08. The completed checks above describe the lavender band before this follow-up.
+**Status: implemented and rechecked on 2026-10-08 after `/main.css` loaded as CSS.** The lavender-band list above is the activities band. The spacing numbers below are the fresh shared-spacing baseline.
 
 ### Goal and scope
 
@@ -198,7 +237,7 @@ Start with the two product pages, which already share `product-landing.webc`. Co
 
 This pass changes spacing and the markup needed to give it one owner. Keep the existing typography, colors, copy, image proportions, column algorithms, and `--line-length`. The grammar page retains `.ProductSplit` and its dark lavender headings; its eligible copy columns will intentionally gain the shared Stack rhythm.
 
-### Current mismatches
+### Mismatches addressed by the source changes
 
 | Relationship | Current sources | Why it needs one rule |
 | --- | --- | --- |
@@ -225,30 +264,27 @@ Uniformity applies at a given viewport and text setting. These are fluid tokens,
 
 **Intentional exceptions.** The hero has its own narrower measure and introductory hierarchy; pricing has tightly related label/amount/action groups; FAQ spacing must work with the summary border and opened answer. Keep those constraints documented rather than forcing them into ordinary prose spacing. Both pages' heroes, price blocks, and FAQs should still match their corresponding counterpart because they share components. Button padding, text line-height, and the chevron's internal geometry are not sibling spacing. The known hero overflow with enlarged text remains a separate follow-up.
 
-### Implementation sequence
+### Implementation sequence and revalidation
 
-1. Record the current spacing at matching widths on both pages: heading → first paragraph, paragraph → paragraph, final paragraph → action, media → copy, and content → band edge. Measure element border-box boundaries rather than the visible shape of letters. Note each active margin, gap, and padding that contributes.
+1. Complete the stylesheet delivery prerequisite first. Record spacing at matching widths on both pages with the global CSS confirmed loaded: heading → first paragraph, paragraph → paragraph, final paragraph → action, media → copy, and content → band edge. Measure element border-box boundaries rather than the visible shape of letters. Note each active margin, gap, and padding that contributes. Steps 2–6 describe the spacing changes already in source; review them against this fresh baseline before further adjustment.
 2. In `src/routes/100-desafios.webc` and `src/routes/grammaire-chouette-a1.webc`, add `.stack` to the eligible copy containers. Reuse the established reset and `--space-s` default in `src/routes/main.css`. Retain needed rich-text and measure classes, and preserve text alignment. Remove spacing-only inline declarations only when another owner replaces them.
 3. For an action inside a copy Stack, let that Stack own the prose → action gap. Clear the action's extra block margin in that context. Audit specificity against `.ProductBuy` and `.ProductPage` rules before choosing the selector; leave the button's internal padding intact. Preserve its intended width and horizontal alignment: a flex Stack must not stretch a previously intrinsic-width button across the column. First and last children must not add unused outer block margins.
 4. In `src/components/product-landing.webc`, make ordinary `.ProductSplit` use `gap: var(--gutter, var(--space-m))`. Remove its desktop `--space-l` gap override while keeping its column and reverse-order rules. The Sidebar already uses the same gutter contract. Do not convert the grammar grid into a Sidebar merely to share spacing.
 5. Make `.ProductCtaRow` own spacing between its direct children, clearing their residual block margins with sufficient specificity. Give its two-line support message a nested Stack with `--space: var(--space-2xs)`. Keep the explanation below the row at one `--space-m` separation, with only one owner for that boundary.
 6. Review the shared band insets and the documented exceptions on both pages. Change a shared component when its counterparts have identical constraints; use an explicit token-based exception when they differ. Do not change global `h2`/`p` margins or apply a blanket reset to all rich text on the site.
-7. Remove superseded spacing declarations in the migrated contexts, then run the checks below. Update this follow-up's status and record actual results only after those checks have run.
+7. Remove any remaining superseded spacing declarations in the migrated contexts, then repeat the checks below after stylesheet delivery is fixed. Record fresh results and update the verification status only after those checks pass.
 
 The generic Stack and Sidebar remain in `main.css`. Product-specific spacing configuration remains in `product-landing.webc` or on the instance that needs it. Color modifiers do not select a spacing policy. Keep the existing cascade protections, font-size calculations, and image shrink constraints from the implemented band.
 
-### Acceptance checks — 2026-10-08
+### Acceptance checks — revalidated 2026-10-08
 
-- Compare both pages at 320px, 1240px, and immediately before and after their row transitions. Repeat with enlarged text. Compare like relationships at the same viewport and root size; allow normal subpixel rounding.
-- Every migrated prose flow uses one `--space-s` gap per boundary. Heading → paragraph, paragraph → paragraph, and prose → action do not retain an extra bottom or top margin. The first child's block-start margin and last child's block-end margin are zero. Buttons keep their intended width and horizontal alignment after their container becomes a flex Stack.
-- Ordinary Sidebar and ProductSplit media/text gaps resolve to the same `--space-m` on both sides of wrapping. The grammar page still uses its existing grid and reverse ordering.
-- Buy/support rows use one `--space-s` gap between direct children. Their compact nested messages use `--space-2xs`; the explanation below a row uses one `--space-m` separation.
-- Ordinary band insets match their counterparts. No additional wrapper padding doubles the same inset. Any retained hero, pricing, or FAQ exception has a stated constraint and matches its counterpart on the other page.
-- Check effective boundary distances as well as computed CSS. Two matching tokens are insufficient if a child margin or wrapper padding adds another distance. Repeat with short and multiline text and with FAQ answers open and closed.
-- Recheck the implemented lavender band's red heading, weight 900, line-height ratio 1.5, 366px cover cap, paragraph measure, and single page `h1`. Grammar headings retain their existing colors and typography; the intended change there is spacing.
-- Compare `scrollWidth` with `clientWidth` at normal text size. With enlarged text, verify each migrated band fits and does not introduce further overflow; record the existing hero overflow separately rather than hiding it or counting the entire page as passing.
-- The dev server rebuilt both pages. The observations below are the border-box distances from that check.
+The delivery checks above passed first. Both product pages were then compared in the restarted dev server at 320px, 760px, 800px, and 1240px, and again with the root font at 200% on a 320px window. The static `docs/100-desafios/index.html` page applied the same stylesheet.
 
-Before, at 1240px on `/100-desafios/`: heading → paragraph 28.22px (`--space-s`), paragraph → paragraph 21.84px (`--space-xs`), paragraph → buy button 50.06px (both of those margins), `.ProductSplit` gap 56.45px (`--space-l`), Sidebar gap 42.33px (`--space-m`), support lines 21.84px.
+- At a 1240px emulated width (`clientWidth` 1225), both pages: heading → paragraph, paragraph → paragraph, and paragraph → button are 28.22px. First and last stack margins are 0. Split and Sidebar gaps are 42.33px. Support lines are 14.11px. The explanation under the support row is 42.33px, from that block's `margin-top` only. A buy button inside a copy Stack is 267px wide with `align-self: flex-start`.
+- At 320px (`clientWidth` 320, root 19px): prose gap 21.38px, media gap 32.06px, `scrollWidth` equals `clientWidth`. The activities cover used width is 256px. Sidebar `flex-direction` stays `row` and the copy wraps below the cover.
+- At 760px the split is one column with a 36.78px gap. At 800px it is two columns with a 37.24px gap. On the grammar page the reverse row still places the copy on the left. There is no Sidebar on that page. Its lavender heading stays `rgb(25, 28, 31)` and weight 400.
+- The activities heading stays `rgb(215, 25, 32)`, weight 900, line-height ratio 1.5, used size 43.72px at the wide viewport and 32.49px at 320px, cover cap 366px, one `h1`.
+- With an FAQ item open, `details` padding and the summary's bottom margin are `--space-2xs` (14.11px at the wide root, 18px when the root font is 32px).
+- With the root font at 200% (32px) on a 320px window, page `scrollWidth` is 490 and the hero text's right edge is 490px. Each product band's right edge stays at 320px.
 
-After, at the same width, both pages: heading → paragraph, paragraph → paragraph, and paragraph → button are 28.22px. Split and Sidebar gaps are 42.33px. The support lines are 14.11px (`--space-2xs`). The explanation under the support row is 42.33px (`--space-m`). The buy button stays 267px wide and `align-self: flex-start`. At 320px the same relationships are 21.38px, 32.06px, and 10.69px, which are the fluid tokens at that root size, and `scrollWidth` equals `clientWidth`. At 760px the split is one column with a 36.77px gap; at 800px it is two columns with a 37.23px gap. The grammar lavender heading stays `rgb(25, 28, 31)`, the grid and reverse order stay, and there is no Sidebar. The lavender activities heading stays red, weight 900, line-height ratio 1.5, cover 366px, one `h1`. FAQ summary spacing stays `--space-2xs` when open. With the root font at 200% on a 320px window, the hero still reaches a `scrollWidth` of 490; the migrated bands do not add to that.
+Before the spacing change, at 1240px on `/100-desafios/`: heading → paragraph 28.22px (`--space-s`), paragraph → paragraph 21.84px (`--space-xs`), paragraph → buy button 50.06px (both of those margins), `.ProductSplit` gap 56.45px (`--space-l`), Sidebar gap 42.33px (`--space-m`), support lines 21.84px. That set is the pre-change comparison. The bullets above replace it as the current baseline.
