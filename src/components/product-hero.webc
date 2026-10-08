@@ -4,14 +4,16 @@
 	const intro = this.intro;
 	const cover = this.cover;
 	const coverAlt = this.coverAlt || this.coveralt || "";
+	const coverWidth = this.coverWidth || this.coverwidth || "";
+	const coverHeight = this.coverHeight || this.coverheight || "";
 	const buyHref = this.buyHref || this.buyhref;
 	const ledeHtml = lede ? `<p class="ProductHero-lede">${lede}</p>` : "";
 	const introHtml = intro ? `<p class="ProductHero-intro">${intro}</p>` : "";
-	const coverHtml = cover ? `<img class="ProductHero-cover" src="${cover}" alt="${coverAlt}" loading="eager" decoding="async" eleventy:ignore />` : "";
+	const coverHtml = cover ? `<img class="with-sidebar-pane u-cap" src="${cover}" alt="${coverAlt}" width="${coverWidth}" height="${coverHeight}" loading="eager" decoding="async" eleventy:ignore />` : "";
 
 	`<section class="ProductBand ProductBand--white ProductHero">
-		<div class="ProductHero-grid">
-			<div class="ProductHero-copy">
+		<div class="ProductHero-frame with-sidebar" style="--sidebar-target: 480px">
+			<div class="stack">
 				<h1>${title}</h1>
 				${ledeHtml}
 				${introHtml}

@@ -6,13 +6,11 @@
 		? `<p class="ProductPriceBlock-was">De R$ ${was}</p><p class="ProductPriceBlock-label">por apenas</p>`
 		: `<p class="ProductPriceBlock-label">Por apenas</p>`;
 
-	`<section class="ProductBand ProductBand--blue">
-		<div class="ProductBand-inner ProductPriceBlock">
-			<hr class="ProductPriceBlock-rule" />
-			${wasHtml}
-			<p class="ProductPriceBlock-now">R$ ${price},00</p>
-			<a href="${buyHref}" class="ProductBuy">Comprar agora</a>
-			<p class="ProductPriceBlock-note">Pagamento 100% seguro com acesso imediato</p>
-		</div>
-	</section>`;
+	`<div class="ProductPriceBlock">
+		<hr class="ProductPriceBlock-rule" />
+		${wasHtml}
+		<p class="ProductPriceBlock-now u-size-5">R$ ${price},00</p>
+		<a href="${buyHref}" class="ProductBuy">Comprar agora</a>
+		<p class="ProductPriceBlock-note">Pagamento 100% seguro com acesso imediato</p>
+	</div>`;
 </script>
