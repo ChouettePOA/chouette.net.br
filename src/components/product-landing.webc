@@ -156,6 +156,11 @@
 		max-width: 28ch;
 		text-align: left;
 	}
+	.cluster > .ProductBuy,
+	.ProductPriceBlock .ProductBuy {
+		min-inline-size: 0;
+		max-inline-size: 100%;
+	}
 	.ProductPage .stack > .ProductBuy {
 		align-self: flex-start;
 		margin: 0;
