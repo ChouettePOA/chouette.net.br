@@ -1,0 +1,27 @@
+<div webc:root="override" class="u-container u-vspacer ProductCta">
+	<btn class="ProductButton" :@href="href">Comprar agora</btn>
+	<div class="ProductCta-content">
+		<slot></slot>
+	</div>
+</div>
+
+<style>
+	.ProductCta {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-s);
+		align-items: center;
+		justify-content: center;
+	}
+	@media screen and (min-width:66rem) {
+		.ProductCta {
+			display: flex;
+			flex-direction: row;
+		}
+		.ProductCta-content {
+			font-size: var(--size-2);
+			font-weight: 700;
+			line-height: 1.2;
+		}
+	}
+</style>

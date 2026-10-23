@@ -1,7 +1,7 @@
 <script webc:type="js" webc:root="override">
 	const body = (slots && slots.text && slots.text.default) || "";
 
-	`<media class="s-invert reverse mi ProductHero" :@src="src" :@alt="alt">
+	`<media class="s-invert reverse ew mi ProductHero" :@src="src" :@alt="alt">
 		<h1 class="ProductHero-title">${title}</h1>
 		<strong class="ProductHero-subtitle">${subtitle}</strong>
 
@@ -9,11 +9,12 @@
 			${body}
 		</div>
 
-		<btn class="ProductButton" href="${href}">Comprar agora</btn>
-
-		<div class="ProductHero-chevron" aria-hidden="true">
-			<span>⌄</span>
-			<span>⌄</span>
+		<div class="s-center ProductHero-cta">
+			<btn class="ProductButton" href="${href}">Comprar agora</btn>
+			<div class="ProductHero-chevron" aria-hidden="true">
+				<span>⌄</span>
+				<span>⌄</span>
+			</div>
 		</div>
 	</media>`;
 
@@ -47,9 +48,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0;
-		width: min(13.2ch, 100%);
-		min-inline-size: 0;
-		max-inline-size: 100%;
 		font-size: var(--size-1);
 		font-weight: 700;
 		-webkit-user-select: none;
@@ -62,5 +60,20 @@
 		display: block;
 		line-height: .3;
 		color: var(--orange);
+	}
+
+	.ProductHero .Media-img img {
+		/* width: 75vw; */
+		width: min(100%, 30ch);
+	}
+
+	/* @media screen and (min-width:66rem) {
+		.ProductHero .Media-img img {
+			width: min(21rem, 50vw);
+		}
+	} */
+
+	.ProductHero-cta {
+		margin-top: var(--space-xs);
 	}
 </style>
