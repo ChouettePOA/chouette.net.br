@@ -53,6 +53,16 @@
 		flex-direction: column-reverse;
 	}
 
+	/*
+		Variant : centered image (both axis).
+	*/
+	.center .Media {
+		align-items: center;
+	}
+	.center .Media-img {
+		text-align: center;
+	}
+
 	@media (min-width: 55rem) {
 		.Media {
 			flex-direction: row;

@@ -80,6 +80,8 @@
 	--color-6: #1CB841;
 	--color-7: #CA3C3C;
 	--color-8: #0078e7;
+	--color-9: #D1BEDD;
+	--color-10: #D71923;
 
 	--color-grey-1: #151515;
 	--color-grey-2: #DDD;
@@ -106,7 +108,9 @@
 	*/
 	--blue: var(--color-1);
 	--orange: var(--color-2);
+	--orange-pale: var(--color-9);
 	--red: var(--color-3);
+	--red-darker: var(--color-10);
 	--blue-light: var(--color-4);
 	--yellow: var(--color-5);
 	--green: var(--color-6);

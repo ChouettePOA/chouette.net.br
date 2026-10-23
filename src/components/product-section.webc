@@ -1,0 +1,32 @@
+<script webc:type="js" webc:root="override">
+	const body = (slots && slots.text && slots.text.default) || "";
+
+	`<media
+		class="ew mi center s-invert ProductSection"
+		:@src="src"
+		:@alt="alt"
+	>
+		<h2 class="ProductSection-title">${title}</h2>
+		<div class="s-rich-text">
+			${body}
+		</div>
+	</media>`;
+
+</script>
+
+<style>
+	.ProductSection {
+		background-color: var(--orange-pale);
+	}
+	.ProductSection-title {
+		line-height: 1.3;
+		font-weight: 700;
+		font-variant: normal;
+	}
+	.ProductSection-title.ProductSection-title.ProductSection-title {
+		color: var(--red-darker);
+	}
+	.ProductSection .Media-img img {
+		width: min(100%, 26ch);
+	}
+</style>
