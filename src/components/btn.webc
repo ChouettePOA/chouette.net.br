@@ -162,4 +162,31 @@
 		background-color: white;
 		color: var(--inverted-text-color);
 	}
+
+	.Btn.ProductButton {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: var(--space-s);
+		padding: .85em 2.1em;
+		border-radius: 2rem;
+		background: #4caf50;
+		color: #fff;
+		font-family: inherit;
+		font-size: clamp(.95rem, 1.5vw, 1.15rem);
+		/* font-size: var(--size-0); */
+		font-weight: 700;
+		line-height: 1.2;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: .04em;
+		white-space: normal;
+		text-align: center;
+		transition: background-color .2s linear;
+	}
+	.Btn.ProductButton:hover,
+	.Btn.ProductButton:focus {
+		background: #2f6e32;
+		color: #fff;
+	}
 </style>

@@ -5,7 +5,7 @@
 			<div class="Media-img">
 				<img
 					:src="src"
-					:alt="title"
+					:alt="alt || title"
 					eleventy:widths="400,600"
 				/>
 			</div>
@@ -46,6 +46,13 @@
 		max-width: min(100%, 38ch);
 	}
 
+	/*
+		Variant : reverse (invert order).
+	*/
+	.reverse .Media {
+		flex-direction: column-reverse;
+	}
+
 	@media (min-width: 55rem) {
 		.Media {
 			flex-direction: row;
@@ -67,9 +74,9 @@
 		}
 
 		/*
-			Variant : order-invert (oi).
+			Variant : reverse (invert order).
 		*/
-		.oi .Media {
+		.reverse .Media {
 			flex-direction: row-reverse;
 		}
 	}

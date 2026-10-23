@@ -3,118 +3,129 @@ title: "100 desafios práticos para falar francês com confiança"
 description: "Desafios práticos e concretos para colocar o francês no seu cotidiano. Atividades para todos os níveis por menos de 30 centavos por desafio."
 ---
 
-<product-landing>
-	<product-hero
-		@title="100 desafios práticos para falar francês com confiança"
-		@lede="Desafios práticos e concretos para colocar o francês no seu cotidiano!"
-		@intro="Os desafios trabalham as 4 competências: fala, escrita, leitura e escuta!"
-		cover="/img/landing/100-desafios-cover.webp"
-		coverAlt="Capa do ebook 100 desafios práticos para falar francês com confiança"
-		coverWidth="512"
-		coverHeight="800"
-		buyHref="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51"
-	></product-hero>
+<product-hero
+	@src="../media/100-desafios-cover.webp"
+	@alt="Capa do ebook 100 desafios práticos para falar francês com confiança"
+	@title="100 desafios práticos para falar francês com confiança"
+	@href="https://pay.hotmart.com/P105436287K?off=genqht8i&hotfeature=51"
+>
+	<strong>Desafios práticos e concretos para colocar o francês no seu cotidiano!</strong>
+	<p>Os desafios trabalham as 4 competências: fala, escrita, leitura e escuta!</p>
+</product-hero>
 
-	<section class="ProductBand ProductBand--blue">
-		<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 349px">
-			<img class="u-cap" eleventy:ignore src="/img/landing/100-desafios-pages.webp" alt="Páginas do ebook 100 desafios práticos" width="414" height="649" loading="lazy" decoding="async" />
-			<div class="stack">
-				<h2 class="u-size-0 u-weight-700 u-features-normal">Sobre o desafio</h2>
-				<p class="u-measure">São dez anos ensinando francês e tentando a cada dia aproximar essa língua tão linda do cotidiano de cada um.</p>
-				<p class="u-measure">Durante este tempo, nosso material, nossa metodologia e nossa maneira de pensar o ensino do francês para brasileiros, mudou muito. Mas há algo que sempre permeou nosso caminho e que ainda vai seguir por muito tempo: ensinar francês como a gente gostaria de ter aprendido!</p>
-				<p class="u-measure">Nesta última década, buscamos aliar assuntos que despertam o interesse de nossos alunos com o ensino da gramática e do vocabulário para que cada um se sentisse confiante em usar o francês para descobrir mais sobre o mundo e, é claro, sobre si.</p>
-				<p class="u-measure">Cada dica é um convite para você praticar a leitura, a escuta, a escrita, a fala e de quebra revisar a gramática, com dicas extras para quem já tem um certo domínio da língua!</p>
-				<p class="u-measure">Esperamos que vocês tenham tanto prazer em realizar estes desafios quanto nós tivemos de criá-los.</p>
-			</div>
+<!-- <media
+	class="s-invert ew reverse mi"
+	@src="../media/100-desafios-cover.webp"
+	@alt="Capa do ebook 100 desafios práticos para falar francês com confiança"
+>
+	<div class="s-rich-text">
+		<h1>100 desafios práticos para falar francês com confiança</h1>
+		<strong>Desafios práticos e concretos para colocar o francês no seu cotidiano!</strong>
+		<p>Os desafios trabalham as 4 competências: fala, escrita, leitura e escuta!</p>
+		<btn class="ProductButton" href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51">Comprar agora</btn>
+		<div class="ProductHero-chevron" aria-hidden="true"><span>⌄</span><span>⌄</span></div>
+	</div>
+</media> -->
+
+<section class="ProductBand ProductBand--blue">
+	<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 349px">
+		<img class="u-cap" eleventy:ignore src="/img/landing/100-desafios-pages.webp" alt="Páginas do ebook 100 desafios práticos" width="414" height="649" loading="lazy" decoding="async" />
+		<div class="stack">
+			<h2 class="u-size-0 u-weight-700 u-features-normal">Sobre o desafio</h2>
+			<p class="u-measure">São dez anos ensinando francês e tentando a cada dia aproximar essa língua tão linda do cotidiano de cada um.</p>
+			<p class="u-measure">Durante este tempo, nosso material, nossa metodologia e nossa maneira de pensar o ensino do francês para brasileiros, mudou muito. Mas há algo que sempre permeou nosso caminho e que ainda vai seguir por muito tempo: ensinar francês como a gente gostaria de ter aprendido!</p>
+			<p class="u-measure">Nesta última década, buscamos aliar assuntos que despertam o interesse de nossos alunos com o ensino da gramática e do vocabulário para que cada um se sentisse confiante em usar o francês para descobrir mais sobre o mundo e, é claro, sobre si.</p>
+			<p class="u-measure">Cada dica é um convite para você praticar a leitura, a escuta, a escrita, a fala e de quebra revisar a gramática, com dicas extras para quem já tem um certo domínio da língua!</p>
+			<p class="u-measure">Esperamos que vocês tenham tanto prazer em realizar estes desafios quanto nós tivemos de criá-los.</p>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section class="ProductBand ProductBand--blue">
-		<div class="ProductBand-inner cluster">
+<section class="ProductBand ProductBand--blue">
+	<div class="ProductBand-inner cluster">
+		<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
+		<p class="ProductCtaRow-text u-size-0 u-weight-700">100 desafios práticos para falar francês com confiança</p>
+	</div>
+</section>
+
+<section class="ProductBand ProductBand--lavender">
+	<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 366px">
+		<img class="u-limit-target" eleventy:ignore src="/img/landing/100-desafios-cover.webp" alt="Capa do ebook 100 desafios práticos para falar francês com confiança" width="512" height="800" />
+		<div class="stack" style="color: #024282; font-weight: 700; line-height: 1.5">
+			<h2 class="u-color-red u-weight-900 u-size-2 u-leading-15 u-features-normal">Atividades para todos os níveis por menos de 30 centavos por desafio!</h2>
+			<p class="u-measure">Ideal para todos os níveis!</p>
+			<p class="u-measure">O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
+			<p class="u-measure">E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
+		</div>
+	</div>
+</section>
+
+<section class="ProductBand ProductBand--white">
+	<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 415px">
+		<div class="stack">
+			<h2 class="u-color-blue u-size-0 u-weight-700 u-features-normal">Chouette Institut de français</h2>
+			<p class="u-measure">Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.</p>
+			<p class="u-measure">Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.</p>
+			<p class="u-measure">Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante.</p>
 			<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-			<p class="ProductCtaRow-text u-size-0 u-weight-700">100 desafios práticos para falar francês com confiança</p>
 		</div>
-	</section>
+		<img class="with-sidebar-pane u-cap" eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" width="415" height="423" loading="lazy" decoding="async" />
+	</div>
+</section>
 
-	<section class="ProductBand ProductBand--lavender">
-		<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 366px">
-			<img class="u-limit-target" eleventy:ignore src="/img/landing/100-desafios-cover.webp" alt="Capa do ebook 100 desafios práticos para falar francês com confiança" width="512" height="800" />
-			<div class="stack" style="color: #024282; font-weight: 700; line-height: 1.5">
-				<h2 class="u-color-red u-weight-900 u-size-2 u-leading-15 u-features-normal">Atividades para todos os níveis por menos de 30 centavos por desafio!</h2>
-				<p class="u-measure">Ideal para todos os níveis!</p>
-				<p class="u-measure">O material permite que você avance no seu próprio ritmo, realizando as atividades de acordo com seus conhecimentos e objetivos.</p>
-				<p class="u-measure">E o melhor: cada desafio custa menos de 30 centavos, tornando o seu aprendizado acessível, prático e eficiente.</p>
-			</div>
+<section class="ProductBand ProductBand--blue">
+	<div class="ProductBand-inner cluster">
+		<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
+		<p class="ProductCtaRow-text u-size-0 u-weight-700">100 desafios práticos para falar francês com confiança</p>
+	</div>
+</section>
+
+<section class="ProductBand ProductBand--white">
+	<div class="ProductBand-inner stack">
+		<div class="stack" style="--space: var(--space-2xs)">
+			<p class="u-size-0 u-weight-700">Suporte e tira-dúvidas diretamente com a</p>
+			<p><strong class="u-color-blue">Chouette Institut de français</strong></p>
 		</div>
-	</section>
+		<p style="margin-top: var(--space-m)">Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
+	</div>
+</section>
 
-	<section class="ProductBand ProductBand--white">
-		<div class="ProductBand-inner with-sidebar" style="--sidebar-target: 415px">
+<section class="ProductBand ProductBand--blue">
+	<div class="ProductBand-inner">
+		<div class="center">
 			<div class="stack">
-				<h2 class="u-color-blue u-size-0 u-weight-700 u-features-normal">Chouette Institut de français</h2>
-				<p class="u-measure">Fundada em 2016, a Chouette Institut de Français busca ser mais do que uma escola, mas um espaço para aprender e vivenciar diversas experiências através da língua francesa.</p>
-				<p class="u-measure">Acreditamos que o aprendizado de um idioma deva ser sempre atual e seu ensino individualizado para que o aluno se sinta pronto para agir em francês. Por isso, aqui na Chouette trabalhamos com um método próprio, constantemente atualizado, para que cada aula faça sentido e converse com o universo de cada aluno.</p>
-				<p class="u-measure">Nossa equipe de professores, além de ter larga experiência na prática e no ensino do francês, está engajada nos valores da escola, seguindo nossas formações a fim de aperfeiçoar seus conhecimentos e buscar uma evolução constante.</p>
-				<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-			</div>
-			<img class="with-sidebar-pane u-cap" eleventy:ignore src="/img/landing/Quem-Somos.webp" alt="Equipe da Chouette Institut de français" width="415" height="423" loading="lazy" decoding="async" />
-		</div>
-	</section>
-
-	<section class="ProductBand ProductBand--blue">
-		<div class="ProductBand-inner cluster">
-			<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-			<p class="ProductCtaRow-text u-size-0 u-weight-700">100 desafios práticos para falar francês com confiança</p>
-		</div>
-	</section>
-
-	<section class="ProductBand ProductBand--white">
-		<div class="ProductBand-inner stack">
-			<div class="stack" style="--space: var(--space-2xs)">
-				<p class="u-size-0 u-weight-700">Suporte e tira-dúvidas diretamente com a</p>
-				<p><strong class="u-color-blue">Chouette Institut de français</strong></p>
-			</div>
-			<p style="margin-top: var(--space-m)">Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
-		</div>
-	</section>
-
-	<section class="ProductBand ProductBand--blue">
-		<div class="ProductBand-inner">
-			<div class="center">
-				<div class="stack">
-					<img class="u-cap u-self-center" style="--sidebar-target: 100px" eleventy:ignore src="/img/landing/100-desafios-device.webp" alt="" width="273" height="332" loading="lazy" decoding="async" />
-					<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>
-					<product-pricing
-						was="49"
-						price="26"
-						buyHref="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51"
-					></product-pricing>
-				</div>
+				<img class="u-cap u-self-center" style="--sidebar-target: 100px" eleventy:ignore src="/img/landing/100-desafios-device.webp" alt="" width="273" height="332" loading="lazy" decoding="async" />
+				<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>
+				<product-pricing
+					was="49"
+					price="26"
+					buyHref="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51"
+				></product-pricing>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section class="ProductBand ProductBand--white ProductFaq">
-		<div class="ProductBand-inner">
-			<h2 class="u-size-0 u-weight-700 u-features-normal">Perguntas frequentes</h2>
-			<div class="s-rich-text">
-				<details>
-					<summary>Para quem é esse produto?</summary>
-					<p><strong>100 Desafios práticos para falar francês com confiança</strong> foi desenvolvido para estudantes de francês que buscam maneiras concretas de colocar o idioma no seu cotidiano. Os desafios foram criados para que as 4 competências — fala, escuta, escrita e leitura — sejam trabalhadas. Além de colocar praticamente o francês no seu cotidiano, você aprende com dicas culturais super interessantes!</p>
-				</details>
-				<details>
-					<summary>Como funciona o Prazo de Garantia?</summary>
-					<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Lembramos que ao adquirir 100 Desafios para deixar seu francês afiado, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
-				</details>
-				<details>
-					<summary>Como acessar o material?</summary>
-					<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>. A senha para abrir seu PDF é o e-mail de cadastro na Hotmart.</p>
-				</details>
-				<details>
-					<summary>Como faço para comprar?</summary>
-					<p>Para comprar este curso, clique no botão “Comprar agora”.</p>
-				</details>
-			</div>
+<section class="ProductBand ProductBand--white ProductFaq">
+	<div class="ProductBand-inner">
+		<h2 class="u-size-0 u-weight-700 u-features-normal">Perguntas frequentes</h2>
+		<div class="s-rich-text">
+			<details>
+				<summary>Para quem é esse produto?</summary>
+				<p><strong>100 Desafios práticos para falar francês com confiança</strong> foi desenvolvido para estudantes de francês que buscam maneiras concretas de colocar o idioma no seu cotidiano. Os desafios foram criados para que as 4 competências — fala, escuta, escrita e leitura — sejam trabalhadas. Além de colocar praticamente o francês no seu cotidiano, você aprende com dicas culturais super interessantes!</p>
+			</details>
+			<details>
+				<summary>Como funciona o Prazo de Garantia?</summary>
+				<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Lembramos que ao adquirir 100 Desafios para deixar seu francês afiado, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
+			</details>
+			<details>
+				<summary>Como acessar o material?</summary>
+				<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>. A senha para abrir seu PDF é o e-mail de cadastro na Hotmart.</p>
+			</details>
+			<details>
+				<summary>Como faço para comprar?</summary>
+				<p>Para comprar este curso, clique no botão “Comprar agora”.</p>
+			</details>
 		</div>
-	</section>
-</product-landing>
+	</div>
+</section>

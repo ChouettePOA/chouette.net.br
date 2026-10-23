@@ -59,7 +59,7 @@ title: "Chouettes pelo mundo"
 </page-section>
 
 <media
-	class="ew oi mi"
+	class="ew reverse mi"
 	@title="Juliana Richter"
 	@src="../media/Juliana-Richter.jpg"
 >
