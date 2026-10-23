@@ -227,6 +227,12 @@ h3 {
 	/* letter-spacing: .05em; */
 }
 
+.title-bold {
+	font-variant: normal;
+	font-weight: 700;
+	letter-spacing: 0;
+}
+
 
 /*
 	Base : links.
@@ -311,6 +317,10 @@ drop-cap:last-child,
 .u-container-inner.medium,
 .medium > .u-container-inner {
 	max-width: var(--scale-max-width);
+}
+.u-container-inner.narrow,
+.narrow > .u-container-inner {
+	max-width: calc(var(--line-length) / 1.5);
 }
 .u-container-inner.wide,
 .wide > .u-container-inner {
