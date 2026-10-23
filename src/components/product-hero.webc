@@ -79,6 +79,6 @@
 	} */
 
 	.ProductHero-cta {
-		margin-top: var(--space-xs);
+		margin-top: var(--space-l);
 	}
 </style>

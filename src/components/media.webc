@@ -64,6 +64,13 @@
 		text-align: center;
 	}
 
+	/*
+		Variant : constrained image size : medium.
+	*/
+	.img-medium .Media-img img {
+		width: min(100%, 30ch);
+	}
+
 	@media (min-width: 55rem) {
 		.Media {
 			flex-direction: row;

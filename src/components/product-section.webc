@@ -30,5 +30,6 @@
 	}
 	.ProductSection .Media-img img {
 		width: min(100%, 26ch);
+		border-radius: 1ch;
 	}
 </style>
