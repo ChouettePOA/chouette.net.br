@@ -90,4 +90,23 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<p>Acesse seus <strong>"100 Desafios práticos para falar francês com confiança"</strong> onde você estiver, em qualquer dispositivo!</p>
 </product-pricing>
 
-<product-faq></product-faq>
+<product-faq>
+	<details>
+		<summary>Para quem é esse produto?</summary>
+		<p><strong>100 Desafios práticos para falar francês com confiança</strong> foi desenvolvido para estudantes de francês que buscam maneiras concretas de colocar o idioma no seu cotidiano. Os desafios foram criados para que as 4 competências — fala, escuta, escrita e leitura — sejam trabalhadas. Além de colocar praticamente o francês no seu cotidiano, você aprende com dicas culturais super interessantes!</p>
+	</details>
+	<details>
+		<summary>Como funciona o Prazo de Garantia?</summary>
+		<p>O Prazo de Garantia é o período que você tem para pedir o reembolso integral do valor pago pela sua compra, caso o produto não seja satisfatório. Lembramos que ao adquirir 100 Desafios para deixar seu francês afiado, você tem todo suporte necessário e tira-dúvidas via WhatsApp com a Chouette Institut de français.</p>
+	</details>
+	<details>
+		<summary>Como acessar o material?</summary>
+		<p>Você receberá o acesso por e-mail. O conteúdo será acessado ou baixado através de um computador, celular, tablet ou outro dispositivo digital. Faça login na Hotmart, acesse <strong>Minha conta</strong> e depois <strong>Minhas compras</strong>. A senha para abrir seu PDF é o e-mail de cadastro na Hotmart.</p>
+	</details>
+	<details>
+		<summary>Como faço para comprar?</summary>
+		<p>Para comprar este curso, clique no botão “Comprar agora”.</p>
+	</details>
+</product-faq>
+
+<page-footer-minimal></page-footer-minimal>

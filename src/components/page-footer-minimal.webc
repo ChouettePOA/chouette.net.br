@@ -1,0 +1,23 @@
+<footer class="Footer u-container u-vspacer">
+	<!--- <div class="Footer-separator">• •</div> --->
+	<div class="Footer-smallPrint">
+		Copyright © 2015–<span @text="new Date().getFullYear()"></span><br />
+		<span @text="$data.metadata.title"></span>
+		<abbr title="Sociedade empresarial de responsabilidade limitada">LTDA</abbr><br />
+	</div>
+</footer>
+
+<style>
+	.Footer {
+		padding: var(--space-m) 0;
+		text-align: center;
+	}
+	/* .Footer-separator {
+		margin: var(--space-m) 0;
+		font-size: var(--size-3);
+	} */
+	.Footer-smallPrint,
+	.Footer-smallPrint * {
+		font-size: var(--size--2);
+	}
+</style>

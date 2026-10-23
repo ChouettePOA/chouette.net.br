@@ -135,6 +135,8 @@ html {
 	font-weight: 400;
 	font-size: var(--size-0);
 	line-height: var(--line-height);
+	/* Enable transitions between numeric values and intrinsic keywords (like 'auto') */
+	interpolate-size: allow-keywords;
 }
 
 html,
