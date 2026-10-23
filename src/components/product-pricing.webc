@@ -1,30 +1,75 @@
-<div webc:root="override" class="u-container u-vspacer ProductPricing">
-	<div class="u-container-inner">
-		<div class="ProductPricing-img">
+<div webc:root="override" class="u-container u-vspacer">
+	<div class="u-container-inner ProductPricing">
+		<div class="ProductPricing-top">
 			<img
+				class="ProductPricing-img"
 				:src="src"
 				:alt="alt || title"
 				eleventy:widths="400,600"
 				:eleventy:ignore="ignore != null && ignore !== false ? '' : false"
 			/>
+			<div class="ProductPricing-content">
+				<slot></slot>
+			</div>
 		</div>
-		<div class="ProductPricing-content">
-			<slot></slot>
+		<div class="ProductPricing-bottom">
+			<p class="ProductPricing-old-price">
+				De&nbsp;<strong @text="was"></strong>
+				<br/>
+				Por apenas
+			</p>
+			<strong class="ProductPricing-price" @text="price"></strong>
+			<btn class="ProductButton" :@href="href">Comprar agora</btn>
+			<p class="small-print">Pagamento 100% seguro com acesso imediato</p>
 		</div>
-		<hr/>
-		<p class="ProductPricing-old-price">
-			De&nbsp;<span @text="was"></span>
-			<br/>
-			Por apenas
-		</p>
-		<strong class="ProductPricing-price" @text="price"></strong>
-		<btn class="ProductButton" :@href="href">Comprar agora</btn>
-		<p class="small-print">Pagamento 100% seguro com acesso imediato</p>
 	</div>
 </div>
 
 <style>
 	.ProductPricing {
+		padding: 5ch 7ch;
+		background-color: var(--color-grey-3);
+	}
+	.ProductPricing-top {
+		display: flex;
+		gap: var(--space-s);
+		flex-direction: column;
+		align-items: center;
+		border-bottom: 1px solid white;
+		padding-bottom: var(--space-m);
+	}
+	@media screen and (min-width:25rem) {
+		.ProductPricing-top {
+			flex-direction: row;
+		}
+	}
+	.ProductPricing-content {
+		text-align: center;
+	}
+	.ProductPricing-bottom {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-m);
+		justify-content: center;
+		padding: var(--space-m) 0 0 0;
+		text-align: center;
+	}
+	.ProductPricing-old-price {
+		margin: 0;
+		/* font-family: Raleway, sans-serif; */
+		font-size: var(--size-1);
+		font-feature-settings: "c2sc";
+		text-transform: uppercase;
+		letter-spacing: .05em;
+		line-height: 1.2;
+	}
+	.ProductPricing-old-price strong {
+		color: var(--red);
+		font-weight: 700;
+	}
+	.ProductPricing-price {
 		display: block;
+		/* font-family: Raleway, sans-serif; */
+		font-size: var(--size-5);
 	}
 </style>

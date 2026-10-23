@@ -173,7 +173,7 @@
 		color: #fff;
 		font-family: inherit;
 		font-size: clamp(.95rem, 1.5vw, 1.15rem);
-		/* font-size: var(--size-0); */
+		/* font-size: var(--size-1); */
 		font-weight: 700;
 		line-height: 1.2;
 		text-transform: uppercase;

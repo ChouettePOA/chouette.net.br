@@ -80,9 +80,10 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 </media>
 
 <product-pricing
-	@was="49"
-	@price="26,00"
+	@was="49&nbsp;reais"
+	@price="R$&nbsp;26,00"
 	@href="https://pay.hotmart.com/P105436287K?off=genqht8ihotfeature=51"
+	@alt="Icone dispositivos"
 	@src="/img/landing/Devices-outline.webp"
 	@ignore
 >
