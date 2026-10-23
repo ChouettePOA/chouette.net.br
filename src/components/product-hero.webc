@@ -1,7 +1,12 @@
 <script webc:type="js" webc:root="override">
 	const body = (slots && slots.text && slots.text.default) || "";
 
-	`<media class="s-invert reverse ew mi center ProductHero" :@src="src" :@alt="alt">
+	`<media
+		class="s-invert reverse ew mi center ProductHero"
+		:@src="src"
+		:@alt="alt"
+		:@ignore="ignore"
+	>
 		<h1 class="ProductHero-title">${title}</h1>
 		<strong class="ProductHero-subtitle">${subtitle}</strong>
 

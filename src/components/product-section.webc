@@ -5,6 +5,7 @@
 		class="ew mi center s-invert ProductSection"
 		:@src="src"
 		:@alt="alt"
+		:@ignore="ignore"
 	>
 		<h2 class="ProductSection-title">${title}</h2>
 		<div class="s-rich-text">

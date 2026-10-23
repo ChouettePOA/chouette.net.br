@@ -4,7 +4,8 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 ---
 
 <product-hero
-	@src="../media/100-desafios-cover.webp"
+	@ignore
+	@src="/img/landing/100-desafios-cover.webp"
 	@alt="Capa do ebook 100 desafios práticos para falar francês com confiança"
 	@title="100 desafios práticos para falar francês com confiança"
 	@subtitle="Desafios práticos e concretos para colocar o francês no seu cotidiano!"
@@ -16,7 +17,8 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 <media
 	class="ew mi center"
 	@alt="Páginas do ebook 100 desafios práticos"
-	@src="../media/100-desafios-pages.webp"
+	@src="/img/landing/100-desafios-pages.webp"
+	@ignore
 >
 	<div class="s-rich-text">
 		<h2>Sobre o desafio</h2>
@@ -35,7 +37,8 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 </product-cta>
 
 <product-section
-	@src="../media/100-desafios-cover.webp"
+	@ignore
+	@src="/img/landing/100-desafios-cover.webp"
 	@alt="Capa do ebook 100 desafios práticos para falar francês com confiança"
 	@title="Atividades para todos os níveis por menos de 30&nbsp;centavos por desafio!"
 >
@@ -64,33 +67,27 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	<p>100 desafios práticos para falar francês com confiança</p>
 </product-cta>
 
-<section class="ProductBand ProductBand--blue">
-	<div class="ProductBand-inner cluster">
-		<a href="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51" class="ProductBuy">Comprar agora</a>
-		<p class="ProductCtaRow-text u-size-0 u-weight-700">100 desafios práticos para falar francês com confiança</p>
+<media
+	class="mi center s-invert"
+	@alt="Ilustração tira-dúvidas da Chouette"
+	@src="/img/landing/100-desafios-device.webp"
+	@ignore
+>
+	<div class="s-rich-text u-container-inner narrow">
+		<h2 class="title-bold">Suporte e tira-dúvidas diretamente com a <strong>Chouette Institut de français</strong></h2>
+		<p>Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a <strong>Chouette</strong>. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
 	</div>
-</section>
-
-<section class="ProductBand ProductBand--white">
-	<div class="ProductBand-inner stack">
-		<div class="stack" style="--space: var(--space-2xs)">
-			<p class="u-size-0 u-weight-700">Suporte e tira-dúvidas diretamente com a</p>
-			<p><strong class="u-color-blue">Chouette Institut de français</strong></p>
-		</div>
-		<p style="margin-top: var(--space-m)">Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a Chouette. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
-	</div>
-</section>
+</media>
 
 <section class="ProductBand ProductBand--blue">
 	<div class="ProductBand-inner">
 		<div class="center">
 			<div class="stack">
-				<img class="u-cap u-self-center" style="--sidebar-target: 100px" eleventy:ignore src="/img/landing/100-desafios-device.webp" alt="" width="273" height="332" loading="lazy" decoding="async" />
 				<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>
 				<product-pricing
 					was="49"
 					price="26"
-					buyHref="https://pay.hotmart.com/P105436287K?off=genqht8i&amp;hotfeature=51"
+					buyHref="https://pay.hotmart.com/P105436287K?off=genqht8ihotfeature=51"
 				></product-pricing>
 			</div>
 		</div>
