@@ -1,33 +1,26 @@
-<!---
-<product-pricing
-	was="49"
-	price="26,00"
-	href="https://pay.hotmart.com/P105436287K?off=genqht8ihotfeature=51"
-	src="/img/landing/Devices-outline.webp"
->
---->
-
 <div webc:root="override" class="u-container u-vspacer ProductPricing">
-	<div class="ProductPricing-img">
-		<img
-			:src="src"
-			:alt="alt || title"
-			eleventy:widths="400,600"
-			:eleventy:ignore="ignore != null && ignore !== false ? '' : false"
-		/>
+	<div class="u-container-inner">
+		<div class="ProductPricing-img">
+			<img
+				:src="src"
+				:alt="alt || title"
+				eleventy:widths="400,600"
+				:eleventy:ignore="ignore != null && ignore !== false ? '' : false"
+			/>
+		</div>
+		<div class="ProductPricing-content">
+			<slot></slot>
+		</div>
+		<hr/>
+		<p class="ProductPricing-old-price">
+			De&nbsp;<span @text="was"></span>
+			<br/>
+			Por apenas
+		</p>
+		<strong class="ProductPricing-price" @text="price"></strong>
+		<btn class="ProductButton" :@href="href">Comprar agora</btn>
+		<p class="small-print">Pagamento 100% seguro com acesso imediato</p>
 	</div>
-	<div class="ProductPricing-content">
-		<slot></slot>
-	</div>
-	<hr/>
-	<p class="ProductPricing-old-price">
-		De&nbsp;<span @text="was"></span>
-		<br/>
-		Por apenas
-	</p>
-	<strong class="ProductPricing-price" @text="price"></strong>
-	<btn class="ProductButton" :@href="href">Comprar agora</btn>
-	<p class="small-print">Pagamento 100% seguro com acesso imediato</p>
 </div>
 
 <style>
