@@ -74,25 +74,20 @@ description: "Desafios práticos e concretos para colocar o francês no seu coti
 	@ignore
 >
 	<div class="s-rich-text u-container-inner narrow">
-		<h2 class="title-bold">Suporte e tira-dúvidas diretamente com a <strong>Chouette Institut de français</strong></h2>
+		<h2 class="title-thin">Suporte e tira-dúvidas diretamente com a <strong>Chouette Institut de français</strong></h2>
 		<p>Você conta com um suporte e canal de tira-dúvidas diretamente via WhatsApp com a <strong>Chouette</strong>. Caso você não esteja satisfeito, devolvemos seu dinheiro.</p>
 	</div>
 </media>
 
-<section class="ProductBand ProductBand--blue">
-	<div class="ProductBand-inner">
-		<div class="center">
-			<div class="stack">
-				<p>Acesse seus <strong>100 Desafios práticos para falar francês com confiança</strong> onde você estiver, em qualquer dispositivo!</p>
-				<product-pricing
-					was="49"
-					price="26"
-					buyHref="https://pay.hotmart.com/P105436287K?off=genqht8ihotfeature=51"
-				></product-pricing>
-			</div>
-		</div>
-	</div>
-</section>
+<product-pricing
+	@was="49"
+	@price="26,00"
+	@href="https://pay.hotmart.com/P105436287K?off=genqht8ihotfeature=51"
+	@src="/img/landing/Devices-outline.webp"
+	@ignore
+>
+	<p>Acesse seus <strong>"100 Desafios práticos para falar francês com confiança"</strong> onde você estiver, em qualquer dispositivo!</p>
+</product-pricing>
 
 <section class="ProductBand ProductBand--white ProductFaq">
 	<div class="ProductBand-inner">

@@ -228,9 +228,23 @@ h3 {
 }
 
 .title-bold {
+	font-size: var(--size-1);
 	font-variant: normal;
 	font-weight: 700;
 	letter-spacing: 0;
+}
+
+.title-thin {
+	font-size: var(--size-2);
+	font-variant: normal;
+	font-weight: 200;
+	letter-spacing: 0;
+	line-height: 1.2;
+}
+
+.title-thin strong {
+	font-weight: 700;
+	color: var(--blue);
 }
 
 
