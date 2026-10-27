@@ -7,27 +7,19 @@
 
 <style>
 	deco-oval-penwriting {
-		display: block;
-		margin: auto;
-		padding: 20%;
+		/* Flex-center the slot; length padding (not %) so border-box + max-width
+		   cannot crush the content box and shove the button off the oval.
+		   Extra padding scales the contained SVG so the strokes clear the button.
+		   background-position nudges for the path’s off-center ink in the SVG. */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-inline: auto;
+		padding: var(--space-xl) calc(var(--space-xl) * 1.75);
+		width: max-content;
+		max-width: 100%;
 
-		/* max-width: var(--line-length); */
-		max-width: 15rem;
-
-		background: url(/img/oval-penwriting.svg) no-repeat;
-		background-position: center;
-		background-size: contain;
+		background: url(/img/oval-penwriting.svg) no-repeat 54% 46% / contain;
 		transform: rotate(5deg);
 	}
-	/*
-	deco-oval-penwriting > svg {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		display: block;
-		object-fit: fill;
-	}
-	*/
 </style>

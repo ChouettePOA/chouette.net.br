@@ -31,8 +31,7 @@
 	}
 
 	.Btn--whatsapp {
-		position: relative;
-		left: -3ch;
+		/* Counter-rotate the deco wrapper; centering is on deco-oval-penwriting. */
 		transform: rotate(-5deg);
 		font-size: var(--size--3);
 	}
