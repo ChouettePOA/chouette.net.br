@@ -107,6 +107,10 @@ export default function(eleventyConfig) {
 
 	// "Static" assets (e.g. logo img, favicon, robots.txt, etc).
 	eleventyConfig.addPassthroughCopy({ "src/static": '.' });
+	// Dotfiles are skipped by the directory passthrough above. GitHub Pages runs
+	// Jekyll by default and drops paths starting with "_", including hashed
+	// bundle CSS like /bundle/_….css — .nojekyll disables that.
+	eleventyConfig.addPassthroughCopy({ "src/static/.nojekyll": ".nojekyll" });
 
 	// Update 2025/03/20 : lite-yt-embed.js is injected by Consent.
 	// @see src/components/tracking-consent.webc
